@@ -1,0 +1,33 @@
+.info-panel {
+    border: lightgray solid 1px;
+}
+
+.empty-padding {
+    padding: 2rem
+}
+
+table.sheet {
+    border-collapse: collapse; /* no space between cells */
+    text-align: center;
+    display: inline-block;
+}
+
+td {
+    position: relative; /* coordinate system */
+    padding: 2px 5px; /* padding for each cell, top/bottom px left/right px */
+    width: 3rem; /* change these two to adjust cell size!! */
+    height: 0.5rem;
+}
+
+tr.line td:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 1px solid #111;
+    width: 100%;
+}
+
+.note:hover {
+    outline: rgb(187, 187, 187) solid 1px
+}
