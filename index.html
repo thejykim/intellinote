@@ -6,6 +6,13 @@
         <!-- font awesome (for icons) -->
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <style>
+            .info-panel {
+                border: lightgray solid 1px;
+            }
+            .empty-padding {
+                padding: 2rem
+            }
+
             table.sheet {
                 border-collapse: collapse; /* no space between cells */
                 text-align: center;
@@ -33,6 +40,40 @@
     </head>
 
     <body>
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+			<div class="container">
+				<div class="navbar-brand">
+					<p class="navbar-item is-size-5">Custom Sheet Music</p>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+					     <span aria-hidden="true"></span>
+					     <span aria-hidden="true"></span>
+					     <span aria-hidden="true"></span>
+				    </a>
+				</div>
+
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+                        <!-- put our extra pages here in the following format:
+						<a class="navbar-item">
+							Home
+						</a>
+						<a class="navbar-item" href="about">
+							About
+                        </a>
+                         -->
+                    </div>
+                    
+                    <div class="navbar-end">
+                        <p class="navbar-item has-text-weight-light">Made by us</p>
+                    </div>
+				</div>
+			</div>
+        </nav>
+        
+        <!-- padding container for style points-->
+
+        <div class="empty-padding"></div>
+
         <!-- main body div -->
         <div class="container">
             
@@ -41,7 +82,11 @@
 
                 <!-- first column -->
                 <div class="column is-one-quarter">
-                    Hello
+                    <div class="card info-panel">
+                        <div class="card-content">
+                            <p>Possibly an info panel with helpful information on this side</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- second column -->
@@ -51,8 +96,6 @@
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
-                        </tr>
-                        <tr class="line">
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
@@ -61,13 +104,30 @@
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
-                        </tr>
-                        <tr class="line">
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
                         </tr>
                         <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
                             <td class="note">&nbsp;&nbsp;</td>
