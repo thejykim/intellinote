@@ -1,9 +1,81 @@
 <!DOCTYPE html>
     <head>
         <title>World Music Hackathon 2020</title>
+        <!-- bulma css -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <!-- font awesome (for icons) -->
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <style>
+            table.sheet {
+                border-collapse: collapse; /* no space between cells */
+                text-align: center;
+                display: inline-block;
+            }
+
+            td {
+                position: relative; /* coordinate system */
+                padding: 2px 5px; /* padding for each cell, top/bottom px left/right px */
+            }
+
+            tr.line td:before {
+                content: " ";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                border-bottom: 1px solid #111;
+                width: 100%;
+            }
+
+            .note:hover {
+                border: #000000 solid 1px
+            }
+        </style>
     </head>
 
     <body>
-        Hello
+        <!-- main body div -->
+        <div class="container">
+            
+            <!-- div for columns -->
+            <div class="columns">
+
+                <!-- first column -->
+                <div class="column is-one-quarter">
+                    Hello
+                </div>
+
+                <!-- second column -->
+                <div class="column is-three-quarters" style="text-align: center">
+                    <table class="sheet">
+                        <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr class="line">
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                            <td class="note">&nbsp;&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
     </body>
 </html>
