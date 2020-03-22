@@ -5,7 +5,11 @@ window.onload = function() {
 	generateSheet('treble-sheet');
 	generateSheet('bass-sheet');
 }
-
+function getNoteID(noteElement){
+	noteElement.innerText = "o";
+	let noteID = noteElement.id;
+	console.log(noteID);
+}
 function generateSheet(id) {
 	// find the sheet table element from DOM
 	let sheetTableElement = document.getElementById(id);
@@ -22,9 +26,13 @@ function generateSheet(id) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 			noteElement.setAttribute('id', `${i+1}-${j+1}`);
-
+			//adds click listener,
+			noteElement.addEventListener("click", function(){
+				getNoteID(noteElement);
+			}, true);
 			// append noteElement to row
 			row.appendChild(noteElement);
+
 		}
 
 		// append row to sheet table
