@@ -7,10 +7,13 @@ window.onload = function() {
 }
 
 function toggleNote(noteElement){
-	if (noteElement.innerHTML === '') {
-		noteElement.innerHTML = '<i class="fas fa-circle"></i>';
+	// get the div element within each note
+	let divElement = noteElement.firstChild;
+
+	if (divElement.innerHTML === '') {
+		divElement.innerHTML = '<i class="fas fa-circle"></i>';
 	} else {
-		noteElement.innerHTML = '';
+		divElement.innerHTML = '';
 	}
 }
 
@@ -30,10 +33,16 @@ function generateSheet(id) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 			noteElement.setAttribute('id', `${i+1}-${j+1}`);
-			//adds click listener,
+
+			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
+			let divElement = document.createElement('div');
+			noteElement.appendChild(divElement);
+
+			// adds click listener,
 			noteElement.addEventListener("click", function(){
 				toggleNote(noteElement);
 			}, true);
+
 			// append noteElement to row
 			row.appendChild(noteElement);
 
