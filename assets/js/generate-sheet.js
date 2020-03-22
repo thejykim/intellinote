@@ -10,7 +10,7 @@ function toggleNote(noteElement){
 	if (noteElement.innerText === "") {
 		noteElement.innerText = "o";
 	} else {
-		noteElement.innerText === "";
+		noteElement.innerText = "";
 	}
 
 	// debug purposes to see when this function runs
