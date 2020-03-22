@@ -7,14 +7,11 @@ window.onload = function() {
 }
 
 function toggleNote(noteElement){
-	if (noteElement.innerText === "") {
-		noteElement.innerText = "o";
+	if (noteElement.innerHTML === '') {
+		noteElement.innerHTML = '<i class="fas fa-circle"></i>';
 	} else {
-		noteElement.innerText = "";
+		noteElement.innerHTML = '';
 	}
-
-	// debug purposes to see when this function runs
-	console.log("fired");
 }
 
 function generateSheet(id) {
@@ -37,7 +34,6 @@ function generateSheet(id) {
 			noteElement.addEventListener("click", function(){
 				toggleNote(noteElement);
 			}, true);
-			noteElement.innerText = "";
 			// append noteElement to row
 			row.appendChild(noteElement);
 
