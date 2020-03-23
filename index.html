@@ -10,6 +10,8 @@
 
         <!-- custom css -->
         <link rel="stylesheet" href="assets/css/custom.css">
+
+        <script src = "assets/js/noteLogic.js"> </script>
     </head>
 
     <body>
@@ -58,16 +60,16 @@
                 <div class="column is-one-quarter">
                     <div class="card info-panel">
                         <div class="card-content">
-                            <p>Possibly an info panel with helpful information on this side</p>
-                            <form>
-                              <input type = "radio" id = "eighthNote" value = "eighthNote">
-                              <label for = "quarterNote"> Eighth Note </label>
-                              <input type = "radio" id = "quarterNote" value = "quarterNote">
-                              <label for = "quarterNote"> Quarter Note </label>
-                              <input type = "radio" id = "halfNote" value = "halfNote">
-                              <label for = "quarterNote"> Half Note </label>
-                              <input type = "radio" id = "wholeNote" value = "wholeNote">
-                              <label for = "quarterNote"> Whole Note </label>
+                            <p> Possibly an info panel with helpful information on this side </p>
+                            <form id = "form">
+                                 <input type = "radio" name = "note" id = "eighthNote" value = "eighthNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/eighthNote.png" style = "height: 2rem;"> </label> <br>
+                                 <input type = "radio" name = "note" id = "quarterNote" value = "quarterNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/quarterNote.png" style = "height: 2rem;"> </label> <br>
+                                 <input type = "radio" name = "note" id = "halfNote" value = "halfNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/halfNote.png" style = "height: 2rem;"> </label> <br>
+                                 <input type = "radio" name = "note" id = "wholeNote" value = "wholeNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/wholeNote.png" style = "height: 1rem;"> </label> <br>
                             </form>
                         </div>
                     </div>
