@@ -29,7 +29,13 @@ function generateSheet(id) {
 		for (let j = 0; j < numberOfNotes; j++) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
-			noteElement.setAttribute('id', `${i+1}-${j+1}`);
+
+			if (id === 'treble-sheet') {
+				noteElement.setAttribute('id', `treble.${i+1}.${j+1}`);
+			} else {
+				noteElement.setAttribute('id', `bass.${i+1}.${j+1}`);
+			}
+
 			//adds click listener,
 			noteElement.addEventListener("click", function(){
 				toggleNote(noteElement);
