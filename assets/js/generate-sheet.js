@@ -11,17 +11,17 @@ window.onload = function() {
 
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
-
+	noteLoc = parseNoteLoc(noteElement);
 	if (divElement.innerHTML === '') {
 		divElement.innerHTML = '<i class="fas fa-circle"></i>';
-
-		noteLoc = parseNoteLoc(noteElement);
 		trebleData[noteLoc[1]][noteLoc[2]].noteLength = 1;
 		console.log(trebleData[noteLoc[1]][noteLoc[2]]);
 
 		// console.log(arrIndex);
 	} else {
 		divElement.innerHTML = '';
+		trebleData[noteLoc[1]][noteLoc[2]].noteLength = 0;
+		console.log(trebleData[noteLoc[1]][noteLoc[2]]);
 	}
 }
 
