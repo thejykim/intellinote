@@ -18,7 +18,7 @@ function toggleNote(noteElement, trebleData){
 		noteElement.innerHTML = '<i class="fas fa-circle"></i>';
 		// add something to find element using id and then change length
 	} else {
-		noteElement.innerHTML = '';
+		divElement.innerHTML = '';
 	}
 }
 
@@ -48,10 +48,15 @@ function generateSheet(id) {
 				noteElement.setAttribute('id', `bass.${i+1}.${j+1}`);
 			}
 
-			//adds click listener,
+			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
+			let divElement = document.createElement('div');
+			noteElement.appendChild(divElement);
+
+			// adds click listener,
 			noteElement.addEventListener("click", function(){
 				toggleNote(noteElement, trebleData);
 			}, true);
+
 			// append noteElement to row
 			row.appendChild(noteElement);
 
