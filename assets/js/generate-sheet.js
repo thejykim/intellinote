@@ -8,12 +8,6 @@ window.onload = function() {
 	generateSheet('bass-sheet');
 }
 
-// function Note(noteElement, row, column){
-// 	this.id = noteElement.getAttribute('id');
-// 	this.note = column;
-// 	//this.length = 0; //need to get radio button input for this
-// 	this.location = row;
-// }
 
 function toggleNote(noteElement){
 	if (noteElement.innerHTML === '') {
