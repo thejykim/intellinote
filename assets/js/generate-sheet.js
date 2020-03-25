@@ -15,18 +15,28 @@ window.onload = function() {
 // 	this.location = row;
 // }
 
-function toggleNote(noteElement, trebleData){
+function toggleNote(noteElement){
 	if (noteElement.innerHTML === '') {
 		noteElement.innerHTML = '<i class="fas fa-circle"></i>';
 
 		//doesnt work but trebleData array is populated and the getAttribute function works
-		let arrIndex = trebleData.indexOf(element => element.id == noteElement.getAttribute('id'));
-		trebleData[arrIndex].noteLength = 1; //get length from radio buttons 
+		// let arrIndex = trebleData.find(element => element.id == noteElement.getAttribute('id'));
+		// trebleData[arrIndex].noteLength = 1; //get length from radio buttons
 
-		console.log(arrIndex);
+		noteLoc = parseNoteLoc(noteElement);
+		trebleData[noteLoc[1]][noteLoc[2]].noteLength = 1;
+		console.log(trebleData[noteLoc[1]][noteLoc[2]]);
+
+		// console.log(arrIndex);
 	} else {
 		noteElement.innerHTML = '';
 	}
+}
+
+function parseNoteLoc(noteElement){
+	var noteId = noteElement.getAttribute('id');
+	noteLoc = noteId.split('.');
+	return noteLoc;
 }
 
 function generateSheet(id) {
@@ -40,18 +50,18 @@ function generateSheet(id) {
 		if (line) {
 			row.setAttribute('class', 'line');
 		}
-
+		rowArray =[];
 		// populate row with notes
 		for (let j = 0; j < numberOfNotes; j++) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 
 			if (id === 'treble-sheet') {
-				noteElement.setAttribute('id', `treble.${i+1}.${j+1}`);
-				trebleData.push({id : noteElement.getAttribute('id'), 'note' : i+1, noteLength : 0});
+				noteElement.setAttribute('id', `treble.${i}.${j}`);
+				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 				// console.log(trebleData.length);
 			} else {
-				noteElement.setAttribute('id', `bass.${i+1}.${j+1}`);
+				noteElement.setAttribute('id', `bass.${i}.${j}`);
 			}
 
 			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
@@ -60,13 +70,14 @@ function generateSheet(id) {
 
 			// adds click listener,
 			noteElement.addEventListener("click", function(){
-				toggleNote(noteElement, trebleData);
+				toggleNote(noteElement);
 			}, true);
 
 			// append noteElement to row
 			row.appendChild(noteElement);
 
 		}
+		trebleData.push(rowArray);
 
 		// append row to sheet table
 		sheetTableElement.appendChild(row);
