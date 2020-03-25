@@ -15,10 +15,6 @@ function toggleNote(noteElement){
 	if (divElement.innerHTML === '') {
 		divElement.innerHTML = '<i class="fas fa-circle"></i>';
 
-		//doesnt work but trebleData array is populated and the getAttribute function works
-		// let arrIndex = trebleData.find(element => element.id == noteElement.getAttribute('id'));
-		// trebleData[arrIndex].noteLength = 1; //get length from radio buttons
-
 		noteLoc = parseNoteLoc(noteElement);
 		trebleData[noteLoc[1]][noteLoc[2]].noteLength = 1;
 		console.log(trebleData[noteLoc[1]][noteLoc[2]]);
