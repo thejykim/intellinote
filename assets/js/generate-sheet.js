@@ -19,7 +19,7 @@ function toggleNote(noteElement){
 		// let arrIndex = trebleData.find(element => element.id == noteElement.getAttribute('id'));
 		// trebleData[arrIndex].noteLength = 1; //get length from radio buttons
 
-		noteLoc = parseNoteLoc(divElement);
+		noteLoc = parseNoteLoc(noteElement);
 		trebleData[noteLoc[1]][noteLoc[2]].noteLength = 1;
 		console.log(trebleData[noteLoc[1]][noteLoc[2]]);
 
