@@ -16,20 +16,22 @@ window.onload = function() {
 // }
 
 function toggleNote(noteElement){
-	if (noteElement.innerHTML === '') {
-		noteElement.innerHTML = '<i class="fas fa-circle"></i>';
+	divElement = noteElement.firstChild;
+
+	if (divElement.innerHTML === '') {
+		divElement.innerHTML = '<i class="fas fa-circle"></i>';
 
 		//doesnt work but trebleData array is populated and the getAttribute function works
 		// let arrIndex = trebleData.find(element => element.id == noteElement.getAttribute('id'));
 		// trebleData[arrIndex].noteLength = 1; //get length from radio buttons
 
-		noteLoc = parseNoteLoc(noteElement);
+		noteLoc = parseNoteLoc(divElement);
 		trebleData[noteLoc[1]][noteLoc[2]].noteLength = 1;
 		console.log(trebleData[noteLoc[1]][noteLoc[2]]);
 
 		// console.log(arrIndex);
 	} else {
-		noteElement.innerHTML = '';
+		divElement.innerHTML = '';
 	}
 }
 
