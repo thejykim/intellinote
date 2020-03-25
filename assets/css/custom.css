@@ -9,14 +9,19 @@
 table.sheet {
     border-collapse: collapse; /* no space between cells */
     text-align: center;
-    display: inline-block;
 }
 
 td {
     position: relative; /* coordinate system */
-    padding: 2px 5px; /* padding for each cell, top/bottom px left/right px */
     width: 3rem; /* change these two to adjust cell size!! */
     height: 0.5rem;
+}
+
+table td > div { /* css for div within each table cell */
+    overflow: hidden; /* prevents overflow from resizing each cell */
+    height: 0.5rem;
+    text-align: center;
+    font-size: 0.5rem;
 }
 
 tr.line td:before {
@@ -30,4 +35,9 @@ tr.line td:before {
 
 .note:hover {
     outline: rgb(187, 187, 187) solid 1px
+}
+
+.note {
+    vertical-align: top;
+    line-height: 0.5rem;
 }
