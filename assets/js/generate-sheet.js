@@ -1,24 +1,31 @@
 // number of notes generated per row
 const numberOfNotes = 10;
+let trebleData = [];
+let bassData = [];
 
 window.onload = function() {
 	generateSheet('treble-sheet');
 	generateSheet('bass-sheet');
 }
 
-function Note(noteElement, row, column){
-	this.id = noteElement.getAttribute('id');
-	this.note = column;
-	//this.length = 0; //need to get radio button input for this
-	this.location = row;
-}
+// function Note(noteElement, row, column){
+// 	this.id = noteElement.getAttribute('id');
+// 	this.note = column;
+// 	//this.length = 0; //need to get radio button input for this
+// 	this.location = row;
+// }
 
 function toggleNote(noteElement, trebleData){
 	if (noteElement.innerHTML === '') {
 		noteElement.innerHTML = '<i class="fas fa-circle"></i>';
-		// add something to find element using id and then change length
+
+		//doesnt work but trebleData array is populated and the getAttribute function works
+		let arrIndex = trebleData.indexOf(element => element.id == noteElement.getAttribute('id'));
+		trebleData[arrIndex].noteLength = 1; //get length from radio buttons 
+
+		console.log(arrIndex);
 	} else {
-		divElement.innerHTML = '';
+		noteElement.innerHTML = '';
 	}
 }
 
@@ -27,8 +34,7 @@ function generateSheet(id) {
 	let sheetTableElement = document.getElementById(id);
 	// boolean to figure out if current row of notes is a line or whitespace
 	let line = true;
-	let trebleData = [];
-	let bassData = [];
+
 	for (let i = 0; i < 9; i++) {
 		let row = document.createElement('tr');
 		if (line) {
@@ -42,7 +48,7 @@ function generateSheet(id) {
 
 			if (id === 'treble-sheet') {
 				noteElement.setAttribute('id', `treble.${i+1}.${j+1}`);
-				trebleData.push({'id': noteElement.getAttribute('id'), 'note' : i+1, length : 0});
+				trebleData.push({id : noteElement.getAttribute('id'), 'note' : i+1, noteLength : 0});
 				// console.log(trebleData.length);
 			} else {
 				noteElement.setAttribute('id', `bass.${i+1}.${j+1}`);
