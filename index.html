@@ -10,6 +10,9 @@
 
         <!-- custom css -->
         <link rel="stylesheet" href="assets/css/custom.css">
+
+        <!-- tonejs -->
+        <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
     </head>
 
     <body>
@@ -79,6 +82,8 @@
                                  <input type = "radio" name = "note" id = "wholeNote" value = "wholeNote" onclick = "assignNote()">
                                  <label for = "quarterNote"> <img src = "assets/img/wholeNote.png" style = "height: 1rem;"> </label>
                             </form>
+                            <br>
+                            <button class="button is-primary is-small is-rounded" onclick="playNote()">Play C</button>
                         </div>
                     </div>
                 </div>
@@ -113,5 +118,6 @@
 
         <!-- js files -->
         <script src="assets/js/generate-sheet.js"></script>
+        <script src="assets/js/player.js"></script>
     </body>
 </html>
