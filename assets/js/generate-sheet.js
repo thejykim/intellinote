@@ -40,6 +40,7 @@ function toggleNote(noteElement){
 		}
 	}
 
+	// TODO: remove this debugging log before merging with master
 	console.log(trebleData);
 	console.log(bassData);
 }
@@ -125,7 +126,7 @@ function addRow() {
 
 	// create treble div
 	let trebleDiv = document.createElement('div');
-	trebleDiv.setAttribute('class', 'columns');
+	trebleDiv.setAttribute('class', 'columns fade-in');
 	trebleDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
@@ -138,7 +139,7 @@ function addRow() {
 
 	// create bass div
 	let bassDiv = document.createElement('div');
-	bassDiv.setAttribute('class', 'columns');
+	bassDiv.setAttribute('class', 'columns fade-in');
 	bassDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
