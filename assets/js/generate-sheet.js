@@ -1,3 +1,6 @@
+// document elements
+const removeButton = document.getElementById('removeButton');
+
 // number of notes generated per row
 const numberOfNotes = 10;
 let trebleData = [];
@@ -127,6 +130,7 @@ function addRow() {
 	// create treble div
 	let trebleDiv = document.createElement('div');
 	trebleDiv.setAttribute('class', 'columns fade-in');
+	trebleDiv.setAttribute('id', `trebleDiv-${numRows+1}`);
 	trebleDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
@@ -140,6 +144,7 @@ function addRow() {
 	// create bass div
 	let bassDiv = document.createElement('div');
 	bassDiv.setAttribute('class', 'columns fade-in');
+	bassDiv.setAttribute('id', `bassDiv-${numRows+1}`);
 	bassDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
@@ -158,4 +163,37 @@ function addRow() {
 	// generate sheet music for new divs
 	generateSheet(clefEnum.TREBLE, `treble-sheet-${numRows+1}`);
 	generateSheet(clefEnum.BASS, `bass-sheet-${numRows+1}`);
+	
+	// enable remove rows button
+	removeButton.removeAttribute("disabled");
+}
+
+function removeRow() {
+	// get number of rows already in
+	let numRows = trebleData.length / 9;
+	
+	if (numRows == 1) {
+		// don't do anything if there's only one row
+		return;
+	} else if (numRows == 2) {
+		// disable button if the last removable row is being removed
+		removeButton.setAttribute("disabled", "true");
+	}
+
+	// remove divs
+	let trebleDiv = document.getElementById(`trebleDiv-${numRows}`);
+	let bassDiv = document.getElementById(`bassDiv-${numRows}`);
+
+	trebleDiv.parentNode.removeChild(trebleDiv);
+	bassDiv.parentNode.removeChild(bassDiv);
+
+	// remove array rows
+	for (let i = 0; i < 9; i++) {
+		trebleData.pop();
+		bassData.pop();
+	}
+
+	// TODO: remove this debugging log before merging with master
+	console.log(trebleData);
+	console.log(bassData);
 }
