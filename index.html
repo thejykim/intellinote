@@ -58,13 +58,23 @@
                 <div class="column is-one-quarter">
                     <div class="card info-panel">
                         <div class="card-content">
-                            <p>Possibly an info panel with helpful information on this side</p>
+                            <h5 class="title is-5">Options</h5>
+
+                            <!-- add/remove row buttons -->
+                            <div class="columns">
+                                <div class="column is-narrow">
+                                    <button class="button is-dark is-small is-rounded" onclick="addRow()">Add row</button>
+                                </div>
+                                <div class="column is-narrow">
+                                    <button class="button is-dark is-small is-rounded" onclick="removeRow()" id="removeButton" disabled>Remove row</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- second column -->
-                <div class="column is-three-quarters">
+                <div class="column is-three-quarters" id="sheet-rows">
 
                     <!-- treble clef -->
                     <div class="columns">
@@ -72,8 +82,7 @@
                             <img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
                         </div>
                         <div class="column is-10">
-                            <!-- TODO: js implementation to make this part not as long -->
-                            <table class="sheet" id="treble-sheet">
+                            <table class="sheet" id="treble-sheet-1">
                             </table>
                         </div>
                     </div>
@@ -84,8 +93,7 @@
                             <img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
                         </div>
                         <div class="column is-10">
-                            <!-- TODO: js implementation to make this part not as long -->
-                            <table class="sheet" id="bass-sheet">
+                            <table class="sheet" id="bass-sheet-1">
                             </table>
                         </div>
                     </div>
