@@ -42,10 +42,6 @@ function toggleNote(noteElement){
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = 0;
 		}
 	}
-
-	// TODO: remove this debugging log before merging with master
-	console.log(trebleData);
-	console.log(bassData);
 }
 
 function parseNoteLoc(noteElement){
@@ -192,8 +188,4 @@ function removeRow() {
 		trebleData.pop();
 		bassData.pop();
 	}
-
-	// TODO: remove this debugging log before merging with master
-	console.log(trebleData);
-	console.log(bassData);
 }
