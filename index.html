@@ -10,6 +10,7 @@
 
         <!-- custom css -->
         <link rel="stylesheet" href="assets/css/custom.css">
+
     </head>
 
     <body>
@@ -36,21 +37,21 @@
                         and etc...
                          -->
                     </div>
-                    
+
                     <div class="navbar-end">
                         <p class="navbar-item has-text-weight-light">Made by us</p>
                     </div>
 				</div>
 			</div>
         </nav>
-        
+
         <!-- padding container for style points-->
 
         <div class="empty-padding"></div>
 
         <!-- main body div -->
         <div class="container">
-            
+
             <!-- div for columns -->
             <div class="columns">
 
@@ -58,7 +59,17 @@
                 <div class="column is-one-quarter">
                     <div class="card info-panel">
                         <div class="card-content">
-                            <p>Possibly an info panel with helpful information on this side</p>
+                            <p> Possibly an info panel with helpful information on this side </p>
+                            <form id = "form">
+                                 <input type = "radio" name = "note" id = "eighthNote" value = "eighthNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/eighthNote.png" style = "height: 2rem;"> </label>
+                                 <input type = "radio" name = "note" id = "quarterNote" value = "quarterNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/quarterNote.png" style = "height: 2rem;"> </label>
+                                 <input type = "radio" name = "note" id = "halfNote" value = "halfNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/halfNote.png" style = "height: 2rem;"> </label>
+                                 <input type = "radio" name = "note" id = "wholeNote" value = "wholeNote" onclick = "assignNote()">
+                                 <label for = "quarterNote"> <img src = "assets/img/wholeNote.png" style = "height: 1rem;"> </label> 
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -95,5 +106,6 @@
 
         <!-- js files -->
         <script src="assets/js/generate-sheet.js"></script>
+        <script src = "assets/js/noteLogic.js"> </script>
     </body>
 </html>
