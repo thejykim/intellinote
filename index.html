@@ -63,15 +63,7 @@
                         <div class="card-content">
                             <h5 class="title is-5">Options</h5>
 
-                            <!-- add/remove row buttons -->
-                            <div class="columns">
-                                <div class="column is-narrow">
-                                    <button class="button is-dark is-small is-rounded" onclick="addRow()">Add row</button>
-                                </div>
-                                <div class="column is-narrow">
-                                    <button class="button is-dark is-small is-rounded" onclick="removeRow()" id="removeButton" disabled>Remove row</button>
-                                </div>
-                            </div>
+                            <!-- note length form -->
                             <form id = "form">
                                  <input type = "radio" name = "note" id = "eighthNote" value = "eighthNote" onclick = "assignNote()">
                                  <label for = "quarterNote"> <img src = "assets/img/eighthNote.png" style = "height: 2rem;"> </label>
@@ -82,9 +74,22 @@
                                  <input type = "radio" name = "note" id = "wholeNote" value = "wholeNote" onclick = "assignNote()">
                                  <label for = "quarterNote"> <img src = "assets/img/wholeNote.png" style = "height: 1rem;"> </label>
                             </form>
+
                             <br>
-                            <button class="button is-primary is-small is-rounded" id="start" onclick="startPlaying()">Play Hallelujah</button>
-                            <button class="button is-primary is-small is-rounded" id="stop" onclick="stopPlaying()" disabled>Stop player</button>
+
+                            <!-- add/remove row buttons -->
+                            <div class="container">
+                                <button class="button is-dark is-small is-rounded" onclick="addRow()">Add row</button>
+                                <button class="button is-dark is-small is-rounded" onclick="removeRow()" id="removeButton" disabled>Remove row</button>
+                            </div>
+
+                            <br>
+
+                            <!-- play/stop row buttons -->
+                            <div class="container">
+                                <button class="button is-primary is-small is-rounded" id="start" onclick="startPlaying()">Play Hallelujah</button>
+                                <button class="button is-primary is-small is-rounded" id="stop" onclick="stopPlaying()" disabled>Stop player</button>
+                            </div>
                         </div>
                     </div>
                 </div>
