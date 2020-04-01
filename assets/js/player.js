@@ -3,12 +3,16 @@ const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 
 // create synths
-const synth = new Tone.Synth().toMaster();
+const synth = new Tone.PolySynth(6, Tone.Synth, {
+    oscillator : {
+          type : "sine"
+      }
+  }).toMaster();
 const synth2 = new Tone.Synth().toMaster();
 
 // set oscillators
-synth.oscillator.type = "sine";
-synth2.oscillator.type = "sine";
+// synth.oscillator.type = "sine";
+// synth2.oscillator.type = "sine";
 
 let trebleNotes = [];
 let bassNotes = [];
@@ -25,6 +29,9 @@ function startPlaying() {
 
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < numberOfNotes; i++) {
+            if (row[i].noteLength == 0) {
+                continue;
+            }
             let noteToBePlayed = "F5";
 
             let noteArray = [];
@@ -38,9 +45,9 @@ function startPlaying() {
             }
 
             if (row[i].noteLength == 0) {
-                noteArray.push(null);
+                //rowNotes.push(null);
             } else if (row[i].noteLength == 1) {
-                noteArray.push(noteToBePlayed);
+                rowNotes.push(noteToBePlayed);
             } else if (row[i].noteLength == 2) {
                 noteArray.push(noteToBePlayed);
                 noteArray.push(null);
@@ -59,8 +66,6 @@ function startPlaying() {
                 noteArray.push(null);
                 noteArray.push(null);
             }
-
-            rowNotes.push(noteArray);
         }
 
         trebleNotes.push(rowNotes);
@@ -74,14 +79,12 @@ function startPlaying() {
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < numberOfNotes; i++) {
             if (row[i].noteLength == 0) {
-                continue;
+                rowNotes.push(null);
             }
 
             let noteToBePlayed = "A3";
 
             let noteArray = [];
-
-            noteArray.push(`${i/2}`);
 
             if (rowIndex < 1) {
                 noteToBePlayed = "A3";
@@ -91,58 +94,60 @@ function startPlaying() {
                 noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
             }
 
-            noteArray.push(noteToBePlayed);
-
-            // if (row[i].noteLength == 0) {
-            //     noteArray.push(null);
-            // } else if (row[i].noteLength == 1) {
-            //     noteArray.push(noteToBePlayed);
-            // } else if (row[i].noteLength == 2) {
-            //     noteArray.push(noteToBePlayed);
-            //     noteArray.push(null);
-            // } else if (row[i].noteLength == 4) {
-            //     noteArray.push(noteToBePlayed);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            // } else {
-            //     noteArray.push(noteToBePlayed);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            //     noteArray.push(null);
-            // }
-
-            rowNotes.push(noteArray);
+            if (row[i].noteLength == 0) {
+                rowNotes.push(null);
+            } else if (row[i].noteLength == 1) {
+                rowNotes.push(noteToBePlayed);
+            } else if (row[i].noteLength == 2) {
+                rowNotes.push(noteToBePlayed);
+                rowNotes.push(null);
+            } else if (row[i].noteLength == 4) {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+            } else {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+            }
         }
 
         bassNotes.push(rowNotes);
     })
 
-    let synthTimeline = new Tone.Part(function(time, note){
-            synth.triggerAttackRelease(note, "2hz", time);
-        },
-        bassNotes[0]
-    );
+    trebleNotes = transpose(trebleNotes);
+    bassNotes = transpose(bassNotes);
 
-    let synth2Timeline = new Tone.Part(function(time, note){
-            synth.triggerAttackRelease(note, "2hz", time);
-        },
-        bassNotes[1]
-    );
+    console.log(trebleNotes[0]);
 
-    console.log(bassNotes);
+    synth.triggerAttackRelease(["C4", null], "4n");
+
+    // let synthTimeline = new Tone.Part(function(time, note){
+    //         synth.triggerAttackRelease(note, "2hz", time);
+    //     },
+    //     bassNotes[0]
+    // );
+
+    // let synth2Timeline = new Tone.Part(function(time, note){
+    //         synth.triggerAttackRelease(note, "2hz", time);
+    //     },
+    //     bassNotes[1]
+    // );
 
     // disable/enable buttons
     startButton.setAttribute('disabled', 'true');
     stopButton.removeAttribute('disabled');
 
-    // start timelines
-    synthTimeline.start(0);
-    Tone.Transport.start();
+    // // start timelines
+    // synthTimeline.start(0);
+    // synth2Timeline.start(0);
+    // Tone.Transport.start();
 }
 
 function stopPlaying() {
@@ -150,6 +155,21 @@ function stopPlaying() {
     startButton.removeAttribute('disabled');
     stopButton.setAttribute('disabled', 'true');
 
-    // stop transport
-    Tone.Transport.stop();
+    // // stop transport
+    // Tone.Transport.stop();
+}
+
+function transpose(array, arrayLength){
+    var newArray = [];
+    for(var i = 0; i < array.length; i++){
+        newArray.push([]);
+    };
+
+    for(var i = 0; i < array.length; i++){
+        for(var j = 0; j < arrayLength; j++){
+            newArray[j].push(array[i][j]);
+        };
+    };
+
+    return newArray;
 }
