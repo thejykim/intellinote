@@ -73,9 +73,15 @@ function startPlaying() {
 
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < numberOfNotes; i++) {
+            if (row[i].noteLength == 0) {
+                continue;
+            }
+
             let noteToBePlayed = "A3";
 
             let noteArray = [];
+
+            noteArray.push(`${i/2}`);
 
             if (rowIndex < 1) {
                 noteToBePlayed = "A3";
@@ -85,28 +91,30 @@ function startPlaying() {
                 noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
             }
 
-            if (row[i].noteLength == 0) {
-                noteArray.push(null);
-            } else if (row[i].noteLength == 1) {
-                noteArray.push(noteToBePlayed);
-            } else if (row[i].noteLength == 2) {
-                noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-            } else if (row[i].noteLength == 4) {
-                noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-            } else {
-                noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-            }
+            noteArray.push(noteToBePlayed);
+
+            // if (row[i].noteLength == 0) {
+            //     noteArray.push(null);
+            // } else if (row[i].noteLength == 1) {
+            //     noteArray.push(noteToBePlayed);
+            // } else if (row[i].noteLength == 2) {
+            //     noteArray.push(noteToBePlayed);
+            //     noteArray.push(null);
+            // } else if (row[i].noteLength == 4) {
+            //     noteArray.push(noteToBePlayed);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            // } else {
+            //     noteArray.push(noteToBePlayed);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            //     noteArray.push(null);
+            // }
 
             rowNotes.push(noteArray);
         }
@@ -114,29 +122,26 @@ function startPlaying() {
         bassNotes.push(rowNotes);
     })
 
-    let synthTimeline = new Tone.Sequence(function(time, note){
+    let synthTimeline = new Tone.Part(function(time, note){
             synth.triggerAttackRelease(note, "2hz", time);
         },
-        trebleNotes[0],
-        "1n"
+        bassNotes[0]
     );
 
-    let synth2Timeline = new Tone.Sequence(function(time, note){
+    let synth2Timeline = new Tone.Part(function(time, note){
             synth.triggerAttackRelease(note, "2hz", time);
         },
-        trebleNotes[1],
-        "1n"
+        bassNotes[1]
     );
 
-    console.log(trebleNotes);
+    console.log(bassNotes);
 
     // disable/enable buttons
     startButton.setAttribute('disabled', 'true');
     stopButton.removeAttribute('disabled');
 
     // start timelines
-    synthTimeline.start();
-    synth2Timeline.start();
+    synthTimeline.start(0);
     Tone.Transport.start();
 }
 
