@@ -13,6 +13,7 @@
     </head>
 
     <body>
+
         <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
 			<div class="container">
 				<div class="navbar-brand">
@@ -71,13 +72,13 @@
                             </div>
                             <form id = "form">
                                  <input type = "radio" name = "note" id = "eighthNote" value = "eighthNote" onclick = "assignNote()">
-                                 <label for = "quarterNote"> <img src = "assets/img/eighthNote.png" style = "height: 2rem;"> </label>
+                                 <label for = "eighthNote"> <img src = "assets/img/eighthNote.png" style = "height: 2rem;"> </label>
                                  <input type = "radio" name = "note" id = "quarterNote" value = "quarterNote" onclick = "assignNote()">
                                  <label for = "quarterNote"> <img src = "assets/img/quarterNote.png" style = "height: 2rem;"> </label>
                                  <input type = "radio" name = "note" id = "halfNote" value = "halfNote" onclick = "assignNote()">
-                                 <label for = "quarterNote"> <img src = "assets/img/halfNote.png" style = "height: 2rem;"> </label>
+                                 <label for = "halfNote"> <img src = "assets/img/halfNote.png" style = "height: 2rem;"> </label>
                                  <input type = "radio" name = "note" id = "wholeNote" value = "wholeNote" onclick = "assignNote()">
-                                 <label for = "quarterNote"> <img src = "assets/img/wholeNote.png" style = "height: 1rem;"> </label>
+                                 <label for = "wholeNote"> <img src = "assets/img/wholeNote.png" style = "height: 1rem;"> </label>
                             </form>
                         </div>
                     </div>
@@ -112,6 +113,8 @@
         </div>
 
         <!-- js files -->
+
         <script src="assets/js/generate-sheet.js"></script>
+        <script src="assets/js/noteLogic.js"></script>
     </body>
 </html>
