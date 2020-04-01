@@ -2,25 +2,141 @@
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 
+// create synths
 const synth = new Tone.Synth().toMaster();
+const synth2 = new Tone.Synth().toMaster();
+
+// set oscillators
 synth.oscillator.type = "sine";
+synth2.oscillator.type = "sine";
 
-let notes = [[null, null, null, "D4"], [["F4", null, "F4"], "F4"], [["F4", "G4", "G4"], ["G4", null, null]], [null, null, null, "D4"], [["F4", null, "F4"], "F4"], [["F4", "G4", "G4"], ["G4", null, null]]];
-
-let synthTimeline = new Tone.Sequence(function(time, note){
-        synth.triggerAttackRelease(note, "2hz", time);
-    },
-    notes,
-    "1n"
-);
+let trebleNotes = [];
+let bassNotes = [];
 
 function startPlaying() {
+    trebleNotes = [];
+    bassNotes = [];
+
+    // iterate through clef arrays
+    trebleData.forEach(function(row) {
+        // temp row array
+        let rowNotes = [];
+        let rowIndex = trebleData.indexOf(row) % 9;
+
+        // iterates over each column and fills out rowNotes with proper subset of notes
+        for (let i = 0; i < numberOfNotes; i++) {
+            let noteToBePlayed = "F5";
+
+            let noteArray = [];
+
+            if (rowIndex <= 3) {
+                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
+            } else if (rowIndex <= 5) {
+                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "4";
+            } else {
+                noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
+            }
+
+            if (row[i].noteLength == 0) {
+                noteArray.push(null);
+            } else if (row[i].noteLength == 1) {
+                noteArray.push(noteToBePlayed);
+            } else if (row[i].noteLength == 2) {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+            } else if (row[i].noteLength == 4) {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+            } else {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+            }
+
+            rowNotes.push(noteArray);
+        }
+
+        trebleNotes.push(rowNotes);
+    })
+
+    bassData.forEach(function(row) {
+        // temp row array
+        let rowNotes = [];
+        let rowIndex = bassData.indexOf(row) % 9;
+
+        // iterates over each column and fills out rowNotes with proper subset of notes
+        for (let i = 0; i < numberOfNotes; i++) {
+            let noteToBePlayed = "A3";
+
+            let noteArray = [];
+
+            if (rowIndex < 1) {
+                noteToBePlayed = "A3";
+            } else if (rowIndex <= 5) {
+                noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
+            } else {
+                noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
+            }
+
+            if (row[i].noteLength == 0) {
+                noteArray.push(null);
+            } else if (row[i].noteLength == 1) {
+                noteArray.push(noteToBePlayed);
+            } else if (row[i].noteLength == 2) {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+            } else if (row[i].noteLength == 4) {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+            } else {
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+                noteArray.push(null);
+            }
+
+            rowNotes.push(noteArray);
+        }
+
+        bassNotes.push(rowNotes);
+    })
+
+    let synthTimeline = new Tone.Sequence(function(time, note){
+            synth.triggerAttackRelease(note, "2hz", time);
+        },
+        trebleNotes[0],
+        "1n"
+    );
+
+    let synth2Timeline = new Tone.Sequence(function(time, note){
+            synth.triggerAttackRelease(note, "2hz", time);
+        },
+        trebleNotes[1],
+        "1n"
+    );
+
+    console.log(trebleNotes);
+
     // disable/enable buttons
     startButton.setAttribute('disabled', 'true');
     stopButton.removeAttribute('disabled');
 
     // start timelines
     synthTimeline.start();
+    synth2Timeline.start();
     Tone.Transport.start();
 }
 
