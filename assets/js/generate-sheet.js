@@ -33,7 +33,7 @@ function toggleNote(noteElement){
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
-			console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
+			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
 		}
