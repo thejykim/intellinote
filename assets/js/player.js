@@ -3,16 +3,13 @@ const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 
 // create synths
-const synth = new Tone.PolySynth(6, Tone.Synth, {
+let synth = new Tone.PolySynth(18, Tone.Synth, {
     oscillator : {
-          type : "sine"
-      }
-  }).toMaster();
-const synth2 = new Tone.Synth().toMaster();
+        type : "sine"
+    }
+}).toMaster();
 
-// set oscillators
-// synth.oscillator.type = "sine";
-// synth2.oscillator.type = "sine";
+let synthPart;
 
 let trebleNotes = [];
 let bassNotes = [];
@@ -29,9 +26,6 @@ function startPlaying() {
 
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < numberOfNotes; i++) {
-            if (row[i].noteLength == 0) {
-                continue;
-            }
             let noteToBePlayed = "F5";
 
             let noteArray = [];
@@ -45,7 +39,7 @@ function startPlaying() {
             }
 
             if (row[i].noteLength == 0) {
-                //rowNotes.push(null);
+                rowNotes.push(null);
             } else if (row[i].noteLength == 1) {
                 rowNotes.push(noteToBePlayed);
             } else if (row[i].noteLength == 2) {
@@ -78,10 +72,6 @@ function startPlaying() {
 
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < numberOfNotes; i++) {
-            if (row[i].noteLength == 0) {
-                rowNotes.push(null);
-            }
-
             let noteToBePlayed = "A3";
 
             let noteArray = [];
@@ -124,30 +114,23 @@ function startPlaying() {
     trebleNotes = transpose(trebleNotes);
     bassNotes = transpose(bassNotes);
 
-    console.log(trebleNotes[0]);
+    console.log(trebleNotes);
 
-    synth.triggerAttackRelease(["C4", null], "4n");
-
-    // let synthTimeline = new Tone.Part(function(time, note){
-    //         synth.triggerAttackRelease(note, "2hz", time);
-    //     },
-    //     bassNotes[0]
-    // );
-
-    // let synth2Timeline = new Tone.Part(function(time, note){
-    //         synth.triggerAttackRelease(note, "2hz", time);
-    //     },
-    //     bassNotes[1]
-    // );
+    synthPart = new Tone.Sequence(
+        function(time, note) {
+            synth.triggerAttackRelease(note, "4n", time);
+        },
+        trebleNotes,
+        "2n"
+    );
 
     // disable/enable buttons
     startButton.setAttribute('disabled', 'true');
     stopButton.removeAttribute('disabled');
 
-    // // start timelines
-    // synthTimeline.start(0);
-    // synth2Timeline.start(0);
-    // Tone.Transport.start();
+    // start timelines
+    synthPart.start();
+    Tone.Transport.start();
 }
 
 function stopPlaying() {
@@ -155,21 +138,13 @@ function stopPlaying() {
     startButton.removeAttribute('disabled');
     stopButton.setAttribute('disabled', 'true');
 
-    // // stop transport
-    // Tone.Transport.stop();
+    // stop transport
+    synthPart.dispose();
+    synthPart.removeAll();
+    Tone.Transport.stop();
+    Tone.Transport.cancel();
 }
 
-function transpose(array, arrayLength){
-    var newArray = [];
-    for(var i = 0; i < array.length; i++){
-        newArray.push([]);
-    };
-
-    for(var i = 0; i < array.length; i++){
-        for(var j = 0; j < arrayLength; j++){
-            newArray[j].push(array[i][j]);
-        };
-    };
-
-    return newArray;
+function transpose(a) {
+    return a[0].map((_, c) => a.map(r => r[c]));
 }
