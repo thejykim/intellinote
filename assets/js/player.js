@@ -14,15 +14,16 @@ let synth = new Tone.PolySynth(18, Tone.Synth, {
 
 let notes = [];
 
-function startPlaying() {
+function startPlaying(startPlaying) {
     // combined the arrays, but this actually won't allow us to add more than one row for now
     notes = [];
-
-    // iterate through clef arrays
-    trebleData.forEach(function(row) {
+    noteGroups = [trebleData, bassData];
+    // iterate through both arrays
+    for(let noteRowGroup = 0; noteRowGroup < 2; noteRowGroup++ ){
+    noteGroups[noteRowGroup].forEach(function(row) {
         // temp row array
         let rowNotes = [];
-        let rowIndex = trebleData.indexOf(row) % 9;
+        let rowIndex = noteGroups[noteRowGroup].indexOf(row) % 9;
 
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < numberOfNotes; i++) {
@@ -30,128 +31,172 @@ function startPlaying() {
 
             let noteArray = [];
 
-            if (rowIndex <= 3) {
-                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
-            } else if (rowIndex <= 5) {
-                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "4";
-            } else {
-                noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
+            //if array is treble
+            if(noteRowGroup ==0){
+              if (rowIndex <= 3) {
+                  noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
+              } else if (rowIndex <= 5) {
+                  noteToBePlayed = String.fromCharCode(70 - rowIndex) + "4";
+              } else {
+                  noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
+              }
+            }
+            //if array is bass
+            else if (noteRowGroup == 1){
+              if (rowIndex < 1) {
+                    noteToBePlayed = "A3";
+                } else if (rowIndex <= 5) {
+                    noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
+                } else {
+                    noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
+                }
             }
 
-            if (row[i].noteLength == 0) {
+            let noteLen = row[i].noteLength;
+            //equiv to commented out if statements below
+            switch(noteLen){
+              case 0:
                 rowNotes.push(null);
-            } else if (row[i].noteLength == 1) {
+                break;
+              case 1:
                 rowNotes.push(noteToBePlayed);
-            } else if (row[i].noteLength == 2) {
+                break;
+              case 2:
                 noteArray.push(noteToBePlayed);
                 noteArray.push(null);
-            } else if (row[i].noteLength == 4) {
+                break;
+              case 4:
                 noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-            } else {
+                pushNull(noteArray, 3);
+                break;
+              default:
                 noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
+                pushNull(noteArray, 7);
+              }
             }
-        }
-
         notes.push(rowNotes);
-    })
+        })
+      }
 
-    bassData.forEach(function(row) {
-        // temp row array
-        let rowNotes = [];
-        let rowIndex = bassData.indexOf(row) % 9;
+      // transpose first, because if you remove null before then the transposition won't work
+      notes = transpose(notes);
 
-        // iterates over each column and fills out rowNotes with proper subset of notes
-        for (let i = 0; i < numberOfNotes; i++) {
-            let noteToBePlayed = "A3";
+      console.log(notes);
 
-            let noteArray = [];
+      // removes null from the notes array because otherwise triggerAttack flips out
+      for (let i = 0; i < numberOfNotes; i++) {
+          notes[i] = notes[i].filter(checkNull);
+      }
 
-            if (rowIndex < 1) {
-                noteToBePlayed = "A3";
-            } else if (rowIndex <= 5) {
-                noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
-            } else {
-                noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
-            }
+      console.log(notes);
 
-            if (row[i].noteLength == 0) {
-                rowNotes.push(null);
-            } else if (row[i].noteLength == 1) {
-                rowNotes.push(noteToBePlayed);
-            } else if (row[i].noteLength == 2) {
-                noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-            } else if (row[i].noteLength == 4) {
-                noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-            } else {
-                noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-                noteArray.push(null);
-            }
-        }
+      // disable/enable buttons
+      startButton.setAttribute('disabled', 'true');
+      stopButton.removeAttribute('disabled');
 
-        notes.push(rowNotes);
-    })
+      let count = 0;
+      setInterval(function() {
+          if(startPlaying){
+            synth.triggerAttackRelease(notes[count], "4n");
+          }
+          if (++count > numberOfNotes) {
+              // this actually doesn't work so we have to fix this
+              stopPlaying();
+              return;
+          }
+          console.log(count);
+      }, timeBetweenNotes);
+  }
 
-    // transpose first, because if you remove null before then the transposition won't work
-    notes = transpose(notes);
-
-    console.log(notes);
-
-    // removes null from the notes array because otherwise triggerAttack flips out
-    for (let i = 0; i < numberOfNotes; i++) {
-        notes[i] = notes[i].filter(checkNull);
+  function pushNull(noteArray, numToPush) {
+    for (let i = 0; i < numToPush; i++){
+      noteArray.push(null);
     }
+  }
 
-    console.log(notes);
+  function stopPlaying() {
+      // disable/enable buttons
+      startButton.removeAttribute('disabled');
+      stopButton.setAttribute('disabled', 'true');
 
-    // disable/enable buttons
-    startButton.setAttribute('disabled', 'true');
-    stopButton.removeAttribute('disabled');
+      // stop playing (this doesn't work either...)
+      clearInterval();
+  }
 
-    let count = 0;
-    setInterval(function() {
-        synth.triggerAttackRelease(notes[count], "4n");
-        if (++count > numberOfNotes) {
-            // this actually doesn't work so we have to fix this
-            clearInterval();
-        }
-        console.log(count);
-    }, timeBetweenNotes);
-}
+  function transpose(a) {
+      return a[0].map((_, c) => a.map(r => r[c]));
+  }
 
-function stopPlaying() {
-    // disable/enable buttons
-    startButton.removeAttribute('disabled');
-    stopButton.setAttribute('disabled', 'true');
+  function checkNull(element) {
+      console.log((element != null));
+      return (element != null);
+  }
 
-    // stop playing (this doesn't work either...)
-    clearInterval();
-}
 
-function transpose(a) {
-    return a[0].map((_, c) => a.map(r => r[c]));
-}
 
-function checkNull(element) {
-    console.log((element != null));
-    return (element != null);
-}
+        //     if (row[i].noteLength == 0) {
+        //         rowNotes.push(null);
+        //     } else if (row[i].noteLength == 1) {
+        //         rowNotes.push(noteToBePlayed);
+        //     } else if (row[i].noteLength == 2) {
+        //         noteArray.push(noteToBePlayed);
+        //         noteArray.push(null);
+        //     } else if (row[i].noteLength == 4) {
+        //         noteArray.push(noteToBePlayed);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //     } else {
+        //         noteArray.push(noteToBePlayed);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //         noteArray.push(null);
+        //     }
+        // }
+
+    //     notes.push(rowNotes);
+    // })
+
+    // bassData.forEach(function(row) {
+    //     // temp row array
+    //     let rowNotes = [];
+    //     let rowIndex = bassData.indexOf(row) % 9;
+    //
+    //     // iterates over each column and fills out rowNotes with proper subset of notes
+    //     for (let i = 0; i < numberOfNotes; i++) {
+    //         let noteToBePlayed = "A3";
+    //
+    //         let noteArray = [];
+    //
+    //
+    //
+    //         if (row[i].noteLength == 0) {
+    //             rowNotes.push(null);
+    //         } else if (row[i].noteLength == 1) {
+    //             rowNotes.push(noteToBePlayed);
+    //         } else if (row[i].noteLength == 2) {
+    //             noteArray.push(noteToBePlayed);
+    //             noteArray.push(null);
+    //         } else if (row[i].noteLength == 4) {
+    //             noteArray.push(noteToBePlayed);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //         } else {
+    //             noteArray.push(noteToBePlayed);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //             noteArray.push(null);
+    //         }
+    //     }
+    //
+    //     notes.push(rowNotes);
+    // })
