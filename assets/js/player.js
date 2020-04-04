@@ -2,6 +2,9 @@
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 
+// variables
+let timeBetweenNotes = 1000;
+
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
     oscillator : {
@@ -9,14 +12,10 @@ let synth = new Tone.PolySynth(18, Tone.Synth, {
     }
 }).toMaster();
 
-let synthPart;
-
-let trebleNotes = [];
-let bassNotes = [];
+let notes = [];
 
 function startPlaying() {
-    trebleNotes = [];
-    bassNotes = [];
+    notes = [];
 
     // iterate through clef arrays
     trebleData.forEach(function(row) {
@@ -62,7 +61,7 @@ function startPlaying() {
             }
         }
 
-        trebleNotes.push(rowNotes);
+        notes.push(rowNotes);
     })
 
     bassData.forEach(function(row) {
@@ -89,8 +88,8 @@ function startPlaying() {
             } else if (row[i].noteLength == 1) {
                 rowNotes.push(noteToBePlayed);
             } else if (row[i].noteLength == 2) {
-                rowNotes.push(noteToBePlayed);
-                rowNotes.push(null);
+                noteArray.push(noteToBePlayed);
+                noteArray.push(null);
             } else if (row[i].noteLength == 4) {
                 noteArray.push(noteToBePlayed);
                 noteArray.push(null);
@@ -108,29 +107,31 @@ function startPlaying() {
             }
         }
 
-        bassNotes.push(rowNotes);
+        notes.push(rowNotes);
     })
 
-    trebleNotes = transpose(trebleNotes);
-    bassNotes = transpose(bassNotes);
+    notes = transpose(notes);
 
-    console.log(trebleNotes);
+    console.log(notes);
 
-    synthPart = new Tone.Sequence(
-        function(time, note) {
-            synth.triggerAttackRelease(note, "4n", time);
-        },
-        trebleNotes,
-        "2n"
-    );
+    for (let i = 0; i < numberOfNotes; i++) {
+        notes[i] = notes[i].filter(checkNull);
+    }
+
+    console.log(notes);
 
     // disable/enable buttons
     startButton.setAttribute('disabled', 'true');
     stopButton.removeAttribute('disabled');
 
-    // start timelines
-    synthPart.start();
-    Tone.Transport.start();
+    let count = 0;
+    setInterval(function() {
+        synth.triggerAttackRelease(notes[count], "4n");
+        if (++count > numberOfNotes) {
+            clearInterval();
+        }
+        console.log(count);
+    }, timeBetweenNotes);
 }
 
 function stopPlaying() {
@@ -139,12 +140,14 @@ function stopPlaying() {
     stopButton.setAttribute('disabled', 'true');
 
     // stop transport
-    synthPart.dispose();
-    synthPart.removeAll();
-    Tone.Transport.stop();
-    Tone.Transport.cancel();
+    //synth.dispose();
 }
 
 function transpose(a) {
     return a[0].map((_, c) => a.map(r => r[c]));
+}
+
+function checkNull(element) {
+    console.log((element != null));
+    return (element != null);
 }
