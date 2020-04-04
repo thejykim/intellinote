@@ -15,6 +15,7 @@ let synth = new Tone.PolySynth(18, Tone.Synth, {
 let notes = [];
 
 function startPlaying() {
+    // combined the arrays, but this actually won't allow us to add more than one row for now
     notes = [];
 
     // iterate through clef arrays
@@ -110,10 +111,12 @@ function startPlaying() {
         notes.push(rowNotes);
     })
 
+    // transpose first, because if you remove null before then the transposition won't work
     notes = transpose(notes);
 
     console.log(notes);
 
+    // removes null from the notes array because otherwise triggerAttack flips out
     for (let i = 0; i < numberOfNotes; i++) {
         notes[i] = notes[i].filter(checkNull);
     }
@@ -128,6 +131,7 @@ function startPlaying() {
     setInterval(function() {
         synth.triggerAttackRelease(notes[count], "4n");
         if (++count > numberOfNotes) {
+            // this actually doesn't work so we have to fix this
             clearInterval();
         }
         console.log(count);
@@ -139,8 +143,8 @@ function stopPlaying() {
     startButton.removeAttribute('disabled');
     stopButton.setAttribute('disabled', 'true');
 
-    // stop transport
-    //synth.dispose();
+    // stop playing (this doesn't work either...)
+    clearInterval();
 }
 
 function transpose(a) {
