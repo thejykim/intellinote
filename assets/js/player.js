@@ -33,9 +33,8 @@ function startPlaying(startPlaying) {
             let noteToBePlayed = "F5";
 
             let noteArray = [];
-
-            //if array is treble
-            if(noteRowGroup ==0){
+            // if array is treble
+            if (noteRowGroup == 0) {
               if (rowIndex <= 3) {
                   noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
               } else if (rowIndex <= 5) {
@@ -44,8 +43,8 @@ function startPlaying(startPlaying) {
                   noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
               }
             }
-            //if array is bass
-            else if (noteRowGroup == 1){
+            // if array is bass
+            else if (noteRowGroup == 1) {
               if (rowIndex < 1) {
                     noteToBePlayed = "A3";
                 } else if (rowIndex <= 5) {
@@ -97,18 +96,29 @@ function startPlaying(startPlaying) {
       startButton.setAttribute('disabled', 'true');
       stopButton.removeAttribute('disabled');
 
-      let count = 0;
-      interval = setInterval(function() {
-          if(startPlaying){
-            synth.triggerAttackRelease(notes[count], "4n");
-          }
-          if (++count > numberOfNotes) {
-              // this actually doesn't work so we have to fix this
-              clearInterval(interval);
-              return;
-          }
-          console.log(count);
-      }, timeBetweenNotes);
+      synth.triggerAttackRelease("C4", "1n");
+      synth.triggerAttackRelease("E4", "2n");
+
+
+      // let count = 0;
+      // let maxLength = 0;
+      // interval = setInterval(function() {
+      //   maxLength = 8;
+      //   for (let i = 0; i < notes[column].length, i++){
+      //     synth.triggerAttackRelease(notes[column][note].noteT, note[column][note].length);
+      //     if (note[column][note].length > maxLength) {
+      //       maxLength = note[column][note].length;
+      //     }
+      //     maxLength = 8;
+      //   }
+      //     //synth.triggerAttackRelease(notes[count], "4n");
+      //     if (++count > numberOfNotes) {
+      //         // this actually doesn't work so we have to fix this
+      //         stopPlaying();
+      //         return;
+      //     }
+      //     console.log(count);
+      // }, (timeBetweenNotes / maxLength);
   }
 
   function pushNull(noteArray, numToPush) {
@@ -133,72 +143,3 @@ function startPlaying(startPlaying) {
   function checkNull(element) {
       return (element != null);
   }
-
-
-
-        //     if (row[i].noteLength == 0) {
-        //         rowNotes.push(null);
-        //     } else if (row[i].noteLength == 1) {
-        //         rowNotes.push(noteToBePlayed);
-        //     } else if (row[i].noteLength == 2) {
-        //         noteArray.push(noteToBePlayed);
-        //         noteArray.push(null);
-        //     } else if (row[i].noteLength == 4) {
-        //         noteArray.push(noteToBePlayed);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //     } else {
-        //         noteArray.push(noteToBePlayed);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //         noteArray.push(null);
-        //     }
-        // }
-
-    //     notes.push(rowNotes);
-    // })
-
-    // bassData.forEach(function(row) {
-    //     // temp row array
-    //     let rowNotes = [];
-    //     let rowIndex = bassData.indexOf(row) % 9;
-    //
-    //     // iterates over each column and fills out rowNotes with proper subset of notes
-    //     for (let i = 0; i < numberOfNotes; i++) {
-    //         let noteToBePlayed = "A3";
-    //
-    //         let noteArray = [];
-    //
-    //
-    //
-    //         if (row[i].noteLength == 0) {
-    //             rowNotes.push(null);
-    //         } else if (row[i].noteLength == 1) {
-    //             rowNotes.push(noteToBePlayed);
-    //         } else if (row[i].noteLength == 2) {
-    //             noteArray.push(noteToBePlayed);
-    //             noteArray.push(null);
-    //         } else if (row[i].noteLength == 4) {
-    //             noteArray.push(noteToBePlayed);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //         } else {
-    //             noteArray.push(noteToBePlayed);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //             noteArray.push(null);
-    //         }
-    //     }
-    //
-    //     notes.push(rowNotes);
-    // })

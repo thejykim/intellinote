@@ -1,3 +1,5 @@
+// import {currentNote} from "./noteLogic.js";
+
 // document elements
 const removeButton = document.getElementById('removeButton');
 
@@ -21,15 +23,17 @@ window.onload = function() {
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
+	parseNoteLen();
 	if (divElement.innerHTML === '') {
 		// put in element
 		divElement.innerHTML = '<i class="fas fa-circle"></i>';
 
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
-			trebleData[noteLoc[1]][noteLoc[2]].noteLength = 1;
+			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength); 
 		} else {
-			bassData[noteLoc[1]][noteLoc[2]].noteLength = 1;
+			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
 		}
 	} else {
 		// empty element
@@ -159,7 +163,7 @@ function addRow() {
 	// generate sheet music for new divs
 	generateSheet(clefEnum.TREBLE, `treble-sheet-${numRows+1}`);
 	generateSheet(clefEnum.BASS, `bass-sheet-${numRows+1}`);
-	
+
 	// enable remove rows button
 	removeButton.removeAttribute("disabled");
 }
@@ -167,7 +171,7 @@ function addRow() {
 function removeRow() {
 	// get number of rows already in
 	let numRows = trebleData.length / 9;
-	
+
 	if (numRows == 1) {
 		// don't do anything if there's only one row
 		return;
