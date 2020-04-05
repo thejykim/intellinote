@@ -3,7 +3,7 @@ const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 
 // variables
-let timeBetweenNotes = 3000;
+let timeBetweenNotes = 2000;
 let isPlaying = false;
 
 // create synths
@@ -100,7 +100,7 @@ async function startPlaying(startPlaying) {
             //insert quantum computing server here
           }
         }
-        await sleep(timeBetweenNotes/maxLength);
+        await sleep(timeBetweenNotes/8);
 
         count++;
       }

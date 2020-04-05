@@ -4,7 +4,7 @@
 const removeButton = document.getElementById('removeButton');
 
 // number of notes generated per row
-const numberOfNotes = 10;
+const numberOfNotes = 32;
 let trebleData = [];
 let bassData = [];
 
@@ -80,6 +80,10 @@ function generateSheet(clef, id) {
 			// create note element
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
+
+			if (((j+1) % 8) == 0) {
+				noteElement.setAttribute('class', 'note-border')
+			}
 
 			// populate note element
 			if (clef == clefEnum.TREBLE) {
