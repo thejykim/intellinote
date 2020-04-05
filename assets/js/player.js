@@ -4,6 +4,7 @@ const stopButton = document.getElementById('stop');
 
 // variables
 let timeBetweenNotes = 3000;
+let isPlaying = false;
 
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
@@ -17,7 +18,7 @@ let interval;
 
 let notes = [];
 
-function startPlaying(startPlaying) {
+async function startPlaying(startPlaying) {
     // combined the arrays, but this actually won't allow us to add more than one row for now
     notes = [];
     noteGroups = [trebleData, bassData];
@@ -89,23 +90,22 @@ function startPlaying(startPlaying) {
 
       let count = 0;
       var maxLength = 1;
-      interval = setInterval(function() {
+      isPlaying = true;
+      while (count < numberOfNotes && isPlaying) {
         maxLength = 8;
         for (let i = 0; i < notes[count].length; i++){
           synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
           if (notes[count][i].noteLength < maxLength) {
             maxLength = notes[count][i].noteLength;
-            //insert blockchain here
+            //insert quantum computing server here
           }
-          console.log("ran once");
         }
-        //synth.triggerAttackRelease(notes[count], "4n");
-        if (++count == numberOfNotes) {
-            stopPlaying();
-            return;
-        }
-        console.log(timeBetweenNotes / maxLength);
-      }, (timeBetweenNotes / maxLength));
+        await sleep(timeBetweenNotes/maxLength);
+
+        count++;
+      }
+      stopPlaying();
+      return;
   }
 
   function pushNull(noteArray, numToPush) {
@@ -120,7 +120,7 @@ function startPlaying(startPlaying) {
       stopButton.setAttribute('disabled', 'true');
 
       // stop playing (this doesn't work either...)
-      clearInterval(interval);
+      isPlaying = false;
   }
 
   function transpose(a) {
@@ -130,3 +130,7 @@ function startPlaying(startPlaying) {
   function checkNull(element) {
       return (element != null);
   }
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
