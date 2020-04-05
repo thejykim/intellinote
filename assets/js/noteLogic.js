@@ -20,15 +20,15 @@ function parseNoteLen() {
        break;
     case 1:
        noteIcon = '<img src = "assets/img/quarterNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem; width: 2rem;" >';
-       noteLen = 16;
+       noteLen = 4;
        break;
     case 2:
        noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem; width: .75rem;" >';
-       noteLen = 32;
+       noteLen = 2;
        break;
     case 3:
        noteIcon = '<img src = "assets/img/wholeNote.png" style = "display: block; left : 25%; position: absolute; height: .588rem; width: 1rem;" >';
-       noteLen = 64;
+       noteLen = 1;
        break;
   }
 }

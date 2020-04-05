@@ -3,7 +3,7 @@ const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 
 // variables
-let timeBetweenNotes = 1000;
+let timeBetweenNotes = 3000;
 
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
@@ -30,55 +30,45 @@ function startPlaying(startPlaying) {
 
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < numberOfNotes; i++) {
-            let noteToBePlayed = "F5";
+          let noteLen = row[i].noteLength;
 
-            let noteArray = [];
-            // if array is treble
-            if (noteRowGroup == 0) {
-              if (rowIndex <= 3) {
-                  noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
+          // if no note, just push null and skip
+          if (noteLen == 0) {
+            rowNotes.push(null);
+            continue;
+          }
+
+          let noteToBePlayed = "F5";
+
+          let noteLength;
+          // if array is treble
+          if (noteRowGroup == 0) {
+            if (rowIndex <= 3) {
+                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
+            } else if (rowIndex <= 5) {
+                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "4";
+            } else {
+                noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
+            }
+          }
+
+          // if array is bass
+          else if (noteRowGroup == 1) {
+            if (rowIndex < 1) {
+                  noteToBePlayed = "A3";
               } else if (rowIndex <= 5) {
-                  noteToBePlayed = String.fromCharCode(70 - rowIndex) + "4";
+                  noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
               } else {
-                  noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
+                  noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
               }
-            }
-            // if array is bass
-            else if (noteRowGroup == 1) {
-              if (rowIndex < 1) {
-                    noteToBePlayed = "A3";
-                } else if (rowIndex <= 5) {
-                    noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
-                } else {
-                    noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
-                }
-            }
+          }
 
-            let noteLen = row[i].noteLength;
-            //equiv to commented out if statements below
-            switch(noteLen){
-              case 0:
-                rowNotes.push(null);
-                break;
-              case 1:
-                rowNotes.push(noteToBePlayed);
-                break;
-              case 2:
-                noteArray.push(noteToBePlayed);
-                noteArray.push(null);
-                break;
-              case 4:
-                noteArray.push(noteToBePlayed);
-                pushNull(noteArray, 3);
-                break;
-              default:
-                noteArray.push(noteToBePlayed);
-                pushNull(noteArray, 7);
-              }
-            }
+          // push note object into the row
+          rowNotes.push({noteT: noteToBePlayed, noteLength: noteLen});
+        }
         notes.push(rowNotes);
-        })
-      }
+      })
+    }
 
       // transpose first, because if you remove null before then the transposition won't work
       notes = transpose(notes);
@@ -100,21 +90,22 @@ function startPlaying(startPlaying) {
       let count = 0;
       let maxLength = 0;
       interval = setInterval(function() {
-        maxLength = 1;
-        for (let i = 0; i < notes[column].length, i++){
-          synth.triggerAttackRelease(notes[column][note].noteT, note[column][note].length);
-          if (note[column][note].length > maxLength) {
-            maxLength = note[column][note].length;
+        maxLength = 8;
+        for (let i = 0; i < notes[count].length; i++){
+          synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
+          if (notes[count][i].noteLength < maxLength) {
+            maxLength = notes[count][i].noteLength;
+            //insert blockchain here
           }
+          console.log("ran once");
         }
-          //synth.triggerAttackRelease(notes[count], "4n");
-          if (++count > numberOfNotes) {
-              // this actually doesn't work so we have to fix this
-              stopPlaying();
-              return;
-          }
-          console.log(count);
-      }, (timeBetweenNotes / maxLength);
+        //synth.triggerAttackRelease(notes[count], "4n");
+        if (++count == numberOfNotes) {
+            stopPlaying();
+            return;
+        }
+        console.log(count);
+      }, timeBetweenNotes);
   }
 
   function pushNull(noteArray, numToPush) {
