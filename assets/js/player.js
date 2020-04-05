@@ -12,6 +12,9 @@ let synth = new Tone.PolySynth(18, Tone.Synth, {
     }
 }).toMaster();
 
+// interval variable
+let interval;
+
 let notes = [];
 
 function startPlaying(startPlaying) {
@@ -95,13 +98,13 @@ function startPlaying(startPlaying) {
       stopButton.removeAttribute('disabled');
 
       let count = 0;
-      setInterval(function() {
+      interval = setInterval(function() {
           if(startPlaying){
             synth.triggerAttackRelease(notes[count], "4n");
           }
           if (++count > numberOfNotes) {
               // this actually doesn't work so we have to fix this
-              stopPlaying();
+              clearInterval(interval);
               return;
           }
           console.log(count);
@@ -120,7 +123,7 @@ function startPlaying(startPlaying) {
       stopButton.setAttribute('disabled', 'true');
 
       // stop playing (this doesn't work either...)
-      clearInterval();
+      clearInterval(interval);
   }
 
   function transpose(a) {
@@ -128,7 +131,6 @@ function startPlaying(startPlaying) {
   }
 
   function checkNull(element) {
-      console.log((element != null));
       return (element != null);
   }
 
