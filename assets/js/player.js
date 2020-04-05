@@ -96,29 +96,25 @@ function startPlaying(startPlaying) {
       startButton.setAttribute('disabled', 'true');
       stopButton.removeAttribute('disabled');
 
-      synth.triggerAttackRelease("C4", "1n");
-      synth.triggerAttackRelease("E4", "2n");
 
-
-      // let count = 0;
-      // let maxLength = 0;
-      // interval = setInterval(function() {
-      //   maxLength = 8;
-      //   for (let i = 0; i < notes[column].length, i++){
-      //     synth.triggerAttackRelease(notes[column][note].noteT, note[column][note].length);
-      //     if (note[column][note].length > maxLength) {
-      //       maxLength = note[column][note].length;
-      //     }
-      //     maxLength = 8;
-      //   }
-      //     //synth.triggerAttackRelease(notes[count], "4n");
-      //     if (++count > numberOfNotes) {
-      //         // this actually doesn't work so we have to fix this
-      //         stopPlaying();
-      //         return;
-      //     }
-      //     console.log(count);
-      // }, (timeBetweenNotes / maxLength);
+      let count = 0;
+      let maxLength = 0;
+      interval = setInterval(function() {
+        maxLength = 1;
+        for (let i = 0; i < notes[column].length, i++){
+          synth.triggerAttackRelease(notes[column][note].noteT, note[column][note].length);
+          if (note[column][note].length > maxLength) {
+            maxLength = note[column][note].length;
+          }
+        }
+          //synth.triggerAttackRelease(notes[count], "4n");
+          if (++count > numberOfNotes) {
+              // this actually doesn't work so we have to fix this
+              stopPlaying();
+              return;
+          }
+          console.log(count);
+      }, (timeBetweenNotes / maxLength);
   }
 
   function pushNull(noteArray, numToPush) {
