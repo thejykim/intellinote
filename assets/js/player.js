@@ -101,7 +101,7 @@ function startPlaying(startPlaying) {
       let maxLength = 0;
       interval = setInterval(function() {
         maxLength = 1;
-        for (let i = 0; i < notes[column].length, i++){
+        for (let i = 0; i < notes[column].length; i++){
           synth.triggerAttackRelease(notes[column][note].noteT, note[column][note].length);
           if (note[column][note].length > maxLength) {
             maxLength = note[column][note].length;
