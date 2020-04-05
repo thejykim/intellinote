@@ -6,6 +6,8 @@
     padding: 2rem
 }
 
+
+
 table.sheet {
     border-collapse: collapse; /* no space between cells */
     text-align: center;
@@ -42,17 +44,17 @@ tr.line td:before {
     line-height: 0.5rem;
 }
 
-.fade-in { 
+.fade-in {
     animation: fadeInAnimation ease 2s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards; 
-} 
-  
-@keyframes fadeInAnimation { 
-    0% { 
-        opacity: 0; 
-    } 
-    100% { 
-        opacity: 1; 
-     } 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
