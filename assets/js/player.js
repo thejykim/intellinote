@@ -114,7 +114,7 @@ function startPlaying(startPlaying) {
               return;
           }
           console.log(count);
-      }, (timeBetweenNotes / maxLength);
+      }, (timeBetweenNotes / maxLength));
   }
 
   function pushNull(noteArray, numToPush) {
