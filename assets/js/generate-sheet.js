@@ -26,12 +26,14 @@ function toggleNote(noteElement){
 	parseNoteLen();
 	if (divElement.innerHTML === '') {
 		// put in element
-		divElement.innerHTML = '<i class="fas fa-circle"></i>';
+		// divElement.innerHTML = '<i class="fas fa-circle"></i>';
+		// divElement.style.position = "absolute";
+		divElement.innerHTML = noteIcon;
 
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
-			console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength); 
+			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
 		}
