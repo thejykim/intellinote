@@ -88,7 +88,7 @@ function startPlaying(startPlaying) {
 
 
       let count = 0;
-      let maxLength = 0;
+      var maxLength = 1;
       interval = setInterval(function() {
         maxLength = 8;
         for (let i = 0; i < notes[count].length; i++){
@@ -104,8 +104,8 @@ function startPlaying(startPlaying) {
             stopPlaying();
             return;
         }
-        console.log(count);
-      }, timeBetweenNotes);
+        console.log(timeBetweenNotes / maxLength);
+      }, (timeBetweenNotes / maxLength));
   }
 
   function pushNull(noteArray, numToPush) {
