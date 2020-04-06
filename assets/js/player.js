@@ -30,9 +30,9 @@ async function startPlaying(startPlaying) {
         let rowIndex = noteGroups[noteRowGroup].indexOf(row) % 9;
 
         // iterates over each column and fills out rowNotes with proper subset of notes
-        for (let i = 0; i < numberOfNotes; i++) {
+        for (let i = 0; i < (numberOfNotes*newLine); i++) {
           let noteLen = row[i].noteLength;
-
+          console.log(i); 
           // if no note, just push null and skip
           if (noteLen == 0) {
             rowNotes.push(null);
@@ -81,7 +81,7 @@ async function startPlaying(startPlaying) {
           notes[i] = notes[i].filter(checkNull);
       }
 
-      console.log(notes);
+      // console.log(notes);
 
       // disable/enable buttons
       startButton.setAttribute('disabled', 'true');

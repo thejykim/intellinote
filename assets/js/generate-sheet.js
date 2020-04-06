@@ -32,6 +32,8 @@ function toggleNote(noteElement){
 
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
+			console.log(noteLoc);
+			console.log(trebleData);
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
 			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
 		} else {
@@ -56,6 +58,7 @@ function parseNoteLoc(noteElement){
 	return noteLoc;
 }
 
+let newLine = 0;
 function generateSheet(clef, id) {
 	// find the sheet table element from DOM
 	let sheetTableElement = document.getElementById(id);
@@ -69,7 +72,7 @@ function generateSheet(clef, id) {
 		initial = bassData.length;
 	}
 
-	for (let i = initial; i < (initial + 9); i++) {
+	for (let i = 0; i < 9; i++) {
 		let row = document.createElement('tr');
 		if (line) {
 			row.setAttribute('class', 'line');
@@ -87,13 +90,23 @@ function generateSheet(clef, id) {
 
 			// populate note element
 			if (clef == clefEnum.TREBLE) {
-				noteElement.setAttribute('id', `treble.${i}.${j}`);
+				noteElement.setAttribute('id', `treble.${i}.${j+(newLine *31)}`);
 			} else {
-				noteElement.setAttribute('id', `bass.${i}.${j}`);
+				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*31)}`);
 			}
 
+
 			// push to row array
-			rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			if(newLine ==0){
+				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			}
+			else if(clef == clefEnum.TREBLE){
+				trebleData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			}
+			else{
+				bassData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			}
+			console.log(noteElement.getAttribute('id'));
 
 			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
 			let divElement = document.createElement('div');
@@ -110,10 +123,12 @@ function generateSheet(clef, id) {
 		}
 
 		// decide which clef array to push to
-		if (clef == clefEnum.TREBLE) {
-			trebleData.push(rowArray);
-		} else {
-			bassData.push(rowArray);
+		if (newLine ==0){
+			if (clef == clefEnum.TREBLE) {
+				trebleData.push(rowArray);
+			} else {
+				bassData.push(rowArray);
+			}
 		}
 
 		// append row to sheet table
@@ -130,6 +145,8 @@ function generateSheet(clef, id) {
 
 // function called every time the user clicks a button to add more rows
 function addRow() {
+	// makes new line have different id
+	newLine++;
 	// determine how many rows there already are
 	let numRows = trebleData.length / 9;
 
