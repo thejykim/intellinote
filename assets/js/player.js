@@ -30,9 +30,9 @@ async function startPlaying(startPlaying) {
         let rowIndex = noteGroups[noteRowGroup].indexOf(row) % 9;
 
         // iterates over each column and fills out rowNotes with proper subset of notes
-        for (let i = 0; i < (numberOfNotes*newLine); i++) {
+        for (let i = 0; i < (numberOfNotes*(newLine+1)); i++) {
           let noteLen = row[i].noteLength;
-          console.log(i); 
+          console.log(i);
           // if no note, just push null and skip
           if (noteLen == 0) {
             rowNotes.push(null);
@@ -77,7 +77,7 @@ async function startPlaying(startPlaying) {
       console.log(notes);
 
       // removes null from the notes array because otherwise triggerAttack flips out
-      for (let i = 0; i < numberOfNotes; i++) {
+      for (let i = 0; i < numberOfNotes * (newLine+1); i++) {
           notes[i] = notes[i].filter(checkNull);
       }
 
@@ -91,7 +91,7 @@ async function startPlaying(startPlaying) {
       let count = 0;
       var maxLength = 1;
       isPlaying = true;
-      while (count < numberOfNotes && isPlaying) {
+      while (count < (numberOfNotes * (newLine +1)) && isPlaying) {
         maxLength = 8;
         for (let i = 0; i < notes[count].length; i++){
           synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
