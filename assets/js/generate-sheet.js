@@ -7,6 +7,7 @@ const removeButton = document.getElementById('removeButton');
 const numberOfNotes = 32;
 let trebleData = [];
 let bassData = [];
+let newLine = 0;
 
 // enum for clef
 
@@ -32,8 +33,6 @@ function toggleNote(noteElement){
 
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
-			console.log(noteLoc);
-			console.log(trebleData);
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
 			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
 		} else {
@@ -58,7 +57,6 @@ function parseNoteLoc(noteElement){
 	return noteLoc;
 }
 
-let newLine = 0;
 function generateSheet(clef, id) {
 	// find the sheet table element from DOM
 	let sheetTableElement = document.getElementById(id);
@@ -97,7 +95,7 @@ function generateSheet(clef, id) {
 
 
 			// push to row array
-			if(newLine ==0){
+			if(newLine == 0){
 				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
 			else if(clef == clefEnum.TREBLE){
@@ -106,7 +104,7 @@ function generateSheet(clef, id) {
 			else{
 				bassData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
-			console.log(noteElement.getAttribute('id'));
+			// console.log(noteElement.getAttribute('id'));
 
 			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
 			let divElement = document.createElement('div');
@@ -123,11 +121,11 @@ function generateSheet(clef, id) {
 		}
 
 		// decide which clef array to push to
-		if (newLine ==0){
+		if(newLine == 0){
 			if (clef == clefEnum.TREBLE) {
-				trebleData.push(rowArray);
+					trebleData.push(rowArray);
 			} else {
-				bassData.push(rowArray);
+					bassData.push(rowArray);
 			}
 		}
 
@@ -147,19 +145,17 @@ function generateSheet(clef, id) {
 function addRow() {
 	// makes new line have different id
 	newLine++;
-	// determine how many rows there already are
-	let numRows = trebleData.length / 9;
 
 	// create treble div
 	let trebleDiv = document.createElement('div');
 	trebleDiv.setAttribute('class', 'columns fade-in');
-	trebleDiv.setAttribute('id', `trebleDiv-${numRows+1}`);
+	trebleDiv.setAttribute('id', `trebleDiv-${newLine+1}`);
 	trebleDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
 		</div>
 		<div class="column is-10">
-			<table class="sheet" id="treble-sheet-${numRows+1}">
+			<table class="sheet" id="treble-sheet-${newLine+1}">
 			</table>
 		</div>
 	`
@@ -167,13 +163,13 @@ function addRow() {
 	// create bass div
 	let bassDiv = document.createElement('div');
 	bassDiv.setAttribute('class', 'columns fade-in');
-	bassDiv.setAttribute('id', `bassDiv-${numRows+1}`);
+	bassDiv.setAttribute('id', `bassDiv-${newLine+1}`);
 	bassDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
 		</div>
 		<div class="column is-10">
-			<table class="sheet" id="bass-sheet-${numRows+1}">
+			<table class="sheet" id="bass-sheet-${newLine+1}">
 			</table>
 		</div>
 	`
@@ -184,35 +180,36 @@ function addRow() {
 	sheetRowElement.appendChild(bassDiv);
 
 	// generate sheet music for new divs
-	generateSheet(clefEnum.TREBLE, `treble-sheet-${numRows+1}`);
-	generateSheet(clefEnum.BASS, `bass-sheet-${numRows+1}`);
+	generateSheet(clefEnum.TREBLE, `treble-sheet-${newLine+1}`);
+	generateSheet(clefEnum.BASS, `bass-sheet-${newLine+1}`);
 
 	// enable remove rows button
 	removeButton.removeAttribute("disabled");
 }
 
 function removeRow() {
-	// get number of rows already in
-	let numRows = trebleData.length / 9;
-
-	if (numRows == 1) {
-		// don't do anything if there's only one row
+	if (newLine == 0) {
 		return;
-	} else if (numRows == 2) {
-		// disable button if the last removable row is being removed
-		removeButton.setAttribute("disabled", "true");
-	}
+	} else {
+		// remove divs
+		let trebleDiv = document.getElementById(`trebleDiv-${newLine+1}`);
+		let bassDiv = document.getElementById(`bassDiv-${newLine+1}`);
 
-	// remove divs
-	let trebleDiv = document.getElementById(`trebleDiv-${numRows}`);
-	let bassDiv = document.getElementById(`bassDiv-${numRows}`);
+		trebleDiv.parentNode.removeChild(trebleDiv);
+		bassDiv.parentNode.removeChild(bassDiv);
 
-	trebleDiv.parentNode.removeChild(trebleDiv);
-	bassDiv.parentNode.removeChild(bassDiv);
+		// remove array rows
+		for (let j = (newLine)*32; j < (newLine+1)*32; j++) {
+			for (let i = 0; i < 9; i++) {
+				trebleData[i].pop();
+				bassData[i].pop();
+			}
+		}
 
-	// remove array rows
-	for (let i = 0; i < 9; i++) {
-		trebleData.pop();
-		bassData.pop();
+		newLine--;
+		if (newLine == 0) {
+			// disable button if the last removable row is being removed
+			removeButton.setAttribute("disabled", "true");
+		}
 	}
 }

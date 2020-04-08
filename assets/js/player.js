@@ -59,8 +59,10 @@ async function startPlaying(startPlaying) {
                   noteToBePlayed = "A3";
               } else if (rowIndex <= 5) {
                   noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
+              } else if (rowIndex <= 7) {
+                  noteToBePlayed = String.fromCharCode(72 - rowIndex) + "2";
               } else {
-                  noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
+                  noteToBePlayed = String.fromCharCode(79 - rowIndex) + "2";
               }
           }
           console.log(noteToBePlayed)
@@ -94,6 +96,7 @@ async function startPlaying(startPlaying) {
       while (count < (numberOfNotes * (newLine +1)) && isPlaying) {
         maxLength = 8;
         for (let i = 0; i < notes[count].length; i++){
+          console.log(notes[count][i].noteT);
           synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
           if (notes[count][i].noteLength < maxLength) {
             maxLength = notes[count][i].noteLength;
