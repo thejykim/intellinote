@@ -59,8 +59,10 @@ async function startPlaying(startPlaying) {
                   noteToBePlayed = "A3";
               } else if (rowIndex <= 5) {
                   noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
+              } else if (rowIndex <= 7) {
+                  noteToBePlayed = String.fromCharCode(72 - rowIndex) + "2";
               } else {
-                  noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
+                  noteToBePlayed = String.fromCharCode(79 - rowIndex) + "2";
               }
           }
 
