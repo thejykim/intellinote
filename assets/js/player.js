@@ -94,6 +94,7 @@ async function startPlaying(startPlaying) {
       while (count < (numberOfNotes * (newLine +1)) && isPlaying) {
         maxLength = 8;
         for (let i = 0; i < notes[count].length; i++){
+          console.log(notes[count][i].noteT);
           synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
           if (notes[count][i].noteLength < maxLength) {
             maxLength = notes[count][i].noteLength;
