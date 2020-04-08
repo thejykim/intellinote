@@ -63,7 +63,7 @@ async function startPlaying(startPlaying) {
                   noteToBePlayed = String.fromCharCode(77 - rowIndex) + "2";
               }
           }
-
+          console.log(noteToBePlayed)
           // push note object into the row
           rowNotes.push({noteT: noteToBePlayed, noteLength: noteLen});
         }

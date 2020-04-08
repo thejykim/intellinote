@@ -90,9 +90,9 @@ function generateSheet(clef, id) {
 
 			// populate note element
 			if (clef == clefEnum.TREBLE) {
-				noteElement.setAttribute('id', `treble.${i}.${j+(newLine *31)}`);
+				noteElement.setAttribute('id', `treble.${i}.${j+(newLine *32)}`);
 			} else {
-				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*31)}`);
+				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*32)}`);
 			}
 
 
