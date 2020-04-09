@@ -216,3 +216,17 @@ function removeRow() {
 		}
 	}
 }
+
+function clearSheet() {
+    // just iterate through and toggle if length isn't 0
+    for (let i = 0; i < numberOfRows; i++) {
+        for (let j = 0; j < (numberOfNotes * (newLine + 1)); j++) {
+            if (trebleData[i][j].noteLength != 0) {
+                toggleNote(document.getElementById(trebleData[i][j].id));
+            }
+            if (bassData[i][j].noteLength != 0) {
+                toggleNote(document.getElementById(bassData[i][j].id));
+            }
+        }
+    }
+}
