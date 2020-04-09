@@ -21,7 +21,7 @@
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <p class="navbar-item is-size-5">Custom Sheet Music</p>
+                <p class="navbar-item is-size-5 poppins" style="font-weight: 600;">Custom Sheet Music</p>
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
                     data-target="navbarMain">
                     <span aria-hidden="true"></span>
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="navbar-end">
-                    <p class="navbar-item has-text-weight-light">Made by us</p>
+                    <p class="navbar-item has-text-weight-light karla">Made by us</p>
                 </div>
             </div>
         </div>
@@ -62,60 +62,88 @@
 
             <!-- first column -->
             <div class="column is-one-quarter">
-                <div class="card info-panel">
-                    <div class="card-content">
-                        <h5 class="title is-5">Options</h5>
-
+                <nav class="panel has-background-white">
+                    <p class="panel-heading poppins">
+                        Settings
+                    </p>
+                    <div class="container" style="padding: 1rem 1.5rem;">
                         <!-- note length form -->
-                        <form id="form">
-                            <input type="radio" name="note" id="eighthNote" value="eighthNote" onclick="assignNote()"
-                                checked>
-                            <label for="eighthNote"> <img src="assets/img/eighthNote.png" style="height: 2rem;">
-                            </label>
-                            <input type="radio" name="note" id="quarterNote" value="quarterNote" onclick="assignNote()">
-                            <label for="quarterNote"> <img src="assets/img/quarterNote.png" style="height: 2rem;">
-                            </label>
-                            <input type="radio" name="note" id="halfNote" value="halfNote" onclick="assignNote()">
-                            <label for="halfNote"> <img src="assets/img/halfNote.png" style="height: 2rem;"> </label>
-                            <input type="radio" name="note" id="wholeNote" value="wholeNote" onclick="assignNote()">
-                            <label for="wholeNote"> <img src="assets/img/wholeNote.png" style="height: 1rem;"> </label>
-                        </form>
-
-                        <br>
-
-                        <!-- add/remove row buttons -->
-                        <div class="container">
-                            <button class="button is-dark is-small is-rounded" onclick="addRow()">Add row</button>
-                            <button class="button is-dark is-small is-rounded" onclick="removeRow()" id="removeButton"
-                                disabled>Remove row</button>
+                        <div class="field">
+                            <form id="form">
+                                <input type="radio" name="note" id="eighthNote" value="eighthNote" onclick="assignNote()"
+                                    checked>
+                                <label for="eighthNote"> <img src="assets/img/eighthNote.png" style="height: 2rem;">
+                                </label>
+                                <input type="radio" name="note" id="quarterNote" value="quarterNote" onclick="assignNote()">
+                                <label for="quarterNote"> <img src="assets/img/quarterNote.png" style="height: 2rem;">
+                                </label>
+                                <input type="radio" name="note" id="halfNote" value="halfNote" onclick="assignNote()">
+                                <label for="halfNote"> <img src="assets/img/halfNote.png" style="height: 2rem;"> </label>
+                                <input type="radio" name="note" id="wholeNote" value="wholeNote" onclick="assignNote()">
+                                <label for="wholeNote"> <img src="assets/img/wholeNote.png" style="height: 1rem;"> </label>
+                            </form>
                         </div>
-
-                        <br>
 
                         <!-- play/stop buttons -->
-                        <div class="container">
-                            <button class="button is-primary is-small is-rounded" id="start"
-                                onclick="startPlaying(1)">Play</button>
-                            <button class="button is-primary is-small is-rounded" id="stop" onclick="stopPlaying()"
-                                disabled>Stop player</button>
+                        <div class="field has-addons">
+                            <p class="control">
+                                <button class="button is-primary is-small is-rounded karla" id="start"
+                                    onclick="startPlaying(1)">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-play"></i>
+                                    </span>
+                                    <span>Play</span>
+                                </button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-primary is-small is-rounded karla" id="stop"
+                                    onclick="stopPlaying()" disabled>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-stop"></i>
+                                    </span>
+                                    <span>Stop</span>
+                                </button>
+                            </p>
                         </div>
 
-                        <br>
+                        <!-- add/remove row buttons -->
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <button class="button is-dark is-small is-rounded karla" onclick="addRow()">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span>Add row</span>
+                                </button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-dark is-small is-rounded karla" onclick="removeRow()"
+                                id="removeButton" disabled>
+                                <span class="icon is-small">
+                                    <i class="fas fa-minus"></i>
+                                </span>
+                                <span>Remove row</span>
+                            </button>
+                            </p>
+                        </div>
 
                         <!-- clear sheet button -->
-                        <div class="container">
-                            <button class="button is-dark is-small is-rounded" onclick="clearSheet()">Clear
-                                sheet</button>
+                        <div class="field">
+                            <p class="control">
+                                <button class="button is-dark is-small is-rounded karla" onclick="clearSheet()">Clear
+                                    sheet</button>
+                            </p>
                         </div>
-
-                        <br>
 
                         <!-- textbox modal button -->
-                        <div class="container">
-                            <button class="button is-dark is-small is-rounded" id="open-modal">Import/Export</button>
+                        <div class="field">
+                            <p class="control">
+                                <button class="button is-dark is-small is-rounded karla"
+                                    id="open-modal">Import/Export</button>
+                            </p>
                         </div>
                     </div>
-                </div>
+                </nav>
             </div>
 
             <!-- second column -->
@@ -151,21 +179,26 @@
         <div class="modal-background"></div>
         <div class="modal-content">
             <nav class="panel has-background-white">
-                <p class="panel-heading">
+                <p class="panel-heading poppins">
                     Import/Export
                 </p>
                 <div class="container" style="padding: 1rem 1.5rem;">
-                    <p>Press the "Export" button to generate plaintext for you to store your current song, or paste a song you exported earlier and press "Import" to bring it back up.</p><br>
+                    <p class="karla">Press the "Export" button to generate plaintext for you to store your current song,
+                        or paste a song you exported earlier and press "Import" to bring it back up.</p><br>
                     <div class="field">
                         <div class="control relative">
-                            <textarea class="textarea is-primary is-small" id="textbox" placeholder="If you don't know what to put in here, try pressing export first!"></textarea>
-                            <button class="button has-background-light is-small is-text" id="copy" onclick="copy()">Copy to clipboard</button>
+                            <textarea class="textarea is-primary is-small karla" id="textbox"
+                                placeholder="If you don't know what to put in here, try pressing export first!"></textarea>
+                            <button class="button has-background-light is-small is-text karla" id="copy"
+                                onclick="copy()">Copy to clipboard</button>
                         </div>
                     </div>
                     <!-- import/export buttons -->
                     <div class="container">
-                        <button class="button is-primary is-small is-rounded" id="import" onclick="importSong()">Import</button>
-                        <button class="button is-primary is-small is-rounded" id="export" onclick="exportSong()">Export</button>
+                        <button class="button is-primary is-small is-rounded karla" id="import"
+                            onclick="importSong()">Import</button>
+                        <button class="button is-primary is-small is-rounded karla" id="export"
+                            onclick="exportSong()">Export</button>
                     </div>
                 </div>
             </nav>
