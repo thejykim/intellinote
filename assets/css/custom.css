@@ -72,3 +72,13 @@ tr.line td:before {
         opacity: 1;
      }
 }
+
+.relative {
+    position: relative;
+}
+
+#copy {
+    position: absolute;
+    top: 0px;
+    right: 0px; 
+}

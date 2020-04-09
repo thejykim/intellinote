@@ -1,5 +1,6 @@
 // document elements
 const textbox = document.getElementById('textbox');
+const copyTextResetDelay = 2000;
 
 function setModalJS() {
     document.querySelector('#open-modal').addEventListener('click', function (event) {
@@ -105,4 +106,17 @@ function exportSong() {
         }
         textbox.value = textbox.value + "&";
     }
+}
+
+function copy() {
+    textbox.select();
+    textbox.setSelectionRange(0, 99999); // for mobile devices
+
+    document.execCommand("copy");
+
+    document.getElementById('copy').innerText = "Copied!";
+
+    window.setTimeout(function() {
+        document.getElementById('copy').innerText = "Copy to clipboard";
+    }, copyTextResetDelay);
 }
