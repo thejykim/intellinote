@@ -78,7 +78,12 @@ tr.line td:before {
 }
 
 #copy {
+    opacity: 0.8;
     position: absolute;
     top: 0px;
     right: 0px; 
+}
+
+#copy:hover {
+    opacity: 1;
 }
