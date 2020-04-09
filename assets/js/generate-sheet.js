@@ -1,4 +1,4 @@
-// import {currentNote} from "./noteLogic.js";
+// import {currentNoteLength} from "./noteLogic.js";
 
 // document elements
 const removeButton = document.getElementById('removeButton');
@@ -32,9 +32,11 @@ function toggleNote(noteElement){
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			// trebleData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
 			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			// bassData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
 		}
 	} else {
 		// empty element
@@ -47,6 +49,7 @@ function toggleNote(noteElement){
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = 0;
 		}
 	}
+	accidentalArray[noteLoc[2]] = accidental;
 }
 
 function parseNoteLoc(noteElement){

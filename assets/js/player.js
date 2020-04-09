@@ -5,6 +5,7 @@ const stopButton = document.getElementById('stop');
 // variables
 let timeBetweenNotes = 2000;
 let isPlaying = false;
+let accidentalArray = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
 
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
@@ -64,11 +65,15 @@ async function startPlaying(startPlaying) {
                   noteToBePlayed = String.fromCharCode(79 - rowIndex) + "2";
               }
           }
+          // account for accidentals (natural, sharp, flat)
+          // noteToBePlayed = ''.concat(noteToBePlayed[0], accidental, noteToBePlayed[noteToBePlayed.length - 1]);
+          noteToBePlayed = ''.concat(noteToBePlayed[0], accidentalArray[i], noteToBePlayed[noteToBePlayed.length - 1]);
+          console.log(noteToBePlayed);
           // push note object into the row
           rowNotes.push({noteT: noteToBePlayed, noteLength: noteLen});
         }
         notes.push(rowNotes);
-      })
+    })
     }
 
       // transpose first, because if you remove null before then the transposition won't work
@@ -98,8 +103,9 @@ async function startPlaying(startPlaying) {
 
         // play notes
         for (let i = 0; i < notes[count].length; i++){
-          console.log(notes[count][i].noteT);
-          synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
+          notePlaying = notes[count][i].noteT
+          //console.log(''.concat(notePlaying[0] + notes[count][i].noteAccidental + notePlaying[notePlaying.length - 1]));
+          synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
           if (notes[count][i].noteLength < maxLength) {
             maxLength = notes[count][i].noteLength;
             //insert quantum computing server here

@@ -67,7 +67,7 @@
                         <h5 class="title is-5">Options</h5>
 
                         <!-- note length form -->
-                        <form id="form">
+                        <form id="lengthForm">
                             <input type="radio" name="note" id="eighthNote" value="eighthNote" onclick="assignNote()"
                                 checked>
                             <label for="eighthNote"> <img src="assets/img/eighthNote.png" style="height: 2rem;">
@@ -83,6 +83,17 @@
 
                         <br>
 
+                        <form id = "accidentalForm">
+                             <input type="radio" name="accidental" id="natural" value="" onclick="assignNote()"
+                                 checked>
+                             <label for="natural"> <img src="assets/img/eighthNote.png" style="height: 2rem;">
+                             </label>
+                             <input type="radio" name="accidental" id="sharp" value="#" onclick="assignNote()">
+                             <label for="sharp"> <img src="assets/img/quarterNote.png" style="height: 2rem;">
+                             </label>
+                             <input type="radio" name="accidental" id="flat" value="b" onclick="assignNote()">
+                             <label for="sharp"> <img src="" style="height: 2rem;"> </label>
+                        </form>
                         <!-- add/remove row buttons -->
                         <div class="container">
                             <button class="button is-dark is-small is-rounded" onclick="addRow()">Add row</button>

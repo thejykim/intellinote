@@ -1,8 +1,12 @@
 // assignNote() saves the currently selected note
-let currentNote = "";
+let currentNoteLength = "";
+let accidental = "";
 function assignNote() {
-    let form = document.getElementById("form");
-    currentNote = form.elements["note"].value;
+    let form = document.getElementById("lengthForm");
+    currentNoteLength = form.elements["note"].value;
+
+    let accidentalForm = document.getElementById("accidentalForm");
+    accidental = accidentalForm.elements["accidental"].value;
 }
 //default note length (change to match documentation)
 noteLen = 8;
@@ -11,7 +15,7 @@ noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; left
 // onToggleNote()
 function parseNoteLen() {
     let lengths = ["eighthNote", "quarterNote", "halfNote", "wholeNote"];
-    var lenArrLoc = lengths.indexOf(currentNote);
+    var lenArrLoc = lengths.indexOf(currentNoteLength);
     // add correct lengths based on api documentation
     switch (lenArrLoc) {
         case 0:
