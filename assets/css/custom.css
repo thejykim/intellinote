@@ -15,7 +15,7 @@ table.sheet {
 
 td {
     position: relative; /* coordinate system */
-    width: 3rem; /* change these two to adjust cell size!! */
+    width: 2rem; /* change these two to adjust cell size!! */
     height: 0.5rem;
 }
 
@@ -42,6 +42,16 @@ tr.line td:before {
 .note {
     vertical-align: top;
     line-height: 0.5rem;
+}
+
+.note-border {
+    vertical-align: top;
+    line-height: 0.5rem;
+    border-right: 2px solid black;
+}
+
+.note-border:hover {
+    outline: rgb(187, 187, 187) solid 1px
 }
 
 .fade-in {

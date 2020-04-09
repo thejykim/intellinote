@@ -4,9 +4,10 @@
 const removeButton = document.getElementById('removeButton');
 
 // number of notes generated per row
-const numberOfNotes = 10;
+const numberOfNotes = 32;
 let trebleData = [];
 let bassData = [];
+let newLine = 0;
 
 // enum for clef
 
@@ -69,7 +70,7 @@ function generateSheet(clef, id) {
 		initial = bassData.length;
 	}
 
-	for (let i = initial; i < (initial + 9); i++) {
+	for (let i = 0; i < 9; i++) {
 		let row = document.createElement('tr');
 		if (line) {
 			row.setAttribute('class', 'line');
@@ -81,15 +82,29 @@ function generateSheet(clef, id) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 
-			// populate note element
-			if (clef == clefEnum.TREBLE) {
-				noteElement.setAttribute('id', `treble.${i}.${j}`);
-			} else {
-				noteElement.setAttribute('id', `bass.${i}.${j}`);
+			if (((j+1) % 8) == 0) {
+				noteElement.setAttribute('class', 'note-border')
 			}
 
+			// populate note element
+			if (clef == clefEnum.TREBLE) {
+				noteElement.setAttribute('id', `treble.${i}.${j+(newLine *32)}`);
+			} else {
+				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*32)}`);
+			}
+
+
 			// push to row array
-			rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			if(newLine == 0){
+				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			}
+			else if(clef == clefEnum.TREBLE){
+				trebleData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			}
+			else{
+				bassData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			}
+			// console.log(noteElement.getAttribute('id'));
 
 			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
 			let divElement = document.createElement('div');
@@ -106,10 +121,12 @@ function generateSheet(clef, id) {
 		}
 
 		// decide which clef array to push to
-		if (clef == clefEnum.TREBLE) {
-			trebleData.push(rowArray);
-		} else {
-			bassData.push(rowArray);
+		if(newLine == 0){
+			if (clef == clefEnum.TREBLE) {
+					trebleData.push(rowArray);
+			} else {
+					bassData.push(rowArray);
+			}
 		}
 
 		// append row to sheet table
@@ -126,19 +143,19 @@ function generateSheet(clef, id) {
 
 // function called every time the user clicks a button to add more rows
 function addRow() {
-	// determine how many rows there already are
-	let numRows = trebleData.length / 9;
+	// makes new line have different id
+	newLine++;
 
 	// create treble div
 	let trebleDiv = document.createElement('div');
 	trebleDiv.setAttribute('class', 'columns fade-in');
-	trebleDiv.setAttribute('id', `trebleDiv-${numRows+1}`);
+	trebleDiv.setAttribute('id', `trebleDiv-${newLine+1}`);
 	trebleDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
 		</div>
 		<div class="column is-10">
-			<table class="sheet" id="treble-sheet-${numRows+1}">
+			<table class="sheet" id="treble-sheet-${newLine+1}">
 			</table>
 		</div>
 	`
@@ -146,13 +163,13 @@ function addRow() {
 	// create bass div
 	let bassDiv = document.createElement('div');
 	bassDiv.setAttribute('class', 'columns fade-in');
-	bassDiv.setAttribute('id', `bassDiv-${numRows+1}`);
+	bassDiv.setAttribute('id', `bassDiv-${newLine+1}`);
 	bassDiv.innerHTML = `
 		<div class="column is-2">
 			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
 		</div>
 		<div class="column is-10">
-			<table class="sheet" id="bass-sheet-${numRows+1}">
+			<table class="sheet" id="bass-sheet-${newLine+1}">
 			</table>
 		</div>
 	`
@@ -163,35 +180,36 @@ function addRow() {
 	sheetRowElement.appendChild(bassDiv);
 
 	// generate sheet music for new divs
-	generateSheet(clefEnum.TREBLE, `treble-sheet-${numRows+1}`);
-	generateSheet(clefEnum.BASS, `bass-sheet-${numRows+1}`);
+	generateSheet(clefEnum.TREBLE, `treble-sheet-${newLine+1}`);
+	generateSheet(clefEnum.BASS, `bass-sheet-${newLine+1}`);
 
 	// enable remove rows button
 	removeButton.removeAttribute("disabled");
 }
 
 function removeRow() {
-	// get number of rows already in
-	let numRows = trebleData.length / 9;
-
-	if (numRows == 1) {
-		// don't do anything if there's only one row
+	if (newLine == 0) {
 		return;
-	} else if (numRows == 2) {
-		// disable button if the last removable row is being removed
-		removeButton.setAttribute("disabled", "true");
-	}
+	} else {
+		// remove divs
+		let trebleDiv = document.getElementById(`trebleDiv-${newLine+1}`);
+		let bassDiv = document.getElementById(`bassDiv-${newLine+1}`);
 
-	// remove divs
-	let trebleDiv = document.getElementById(`trebleDiv-${numRows}`);
-	let bassDiv = document.getElementById(`bassDiv-${numRows}`);
+		trebleDiv.parentNode.removeChild(trebleDiv);
+		bassDiv.parentNode.removeChild(bassDiv);
 
-	trebleDiv.parentNode.removeChild(trebleDiv);
-	bassDiv.parentNode.removeChild(bassDiv);
+		// remove array rows
+		for (let j = (newLine)*32; j < (newLine+1)*32; j++) {
+			for (let i = 0; i < 9; i++) {
+				trebleData[i].pop();
+				bassData[i].pop();
+			}
+		}
 
-	// remove array rows
-	for (let i = 0; i < 9; i++) {
-		trebleData.pop();
-		bassData.pop();
+		newLine--;
+		if (newLine == 0) {
+			// disable button if the last removable row is being removed
+			removeButton.setAttribute("disabled", "true");
+		}
 	}
 }
