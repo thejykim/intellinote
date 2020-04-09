@@ -4,11 +4,12 @@
 const removeButton = document.getElementById('removeButton');
 
 // number of notes generated per row
-const numberOfNotes = 32;
+const numberOfNotes = 32; //will need to change based on time signature
 let trebleData = [];
 let bassData = [];
 let newLine = 0;
-const numOfRows = 15;
+const numOfRows = 14;
+let beatsPerMeas = numberOfNotes / 4;
 // enum for clef
 
 const clefEnum = {
@@ -25,6 +26,7 @@ function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
 	parseNoteLen();
+	console.log(trebleData);
 	if (divElement.innerHTML === '') {
 		// put in element
 		// divElement.innerHTML = '<i class="fas fa-circle"></i>';
@@ -73,7 +75,7 @@ function generateSheet(clef, id) {
 	for (let i = 0; i < numOfRows; i++) {
 		let row = document.createElement('tr');
 		if (line) {
-			if(i>1 && i<13){
+			if(i>1 && i<12){
 				row.setAttribute('class', 'line');
 			}
 		}
@@ -84,15 +86,15 @@ function generateSheet(clef, id) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 
-			if (((j+1) % 8) == 0 && (i>1 && i<13)) {
+			if (((j+1) % 8) == 0 && (i>1 && i<11)) {
 				noteElement.setAttribute('class', 'note-border')
 			}
 
 			// populate note element
 			if (clef == clefEnum.TREBLE) {
-				noteElement.setAttribute('id', `treble.${i}.${j+(newLine *32)}`);
+				noteElement.setAttribute('id', `treble.${i}.${j+(newLine *numberOfNotes)}`);
 			} else {
-				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*32)}`);
+				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*numberOfNotes)}`);
 			}
 
 
@@ -201,7 +203,7 @@ function removeRow() {
 		bassDiv.parentNode.removeChild(bassDiv);
 
 		// remove array rows
-		for (let j = (newLine)*32; j < (newLine+1)*32; j++) {
+		for (let j = (newLine)*numberOfNotes; j < (newLine+1)*numberOfNotes; j++) {
 			for (let i = 0; i < 13; i++) {
 				trebleData[i].pop();
 				bassData[i].pop();

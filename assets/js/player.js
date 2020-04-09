@@ -33,7 +33,7 @@ async function startPlaying(startPlaying) {
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < (numberOfNotes*(newLine+1)); i++) {
           let noteLen = row[i].noteLength;
-          console.log(i);
+
           // if no note, just push null and skip
           if (noteLen == 0) {
             rowNotes.push(null);
@@ -44,6 +44,7 @@ async function startPlaying(startPlaying) {
 
           let noteLength;
           // if array is treble
+          // Need to change this to fit the added lines on top and bottom
           if (noteRowGroup == 0) {
             if (rowIndex <= 3) {
                 noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
@@ -95,7 +96,7 @@ async function startPlaying(startPlaying) {
       var maxLength = 1;
       isPlaying = true;
       while (count < (numberOfNotes * (newLine +1)) && isPlaying) {
-        maxLength = 8;
+        maxLength = beatsPerMeas;
         for (let i = 0; i < notes[count].length; i++){
           console.log(notes[count][i].noteT);
           synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
