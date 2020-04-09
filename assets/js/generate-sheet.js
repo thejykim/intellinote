@@ -19,11 +19,6 @@ const clefEnum = {
 	BASS: 'bass'
 }
 
-window.onload = function() {
-	generateSheet(clefEnum.TREBLE, 'treble-sheet-1');
-	generateSheet(clefEnum.BASS, 'bass-sheet-1');
-}
-
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
