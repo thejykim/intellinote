@@ -54,6 +54,10 @@ tr.line td:before {
     outline: rgb(187, 187, 187) solid 1px
 }
 
+.highlighted {
+    background-color: #ffed88;
+}
+
 .fade-in {
     animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1;
