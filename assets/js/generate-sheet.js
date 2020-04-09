@@ -8,7 +8,7 @@ const numberOfNotes = 32;
 let trebleData = [];
 let bassData = [];
 let newLine = 0;
-
+const numOfRows = 15;
 // enum for clef
 
 const clefEnum = {
@@ -70,10 +70,12 @@ function generateSheet(clef, id) {
 		initial = bassData.length;
 	}
 
-	for (let i = 0; i < 9; i++) {
+	for (let i = 0; i < numOfRows; i++) {
 		let row = document.createElement('tr');
 		if (line) {
-			row.setAttribute('class', 'line');
+			if(i>1 && i<13){
+				row.setAttribute('class', 'line');
+			}
 		}
 		rowArray =[];
 		// populate row with notes
@@ -82,7 +84,7 @@ function generateSheet(clef, id) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 
-			if (((j+1) % 8) == 0) {
+			if (((j+1) % 8) == 0 && (i>1 && i<13)) {
 				noteElement.setAttribute('class', 'note-border')
 			}
 
@@ -200,7 +202,7 @@ function removeRow() {
 
 		// remove array rows
 		for (let j = (newLine)*32; j < (newLine+1)*32; j++) {
-			for (let i = 0; i < 9; i++) {
+			for (let i = 0; i < 13; i++) {
 				trebleData[i].pop();
 				bassData[i].pop();
 			}

@@ -6,6 +6,7 @@ const stopButton = document.getElementById('stop');
 let timeBetweenNotes = 2000;
 let isPlaying = false;
 
+
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
     oscillator : {
@@ -27,7 +28,7 @@ async function startPlaying(startPlaying) {
     noteGroups[noteRowGroup].forEach(function(row) {
         // temp row array
         let rowNotes = [];
-        let rowIndex = noteGroups[noteRowGroup].indexOf(row) % 9;
+        let rowIndex = noteGroups[noteRowGroup].indexOf(row) % numOfRows;
 
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < (numberOfNotes*(newLine+1)); i++) {
