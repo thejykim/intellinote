@@ -26,7 +26,7 @@ table.sheet {
 
 td {
     position: relative; /* coordinate system */
-    width: 2rem; /* change these two to adjust cell size!! */
+    width: 5rem; /* change these two to adjust cell size!! */
     height: 0.5rem;
 }
 

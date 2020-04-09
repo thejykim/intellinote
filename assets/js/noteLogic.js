@@ -30,17 +30,17 @@ function parseNoteLen() {
 }
 
 function setEighth() {
-    noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem; width: 2rem;" >';
+    noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem" >';
     noteLen = 8;
 }
 
 function setQuarter() {
-    noteIcon = '<img src = "assets/img/quarterNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem; width: 2rem;" >';
+    noteIcon = '<img src = "assets/img/quarterNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem" >';
     noteLen = 4;
 }
 
 function setHalf() {
-    noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem; width: .75rem;" >';
+    noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem" >';
     noteLen = 2;
 }
 
