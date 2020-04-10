@@ -34,21 +34,60 @@ function parseNoteLen() {
 }
 
 function setEighth() {
-    noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
-    noteLen = 8;
+    switch (accidental) {
+        case "":
+            noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
+            break;
+        case "#":
+            noteIcon = '<img src = "assets/img/eighthNoteSharp.png" style = "display: block; right: 15%; bottom: -130%; position: absolute; height: 2.55rem; vertical-align: middle;" >';
+            break;
+        case "b":
+            noteIcon = '<img src = "assets/img/eighthNoteFlat.png" style = "display: block; right: 15%; bottom: -100%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+            break;
+    }
 }
 
 function setQuarter() {
-    noteIcon = '<img src = "assets/img/quarterNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
+    switch (accidental) {
+        case "":
+            noteIcon = '<img src = "assets/img/quarterNote.png" style = "display: block; right: 12%; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
+            break;
+        case "#":
+            noteIcon = '<img src = "assets/img/quarterNoteSharp.png" style = "display: block; right: 18%; bottom: -120%; position: absolute; height: 2.6rem; vertical-align: middle;" >';
+            break;
+        case "b":
+            noteIcon = '<img src = "assets/img/quarterNoteFlat.png" style = "display: block; right: 18%; bottom: -95%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+            break;
+    }
     noteLen = 4;
 }
 
 function setHalf() {
-    noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
+    switch (accidental) {
+        case "":
+            noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; right: 12%; bottom: -10%; position: absolute; height: 2rem; vertical-align: middle;" >';
+            break;
+        case "#":
+            noteIcon = '<img src = "assets/img/halfNoteSharp.png" style = "display: block; right: 18%; bottom: -145%; position: absolute; height: 2.55rem; vertical-align: middle;" >';
+            break;
+        case "b":
+            noteIcon = '<img src = "assets/img/halfNoteFlat.png" style = "display: block; right: 18%; bottom: -110%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+            break;
+    }
     noteLen = 2;
 }
 
 function setWhole() {
-    noteIcon = '<img src = "assets/img/wholeNote.png" style = "display: block; left : 25%; position: absolute; height: .588rem; width: 1rem;" >';
+    switch (accidental) {
+        case "":
+            noteIcon = '<img src = "assets/img/wholeNote.png" style = "display: block; left: 10%; bottom: -15%; position: absolute; width: 0.7rem; height: 2rem; vertical-align: middle;" >';
+            break;
+        case "#":
+            noteIcon = '<img src = "assets/img/wholeNoteSharp.png" style = "display: block; right: 25%; bottom: -145%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+            break;
+        case "b":
+            noteIcon = '<img src = "assets/img/wholeNoteFlat.png" style = "display: block; right: 24%; bottom: -110%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+            break;
+    }
     noteLen = 1;
 }
