@@ -95,7 +95,7 @@
                     
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
-                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 400;font-size:small">Note Length</p>
+                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Note Length</p>
                             <!-- note lengths -->
                             <form id="form">
                                 <input type="radio" name="note" id="eighthNote" value="eighthNote" onclick="assignNote()"
@@ -115,7 +115,7 @@
 
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
-                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 300;font-size:small">Sheet</p>
+                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Sheet</p>
                             <!-- add/remove row buttons -->
                             <div class="field is-grouped">
                                 <p class="control">
@@ -140,8 +140,12 @@
                             <!-- clear sheet button -->
                             <div class="field">
                                 <p class="control">
-                                    <button class="button is-dark is-small is-rounded karla" onclick="clearSheet()">Clear
-                                        sheet</button>
+                                    <button class="button is-dark is-small is-rounded karla" onclick="clearSheet()">
+                                        <span class="icon is-small">
+                                            <i class="fas fa-ban"></i>
+                                        </span>
+                                        <span>Clear sheet</span>
+                                    </button>
                                 </p>
                             </div>
                         </div>
@@ -149,12 +153,17 @@
 
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
-                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 300;font-size:small">Share</p>
+                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Share</p>
                             <!-- textbox modal button -->
                             <div class="field">
                                 <p class="control">
                                     <button class="button is-dark is-small is-rounded karla"
-                                        id="open-modal">Import/Export</button>
+                                        id="open-modal">
+                                        <span class="icon is-small">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span>Import/Export</span>
+                                    </button>
                                 </p>
                             </div>
                         </div>
