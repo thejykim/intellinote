@@ -2,9 +2,9 @@
 const textbox = document.getElementById('textbox');
 const copyTextResetDelay = 2000;
 const sheetParse = ',';
-const rowParse = "&";
-const noteParse = ";";
-const noteObjectParse = "*";
+const rowParse = ";";
+const noteParse = "-";
+const noteObjectParse = ".";
 
 function setModalJS() {
     document.querySelector('#open-modal').addEventListener('click', function (event) {
