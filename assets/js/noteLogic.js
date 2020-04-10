@@ -45,6 +45,7 @@ function setEighth() {
             noteIcon = '<img src = "assets/img/eighthNoteFlat.png" style = "display: block; right: 15%; bottom: -100%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
             break;
     }
+    noteLen = 8;
 }
 
 function setQuarter() {
