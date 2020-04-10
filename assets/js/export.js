@@ -1,6 +1,10 @@
 // document elements
 const textbox = document.getElementById('textbox');
 const copyTextResetDelay = 2000;
+const sheetParse = ',';
+const rowParse = "&";
+const noteParse = ";";
+const noteObjectParse = "*";
 
 function setModalJS() {
     document.querySelector('#open-modal').addEventListener('click', function (event) {
@@ -28,9 +32,9 @@ function importSong() {
     let contents = textbox.value;
 
     // parse
-    let parsed = contents.split(',');
+    let parsed = contents.split(sheetParse);
     let numLines = parsed[0]; // number of separate sheet lines (minimum 1)
-    let sheetContents = parsed[1].split('&');
+    let sheetContents = parsed[1].split(rowParse);
 
     // adjust current number of rows
     while ((newLine + 1) != numLines) {
@@ -43,9 +47,9 @@ function importSong() {
 
     // iterate through
     for (let i = 0; i < numberOfRows; i++) {
-        let rowContents = sheetContents[i].split(';');
+        let rowContents = sheetContents[i].split(noteParse);
         for (let j = 0; j < (numberOfNotes * (newLine + 1)); j++) {
-            let clefContents = rowContents[j].split('#');
+            let clefContents = rowContents[j].split(noteObjectParse);
             // treble first
             switch (clefContents[0]) {
                 case "1":
@@ -68,6 +72,7 @@ function importSong() {
 
             // treble accidentals
             trebleAccidentals[i][j] = clefContents[1];
+            console.log(clefContents[1]);
 
             // ..then bass
             switch (clefContents[2]) {
@@ -91,6 +96,7 @@ function importSong() {
 
             // bass accidentals
             bassAccidentals[i][j] = clefContents[3];
+            console.log(clefContents[3]);
         }
     }
 
@@ -99,7 +105,7 @@ function importSong() {
 }
 
 function exportSong() {
-    textbox.value = (newLine+1) + ",";
+    textbox.value = (newLine+1) + sheetParse;
 
     // iterate through
     for (let i = 0; i < numberOfRows; i++) {
@@ -108,9 +114,9 @@ function exportSong() {
             let bassLength = bassData[i][j].noteLength;
 
             // add to textbox
-            textbox.value = textbox.value + trebleLength + "#" + trebleAccidentals[i][j] + "#" + bassLength + "#" + bassAccidentals[i][j] + ";";
+            textbox.value = textbox.value + trebleLength + noteObjectParse + trebleAccidentals[i][j] + noteObjectParse + bassLength + noteObjectParse + bassAccidentals[i][j] + noteParse;
         }
-        textbox.value = textbox.value + "&";
+        textbox.value = textbox.value + rowParse;
     }
 }
 
