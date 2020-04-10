@@ -6,7 +6,7 @@ function assignNote() {
 }
 //default note length (change to match documentation)
 noteLen = 8;
-noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem; width: 2rem;" >';
+noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
 // parseNoteLen() finds location based on id (string), sets noteLen to correct length for
 // onToggleNote()
 function parseNoteLen() {
@@ -30,17 +30,17 @@ function parseNoteLen() {
 }
 
 function setEighth() {
-    noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem" >';
+    noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
     noteLen = 8;
 }
 
 function setQuarter() {
-    noteIcon = '<img src = "assets/img/quarterNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem" >';
+    noteIcon = '<img src = "assets/img/quarterNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
     noteLen = 4;
 }
 
 function setHalf() {
-    noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; left : 25%; bottom: 0; position: absolute; height: 2rem" >';
+    noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
     noteLen = 2;
 }
 
