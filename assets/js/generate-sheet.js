@@ -4,7 +4,7 @@
 const removeButton = document.getElementById('removeButton');
 
 // number of notes generated per row
-const numberOfNotes = 32;
+let numberOfNotes = 32;
 // number of notes generated per column
 const numberOfRows = 13;
 
@@ -27,6 +27,7 @@ for (var i = 0; i < 13; i++) {
 	trebleAccidentals.push((new Array(32).fill("")));
 	bassAccidentals.push((new Array(32).fill("")));
 }
+
 
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
@@ -102,7 +103,7 @@ function generateSheet(clef, id) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 
-			if (((j+1) % 8) == 0 && (i>1 && i<11)) {
+			if (((j+1) % beatsPerMeas) == 0 && (i>1 && i<11)) {
 				noteElement.setAttribute('class', 'note-border')
 			}
 
@@ -171,7 +172,7 @@ function addRow() {
 	trebleDiv.setAttribute('class', 'columns fade-in');
 	trebleDiv.setAttribute('id', `trebleDiv-${newLine+1}`);
 	trebleDiv.innerHTML = `
-		<div class="column is-2">
+		<div id = "column-left" class="column is-2">
 			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
 		</div>
 		<div class="column is-10">

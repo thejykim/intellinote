@@ -118,6 +118,10 @@
                             <button class="button is-dark is-small is-rounded" onclick="clearSheet()">Clear
                                 sheet</button>
                         </div>
+                        <br>
+                        <div class="container">
+                            <button class="button is-dark is-small is-rounded" onclick="changeTimeSig(2)">2-4 time</button>
+                        </div>
 
                         <br>
 
@@ -134,7 +138,7 @@
 
                 <!-- treble clef -->
                 <div class="columns">
-                    <div class="column is-2">
+                    <div class="column is-2" id= "column-left">
                         <img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
                     </div>
                     <div class="column is-10">
@@ -145,7 +149,7 @@
 
                 <!-- bass clef -->
                 <div class="columns">
-                    <div class="column is-2">
+                    <div class="column is-2" id="column-left">
                         <img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
                     </div>
                     <div class="column is-10">
@@ -189,6 +193,7 @@
     <script src="assets/js/generate-sheet.js"></script>
     <script src="assets/js/player.js"></script>
     <script src="assets/js/noteLogic.js"></script>
+    <script src="assets/js/timeSig.js"></script>
     <script src="assets/js/export.js"></script>
 
     <!-- start everything off -->
