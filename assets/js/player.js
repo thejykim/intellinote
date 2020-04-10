@@ -19,6 +19,9 @@ let interval;
 
 let notes = [];
 
+let trebleNoteKey = ["A5", "G5", "F5", "E5", "D5", "C5", "B4", "A4", "G4", "F4", "E4","D4", "C4"];
+let bassNoteKey = ["C4", "B3", "A3", "G3", "F3", "E3", "D3", "C2", "B2", "A2", "G2", "F2", "E2"];
+
 async function startPlaying(startPlaying) {
     // combined the arrays, but this actually won't allow us to add more than one row for now
     notes = [];
@@ -44,28 +47,15 @@ async function startPlaying(startPlaying) {
 
           let noteLength;
           // if array is treble
-          // Need to change this to fit the added lines on top and bottom
+          // replaced if statements with array access
+
           if (noteRowGroup == 0) {
-            if (rowIndex <= 3) {
-                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "5";
-            } else if (rowIndex <= 5) {
-                noteToBePlayed = String.fromCharCode(70 - rowIndex) + "4";
-            } else {
-                noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
-            }
+            noteToBePlayed = trebleNoteKey[rowIndex];
           }
 
           // if array is bass
           else if (noteRowGroup == 1) {
-            if (rowIndex < 1) {
-                  noteToBePlayed = "A3";
-              } else if (rowIndex <= 5) {
-                  noteToBePlayed = String.fromCharCode(72 - rowIndex) + "3";
-              } else if (rowIndex <= 7) {
-                  noteToBePlayed = String.fromCharCode(72 - rowIndex) + "2";
-              } else {
-                  noteToBePlayed = String.fromCharCode(79 - rowIndex) + "2";
-              }
+            noteToBePlayed = bassNoteKey[rowIndex];
           }
           console.log(noteToBePlayed)
           // push note object into the row

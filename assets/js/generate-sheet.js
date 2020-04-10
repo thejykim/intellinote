@@ -8,7 +8,7 @@ const numberOfNotes = 32; //will need to change based on time signature
 let trebleData = [];
 let bassData = [];
 let newLine = 0;
-const numOfRows = 14;
+const numOfRows = 13;
 let beatsPerMeas = numberOfNotes / 4;
 // enum for clef
 
@@ -29,9 +29,10 @@ function toggleNote(noteElement){
 	console.log(trebleData);
 	if (divElement.innerHTML === '') {
 		// put in element
-		// divElement.innerHTML = '<i class="fas fa-circle"></i>';
-		// divElement.style.position = "absolute";
+		//doesnt work 
+		// divElement.setAttribute('style', 'left: 0;top: 20%;right: 0;border-top: 1px solid;');
 		divElement.innerHTML = noteIcon;
+
 
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
@@ -53,6 +54,7 @@ function toggleNote(noteElement){
 	}
 }
 
+//turns id into array with clef, row location, and column location
 function parseNoteLoc(noteElement){
 	var noteId = noteElement.getAttribute('id');
 	noteLoc = noteId.split('.');
