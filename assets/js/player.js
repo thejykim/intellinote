@@ -50,7 +50,6 @@ async function startPlaying(startPlaying) {
             } else {
                 noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
             }
-             // account for accidentals (natural, sharp, flat)
             noteToBePlayed = ''.concat(noteToBePlayed[0], trebleAccidentals[rowIndex][i], noteToBePlayed[noteToBePlayed.length - 1]);
           }
 
@@ -65,10 +64,9 @@ async function startPlaying(startPlaying) {
               } else {
                   noteToBePlayed = String.fromCharCode(79 - rowIndex) + "2";
               }
-               // account for accidentals (natural, sharp, flat)
               noteToBePlayed = ''.concat(noteToBePlayed[0], bassAccidentals[rowIndex][i], noteToBePlayed[noteToBePlayed.length - 1]);
           }
-
+          // account for accidentals (natural, sharp, flat)
           // push note object into the row
           rowNotes.push({noteT: noteToBePlayed, noteLength: noteLen});
         }

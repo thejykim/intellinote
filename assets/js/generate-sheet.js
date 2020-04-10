@@ -6,8 +6,9 @@ const removeButton = document.getElementById('removeButton');
 // number of notes generated per row
 const numberOfNotes = 32;
 // number of notes generated per column
-const numberOfRows = 13;
+const numberOfRows = 9;
 
+let accidentalArray = new Array();
 let trebleAccidentals = new Array();
 let bassAccidentals = new Array();
 let trebleData = [];
@@ -21,9 +22,9 @@ const clefEnum = {
 	BASS: 'bass'
 }
 
-for (var i = 0; i < numberOfRows; i++) {
-	trebleAccidentals.push((new Array(numberOfNotes).fill("")));
-	bassAccidentals.push((new Array(numberOfNotes).fill("")));
+for (var i = 0; i < 13; i++) {
+	trebleAccidentals.push((new Array(32).fill("")));
+	bassAccidentals.push((new Array(32).fill("")));
 }
 
 function toggleNote(noteElement){
