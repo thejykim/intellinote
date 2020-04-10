@@ -4,7 +4,10 @@
 const removeButton = document.getElementById('removeButton');
 
 // number of notes generated per row
-const numberOfNotes = 32; //will need to change based on time signature
+const numberOfNotes = 32;
+// number of notes generated per column
+const numberOfRows = 9;
+
 let trebleData = [];
 let bassData = [];
 let newLine = 0;
@@ -17,11 +20,6 @@ const clefEnum = {
 	BASS: 'bass'
 }
 
-window.onload = function() {
-	generateSheet(clefEnum.TREBLE, 'treble-sheet-1');
-	generateSheet(clefEnum.BASS, 'bass-sheet-1');
-}
-
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
@@ -29,7 +27,7 @@ function toggleNote(noteElement){
 	console.log(trebleData);
 	if (divElement.innerHTML === '') {
 		// put in element
-		//doesnt work 
+		//doesnt work
 		// divElement.setAttribute('style', 'left: 0;top: 20%;right: 0;border-top: 1px solid;');
 		divElement.innerHTML = noteIcon;
 
@@ -218,4 +216,18 @@ function removeRow() {
 			removeButton.setAttribute("disabled", "true");
 		}
 	}
+}
+
+function clearSheet() {
+    // just iterate through and toggle if length isn't 0
+    for (let i = 0; i < numberOfRows; i++) {
+        for (let j = 0; j < (numberOfNotes * (newLine + 1)); j++) {
+            if (trebleData[i][j].noteLength != 0) {
+                toggleNote(document.getElementById(trebleData[i][j].id));
+            }
+            if (bassData[i][j].noteLength != 0) {
+                toggleNote(document.getElementById(bassData[i][j].id));
+            }
+        }
+    }
 }
