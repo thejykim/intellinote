@@ -5,7 +5,6 @@ const stopButton = document.getElementById('stop');
 // variables
 let timeBetweenNotes = 2000;
 let isPlaying = false;
-let accidentalArray = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
 
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
@@ -51,6 +50,8 @@ async function startPlaying(startPlaying) {
             } else {
                 noteToBePlayed = String.fromCharCode(77 - rowIndex) + "4";
             }
+             // account for accidentals (natural, sharp, flat)
+            noteToBePlayed = ''.concat(noteToBePlayed[0], trebleAccidentals[rowIndex][i], noteToBePlayed[noteToBePlayed.length - 1]);
           }
 
           // if array is bass
@@ -64,11 +65,10 @@ async function startPlaying(startPlaying) {
               } else {
                   noteToBePlayed = String.fromCharCode(79 - rowIndex) + "2";
               }
+               // account for accidentals (natural, sharp, flat)
+              noteToBePlayed = ''.concat(noteToBePlayed[0], bassAccidentals[rowIndex][i], noteToBePlayed[noteToBePlayed.length - 1]);
           }
-          // account for accidentals (natural, sharp, flat)
-          // noteToBePlayed = ''.concat(noteToBePlayed[0], accidental, noteToBePlayed[noteToBePlayed.length - 1]);
-          noteToBePlayed = ''.concat(noteToBePlayed[0], accidentalArray[i], noteToBePlayed[noteToBePlayed.length - 1]);
-          console.log(noteToBePlayed);
+
           // push note object into the row
           rowNotes.push({noteT: noteToBePlayed, noteLength: noteLen});
         }
@@ -79,7 +79,7 @@ async function startPlaying(startPlaying) {
       // transpose first, because if you remove null before then the transposition won't work
       notes = transpose(notes);
 
-      console.log(notes);
+     // console.log(notes);
 
       // removes null from the notes array because otherwise triggerAttack flips out
       for (let i = 0; i < numberOfNotes * (newLine+1); i++) {

@@ -6,8 +6,10 @@ const removeButton = document.getElementById('removeButton');
 // number of notes generated per row
 const numberOfNotes = 32;
 // number of notes generated per column
-const numberOfRows = 9;
+const numberOfRows = 13;
 
+let trebleAccidentals = new Array();
+let bassAccidentals = new Array();
 let trebleData = [];
 let bassData = [];
 let newLine = 0;
@@ -17,6 +19,11 @@ let newLine = 0;
 const clefEnum = {
 	TREBLE: 'treble',
 	BASS: 'bass'
+}
+
+for (var i = 0; i < numberOfRows; i++) {
+	trebleAccidentals.push((new Array(numberOfNotes).fill("")));
+	bassAccidentals.push((new Array(numberOfNotes).fill("")));
 }
 
 function toggleNote(noteElement){
@@ -34,10 +41,14 @@ function toggleNote(noteElement){
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
 			// trebleData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
 			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
+			trebleAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
+
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
 			// bassData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
+			bassAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
 		}
+
 	} else {
 		// empty element
 		divElement.innerHTML = '';
@@ -45,11 +56,12 @@ function toggleNote(noteElement){
 		// reset note length
 		if(noteLoc[0] === 'treble') {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = 0;
+			trebleAccidentals[noteLoc[1]][noteLoc[2]] = "";
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = 0;
+			bassAccidentals[noteLoc[1]][noteLoc[2]] = "";
 		}
 	}
-	accidentalArray[noteLoc[2]] = accidental;
 }
 
 function parseNoteLoc(noteElement){
