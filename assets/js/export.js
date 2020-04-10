@@ -66,8 +66,11 @@ function importSong() {
                     break;
             }
 
+            // treble accidentals
+            trebleAccidentals[i][j] = clefContents[1];
+
             // ..then bass
-            switch (clefContents[1]) {
+            switch (clefContents[2]) {
                 case "1":
                     setWhole();
                     toggleNote(document.getElementById(`bass.${i}.${j}`));
@@ -85,6 +88,9 @@ function importSong() {
                     toggleNote(document.getElementById(`bass.${i}.${j}`));
                     break;
             }
+
+            // bass accidentals
+            bassAccidentals[i][j] = clefContents[3];
         }
     }
 
@@ -102,7 +108,7 @@ function exportSong() {
             let bassLength = bassData[i][j].noteLength;
 
             // add to textbox
-            textbox.value = textbox.value + trebleLength + "#" + bassLength + ";";
+            textbox.value = textbox.value + trebleLength + "#" + trebleAccidentals[i][j] + "#" + bassLength + "#" + bassAccidentals[i][j] + ";";
         }
         textbox.value = textbox.value + "&";
     }
