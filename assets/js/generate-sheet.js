@@ -172,7 +172,7 @@ function addRow() {
 	trebleDiv.setAttribute('id', `trebleDiv-${newLine+1}`);
 	trebleDiv.innerHTML = `
 		<div class="column is-2">
-			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
+			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;position:relative;top:1rem">
 		</div>
 		<div class="column is-10">
 			<table class="sheet" id="treble-sheet-${newLine+1}">
@@ -186,7 +186,7 @@ function addRow() {
 	bassDiv.setAttribute('id', `bassDiv-${newLine+1}`);
 	bassDiv.innerHTML = `
 		<div class="column is-2">
-			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
+			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right;position:relative;top:1rem">
 		</div>
 		<div class="column is-10">
 			<table class="sheet" id="bass-sheet-${newLine+1}">
