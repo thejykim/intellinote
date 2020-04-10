@@ -32,7 +32,6 @@ async function startPlaying(startPlaying) {
         // iterates over each column and fills out rowNotes with proper subset of notes
         for (let i = 0; i < (numberOfNotes*(newLine+1)); i++) {
           let noteLen = row[i].noteLength;
-          console.log(i);
           // if no note, just push null and skip
           if (noteLen == 0) {
             rowNotes.push(null);
@@ -65,7 +64,6 @@ async function startPlaying(startPlaying) {
                   noteToBePlayed = String.fromCharCode(79 - rowIndex) + "2";
               }
           }
-          console.log(noteToBePlayed)
           // push note object into the row
           rowNotes.push({noteT: noteToBePlayed, noteLength: noteLen});
         }
@@ -95,6 +93,10 @@ async function startPlaying(startPlaying) {
       isPlaying = true;
       while (count < (numberOfNotes * (newLine +1)) && isPlaying) {
         maxLength = 8;
+        // highlight column
+        highlightColumn(count);
+
+        // play notes
         for (let i = 0; i < notes[count].length; i++){
           console.log(notes[count][i].noteT);
           synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
@@ -136,4 +138,27 @@ async function startPlaying(startPlaying) {
 
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function highlightColumn(i) {
+    // change element classes
+    for (let j = 0; j < numberOfRows; j++) {
+        let noteElement = document.getElementById(trebleData[j][i].id);
+        noteElement.className += " highlighted";
+        noteElement = document.getElementById(bassData[j][i].id);
+        noteElement.className += " highlighted";
+    }
+
+    // delay call to unhighlight for the appropriate duration
+    window.setTimeout(function() { unhighlightColumn(i); }, timeBetweenNotes/8);
+}
+
+function unhighlightColumn(i) {
+    // change element classes back
+    for (let j = 0; j < numberOfRows; j++) {
+        let noteElement = document.getElementById(trebleData[j][i].id);
+        noteElement.classList.remove("highlighted");
+        noteElement = document.getElementById(bassData[j][i].id);
+        noteElement.classList.remove("highlighted");
+    }
 }
