@@ -6,7 +6,7 @@ const removeButton = document.getElementById('removeButton');
 // number of notes generated per row
 const numberOfNotes = 32;
 // number of notes generated per column
-const numberOfRows = 9;
+const numberOfRows = 13;
 
 let trebleData = [];
 let bassData = [];
