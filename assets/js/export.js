@@ -50,6 +50,10 @@ function importSong() {
         let rowContents = sheetContents[i].split(noteParse);
         for (let j = 0; j < (numberOfNotes * (newLine + 1)); j++) {
             let clefContents = rowContents[j].split(noteObjectParse);
+            // treble accidentals
+            trebleAccidentals[i][j] = clefContents[1];
+            accidental = clefContents[1];
+
             // treble first
             switch (clefContents[0]) {
                 case "1":
@@ -70,9 +74,9 @@ function importSong() {
                     break;
             }
 
-            // treble accidentals
-            trebleAccidentals[i][j] = clefContents[1];
-            console.log(clefContents[1]);
+            // bass accidentals
+            bassAccidentals[i][j] = clefContents[3];
+            accidental = clefContents[1];
 
             // ..then bass
             switch (clefContents[2]) {
@@ -93,10 +97,6 @@ function importSong() {
                     toggleNote(document.getElementById(`bass.${i}.${j}`));
                     break;
             }
-
-            // bass accidentals
-            bassAccidentals[i][j] = clefContents[3];
-            console.log(clefContents[3]);
         }
     }
 
