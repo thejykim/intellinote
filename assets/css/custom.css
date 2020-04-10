@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@300;400;600;700;800&display=swap');
 
 /* fonts */
 .karla {
@@ -26,7 +26,7 @@ table.sheet {
 
 td {
     position: relative; /* coordinate system */
-    width: 5rem; /* change these two to adjust cell size!! */
+    width: 2rem; /* change these two to adjust cell size!! */
     height: 0.5rem;
 }
 
