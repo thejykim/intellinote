@@ -50,25 +50,29 @@ async function startPlaying(startPlaying) {
           // replaced if statements with array access
 
           if (noteRowGroup == 0) {
+
             noteToBePlayed = trebleNoteKey[rowIndex];
+            noteToBePlayed = ''.concat(noteToBePlayed[0], trebleAccidentals[rowIndex][i], noteToBePlayed[noteToBePlayed.length - 1]);
+
           }
 
           // if array is bass
           else if (noteRowGroup == 1) {
             noteToBePlayed = bassNoteKey[rowIndex];
+           noteToBePlayed = ''.concat(noteToBePlayed[0], bassAccidentals[rowIndex][i], noteToBePlayed[noteToBePlayed.length - 1]);
           }
-          console.log(noteToBePlayed)
+          // account for accidentals (natural, sharp, flat)
           // push note object into the row
           rowNotes.push({noteT: noteToBePlayed, noteLength: noteLen});
         }
         notes.push(rowNotes);
-      })
+    })
     }
 
       // transpose first, because if you remove null before then the transposition won't work
       notes = transpose(notes);
 
-      console.log(notes);
+     // console.log(notes);
 
       // removes null from the notes array because otherwise triggerAttack flips out
       for (let i = 0; i < numberOfNotes * (newLine+1); i++) {
@@ -88,8 +92,9 @@ async function startPlaying(startPlaying) {
       while (count < (numberOfNotes * (newLine +1)) && isPlaying) {
         maxLength = beatsPerMeas;
         for (let i = 0; i < notes[count].length; i++){
-          console.log(notes[count][i].noteT);
-          synth.triggerAttackRelease(notes[count][i].noteT, (notes[count][i].noteLength.toString() + "n"));
+          notePlaying = notes[count][i].noteT
+          //console.log(''.concat(notePlaying[0] + notes[count][i].noteAccidental + notePlaying[notePlaying.length - 1]));
+          synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
           if (notes[count][i].noteLength < maxLength) {
             maxLength = notes[count][i].noteLength;
             //insert quantum computing server here
@@ -128,4 +133,27 @@ async function startPlaying(startPlaying) {
 
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function highlightColumn(i) {
+    // change element classes
+    for (let j = 0; j < numberOfRows; j++) {
+        let noteElement = document.getElementById(trebleData[j][i].id);
+        noteElement.className += " highlighted";
+        noteElement = document.getElementById(bassData[j][i].id);
+        noteElement.className += " highlighted";
+    }
+
+    // delay call to unhighlight for the appropriate duration
+    window.setTimeout(function() { unhighlightColumn(i); }, timeBetweenNotes/8);
+}
+
+function unhighlightColumn(i) {
+    // change element classes back
+    for (let j = 0; j < numberOfRows; j++) {
+        let noteElement = document.getElementById(trebleData[j][i].id);
+        noteElement.classList.remove("highlighted");
+        noteElement = document.getElementById(bassData[j][i].id);
+        noteElement.classList.remove("highlighted");
+    }
 }

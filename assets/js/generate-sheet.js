@@ -1,4 +1,4 @@
-// import {currentNote} from "./noteLogic.js";
+// import {currentNoteLength} from "./noteLogic.js";
 
 // document elements
 const removeButton = document.getElementById('removeButton');
@@ -8,6 +8,9 @@ const numberOfNotes = 32;
 // number of notes generated per column
 const numberOfRows = 13;
 
+let accidentalArray = new Array();
+let trebleAccidentals = new Array();
+let bassAccidentals = new Array();
 let trebleData = [];
 let bassData = [];
 let newLine = 0;
@@ -18,6 +21,11 @@ let beatsPerMeas = numberOfNotes / 4;
 const clefEnum = {
 	TREBLE: 'treble',
 	BASS: 'bass'
+}
+
+for (var i = 0; i < 13; i++) {
+	trebleAccidentals.push((new Array(32).fill("")));
+	bassAccidentals.push((new Array(32).fill("")));
 }
 
 function toggleNote(noteElement){
@@ -35,10 +43,16 @@ function toggleNote(noteElement){
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			// trebleData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
 			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
+			trebleAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
+
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			// bassData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
+			bassAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
 		}
+
 	} else {
 		// empty element
 		divElement.innerHTML = '';
@@ -46,8 +60,10 @@ function toggleNote(noteElement){
 		// reset note length
 		if(noteLoc[0] === 'treble') {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = 0;
+			trebleAccidentals[noteLoc[1]][noteLoc[2]] = "";
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = 0;
+			bassAccidentals[noteLoc[1]][noteLoc[2]] = "";
 		}
 	}
 }
