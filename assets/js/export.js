@@ -7,22 +7,22 @@ const noteParse = "-";
 const noteObjectParse = ".";
 
 function setModalJS() {
-    document.querySelector('#open-modal').addEventListener('click', function (event) {
+    document.querySelector('#open-export-modal').addEventListener('click', function (event) {
         event.preventDefault();
-        var modal = document.querySelector('.modal');
+        var exportModal = document.querySelector('#exportModal');
         var html = document.querySelector('html');
-        modal.classList.add('is-active');
+        exportModal.classList.add('is-active');
         html.classList.add('is-clipped');
 
-        modal.querySelector('.modal-background').addEventListener('click', function (e) {
+       exportModal.querySelector('#background-export').addEventListener('click', function (e) {
             e.preventDefault();
-            modal.classList.remove('is-active');
+           exportModal.classList.remove('is-active');
             html.classList.remove('is-clipped');
         });
 
-        modal.querySelector('#close').addEventListener('click', function (e) {
+       exportModal.querySelector('#close-export').addEventListener('click', function (e) {
             e.preventDefault();
-            modal.classList.remove('is-active');
+           exportModal.classList.remove('is-active');
             html.classList.remove('is-clipped');
         });
     });

@@ -63,10 +63,9 @@
             <!-- first column -->
             <div class="column is-one-quarter">
                 <nav class="panel has-background-white">
-                    <p class="panel-heading poppins">
-                        Settings
-                    </p>
-
+                    <div class="panel-heading">
+                        <p class="poppins">Settings <button id="open-info-modal" style = "float:right" class="button is-small karla"> How-To </button></p>
+                    </div>
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
                             <!-- play/stop buttons -->
@@ -197,7 +196,7 @@
                             <!-- textbox modal button -->
                             <div class="field">
                                 <p class="control">
-                                    <button class="button is-dark is-small is-rounded karla" id="open-modal">
+                                    <button class="button is-dark is-small is-rounded karla" id="open-export-modal">
                                         <span class="icon is-small">
                                             <i class="fas fa-upload"></i>
                                         </span>
@@ -214,7 +213,7 @@
                            <div class="select">
                                <select class="karla" id="songDropdown" onchange="loadSong(this.value)">
                                    <option selected value="none"> None </option>
-                                   <option value="miiTheme"> Mii Theme Song </option>
+                                   <option value="miiTheme"> Mii Theme Song</option>
                                    <option value="3">3/4</option>
                                    <option value="4">4/4</option>
                                </select>
@@ -259,8 +258,8 @@
     <div class="empty-padding"></div>
 
     <!-- textbox modal for import/export -->
-    <div class="modal">
-        <div class="modal-background"></div>
+    <div class="modal" id="exportModal">
+        <div class="modal-background" id="background-export"></div>
         <div class="modal-content">
             <nav class="panel has-background-white">
                 <p class="panel-heading poppins">
@@ -287,7 +286,39 @@
                 </div>
             </nav>
         </div>
-        <button class="modal-close is-large" id="close" aria-label="close"></button>
+        <button class="modal-close is-large" id="close-export" aria-label="close"></button>
+    </div>
+
+    <!-- textbox modal for instructions -->
+    <div class="modal" id="infoModal">
+        <div class="modal-background" id="background-info"></div>
+        <div class="modal-content">
+            <nav class="panel has-background-white">
+                <p class="panel-heading poppins">
+                    How-To
+                </p>
+                <div class="container" style="padding: 1rem 1.5rem;">
+                    <p class="karla">Press the "Export" button to generate plaintext for you to store your current song,
+                        or paste a song you exported earlier and press "Import" to bring it back up.</p><br>
+                    <div class="field">
+                        <div class="control relative">
+                            <textarea class="textarea is-info is-small karla" id="textbox"
+                                placeholder="If you don't know what to put in here, try pressing export first!"></textarea>
+                            <button class="button has-background-light is-small is-text karla" id="copy"
+                                onclick="copy()">Copy to clipboard</button>
+                        </div>
+                    </div>
+                    <!-- import/export buttons -->
+                    <div class="container">
+                        <button class="button is-info is-small is-rounded karla" id="import"
+                            onclick="importSong()">Import</button>
+                        <button class="button is-info is-small is-rounded karla" id="export"
+                            onclick="exportSong()">Export</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <button class="modal-close is-large" id="close-info" aria-label="close"></button>
     </div>
 
     <!-- footer -->
@@ -307,6 +338,7 @@
     <script src="assets/js/timeSig.js"></script>
     <script src="assets/js/export.js"></script>
     <script src="assets/js/presetSongs.js"></script>
+    <script src="assets/js/instructions.js"></script>
 
     <!-- start everything off -->
     <script>
@@ -314,6 +346,7 @@
             generateSheet(clefEnum.TREBLE, 'treble-sheet-1');
             generateSheet(clefEnum.BASS, 'bass-sheet-1');
             setModalJS();
+            setInfoModalJS();
         }
     </script>
 
