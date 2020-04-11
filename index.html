@@ -90,29 +90,11 @@
                                     </button>
                                 </p>
                             </div>
-
-                            <!-- speed control buttons -->
-                            <div class="field has-addons">
-                                <p class="control">
-                                    <button class="button is-info is-small is-rounded karla" id="start"
-                                        onclick="playSlower()" style="padding-right: 0.3rem;">
-                                        <span class="icon is-small">
-                                            <i class="fas fa-backward"></i>
-                                        </span>
-                                        <span>Slower</span>
-                                    </button>
-                                </p>
-                                <p class="control">
-                                    <button class="button is-info is-small is-rounded karla" id="stop"
-                                        onclick="playFaster()" style="padding-left: 0.3rem;">
-                                        <span>Faster</span>
-                                        <span class="icon is-small">
-                                            <i class="fas fa-forward"></i>
-                                        </span>
-                                    </button>
-                                </p>
+                            <!-- Tempo Slider -->
+                            <div class = "sliderDiv">
+                                 <input type = "range" min = "30" max = "240" value = "120" id = "tempoSlider" onchange = "updateTempo(this.value);">
                             </div>
-                            <p class="karla" id="speed">Current speed: 2000</p>
+                            <p class="karla" id="speed">Current speed: 120 BPM</p>
                         </div>
                     </div>
 

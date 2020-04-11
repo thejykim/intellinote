@@ -6,7 +6,7 @@ const speedText = document.getElementById('speed');
 // variables
 let timeBetweenNotes = 2000;
 let isPlaying = false;
-
+let bpm = 120;
 
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
@@ -97,7 +97,7 @@ async function startPlaying() {
         for (let i = 0; i < notes[count].length; i++){
           notePlaying = notes[count][i].noteT;
           synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
-          
+
           if (notes[count][i].noteLength < maxLength) {
             maxLength = notes[count][i].noteLength;
             //insert quantum computing server here
@@ -160,19 +160,8 @@ function unhighlightColumn(i) {
         noteElement.classList.remove("highlighted");
     }
 }
-
-function playSlower() {
-    if (timeBetweenNotes < 3000) {
-        timeBetweenNotes += 500;
-    }
-    
-    speedText.innerText = `Current speed: ${timeBetweenNotes}`;
-}
-
-function playFaster() {
-    if (timeBetweenNotes > 1500) {
-        timeBetweenNotes -= 500;
-    }
-
-    speedText.innerText = `Current speed: ${timeBetweenNotes}`;
+function updateTempo(value) {
+     timeBetweenNotes = 2000 * (120/value);
+     bpm = value;
+     speedText.innerText = `Current speed: ${bpm} BPM`;
 }
