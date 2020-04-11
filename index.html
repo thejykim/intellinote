@@ -207,6 +207,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="panel-block" style="padding: 0.5rem 1.5rem;">
+                        <div class="container">
+                            <p class="subtitle is-6 poppins"
+                           style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Preset Songs</p>
+                           <div class="select">
+                               <select class="karla" id="songDropdown" onchange="loadSong(this.value)">
+                                   <option selected value="none"> None </option>
+                                   <option value="miiTheme"> Mii Theme Song </option>
+                                   <option value="3">3/4</option>
+                                   <option value="4">4/4</option>
+                               </select>
+                           </div>
+                        </div>
+                    </div>
                 </nav>
             </div>
 
@@ -292,6 +306,7 @@
     <script src="assets/js/noteLogic.js"></script>
     <script src="assets/js/timeSig.js"></script>
     <script src="assets/js/export.js"></script>
+    <script src="assets/js/presetSongs.js"></script>
 
     <!-- start everything off -->
     <script>
