@@ -1,6 +1,7 @@
 // buttons
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
+const speedText = document.getElementById('speed');
 
 // variables
 let timeBetweenNotes = 2000;
@@ -22,7 +23,7 @@ let notes = [];
 let trebleNoteKey = ["A5", "G5", "F5", "E5", "D5", "C5", "B4", "A4", "G4", "F4", "E4","D4", "C4"];
 let bassNoteKey = ["C4", "B3", "A3", "G3", "F3", "E3", "D3", "C2", "B2", "A2", "G2", "F2", "E2"];
 
-async function startPlaying(startPlaying) {
+async function startPlaying() {
     // combined the arrays, but this actually won't allow us to add more than one row for now
     notes = [];
     noteGroups = [trebleData, bassData];
@@ -158,4 +159,20 @@ function unhighlightColumn(i) {
         noteElement = document.getElementById(bassData[j][i].id);
         noteElement.classList.remove("highlighted");
     }
+}
+
+function playSlower() {
+    if (timeBetweenNotes < 3000) {
+        timeBetweenNotes += 500;
+    }
+    
+    speedText.innerText = `Current speed: ${timeBetweenNotes}`;
+}
+
+function playFaster() {
+    if (timeBetweenNotes > 1500) {
+        timeBetweenNotes -= 500;
+    }
+
+    speedText.innerText = `Current speed: ${timeBetweenNotes}`;
 }
