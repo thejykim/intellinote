@@ -120,7 +120,13 @@
                         </div>
                         <br>
                         <div class="container">
-                            <button class="button is-dark is-small is-rounded" onclick="changeTimeSig(2)">2-4 time</button>
+                            <div class="select">
+                                <select id="timeSig" onchange="changeTimeSig()">
+                                    <option value="2">2-4</option>
+                                    <option value="3">3-4</option>
+                                    <option selected="selected" value="4">4-4</option>
+                                </select>
+                            </div>
                         </div>
 
                         <br>
