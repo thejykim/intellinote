@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
 </head>
 
-<body>
+<body class="site">
 
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="container">
@@ -55,7 +55,7 @@
     <div class="empty-padding"></div>
 
     <!-- main body div -->
-    <div class="container">
+    <div class="container site-content">
 
         <!-- div for columns -->
         <div class="columns">
@@ -95,26 +95,30 @@
 
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
-                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Note Length</p>
+                            <p class="subtitle is-6 poppins"
+                                style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Change Note</p>
                             <!-- note lengths -->
                             <form id="lengthForm">
-                                <input type="radio" name="note" id="eighthNote" value="eighthNote" onclick="assignNote()"
-                                    checked>
+                                <input type="radio" name="note" id="eighthNote" value="eighthNote"
+                                    onclick="assignNote()" checked>
                                 <label for="eighthNote"> <img src="assets/img/eighthNote.png" style="height: 2rem;">
                                 </label>
-                                <input type="radio" name="note" id="quarterNote" value="quarterNote" onclick="assignNote()">
+                                <input type="radio" name="note" id="quarterNote" value="quarterNote"
+                                    onclick="assignNote()">
                                 <label for="quarterNote"> <img src="assets/img/quarterNote.png" style="height: 2rem;">
                                 </label>
                                 <input type="radio" name="note" id="halfNote" value="halfNote" onclick="assignNote()">
-                                <label for="halfNote"> <img src="assets/img/halfNote.png" style="height: 2rem;"> </label>
+                                <label for="halfNote"> <img src="assets/img/halfNote.png" style="height: 2rem;">
+                                </label>
                                 <input type="radio" name="note" id="wholeNote" value="wholeNote" onclick="assignNote()">
-                                <label for="wholeNote"> <img src="assets/img/wholeNote.png" style="height: 2rem;"> </label>
+                                <label for="wholeNote"> <img src="assets/img/wholeNote.png" style="height: 2rem;">
+                                </label>
                             </form>
 
                             <br>
 
                             <!-- accidentals -->
-                            <form id = "accidentalForm">
+                            <form id="accidentalForm">
                                 <input type="radio" name="accidental" id="natural" value="" onclick="assignNote()"
                                     checked>
                                 <label for="natural"> <img src="assets/img/Natural.png" style="height: 1.75rem;">
@@ -124,13 +128,14 @@
                                 </label>
                                 <input type="radio" name="accidental" id="flat" value="b" onclick="assignNote()">
                                 <label for="sharp"> <img src="assets/img/Flat.png" style="height: 1.75rem;"> </label>
-                           </form>
+                            </form>
                         </div>
                     </div>
 
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
-                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Sheet</p>
+                            <p class="subtitle is-6 poppins"
+                                style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Sheet</p>
                             <!-- add/remove row buttons -->
                             <div class="field is-grouped">
                                 <p class="control">
@@ -143,12 +148,12 @@
                                 </p>
                                 <p class="control">
                                     <button class="button is-dark is-small is-rounded karla" onclick="removeRow()"
-                                    id="removeButton" disabled>
-                                    <span class="icon is-small">
-                                        <i class="fas fa-minus"></i>
-                                    </span>
-                                    <span>Remove row</span>
-                                </button>
+                                        id="removeButton" disabled>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-minus"></i>
+                                        </span>
+                                        <span>Remove row</span>
+                                    </button>
                                 </p>
                             </div>
 
@@ -159,7 +164,7 @@
                                         <span class="icon is-small">
                                             <i class="fas fa-ban"></i>
                                         </span>
-                                        <span>Clear sheet</span>
+                                        <span id="clearText">Clear sheet</span>
                                     </button>
                                 </p>
                             </div>
@@ -168,12 +173,12 @@
 
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
-                            <p class="subtitle is-6 poppins" style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Share</p>
+                            <p class="subtitle is-6 poppins"
+                                style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Share</p>
                             <!-- textbox modal button -->
                             <div class="field">
                                 <p class="control">
-                                    <button class="button is-dark is-small is-rounded karla"
-                                        id="open-modal">
+                                    <button class="button is-dark is-small is-rounded karla" id="open-modal">
                                         <span class="icon is-small">
                                             <i class="fas fa-upload"></i>
                                         </span>
@@ -192,7 +197,8 @@
                 <!-- treble clef -->
                 <div class="columns">
                     <div class="column is-2">
-                        <img src="assets/img/treble-clef.png" style="height:4.5rem;float:right; position:relative; top:1rem">
+                        <img src="assets/img/treble-clef.png"
+                            style="height:4.5rem;float:right; position:relative; top:1rem">
                     </div>
                     <div class="column is-10">
                         <table class="sheet" id="treble-sheet-1">
@@ -203,7 +209,8 @@
                 <!-- bass clef -->
                 <div class="columns">
                     <div class="column is-2">
-                        <img src="assets/img/bass-clef.png" style="height:2.5rem;float:right; position:relative; top:1rem">
+                        <img src="assets/img/bass-clef.png"
+                            style="height:2.5rem;float:right; position:relative; top:1rem">
                     </div>
                     <div class="column is-10">
                         <table class="sheet" id="bass-sheet-1">
@@ -245,6 +252,15 @@
         </div>
         <button class="modal-close is-large" id="close" aria-label="close"></button>
     </div>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p class="karla">
+                <b>Custom Sheet Music</b> &copy 2020. Source code located on <a href="https://github.com/thejykim/hackmusic-2020"><i class="fab fa-github"></i> GitHub</a>. Made using <a href="https://tonejs.github.io/">Tone.js</a> and <a href="https://bulma.io/">Bulma</a>.
+            </p>
+        </div>
+    </footer>
 
     <!-- js files -->
 

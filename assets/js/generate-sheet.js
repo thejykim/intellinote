@@ -2,6 +2,7 @@
 
 // document elements
 const removeButton = document.getElementById('removeButton');
+const clearText = document.getElementById('clearText');
 
 // number of notes generated per row
 const numberOfNotes = 32;
@@ -16,8 +17,8 @@ let bassData = [];
 let newLine = 0;
 const numOfRows = 13;
 let beatsPerMeas = numberOfNotes / 4;
-// enum for clef
 
+// enum for clef
 const clefEnum = {
 	TREBLE: 'treble',
 	BASS: 'bass'
@@ -246,4 +247,10 @@ function clearSheet() {
             }
         }
     }
+
+    clearText.innerText = "Cleared!";
+
+    window.setTimeout(function() {
+        clearText.innerText = "Clear sheet";
+    }, 2000);
 }

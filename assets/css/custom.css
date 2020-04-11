@@ -9,6 +9,16 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.site {
+    display: flex;
+    min-height: 100vh; /* 100% of viewport */
+    flex-direction: column;
+}
+
+.site-content {
+    flex: 1;
+}
+
 .info-panel {
     border: lightgray solid 1px;
 }
@@ -17,7 +27,9 @@
     padding: 2rem
 }
 
-
+.subtitle {
+    opacity: 0.8;
+}
 
 table.sheet {
     border-collapse: collapse; /* no space between cells */
