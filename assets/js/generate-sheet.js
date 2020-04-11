@@ -28,6 +28,8 @@ for (var i = 0; i < 13; i++) {
 	bassAccidentals.push((new Array(32).fill("")));
 }
 
+let timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right">';
+
 
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
@@ -160,6 +162,10 @@ function generateSheet(clef, id) {
 			line = true;
 		}
 	}
+	let timeImgT = document.getElementById('timeSigImgT');
+	timeImgT.innerHTML = timeSigHTML;
+	let timeImgB = document.getElementById('timeSigImgB');
+	timeImgB.innerHTML = timeSigHTML;
 }
 
 // function called every time the user clicks a button to add more rows
@@ -173,7 +179,10 @@ function addRow() {
 	trebleDiv.setAttribute('id', `trebleDiv-${newLine+1}`);
 	trebleDiv.innerHTML = `
 		<div id = "column-left" class="column is-2">
-			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
+		<div id = "timeSigImgT">
+		${timeSigHTML}
+		</div>
+			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right">
 		</div>
 		<div class="column is-10">
 			<table class="sheet" id="treble-sheet-${newLine+1}">
@@ -187,6 +196,9 @@ function addRow() {
 	bassDiv.setAttribute('id', `bassDiv-${newLine+1}`);
 	bassDiv.innerHTML = `
 		<div class="column is-2">
+		<div id = "timeSigImgB">
+		${timeSigHTML}
+		</div>
 			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
 		</div>
 		<div class="column is-10">
