@@ -9,14 +9,8 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.site {
-    display: flex;
-    min-height: 100vh; /* 100% of viewport */
-    flex-direction: column;
-}
-
 .site-content {
-    flex: 1;
+    min-height: 100%;
 }
 
 .info-panel {
