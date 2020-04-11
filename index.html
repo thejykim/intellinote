@@ -98,6 +98,20 @@
                         </div>
                     </div>
 
+                    <div class="panel-block" style="padding: 0.5rem 1.5rem">
+                        <div class="container">
+                            <p class="subtitle is-6 poppins"
+                            style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Time Signature</p>
+                            <div class="select">
+                                <select class="karla" id="timeSig" onchange="changeTimeSig()">
+                                    <option value="2">2/4</option>
+                                    <option value="3">3/4</option>
+                                    <option selected="selected" value="4">4/4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
                             <p class="subtitle is-6 poppins"
@@ -174,16 +188,7 @@
                                 </p>
                             </div>
                         </div>
-                        <br>
-                        <div class="container">
-                            <div class="select">
-                                <select id="timeSig" onchange="changeTimeSig()">
-                                    <option value="2">2-4</option>
-                                    <option value="3">3-4</option>
-                                    <option selected="selected" value="4">4-4</option>
-                                </select>
-                            </div>
-                        </div>
+                    </div>
 
                     <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                         <div class="container">
@@ -213,7 +218,7 @@
                     <div class="column is-2" id= "column-left">
                       <div id = "timeSigImgT">
                       </div>
-                        <img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;">
+                        <img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;position:relative;top:1rem">
                     </div>
                     <div class="column is-10" id = "t-col">
                         <table class="sheet" id="treble-sheet-1">
@@ -226,7 +231,7 @@
                     <div class="column is-2" id="column-left">
                       <div id = "timeSigImgB">
                       </div>
-                        <img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
+                        <img src="assets/img/bass-clef.png" style="height:2.5rem;float:right;position:relative;top:1rem">
                     </div>
                     <div class="column is-10" id = "b-col">
                         <table class="sheet" id="bass-sheet-1">
@@ -236,6 +241,8 @@
             </div>
         </div>
     </div>
+
+    <div class="empty-padding"></div>
 
     <!-- textbox modal for import/export -->
     <div class="modal">

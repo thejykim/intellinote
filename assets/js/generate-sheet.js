@@ -29,7 +29,7 @@ for (var i = 0; i < 13; i++) {
 	bassAccidentals.push((new Array(32).fill("")));
 }
 
-let timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right">';
+let timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right;position:relative;top:1rem">';
 let timeSigIndicator = 0;
 
 function toggleNote(noteElement){
@@ -189,7 +189,7 @@ function addRow() {
 		<div id = "timeSigImgT">
 		${timeSigHTML}
 		</div>
-			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right">
+			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;position:relative;top:1rem">
 		</div>
 		<div class="column is-10">
 			<table class="sheet" id="treble-sheet-${newLine+1}">
@@ -206,7 +206,7 @@ function addRow() {
 		<div id = "timeSigImgB">
 		${timeSigHTML}
 		</div>
-			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right">
+			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right;position:relative;top:1rem">
 		</div>
 		<div class="column is-10">
 			<table class="sheet" id="bass-sheet-${newLine+1}">

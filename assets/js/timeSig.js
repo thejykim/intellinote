@@ -13,13 +13,13 @@ function changeTimeSig() {
     //default image is 4/4, switch changes it to correct img
     switch (topNum) {
         case 2:
-            timeSigHTML = '<img src="assets/img/2-4.png" style="height:4.5rem;float:right">';
+            timeSigHTML = '<img src="assets/img/2-4.png" style="height:4.5rem;float:right;position:relative;top:1rem">';
             break;
         case 3:
-            timeSigHTML = '<img src="assets/img/3-4.png" style="height:4.5rem;float:right">';
+            timeSigHTML = '<img src="assets/img/3-4.png" style="height:4.5rem;float:right;position:relative;top:1rem">';
             break;
         case 4:
-            timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right">';
+            timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right;position:relative;top:1rem">';
             break;
     }
 
