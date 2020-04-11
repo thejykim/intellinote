@@ -69,7 +69,7 @@ function setHalf() {
             noteIcon = '<img src = "assets/img/halfNote.png" style = "display: block; right: 12%; bottom: -10%; position: absolute; height: 2rem; vertical-align: middle;" >';
             break;
         case "#":
-            noteIcon = '<img src = "assets/img/halfNoteSharp.png" style = "display: block; right: 18%; bottom: -145%; position: absolute; height: 2.55rem; vertical-align: middle;" >';
+            noteIcon = '<img src = "assets/img/halfNoteSharp.png" style = "display: block; right: 18%; bottom: -140%; position: absolute; height: 2.55rem; vertical-align: middle;" >';
             break;
         case "b":
             noteIcon = '<img src = "assets/img/halfNoteFlat.png" style = "display: block; right: 18%; bottom: -110%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
@@ -81,13 +81,13 @@ function setHalf() {
 function setWhole() {
     switch (accidental) {
         case "":
-            noteIcon = '<img src = "assets/img/wholeNote.png" style = "display: block; left: 10%; bottom: -15%; position: absolute; width: 0.7rem; height: 2rem; vertical-align: middle;" >';
+            noteIcon = '<img src = "assets/img/wholeNote.png" style = "display: block; left: 16%; bottom: -15%; position: absolute; width: 0.8rem; height: 2.1rem; vertical-align: middle;" >';
             break;
         case "#":
-            noteIcon = '<img src = "assets/img/wholeNoteSharp.png" style = "display: block; right: 25%; bottom: -145%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+            noteIcon = '<img src = "assets/img/wholeNoteSharp.png" style = "display: block; right: 24%; bottom: -135%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
             break;
         case "b":
-            noteIcon = '<img src = "assets/img/wholeNoteFlat.png" style = "display: block; right: 24%; bottom: -110%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+            noteIcon = '<img src = "assets/img/wholeNoteFlat.png" style = "display: block; right: 23%; bottom: -100%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
             break;
     }
     noteLen = 1;
