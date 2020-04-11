@@ -77,6 +77,48 @@ tr.line td:before {
     outline: rgb(187, 187, 187) solid 1px
 }
 
+.note-border-top {
+    vertical-align: top;
+    line-height: 0.5rem;
+    position: relative;
+}
+
+.note-border-top:after {
+    content : "";
+    position: absolute;
+    right: -1px;
+    z-index: 100;
+    top: 50%;
+    width: 2px;
+    height: 50%;
+    background: black;
+}
+
+.note-border-top:hover {
+    outline: rgb(187, 187, 187) solid 1px
+}
+
+.note-border-bottom {
+    vertical-align: top;
+    line-height: 0.5rem;
+    position: relative;
+}
+
+.note-border-bottom:after {
+    content : "";
+    position: absolute;
+    right: -1px;
+    z-index: 100;
+    top: 0;
+    width: 2px;
+    height: 60%;
+    background: black;
+}
+
+.note-border-bottom:hover {
+    outline: rgb(187, 187, 187) solid 1px
+}
+
 .highlighted {
     background-color: #ffed88;
 }

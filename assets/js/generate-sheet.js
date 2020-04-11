@@ -103,9 +103,15 @@ function generateSheet(clef, id) {
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 
-			if (((j+1) % 8) == 0 && (i>1 && i<11)) {
-				noteElement.setAttribute('class', 'note-border')
-			}
+			if (((j+1) % 8) == 0) {
+                if (i>2 && i<10) {
+                    noteElement.setAttribute('class', 'note-border')
+                } else if (i == 10) {
+                    noteElement.setAttribute('class', 'note-border-bottom');
+                } else if (i == 2) {
+                    noteElement.setAttribute('class', 'note-border-top');
+                }
+            }
 
 			// populate note element
 			if (clef == clefEnum.TREBLE) {
