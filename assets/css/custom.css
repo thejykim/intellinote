@@ -142,12 +142,12 @@ tr.line td:before {
 }
 
 #tempoSlider::-webkit-slider-runnable-track {
- background: tomato;
+ background: hsl(204, 86%, 53%);
  height: 5px;
 }
 
 #tempoSlider::-moz-range-track {
- background: tomato;
+ background: hsl(204, 86%, 53%);
  height: 5px;
 }
 
@@ -155,7 +155,7 @@ tr.line td:before {
  -webkit-appearance: none;
  height: 15px;
  width: 15px;
- background: pink;
+ background: hsl(204, 100%, 78%);
  margin-top: -5px;
  border-radius: 50%;
 }
