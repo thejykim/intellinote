@@ -30,6 +30,10 @@ table.sheet {
     text-align: center;
 }
 
+.table {
+     width: 100%;
+}
+
 td {
     position: relative; /* coordinate system */
     width: 2rem; /* change these two to adjust cell size!! */
