@@ -11,6 +11,9 @@ function changeTimeSig(topNum){
     case 3:
       timeSigHTML = '<img src="assets/img/3-4.png" style="height:4.5rem;float:right">';
       break;
+		case 4:
+			timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right">';
+			break;
   }
 
   //doesnt work: error trebleDiv is null
