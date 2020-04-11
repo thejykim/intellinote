@@ -129,6 +129,45 @@ tr.line td:before {
     animation-fill-mode: forwards;
 }
 
+.sliderDiv {
+     margin-bottom: 10px;
+}
+
+#tempoSlider {
+     -webkit-appearance: none;
+}
+
+#tempoSlider: focus {
+     outline: none;
+}
+
+#tempoSlider::-webkit-slider-runnable-track {
+ background: hsl(204, 86%, 53%);
+ height: 5px;
+}
+
+#tempoSlider::-moz-range-track {
+ background: hsl(204, 86%, 53%);
+ height: 5px;
+}
+
+#tempoSlider::-webkit-slider-thumb {
+ -webkit-appearance: none;
+ height: 15px;
+ width: 15px;
+ background: hsl(204, 100%, 78%);
+ margin-top: -5px;
+ border-radius: 50%;
+}
+
+#tempoSlider::-moz-range-thumb {
+ height: 15px;
+ width: 15px;
+ background: pink;
+ margin-top: -5px;
+ border-radius: 50%;
+}
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
