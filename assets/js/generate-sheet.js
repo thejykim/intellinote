@@ -29,7 +29,7 @@ for (var i = 0; i < 13; i++) {
 }
 
 let timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right">';
-
+let timeSigIndicator = 0;
 
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
@@ -118,7 +118,7 @@ function generateSheet(clef, id) {
 
 
 			// push to row array
-			if(newLine == 0){
+			if(newLine == 0 && timeSigIndicator == 0){
 				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
 			else if(clef == clefEnum.TREBLE){
@@ -144,7 +144,7 @@ function generateSheet(clef, id) {
 		}
 
 		// decide which clef array to push to
-		if(newLine == 0){
+		if(newLine == 0 && timeSigIndicator == 0){
 			if (clef == clefEnum.TREBLE) {
 					trebleData.push(rowArray);
 			} else {
