@@ -1,6 +1,10 @@
 function changeTimeSig() {
     // get option
     let newLineHolder = newLine;
+    while (newLine > 0) {
+        removeRow();
+    }
+
     let topNum = parseInt(document.getElementById('timeSig').value);
     //changes variables corresponding to number of notes in measure and row
     numberOfNotes = topNum * 2 * 4;
@@ -19,14 +23,11 @@ function changeTimeSig() {
             break;
     }
 
-    while (newLine+1 > 0) {
-        let t = document.getElementById(`treble-sheet-${newLine + 1}`);
-        let b = document.getElementById(`bass-sheet-${newLine + 1}`);
-        t.parentNode.removeChild(t);
-        b.parentNode.removeChild(b);
-        newLine--;
-        console.log("line removed");
-    }
+    let t = document.getElementById(`treble-sheet-${newLine + 1}`);
+    let b = document.getElementById(`bass-sheet-${newLine + 1}`);
+    t.parentNode.removeChild(t);
+    b.parentNode.removeChild(b);
+    console.log("line removed");
 
     // remove array rows
     for (let j = (newLine) * numberOfNotes; j < (newLine + 1) * numberOfNotes; j++) {
@@ -50,7 +51,6 @@ function changeTimeSig() {
     generateSheet(clefEnum.BASS, 'bass-sheet-1');
     for (let i = 0; i<newLineHolder; i++){
       addRow();
-      console.log(i);
     }
     // addRow();
 }
