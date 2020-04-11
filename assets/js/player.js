@@ -91,10 +91,12 @@ async function startPlaying(startPlaying) {
       isPlaying = true;
       while (count < (numberOfNotes * (newLine +1)) && isPlaying) {
         maxLength = beatsPerMeas;
+        highlightColumn(count);
+
         for (let i = 0; i < notes[count].length; i++){
-          notePlaying = notes[count][i].noteT
-          //console.log(''.concat(notePlaying[0] + notes[count][i].noteAccidental + notePlaying[notePlaying.length - 1]));
+          notePlaying = notes[count][i].noteT;
           synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
+          
           if (notes[count][i].noteLength < maxLength) {
             maxLength = notes[count][i].noteLength;
             //insert quantum computing server here
