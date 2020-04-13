@@ -135,7 +135,7 @@ tr.line td:before {
      -webkit-appearance: none;
 }
 
-#tempoSlider: focus {
+#tempoSlider:focus {
      outline: none;
 }
 

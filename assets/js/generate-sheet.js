@@ -24,11 +24,6 @@ const clefEnum = {
 	BASS: 'bass'
 }
 
-for (var i = 0; i < 13; i++) {
-	trebleAccidentals.push((new Array(32).fill("")));
-	bassAccidentals.push((new Array(32).fill("")));
-}
-
 let timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right;position:relative;top:1rem">';
 let timeSigIndicator = 0;
 
@@ -36,24 +31,18 @@ function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
 	parseNoteLen();
-	console.log(trebleData);
 	if (divElement.innerHTML === '') {
 		// put in element
-		//doesnt work
-		// divElement.setAttribute('style', 'left: 0;top: 20%;right: 0;border-top: 1px solid;');
 		divElement.innerHTML = noteIcon;
 
 
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
-			// trebleData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
-			// console.log(trebleData[noteLoc[1]][noteLoc[2]].noteLength);
 			trebleAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
 
 		} else {
 			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
-			// bassData[noteLoc[1]][noteLoc[2]].noteAccidental = accidental;
 			bassAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
 		}
 
@@ -134,7 +123,6 @@ function generateSheet(clef, id) {
 			else{
 				bassData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
-			// console.log(noteElement.getAttribute('id'));
 
 			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
 			let divElement = document.createElement('div');
@@ -168,11 +156,41 @@ function generateSheet(clef, id) {
 		} else {
 			line = true;
 		}
-	}
+    }
+
+    // accidentals
+
+    if (newLine == 0) {
+        // initialize
+        if (clef == clefEnum.TREBLE) {
+            for (let i = 0; i < numberOfRows; i++) {
+                trebleAccidentals.push((new Array(numberOfNotes).fill("")));
+            }
+        } else {
+            for (let i = 0; i < numberOfRows; i++) {
+                bassAccidentals.push((new Array(numberOfNotes).fill("")));
+            }
+        }
+    } else {
+        if (clef == clefEnum.TREBLE) {
+            for (let i = 0; i < numberOfRows; i++) {
+                for (let j = 0; j < numberOfNotes; j++) {
+                    trebleAccidentals[i].push("");
+                }
+            }
+        } else {
+            for (let i = 0; i < numberOfRows; i++) {
+                for (let j = 0; j < numberOfNotes; j++) {
+                    bassAccidentals[i].push("");
+                }
+            }
+        }
+    }
+    
 	let timeImgT = document.getElementById('timeSigImgT');
 	timeImgT.innerHTML = timeSigHTML;
 	let timeImgB = document.getElementById('timeSigImgB');
-	timeImgB.innerHTML = timeSigHTML;
+    timeImgB.innerHTML = timeSigHTML;
 }
 
 // function called every time the user clicks a button to add more rows
@@ -224,7 +242,7 @@ function addRow() {
 	generateSheet(clefEnum.BASS, `bass-sheet-${newLine+1}`);
 
 	// enable remove rows button
-	removeButton.removeAttribute("disabled");
+    removeButton.removeAttribute("disabled");
 }
 
 function removeRow() {

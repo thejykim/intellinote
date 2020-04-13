@@ -6,10 +6,11 @@ function changeTimeSig() {
     }
 
     let topNum = parseInt(document.getElementById('timeSig').value);
+
     //changes variables corresponding to number of notes in measure and row
     numberOfNotes = topNum * 2 * 4;
     beatsPerMeas = numberOfNotes / 4;
-    // console.log(beatsPerMeas);
+
     //default image is 4/4, switch changes it to correct img
     switch (topNum) {
         case 2:
@@ -27,17 +28,14 @@ function changeTimeSig() {
     let b = document.getElementById(`bass-sheet-${newLine + 1}`);
     t.parentNode.removeChild(t);
     b.parentNode.removeChild(b);
-    console.log("line removed");
 
     // remove array rows
     for (let j = (newLine) * numberOfNotes; j < (newLine + 1) * numberOfNotes; j++) {
         for (let i = 0; i < 13; i++) {
             trebleData[i].pop();
             bassData[i].pop();
-            console.log("removeed");
         }
     }
-    console.log(trebleData);
 
     // let tTable = document.getElementById('t-col');
     document.getElementById('t-col').innerHTML = '<table class="sheet" id="treble-sheet-1"> </table>';
