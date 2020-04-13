@@ -88,7 +88,6 @@ async function startPlaying() {
     let count = 0;
     var maxLength = 1;
     isPlaying = true;
-    console.log(trebleData);
     while (count < (numberOfNotes * (newLine + 1)) && isPlaying) {
         highlightColumn(count);
         let notesAlreadyPlayed = [];
@@ -99,7 +98,6 @@ async function startPlaying() {
             for (let index = 0; index < notesAlreadyPlayed.length; index++) {
                 if (notesAlreadyPlayed[index] === notePlaying) {
                     alreadyPlayed = true;
-                    console.log("already played");
                 }
             }
 
