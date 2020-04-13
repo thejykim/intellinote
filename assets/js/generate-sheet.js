@@ -114,7 +114,7 @@ function generateSheet(clef, id) {
 
 
 			// push to row array
-			if(newLine == 0 && timeSigIndicator == 0){
+			if(newLine == 0){
 				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
 			else if(clef == clefEnum.TREBLE){
@@ -139,7 +139,7 @@ function generateSheet(clef, id) {
 		}
 
 		// decide which clef array to push to
-		if(newLine == 0 && timeSigIndicator == 0){
+		if(newLine == 0){
 			if (clef == clefEnum.TREBLE) {
 					trebleData.push(rowArray);
 			} else {
@@ -186,7 +186,7 @@ function generateSheet(clef, id) {
             }
         }
     }
-    
+
 	let timeImgT = document.getElementById('timeSigImgT');
 	timeImgT.innerHTML = timeSigHTML;
 	let timeImgB = document.getElementById('timeSigImgB');
