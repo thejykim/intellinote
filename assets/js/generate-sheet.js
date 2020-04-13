@@ -123,7 +123,6 @@ function generateSheet(clef, id) {
 			else{
 				bassData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
-			// console.log(noteElement.getAttribute('id'));
 
 			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
 			let divElement = document.createElement('div');

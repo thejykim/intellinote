@@ -75,14 +75,10 @@ async function startPlaying() {
     // transpose first, because if you remove null before then the transposition won't work
     notes = transpose(notes);
 
-    // console.log(notes);
-
     // removes null from the notes array because otherwise triggerAttack flips out
     for (let i = 0; i < numberOfNotes * (newLine + 1); i++) {
         notes[i] = notes[i].filter(checkNull);
     }
-
-    // console.log(notes);
 
     // disable/enable buttons
     startButton.setAttribute('disabled', 'true');
