@@ -35,6 +35,7 @@ function importSong() {
     let parsed = contents.split(sheetParse);
     let numLines = parsed[0]; // number of separate sheet lines (minimum 1)
     let sheetContents = parsed[1].split(rowParse);
+    console.log(sheetContents);
 
     // adjust current number of rows
     while ((newLine + 1) != numLines) {
@@ -112,6 +113,7 @@ function exportSong() {
         for (let j = 0; j < (numberOfNotes * (newLine + 1)); j++) {
             let trebleLength = trebleData[i][j].noteLength;
             let bassLength = bassData[i][j].noteLength;
+            console.log(trebleLength + ", " + bassLength);
 
             // add to textbox
             textbox.value = textbox.value + trebleLength + noteObjectParse + trebleAccidentals[i][j] + noteObjectParse + bassLength + noteObjectParse + bassAccidentals[i][j] + noteParse;

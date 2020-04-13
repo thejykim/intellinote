@@ -63,6 +63,7 @@ async function startPlaying() {
                     noteToBePlayed = bassNoteKey[rowIndex];
                     noteToBePlayed = ''.concat(noteToBePlayed[0], bassAccidentals[rowIndex][i], noteToBePlayed[noteToBePlayed.length - 1]);
                 }
+
                 // account for accidentals (natural, sharp, flat)
                 // push note object into the row
                 rowNotes.push({ noteT: noteToBePlayed, noteLength: noteLen });
@@ -92,17 +93,13 @@ async function startPlaying() {
     var maxLength = 1;
     isPlaying = true;
     while (count < (numberOfNotes * (newLine + 1)) && isPlaying) {
-        maxLength = beatsPerMeas;
         highlightColumn(count);
 
         for (let i = 0; i < notes[count].length; i++) {
             notePlaying = notes[count][i].noteT;
+            console.log(notePlaying);
+            console.log(notes[count][i].noteLength);
             synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
-
-            if (notes[count][i].noteLength < maxLength) {
-                maxLength = notes[count][i].noteLength;
-                //insert quantum computing server here
-            }
         }
         await sleep(timeBetweenNotes / 8);
 
@@ -161,6 +158,7 @@ function unhighlightColumn(i) {
         noteElement.classList.remove("highlighted");
     }
 }
+
 function updateTempo(value) {
     timeBetweenNotes = 2000 * (120 / value);
     bpm = value;
