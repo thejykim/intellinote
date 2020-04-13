@@ -64,7 +64,14 @@
         <div class="column is-one-quarter">
             <nav class="panel has-background-white">
                 <div class="panel-heading">
-                    <p class="poppins">Settings <button id="open-info-modal" style = "float:right" class="button is-small is-info is-rounded karla"> How-To </button></p>
+                    <p class="poppins">Settings
+                        <button id="open-info-modal" style = "float:right" class="button is-small is-info is-rounded karla">
+                            <span>How-To</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-info-circle"></i>
+                            </span>
+                        </button>
+                    </p>
                 </div>
                 <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                     <div class="container">
@@ -108,12 +115,17 @@
             <div class="container">
                 <p class="subtitle is-6 poppins"
                 style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Time Signature</p>
-                <div class="select">
-                    <select class="karla" id="timeSig" onchange="changeTimeSig()">
-                        <option value="2">2/4</option>
-                        <option value="3">3/4</option>
-                        <option selected="selected" value="4">4/4</option>
-                    </select>
+                <div class="control has-icons-left">
+                    <div class="select">
+                        <select class="karla" id="timeSig" onchange="changeTimeSig()">
+                            <option value="2">2/4</option>
+                            <option value="3">3/4</option>
+                            <option selected="selected" value="4">4/4</option>
+                        </select>
+                    </div>
+                    <span class="icon is-left">
+                        <i class="fas fa-clock"></i>
+                    </span>
                 </div>
             </div>
         </div>
@@ -217,13 +229,18 @@
         <div class="container">
             <p class="subtitle is-6 poppins"
             style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Preset Songs</p>
-            <div class="select">
-                <select class="karla" id="songDropdown" onchange="loadSong(this.value)">
-                    <option selected value="none"> None </option>
-                    <option value="miiTheme"> Mii Theme Song</option>
-                    <option value="3">3/4</option>
-                    <option value="4">4/4</option>
-                </select>
+            <div class="control has-icons-left">
+                <div class="select">
+                    <select class="karla" id="songDropdown" onchange="loadSong(this.value)">
+                        <option selected value="none"> None </option>
+                        <option value="miiTheme"> Mii Theme Song</option>
+                        <option value="3">3/4</option>
+                        <option value="4">4/4</option>
+                    </select>
+                </div>
+                <span class="icon is-left">
+                    <i class="fas fa-folder-open"></i>
+                </span>
             </div>
         </div>
     </div>
@@ -399,7 +416,7 @@
     </div>
 
     <!-- footer -->
-    <footer class="footer" style="padding-top: 4rem; padding-bottom: 4rem; margin-top: 2rem">
+    <footer class="footer" style="padding-top: 4rem; padding-bottom: 4rem;">
         <div class="content has-text-centered">
             <p class="karla">
                 <b>Custom Sheet Music</b> &copy 2020. Source code located on <a class="has-text-info" href="https://github.com/thejykim/hackmusic-2020"><i class="fab fa-github"></i> GitHub</a>. Made using <a class="has-text-info" href="https://tonejs.github.io/">Tone.js</a> and <a class="has-text-info" href="https://bulma.io/">Bulma</a>.
