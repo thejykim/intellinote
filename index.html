@@ -176,7 +176,7 @@
                 <!-- add/remove row buttons -->
                 <div class="field is-grouped">
                     <p class="control">
-                        <button class="button is-dark is-small is-rounded karla" onclick="addRow()">
+                        <button class="button is-info is-small is-rounded karla" onclick="addRow()">
                             <span class="icon is-small">
                                 <i class="fas fa-plus"></i>
                             </span>
@@ -184,7 +184,7 @@
                         </button>
                     </p>
                     <p class="control">
-                        <button class="button is-dark is-small is-rounded karla" onclick="removeRow()"
+                        <button class="button is-info is-small is-rounded karla" onclick="removeRow()"
                         id="removeButton" disabled>
                         <span class="icon is-small">
                             <i class="fas fa-minus"></i>
@@ -197,7 +197,7 @@
             <!-- clear sheet button -->
             <div class="field">
                 <p class="control">
-                    <button class="button is-dark is-small is-rounded karla" onclick="clearSheet()">
+                    <button class="button is-info is-small is-rounded karla" onclick="clearSheet()">
                         <span class="icon is-small">
                             <i class="fas fa-ban"></i>
                         </span>
@@ -215,7 +215,7 @@
             <!-- textbox modal button -->
             <div class="field">
                 <p class="control">
-                    <button class="button is-dark is-small is-rounded karla" id="open-export-modal">
+                    <button class="button is-info is-small is-rounded karla" id="open-export-modal">
                         <span class="icon is-small">
                             <i class="fas fa-upload"></i>
                         </span>
@@ -323,10 +323,9 @@
                         How-To
                     </p>
                 </div>
-                <!--
                 <div class="card-content" style="text-align:center">
-                    <div class="columns">
-                        <div class="column">
+                    <div class="slideshow">
+                        <div class="mySlides">
                             <h5 class="title is-5 poppins has-text-info" style="text-align:center"> Tempo and Time </h5>
                             <p class="karla">
                                 Tempo is controlled from the Settings panel, either by using the slider
@@ -334,7 +333,7 @@
                                 from the Settings panel by selecting an option from the dropdown menu.
                             </p>
                         </div>
-                        <div class="column">
+                        <div class="mySlides">
                             <h5 class="title is-5 poppins has-text-info"> Adding Notes </h5>
                             <p class="karla">
                                 Notes can be added or removed by clicking on a specific spot
@@ -342,10 +341,7 @@
                                 Settings panel. Keep in mind your currently set number of beats per measure!
                             </p>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="columns">
-                        <div class="column">
+                        <div class="mySlides">
                             <h5 class="title is-5 poppins has-text-info"> Importing Songs </h5>
                             <p class="karla">
                                 Using the Import/Export button, you can either copy your music
@@ -353,7 +349,7 @@
                                 The Preset Songs dropdown allows you to auto-import preset songs.
                             </p>
                         </div>
-                        <div class="column">
+                        <div class="mySlides">
                             <h5 class="title is-5 poppins has-text-info"> Note Logic </h5>
                             <p class="karla">
                                 Each measure is separated into a number of columns equal to two
@@ -364,44 +360,6 @@
                         </div>
                     </div>
                 </div>
-            -->
-            <div class="card-content" style="text-align:center">
-            <div class="slideshow">
-                <div class="mySlides">
-                    <h5 class="title is-5 poppins has-text-info" style="text-align:center"> Tempo and Time </h5>
-                    <p class="karla">
-                        Tempo is controlled from the Settings panel, either by using the slider
-                        or by inputting a value in the text box. The time signature can also be changed
-                        from the Settings panel by selecting an option from the dropdown menu.
-                    </p>
-                </div>
-                <div class="mySlides">
-                    <h5 class="title is-5 poppins has-text-info"> Adding Notes </h5>
-                    <p class="karla">
-                        Notes can be added or removed by clicking on a specific spot
-                        on the staff. You can specify note length and accidental from the
-                        Settings panel. Keep in mind your currently set number of beats per measure!
-                    </p>
-                </div>
-                <div class="mySlides">
-                    <h5 class="title is-5 poppins has-text-info"> Importing Songs </h5>
-                    <p class="karla">
-                        Using the Import/Export button, you can either copy your music
-                        to your clipboard to send to a friend or import music that someone sent you.
-                        The Preset Songs dropdown allows you to auto-import preset songs.
-                    </p>
-                </div>
-                <div class="mySlides">
-                    <h5 class="title is-5 poppins has-text-info"> Note Logic </h5>
-                    <p class="karla">
-                        Each measure is separated into a number of columns equal to two
-                        times the beats per measure (i.e. 8 columns in 4/4). This enables
-                        you to <strong> assign invisible rests </strong> by skipping columns or
-                        create dotted notes with less gaps.
-                    </p>
-                </div>
-            </div>
-            </div>
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
             <div style="text-align:center">
