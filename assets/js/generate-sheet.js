@@ -244,8 +244,6 @@ function addRow() {
 
 	// enable remove rows button
     removeButton.removeAttribute("disabled");
-    
-    console.log(trebleAccidentals);
 }
 
 function removeRow() {

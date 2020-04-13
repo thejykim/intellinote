@@ -97,8 +97,6 @@ async function startPlaying() {
 
         for (let i = 0; i < notes[count].length; i++) {
             notePlaying = notes[count][i].noteT;
-            console.log(notePlaying);
-            console.log(notes[count][i].noteLength);
             synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
         }
         await sleep(timeBetweenNotes / 8);
