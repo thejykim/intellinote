@@ -33,8 +33,13 @@ function importSong() {
 
     // parse
     let parsed = contents.split(sheetParse);
-    let numLines = parsed[0]; // number of separate sheet lines (minimum 1)
-    let sheetContents = parsed[1].split(rowParse);
+    let newBPM = parsed[0]; // bpm
+    let newTopNum = parsed[1].toString(); // time signature
+    let numLines = parsed[2]; // number of separate sheet lines (minimum 1)
+    let sheetContents = parsed[3].split(rowParse);
+
+    // change bpm
+    updateTempo(newBPM);
 
     // adjust current number of rows
     while ((newLine + 1) != numLines) {
@@ -44,6 +49,10 @@ function importSong() {
             addRow();
         }
     }
+
+    // set new time signature
+    importTimeSignature(newTopNum);
+    changeTimeSig();
 
     // iterate through
     for (let i = 0; i < numberOfRows; i++) {
@@ -105,7 +114,8 @@ function importSong() {
 }
 
 function exportSong() {
-    textbox.value = (newLine+1) + sheetParse;
+    let topNum = parseInt(document.getElementById('timeSig').value);
+    textbox.value = bpm + sheetParse + topNum + sheetParse + (newLine+1) + sheetParse;
 
     // iterate through
     for (let i = 0; i < numberOfRows; i++) {
@@ -131,4 +141,9 @@ function copy() {
     window.setTimeout(function() {
         document.getElementById('copy').innerText = "Copy to clipboard";
     }, copyTextResetDelay);
+}
+
+function importTimeSignature(topNumber) {
+    let element = document.getElementById('timeSig');
+    element.value = topNumber;
 }

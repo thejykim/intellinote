@@ -24,7 +24,7 @@ const clefEnum = {
 	BASS: 'bass'
 }
 
-let timeSigHTML = '<img src="assets/img/4-4.png" style="height:4.5rem;float:right;position:relative;top:1rem">';
+let timeSigHTML = '<img src="assets/img/4-4.png" style="height:3.5rem;float:right;position:relative;top:1.5rem">';
 let timeSigIndicator = 0;
 
 function toggleNote(noteElement){
@@ -203,7 +203,7 @@ function addRow() {
 	trebleDiv.setAttribute('class', 'columns fade-in');
 	trebleDiv.setAttribute('id', `trebleDiv-${newLine+1}`);
 	trebleDiv.innerHTML = `
-		<div id = "column-left" class="column is-2">
+		<div style="padding-right:0" id = "column-left" class="column is-2">
 		<div id = "timeSigImgT">
 		${timeSigHTML}
 		</div>
@@ -220,11 +220,11 @@ function addRow() {
 	bassDiv.setAttribute('class', 'columns fade-in');
 	bassDiv.setAttribute('id', `bassDiv-${newLine+1}`);
 	bassDiv.innerHTML = `
-		<div class="column is-2">
+		<div class="column is-2" style="padding-right:0">
 		<div id = "timeSigImgB">
 		${timeSigHTML}
 		</div>
-			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right;position:relative;top:1rem">
+			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right;position:relative;top:1.5rem">
 		</div>
 		<div class="column is-10">
 			<table class="sheet" id="bass-sheet-${newLine+1}">
