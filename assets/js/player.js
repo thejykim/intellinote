@@ -91,10 +91,23 @@ async function startPlaying() {
     console.log(trebleData);
     while (count < (numberOfNotes * (newLine + 1)) && isPlaying) {
         highlightColumn(count);
+        let notesAlreadyPlayed = [];
 
         for (let i = 0; i < notes[count].length; i++) {
+            let alreadyPlayed = false;
             notePlaying = notes[count][i].noteT;
-            synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
+            for (let index = 0; index < notesAlreadyPlayed.length; index++) {
+                if (notesAlreadyPlayed[index] === notePlaying) {
+                    alreadyPlayed = true;
+                    console.log("already played");
+                }
+            }
+
+            if (!alreadyPlayed) {
+                notesAlreadyPlayed.push(notePlaying);
+                console.log(notesAlreadyPlayed);
+                synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
+            }
         }
         await sleep(timeBetweenNotes / 8);
 
