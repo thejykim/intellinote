@@ -6,6 +6,7 @@ function changeTimeSig() {
     }
 
     let topNum = parseInt(document.getElementById('timeSig').value);
+    console.log(topNum);
 
     //changes variables corresponding to number of notes in measure and row
     numberOfNotes = topNum * 2 * 4;
