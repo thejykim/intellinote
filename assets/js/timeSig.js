@@ -6,7 +6,6 @@ function changeTimeSig() {
     }
 
     let topNum = parseInt(document.getElementById('timeSig').value);
-    console.log(topNum);
 
     //changes variables corresponding to number of notes in measure and row
     numberOfNotes = topNum * 2 * 4;
@@ -33,10 +32,8 @@ function changeTimeSig() {
     trebleData = [];
     bassData = [];
 
-    // let tTable = document.getElementById('t-col');
     document.getElementById('t-col').innerHTML = '<table class="sheet" id="treble-sheet-1"> </table>';
 
-    // let bTable = document.getElementById('b-col');
     document.getElementById('b-col').innerHTML = '<table class="sheet" id="bass-sheet-1"> </table>';
 
     newLine =0;
@@ -46,5 +43,4 @@ function changeTimeSig() {
     for (let i = 0; i<newLineHolder; i++){
       addRow();
     }
-    // addRow();
 }

@@ -14,15 +14,15 @@ function setModalJS() {
         exportModal.classList.add('is-active');
         html.classList.add('is-clipped');
 
-       exportModal.querySelector('#background-export').addEventListener('click', function (e) {
+        exportModal.querySelector('#background-export').addEventListener('click', function (e) {
             e.preventDefault();
-           exportModal.classList.remove('is-active');
+            exportModal.classList.remove('is-active');
             html.classList.remove('is-clipped');
         });
 
-       exportModal.querySelector('#close-export').addEventListener('click', function (e) {
+        exportModal.querySelector('#close-export').addEventListener('click', function (e) {
             e.preventDefault();
-           exportModal.classList.remove('is-active');
+            exportModal.classList.remove('is-active');
             html.classList.remove('is-clipped');
         });
     });
@@ -115,7 +115,7 @@ function importSong() {
 
 function exportSong() {
     let topNum = parseInt(document.getElementById('timeSig').value);
-    textbox.value = bpm + sheetParse + topNum + sheetParse + (newLine+1) + sheetParse;
+    textbox.value = bpm + sheetParse + topNum + sheetParse + (newLine + 1) + sheetParse;
 
     // iterate through
     for (let i = 0; i < numberOfRows; i++) {
@@ -138,7 +138,7 @@ function copy() {
 
     document.getElementById('copy').innerText = "Copied!";
 
-    window.setTimeout(function() {
+    window.setTimeout(function () {
         document.getElementById('copy').innerText = "Copy to clipboard";
     }, copyTextResetDelay);
 }
