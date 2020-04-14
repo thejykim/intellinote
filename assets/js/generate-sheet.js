@@ -30,7 +30,9 @@ let timeSigIndicator = 0;
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
-	parseNoteLen(noteLoc);
+	if (!(noteLoc[1])){
+		parseNoteLen(noteLoc);
+	}
 	if (divElement.innerHTML === '') {
 		// put in element
 		divElement.innerHTML = noteIcon;

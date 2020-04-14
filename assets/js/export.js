@@ -66,19 +66,19 @@ function importSong() {
             // treble first
             switch (clefContents[0]) {
                 case "1":
-                    setWhole();
+                    setWhole(i);
                     toggleNote(document.getElementById(`treble.${i}.${j}`));
                     break;
                 case "2":
-                    setHalf();
+                    setHalf(i);
                     toggleNote(document.getElementById(`treble.${i}.${j}`));
                     break;
                 case "4":
-                    setQuarter();
+                    setQuarter(i);
                     toggleNote(document.getElementById(`treble.${i}.${j}`));
                     break;
                 case "8":
-                    setEighth();
+                    setEighth(i);
                     toggleNote(document.getElementById(`treble.${i}.${j}`));
                     break;
             }
@@ -90,19 +90,19 @@ function importSong() {
             // ..then bass
             switch (clefContents[2]) {
                 case "1":
-                    setWhole();
+                    setWhole(i);
                     toggleNote(document.getElementById(`bass.${i}.${j}`));
                     break;
                 case "2":
-                    setHalf();
+                    setHalf(i);
                     toggleNote(document.getElementById(`bass.${i}.${j}`));
                     break;
                 case "4":
-                    setQuarter();
+                    setQuarter(i);
                     toggleNote(document.getElementById(`bass.${i}.${j}`));
                     break;
                 case "8":
-                    setEighth();
+                    setEighth(i);
                     toggleNote(document.getElementById(`bass.${i}.${j}`));
                     break;
             }

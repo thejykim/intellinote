@@ -25,22 +25,22 @@ function parseNoteLen(noteLoc) {
     // add correct lengths based on api documentation
     switch (lenArrLoc) {
         case 0:
-            setEighth(noteLoc);
+            setEighth(noteLoc[1]);
             break;
         case 1:
-            setQuarter();
+            setQuarter(noteLoc[1]);
             break;
         case 2:
-            setHalf();
+            setHalf(noteLoc[1]);
             break;
         case 3:
-            setWhole();
+            setWhole(noteLoc[1]);
             break;
     }
 }
 
 function setEighth(noteLoc) {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/eighthNoteLedger.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
@@ -68,8 +68,8 @@ function setEighth(noteLoc) {
     noteLen = 8;
 }
 
-function setQuarter() {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+function setQuarter(noteLoc) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/quarterNoteLedger.png" style = "display: block; right: 12%; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
@@ -97,8 +97,8 @@ function setQuarter() {
     noteLen = 4;
 }
 
-function setHalf() {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+function setHalf(noteLoc) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/halfNoteLedger.png" style = "display: block; right: 12%; bottom: -10%; position: absolute; height: 2rem; vertical-align: middle;" >';
@@ -126,8 +126,8 @@ function setHalf() {
     noteLen = 2;
 }
 
-function setWhole() {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+function setWhole(noteLoc) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/wholeNoteLedger.png" style = "display: block; left: 16%; bottom: -60%; position: absolute; width: 1rem; height: 2.1rem; vertical-align: middle;" >';
