@@ -85,7 +85,7 @@ function importSong() {
 
             // bass accidentals
             bassAccidentals[i][j] = clefContents[3];
-            accidental = clefContents[1];
+            accidental = clefContents[3];
 
             // ..then bass
             switch (clefContents[2]) {
