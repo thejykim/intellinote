@@ -61,6 +61,41 @@ function toggleNote(noteElement){
 	}
 }
 
+// Same as above; just without parseNoteLen(noteLoc)
+function toggleNoteImport(noteElement){
+	divElement = noteElement.firstChild;
+	noteLoc = parseNoteLoc(noteElement);
+	// parseNoteLen(noteLoc);
+	if (divElement.innerHTML === '') {
+		// put in element
+		divElement.innerHTML = noteIcon;
+
+
+		// set length to appropriate length
+		if(noteLoc[0] === "treble") {
+			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			trebleAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
+
+		} else {
+			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			bassAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
+		}
+
+	} else {
+		// empty element
+		divElement.innerHTML = '';
+
+		// reset note length
+		if(noteLoc[0] === 'treble') {
+			trebleData[noteLoc[1]][noteLoc[2]].noteLength = 0;
+			trebleAccidentals[noteLoc[1]][noteLoc[2]] = "";
+		} else {
+			bassData[noteLoc[1]][noteLoc[2]].noteLength = 0;
+			bassAccidentals[noteLoc[1]][noteLoc[2]] = "";
+		}
+	}
+}
+
 //turns id into array with clef, row location, and column location
 function parseNoteLoc(noteElement){
 	var noteId = noteElement.getAttribute('id');

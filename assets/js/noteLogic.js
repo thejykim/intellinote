@@ -25,22 +25,22 @@ function parseNoteLen(noteLoc) {
     // add correct lengths based on api documentation
     switch (lenArrLoc) {
         case 0:
-            setEighth(noteLoc);
+            setEighth(noteLoc[1]);
             break;
         case 1:
-            setQuarter(noteLoc);
+            setQuarter(noteLoc[1]);
             break;
         case 2:
-            setHalf(noteLoc);
+            setHalf(noteLoc[1]);
             break;
         case 3:
-            setWhole(noteLoc);
+            setWhole(noteLoc[1]);
             break;
     }
 }
 
 function setEighth(noteLoc) {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/eighthNoteLedger.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
@@ -69,7 +69,7 @@ function setEighth(noteLoc) {
 }
 
 function setQuarter(noteLoc) {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/quarterNoteLedger.png" style = "display: block; right: 12%; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
@@ -98,7 +98,7 @@ function setQuarter(noteLoc) {
 }
 
 function setHalf(noteLoc) {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/halfNoteLedger.png" style = "display: block; right: 12%; bottom: -10%; position: absolute; height: 2rem; vertical-align: middle;" >';
@@ -127,7 +127,7 @@ function setHalf(noteLoc) {
 }
 
 function setWhole(noteLoc) {
-    if (noteLoc[1] == 0 || noteLoc[1] == 12) {
+    if (noteLoc == 0 || noteLoc == 12) {
         switch (accidental) {
             case "":
                 noteIcon = '<img src = "assets/img/wholeNoteLedger.png" style = "display: block; left: 16%; bottom: -60%; position: absolute; width: 1rem; height: 2.1rem; vertical-align: middle;" >';
