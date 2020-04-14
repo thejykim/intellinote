@@ -18,7 +18,7 @@
 
 <body>
 
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark navbar-gradient" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
                 <p class="navbar-item is-size-5 poppins" style="font-weight: 600;">Custom Sheet Music</p>
@@ -65,7 +65,7 @@
             <nav class="panel has-background-white">
                 <div class="panel-heading">
                     <p class="poppins">Settings
-                        <button id="open-info-modal" style = "float:right" class="button is-small is-info is-rounded karla">
+                        <button id="open-info-modal" style = "float:right" class="button gradient is-small is-info is-rounded karla">
                             <span>How-To</span>
                             <span class="icon is-small">
                                 <i class="fas fa-info-circle"></i>
@@ -78,7 +78,7 @@
                         <!-- play/stop buttons -->
                         <div class="field has-addons">
                             <p class="control">
-                                <button class="button is-info is-small is-rounded karla" id="start"
+                                <button class="button is-info is-small is-rounded karla gradient" id="start"
                                 onclick="startPlaying()">
                                 <span class="icon is-small">
                                     <i class="fas fa-play"></i>
@@ -87,7 +87,7 @@
                             </button>
                         </p>
                         <p class="control">
-                            <button class="button is-info is-small is-rounded karla" id="stop"
+                            <button class="button is-info is-small is-rounded karla gradient" id="stop"
                             onclick="stopPlaying()" disabled>
                             <span class="icon is-small">
                                 <i class="fas fa-stop"></i>
@@ -176,7 +176,7 @@
                 <!-- add/remove row buttons -->
                 <div class="field is-grouped">
                     <p class="control">
-                        <button class="button is-info is-small is-rounded karla" onclick="addRow()">
+                        <button class="button is-info is-small is-rounded karla gradient" onclick="addRow()">
                             <span class="icon is-small">
                                 <i class="fas fa-plus"></i>
                             </span>
@@ -184,7 +184,7 @@
                         </button>
                     </p>
                     <p class="control">
-                        <button class="button is-info is-small is-rounded karla" onclick="removeRow()"
+                        <button class="button is-info is-small is-rounded karla gradient" onclick="removeRow()"
                         id="removeButton" disabled>
                         <span class="icon is-small">
                             <i class="fas fa-minus"></i>
@@ -197,7 +197,7 @@
             <!-- clear sheet button -->
             <div class="field">
                 <p class="control">
-                    <button class="button is-info is-small is-rounded karla" onclick="clearSheet()">
+                    <button class="button is-info is-small is-rounded karla gradient" onclick="clearSheet()">
                         <span class="icon is-small">
                             <i class="fas fa-ban"></i>
                         </span>
@@ -215,7 +215,7 @@
             <!-- textbox modal button -->
             <div class="field">
                 <p class="control">
-                    <button class="button is-info is-small is-rounded karla" id="open-export-modal">
+                    <button class="button is-info is-small is-rounded karla gradient" id="open-export-modal">
                         <span class="icon is-small">
                             <i class="fas fa-upload"></i>
                         </span>
@@ -303,9 +303,9 @@
                     </div>
                     <!-- import/export buttons -->
                     <div class="container">
-                        <button class="button is-info is-small is-rounded karla" id="import"
+                        <button class="button is-info is-small is-rounded karla gradient" id="import"
                         onclick="importSong()">Import</button>
-                        <button class="button is-info is-small is-rounded karla" id="export"
+                        <button class="button is-info is-small is-rounded karla gradient" id="export"
                         onclick="exportSong()">Export</button>
                     </div>
                 </div>

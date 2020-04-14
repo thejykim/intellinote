@@ -261,3 +261,18 @@ tr.line td:before {
   from {opacity: .4}
   to {opacity: 1}
 }
+
+.gradient {
+    background-image:
+    linear-gradient(
+        to right,
+        hsl(204, 86%, 53%), rgb(67, 179, 253)
+    );
+}
+
+.navbar-gradient {
+    background-image: 
+    linear-gradient(
+        to right, rgb(48, 48, 48), rgb(89, 89, 89)
+    );
+}
