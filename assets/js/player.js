@@ -8,6 +8,8 @@ const tempoSlider = document.getElementById('tempoSlider');
 let timeBetweenNotes = 2000;
 let isPlaying = false;
 let bpm = 120;
+let maxTempo = 240;
+let minTempo = 30;
 
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
@@ -88,13 +90,24 @@ async function startPlaying() {
     let count = 0;
     var maxLength = 1;
     isPlaying = true;
-    console.log(trebleData);
     while (count < (numberOfNotes * (newLine + 1)) && isPlaying) {
         highlightColumn(count);
+        let notesAlreadyPlayed = [];
 
         for (let i = 0; i < notes[count].length; i++) {
+            let alreadyPlayed = false;
             notePlaying = notes[count][i].noteT;
-            synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
+            for (let index = 0; index < notesAlreadyPlayed.length; index++) {
+                if (notesAlreadyPlayed[index] === notePlaying) {
+                    alreadyPlayed = true;
+                }
+            }
+
+            if (!alreadyPlayed) {
+                notesAlreadyPlayed.push(notePlaying);
+                console.log(notesAlreadyPlayed);
+                synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
+            }
         }
         await sleep(timeBetweenNotes / 8);
 
@@ -155,6 +168,11 @@ function unhighlightColumn(i) {
 }
 
 function updateTempo(value) {
+    if (value > maxTempo) {
+        value = maxTempo;
+    } else if (value < minTempo) {
+        value = minTempo;
+    }
     timeBetweenNotes = 2000 * (120 / value);
     bpm = value;
     tempoBox.value = bpm;
