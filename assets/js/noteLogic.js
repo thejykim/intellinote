@@ -28,13 +28,13 @@ function parseNoteLen(noteLoc) {
             setEighth(noteLoc);
             break;
         case 1:
-            setQuarter();
+            setQuarter(noteLoc);
             break;
         case 2:
-            setHalf();
+            setHalf(noteLoc);
             break;
         case 3:
-            setWhole();
+            setWhole(noteLoc);
             break;
     }
 }
@@ -68,7 +68,7 @@ function setEighth(noteLoc) {
     noteLen = 8;
 }
 
-function setQuarter() {
+function setQuarter(noteLoc) {
     if (noteLoc[1] == 0 || noteLoc[1] == 12) {
         switch (accidental) {
             case "":
@@ -97,7 +97,7 @@ function setQuarter() {
     noteLen = 4;
 }
 
-function setHalf() {
+function setHalf(noteLoc) {
     if (noteLoc[1] == 0 || noteLoc[1] == 12) {
         switch (accidental) {
             case "":
@@ -126,7 +126,7 @@ function setHalf() {
     noteLen = 2;
 }
 
-function setWhole() {
+function setWhole(noteLoc) {
     if (noteLoc[1] == 0 || noteLoc[1] == 12) {
         switch (accidental) {
             case "":
