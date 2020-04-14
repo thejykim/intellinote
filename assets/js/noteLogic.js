@@ -104,10 +104,10 @@ function setHalf(noteLoc) {
                 noteIcon = '<img src = "assets/img/halfNoteLedger.png" style = "display: block; right: 12%; bottom: -10%; position: absolute; height: 2rem; vertical-align: middle;" >';
                 break;
             case "#":
-                noteIcon = '<img src = "assets/img/halfNoteSharpLedger.png" style = "display: block; right: 18%; bottom: -140%; position: absolute; height: 2.55rem; vertical-align: middle;" >';
+                noteIcon = '<img src = "assets/img/halfNoteSharpLedger.png" style = "display: block; right: 25%; bottom: -140%; position: absolute; height: 2.55rem; vertical-align: middle;" >';
                 break;
             case "b":
-                noteIcon = '<img src = "assets/img/halfNoteFlatLedger.png" style = "display: block; right: 18%; bottom: -110%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
+                noteIcon = '<img src = "assets/img/halfNoteFlatLedger.png" style = "display: block; right: 13%; bottom: -110%; position: absolute; height: 2.5rem; vertical-align: middle;" >';
                 break;
         }
     } else {
