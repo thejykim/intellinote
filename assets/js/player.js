@@ -8,6 +8,8 @@ const tempoSlider = document.getElementById('tempoSlider');
 let timeBetweenNotes = 2000;
 let isPlaying = false;
 let bpm = 120;
+let maxTempo = 240;
+let minTempo = 30;
 
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
@@ -166,6 +168,11 @@ function unhighlightColumn(i) {
 }
 
 function updateTempo(value) {
+    if (value > maxTempo) {
+        value = maxTempo;
+    } else if (value < minTempo) {
+        value = minTempo;
+    }
     timeBetweenNotes = 2000 * (120 / value);
     bpm = value;
     tempoBox.value = bpm;
