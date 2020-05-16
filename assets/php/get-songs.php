@@ -3,6 +3,8 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
+$id = $_POST["userID"];
+
 $servername = "167.88.161.21";
 $username = "thejykco_sheets";
 $password = "omitted";
@@ -14,11 +16,14 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$sql = "SELECT title, userID, dateCreated, dateModified, songData, songID FROM userSongs";
-$result = mysqli_query($connection, $sql);
+$sql = "SELECT title, userID, dateCreated, dateModified, songData, songID FROM userSongs WHERE userID=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result === false) {
-    die("Connection failed");
+    die("Connection failed - try again in a few moments.");
 }
 
 if (mysqli_num_rows($result) > 0) {
