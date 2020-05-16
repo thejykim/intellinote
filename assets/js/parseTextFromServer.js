@@ -1,15 +1,19 @@
 const serverData = String.raw`Don't Stop The Party|secs@gmail.com|04-20-2020|05-10-2020|00202020?YeetYeet|secs@gmail.com|04-20-2020|05-10-2020|00202020`;
-
+const fieldParse = "|";
+const songParse = "?";
+const dateSep = "-"
 //add delete function
 
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
 
+
+//works
 function parseServerData(serverData){
     // get the server data as string
-    serverEachSong = serverData.split("?");
-    for (let i = 0; i < serverEachSong.length; i++) {
-        let songStr = serverEachSong[i].split("|");
+    serverEachSong = serverData.split(songParse);
+    for (let i = 0; i < serverEachSong.length-1; i++) {
+        let songStr = serverEachSong[i].split(fieldParse);
         var songObj = {
             title : songStr[0],
             id : songStr[1],
@@ -21,10 +25,42 @@ function parseServerData(serverData){
     }
 }
 
+// Send all songs to database
+// TODO
+function sendNewSong(newSong) {
+    var data = new XMLHttpRequest();
+    var params = `newString=${newSong}`;
+	data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            console.log(data.responseText);
+            // parseServerData(data.responseText);
+        }
+        console.log("Running");
+    };
+    data.open("POST", "../php/add-song.php", true);
+    data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    data.send(params); //parems
+}
 
 // Format fields into database-readable String
 // TODO
 function createNewSong(){
+    var curDate = new Date();
+    let newSong = "";
+    exportSong();
+
+    email = document.getElementById('emailID').value.concat(fieldParse);
+    title = document.getElementById('title').value.concat(fieldParse);
+    month = (curDate.getMonth()+1).toString().concat(dateSep);
+    day = curDate.getDate().toString().concat(dateSep);
+    year = curDate.getFullYear().toString().concat(fieldParse);
+
+    // console.log(day);
+    newSong = newSong.concat(email, title, month, day, year, month, day, year, textbox.value, songParse);
+    parseServerData(newSong);
+    sendNewSong(newSong);
+
+
     // turn form vals into formatted string
     // serverEachSong = serverData.split("?");
     // for (let i = 0; i < serverEachSong.length; i++) {
@@ -39,21 +75,14 @@ function createNewSong(){
     //     serverObjects.push(songObj);
     // }
 
-    //testing form functionality
-    console.log(document.getElementById('emailID').value);
-    curDate = new Date();
-    console.log(curDate.getDate()); //day
-    console.log(curDate.getMonth()); // month (from 0 to 11 *wack)
-    console.log(curDate.getFullYear()); //year
 }
-
 
 // get id from text box in html
 // Get song from database
 function getMusic(id) {
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
-	    data.onload = function() {
+	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             console.log(data.responseText);
             // parseServerData(data.responseText);
@@ -65,22 +94,7 @@ function getMusic(id) {
     data.send(); //parems
 }
 
-// Send all songs to database
-// TODO
-function sendNewSong(id) {
-    var data = new XMLHttpRequest();
-    // var params = `id=${id}`;
-	    data.onload = function() {
-	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
-            // parseServerData(data.responseText);
-        }
-        console.log("Running");
-    };
-    data.open("POST", "../php/get-songs.php", true);
-    data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
-}
+
 
 // Modify song; send to database
 // TODO
@@ -94,7 +108,7 @@ function updateSong(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/get-songs.php", true);
+    data.open("POST", "../php/update-songs.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
@@ -111,7 +125,7 @@ function deleteSong(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/get-songs.php", true);
+    data.open("POST", "../php/delete-song.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
