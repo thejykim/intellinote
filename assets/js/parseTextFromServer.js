@@ -7,7 +7,10 @@ const dateSep = "-"
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
 
+//called on
+function updateDisplay(){
 
+}
 //works
 function parseServerData(serverData){
     // get the server data as string
@@ -79,7 +82,7 @@ function createNewSong(){
 
 // get id from text box in html
 // Get song from database
-function getMusic(id) {
+function getSong(id) {
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	data.onload = function() {
@@ -89,12 +92,10 @@ function getMusic(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/get-songs.php", true);
+    data.open("POST", "../php/get-song.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
-
-
 
 // Modify song; send to database
 // TODO
@@ -108,7 +109,7 @@ function updateSong(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/update-songs.php", true);
+    data.open("POST", "../php/update-song.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
