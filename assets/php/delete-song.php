@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(-1);
 
 $id = $_POST["userID"];
+$songID = $_POST["songID"];
 
 $servername = "167.88.161.21";
 $username = "thejykco_sheets";
@@ -16,23 +17,15 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$sql = "SELECT * FROM userSongs
-    WHERE userID=?";
+$sql = "DELETE FROM userSongs
+    WHERE songID = ? AND userID = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $id);
+$stmt->bind_param("ss", $songID, $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result === false) {
-    die("Connection failed - try again in a few moments.");
-}
-
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_array($result)) {
-        echo $row["title"] . "|" . $row["userID"] . "|" . $row["dateCreated"] . "|" . $row["dateModified"] . "|" . $row["songData"] . "|" . $row["songID"] . "?";
-    }
-} else {
-    echo "";
+    echo("Unable to delete song!");
 }
 
 $connection->close();
