@@ -7,7 +7,7 @@ $id = $_GET["userID"];
 
 $servername = "167.88.161.21";
 $username = "thejykco_sheets_user";
-$password = "omitted";
+$password = file_get_contents(__DIR__ . "/protected/password.txt");
 $dbname = "thejykco_sheets";
 
 $connection = new mysqli($servername, $username, $password, $dbname);

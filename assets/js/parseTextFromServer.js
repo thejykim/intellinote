@@ -74,12 +74,9 @@ function createNewSong(){
     // newSong = newSong.concat(email, title, month, day, year, month, day, year, textbox.value, songParse);
     // parseServerData(newSong);
     // sendNewSong(newSong);
-
-
 }
 
-// get id from text box in html
-// Get song from database
+// Get songs from database
 function getSongs() {
     let userID = document.getElementById('emailID').value;
 
@@ -97,7 +94,6 @@ function getSongs() {
 }
 
 // Modify song; send to database
-// TODO
 function editSong(songID) {
     exportSong();
 
@@ -120,8 +116,7 @@ function editSong(songID) {
     data.send(); //parems
 }
 
-// Delete song; TALK WITH BACKEND ABOUT THIS
-// TODO
+// Delete song
 function deleteSong(songID) {
     let userID = document.getElementById('emailID').value;
 
