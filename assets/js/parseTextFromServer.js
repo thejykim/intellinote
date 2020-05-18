@@ -19,10 +19,11 @@ function parseServerData(serverData){
         let songStr = serverEachSong[i].split(fieldParse);
         var songObj = {
             title : songStr[0],
-            id : songStr[1],
+            userID : songStr[1],
             dateCreated :songStr[2],
             dateModified : songStr[3],
-            songData : songStr[4]
+            songData : songStr[4],
+            songID : songStr[5]
         };
         serverObjects.push(songObj);
     }
@@ -48,30 +49,23 @@ function parseServerData(serverData){
 
 // TODO
 function createNewSong(){
-    var curDate = new Date();
-    let newSong = "";
     exportSong();
 
-    userID = document.getElementById('emailID').value;
-    title = document.getElementById('title').value;
+    let title = document.getElementById('title').value;
+    let userID = document.getElementById('emailID').value;
 
-    year = curDate.getFullYear().toString().concat(dateSep);
-    month = (curDate.getMonth()+1).toString().concat(dateSep);
-    day = curDate.getDate().toString();
+    let date = currentDate();
 
-    let date = "";
-    date = date.concat(year, month, day);
-    console.log(date);
     var data = new XMLHttpRequest();
     //var params = `userID=${userID}, title=${title}, dateCreated=${dateCreated}, dateModified=${dateCreated}, songData=${textbox.value}`;
-	  data.onload = function() {
+	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             console.log(data.responseText);
             // parseServerData(data.responseText);
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/create-song.php?userID=${userID}&title=${title}&dateCreated=${date}&dateModified=${date}&songData=${textbox.value}`, true);
+    data.open("POST", `assets/php/create-song.php?title=${title}&userID=${userID}&dateCreated=${date}&dateModified=${date}&songData=${textbox.value}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
     // // console.log(day);
@@ -84,24 +78,31 @@ function createNewSong(){
 
 // get id from text box in html
 // Get song from database
-function getSong(id) {
-    var data = new XMLHttpRequest();
-    // var params = `id=${id}`;
-	data.onload = function() {
-	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
-            // parseServerData(data.responseText);
-        }
-        console.log("Running");
-    };
-    data.open("POST", "assets/php/get-songs.php", true);
-    data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
-}
+// function getSong(id) {
+//     var data = new XMLHttpRequest();
+//     // var params = `id=${id}`;
+// 	data.onload = function() {
+// 	    if (data.status == 200 && data.readyState == 4) {
+//             console.log(data.responseText);
+//             // parseServerData(data.responseText);
+//         }
+//         console.log("Running");
+//     };
+//     data.open("POST", "assets/php/get-songs.php", true);
+//     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//     data.send(); //parems
+// }
 
 // Modify song; send to database
 // TODO
-function updateSong(id) {
+function editSong(songID) {
+    exportSong();
+
+    let title = document.getElementById('title').value;
+    let userID = document.getElementById('emailID').value;
+
+    let date = currentDate();
+
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	    data.onload = function() {
@@ -111,7 +112,7 @@ function updateSong(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "assets/php/edit-song.php", true);
+    data.open("POST", `assets/php/edit-song.php?&title=${title}&userID=${userID}&dateModified=${date}&songData=${textbox.value}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
@@ -142,3 +143,16 @@ function deleteSong(id) {
 //     return false;
 //   }
 // }
+
+function currentDate() {
+    let curDate = new Date();
+
+    let year = curDate.getFullYear().toString().concat(dateSep);
+    let month = (curDate.getMonth()+1).toString().concat(dateSep);
+    let day = curDate.getDate().toString();
+
+    let date = "";
+    date = date.concat(year, month, day);
+
+    return date;
+}
