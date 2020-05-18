@@ -69,7 +69,7 @@ function createNewSong(){
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/create-song.php?userID=${userID}&title=${title}&dateCreated=${dateCreated}&dateModified=${dateCreated}&songData=${textbox.value}`, true);
+    data.open("POST", `assets/php/create-song.php?userID=${userID}&title=${title}&dateCreated=${date}&dateModified=${date}&songData=${textbox.value}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
     // // console.log(day);
