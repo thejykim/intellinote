@@ -129,7 +129,7 @@ function deleteSong(songID) {
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/edit-song.php?&userID=${userID}&songID=${songID}`, true);
+    data.open("POST", `assets/php/delete-song.php?&userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
