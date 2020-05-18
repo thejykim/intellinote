@@ -46,7 +46,6 @@ function parseServerData(serverData){
 // }
 // sendNewSong(serverData);
 
-// Format fields into database-readable String
 // TODO
 function createNewSong(){
     var curDate = new Date();
@@ -55,11 +54,13 @@ function createNewSong(){
 
     userID = document.getElementById('emailID').value;
     title = document.getElementById('title').value;
+
+    year = curDate.getFullYear().toString().concat(dateSep);
     month = (curDate.getMonth()+1).toString().concat(dateSep);
-    day = curDate.getDate().toString().concat(dateSep);
-    year = curDate.getFullYear().toString();
-    date = "";
-    date = date.concat(month, day, year);
+    day = curDate.getDate().toString();
+
+    date = date.concat(year, month, day);
+    console.log(date);
     var data = new XMLHttpRequest();
     //var params = `userID=${userID}, title=${title}, dateCreated=${dateCreated}, dateModified=${dateCreated}, songData=${textbox.value}`;
 	  data.onload = function() {
