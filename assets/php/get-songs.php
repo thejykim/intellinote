@@ -6,9 +6,9 @@ error_reporting(-1);
 $id = $_POST["userID"];
 
 $servername = "167.88.161.21";
-$username = "thejykco_sheets";
+$username = "thejykco_sheets_user";
 $password = "omitted";
-$dbname = "thejykco_sheets_user";
+$dbname = "thejykco_sheets";
 
 $connection = new mysqli($servername, $username, $password, $dbname);
 
