@@ -40,7 +40,7 @@ function sendNewSong(newSong) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/create-song.php", true);
+    data.open("POST", "assets/php/create-song.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(params); //parems
 }
@@ -92,7 +92,7 @@ function getSong(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/get-songs.php", true);
+    data.open("POST", "assets/php/get-songs.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
@@ -109,7 +109,7 @@ function updateSong(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/edit-song.php", true);
+    data.open("POST", "assets/php/edit-song.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
@@ -126,7 +126,7 @@ function deleteSong(id) {
         }
         console.log("Running");
     };
-    data.open("POST", "../php/delete-song.php", true);
+    data.open("POST", "assets/php/delete-song.php", true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
