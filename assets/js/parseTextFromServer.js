@@ -78,20 +78,21 @@ function createNewSong(){
 
 // get id from text box in html
 // Get song from database
-// function getSong(id) {
-//     var data = new XMLHttpRequest();
-//     // var params = `id=${id}`;
-// 	data.onload = function() {
-// 	    if (data.status == 200 && data.readyState == 4) {
-//             console.log(data.responseText);
-//             // parseServerData(data.responseText);
-//         }
-//         console.log("Running");
-//     };
-//     data.open("POST", "assets/php/get-songs.php", true);
-//     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//     data.send(); //parems
-// }
+function getSongs() {
+    let userID = document.getElementById('emailID').value;
+
+    var data = new XMLHttpRequest();
+    // var params = `id=${id}`;
+	data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            console.log(data.responseText);
+        }
+        console.log("Running");
+    };
+    data.open("POST", `assets/php/get-songs.php?userID=${userID}`, true);
+    data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    data.send(); //parems
+}
 
 // Modify song; send to database
 // TODO
@@ -112,7 +113,7 @@ function editSong(songID) {
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/edit-song.php?&title=${title}&userID=${userID}&dateModified=${date}&songData=${textbox.value}&songID=${songID}`, true);
+    data.open("POST", `assets/php/edit-song.php?title=${title}&userID=${userID}&dateModified=${date}&songData=${textbox.value}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
