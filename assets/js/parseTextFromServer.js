@@ -120,6 +120,8 @@ function editSong(songID) {
 // Delete song; TALK WITH BACKEND ABOUT THIS
 // TODO
 function deleteSong(songID) {
+    let userID = document.getElementById('emailID').value;
+
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	    data.onload = function() {
@@ -129,7 +131,7 @@ function deleteSong(songID) {
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/delete-song.php?&userID=${userID}&songID=${songID}`, true);
+    data.open("POST", `assets/php/delete-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
