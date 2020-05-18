@@ -119,7 +119,7 @@ function editSong(songID) {
 
 // Delete song; TALK WITH BACKEND ABOUT THIS
 // TODO
-function deleteSong(id) {
+function deleteSong(songID) {
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	    data.onload = function() {
