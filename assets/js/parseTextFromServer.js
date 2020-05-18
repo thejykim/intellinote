@@ -61,7 +61,7 @@ function createNewSong(){
     date = "";
     date = date.concat(month, day, year);
     var data = new XMLHttpRequest();
-    var params = `id=${userID}, title=${title}, dateCreated=${dateCreated}, dateModified=${dateCreated}, songData=${textbox.value}`;
+    var params = `userID=${userID}, title=${title}, dateCreated=${dateCreated}, dateModified=${dateCreated}, songData=${textbox.value}`;
 	  data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             console.log(data.responseText);

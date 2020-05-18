@@ -19,7 +19,7 @@ if ($connection->connect_error) {
 
 $sql = "DELETE FROM userSongs
     WHERE songID = ? AND userID = ?";
-$stmt = $conn->prepare($sql);
+$stmt = $connection->prepare($sql);
 $stmt->bind_param("ss", $songID, $id);
 $stmt->execute();
 $result = $stmt->get_result();

@@ -18,7 +18,7 @@ if ($connection->connect_error) {
 
 $sql = "SELECT * FROM userSongs
     WHERE userID=?";
-$stmt = $conn->prepare($sql);
+$stmt = $connection->prepare($sql);
 $stmt->bind_param("s", $id);
 $stmt->execute();
 $result = $stmt->get_result();

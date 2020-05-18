@@ -23,7 +23,7 @@ if ($connection->connect_error) {
 $sql = "UPDATE userSongs
     SET title = ?, songData = ?, dateModified = ?
     WHERE songID = ? AND userID = ?"
-$stmt = $conn->prepare($sql);
+$stmt = $connection->prepare($sql);
 $stmt->bind_param("ssss", $title, $songData, $dateModified, $songID, $id);
 $stmt->execute();
 $result = $stmt->get_result();

@@ -23,7 +23,7 @@ if ($connection->connect_error) {
 $sql = "INSERT INTO userSongs
     (title, userID, dateCreated, dateModified, songData)
     VALUES (?,?,?,?,?)";
-$stmt = $conn->prepare($sql);
+$stmt = $connection->prepare($sql);
 $stmt->bind_param("sssss", $title, $id, $dateCreated, $dateModified, $songData);
 $stmt->execute();
 $result = $stmt->get_result();
