@@ -28,9 +28,5 @@ $stmt->bind_param("sssss", $title, $id, $dateCreated, $dateModified, $songData);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result === false) {
-    die("Connection failed - try again in a few moments.");
-}
-
 $connection->close();
 ?>

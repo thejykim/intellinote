@@ -24,9 +24,5 @@ $stmt->bind_param("ss", $songID, $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result === false) {
-    echo("Unable to delete song!");
-}
-
 $connection->close();
 ?>
