@@ -59,6 +59,7 @@ function createNewSong(){
     month = (curDate.getMonth()+1).toString().concat(dateSep);
     day = curDate.getDate().toString();
 
+    let date = "";
     date = date.concat(year, month, day);
     console.log(date);
     var data = new XMLHttpRequest();
