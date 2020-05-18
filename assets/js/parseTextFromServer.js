@@ -61,7 +61,7 @@ function createNewSong(){
     date = "";
     date = date.concat(month, day, year);
     var data = new XMLHttpRequest();
-    var params = `userID=${userID}, title=${title}, dateCreated=${dateCreated}, dateModified=${dateCreated}, songData=${textbox.value}`;
+    //var params = `userID=${userID}, title=${title}, dateCreated=${dateCreated}, dateModified=${dateCreated}, songData=${textbox.value}`;
 	  data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             console.log(data.responseText);
@@ -69,9 +69,9 @@ function createNewSong(){
         }
         console.log("Running");
     };
-    data.open("POST", "assets/php/create-song.php", true);
+    data.open("POST", `assets/php/create-song.php?userID=${userID}&title=${title}&dateCreated=${dateCreated}&dateModified=${dateCreated}&songData=${textbox.value}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(params); //parems
+    data.send(); //parems
     // // console.log(day);
     // newSong = newSong.concat(email, title, month, day, year, month, day, year, textbox.value, songParse);
     // parseServerData(newSong);
