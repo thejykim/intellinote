@@ -13,6 +13,7 @@ function updateDisplay(){
 }
 //works
 function parseServerData(serverData){
+    serverObjects = [];
     // get the server data as string
     serverEachSong = serverData.split(songParse);
     for (let i = 0; i < serverEachSong.length-1; i++) {
@@ -27,6 +28,7 @@ function parseServerData(serverData){
         };
         serverObjects.push(songObj);
     }
+    console.log(serverObjects);
 }
 
 // Send all songs to database
@@ -85,7 +87,7 @@ function getSongs() {
     // var params = `id=${id}`;
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
+            parseServerData(data.responseText);
         }
         console.log("Running");
     };
