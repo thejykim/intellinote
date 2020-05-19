@@ -11,7 +11,8 @@ function displaySongs(userID) {
             if (serverObjects.length == 0) {
                 // show zero songs
                 recentSongsDiv.innerHTML = `
-                <h4 class="title is-4 poppins">Couldn't find any songs for ${userID}... yet.</h4>
+                <h4 class="title is-4 poppins">Couldn't find any songs for <code>${userID}</code>... yet.</h4>
+                <h6 class="subtitle is-6 karla">Check back later, or invite <code>${userID}</code> to make their own tunes at IntelliNote!</h6>
                 `;
                 return;
             }
