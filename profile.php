@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="navbar-end">
-                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="profile.html">Profile</a></p>
+                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php?userID="hello@hello.com"'>Profile</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <h1 class="title poppins">
-                    <?php echo $_POST["userID"] ?>
+                    <?php echo $_GET["userID"] ?>
                     </h1>
                     <h2 class="subtitle karla">
                     music portfolio
