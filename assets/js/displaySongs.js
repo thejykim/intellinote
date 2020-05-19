@@ -45,6 +45,12 @@ function displaySongs(userID) {
                     recentSongs.push(serverObjects[i]);
                 }
 
+                if (numRows > 1) {
+                    numRows = numRows + " rows";
+                } else {
+                    numRows = numRows + " row";
+                }
+
                 // briefly parse song data
                 let numRows = serverObjects[i].songData.split(sheetParse)[2];
 
@@ -58,7 +64,7 @@ function displaySongs(userID) {
                             <div class="content">
                                 <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">${serverObjects[i].title}</a></h5>
                                 <span class="tag is-dark poppins">Created: ${serverObjects[i].dateCreated}</span>
-                                <span class="tag is-light poppins"><b>${numRows} rows</b></span>
+                                <span class="tag is-light poppins"><b>${numRows}</b></span>
                             </div>
                         </div>
                     </div>
