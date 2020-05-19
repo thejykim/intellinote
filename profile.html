@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165298620-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-165298620-1');
+        </script>
+
+        <title>IntelliNote | Custom Sheet Music</title>
+
+        <!-- bulma css -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+
+        <!-- font awesome (for icons) -->
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+        <!-- custom css -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+
+        <!-- tonejs -->
+        <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
+    </head>
+
+    <body>
+        <nav class="navbar is-dark navbar-gradient" role="navigation" aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <p class="navbar-item is-size-5 poppins" style="font-weight: 600;padding-right:0.3rem"><a
+                            class="has-text-white" href="index.html">IntelliNote</a></p>
+                    <p class="navbar-item is-size-6 poppins" style="font-weight: 400;padding-left:0px;top:0.1rem">Custom
+                        Sheet Music</p>
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarMain">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarMain" class="navbar-menu">
+                    <div class="navbar-start">
+                    </div>
+
+                    <div class="navbar-end">
+                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="profile.html">Profile</a></p>
+                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
+                    </div>
+                </div>
+        </nav>
+
+        <section class="hero is-light is-medium is-bold">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title poppins">
+                    thejykim's
+                    </h1>
+                    <h2 class="subtitle karla">
+                    music portfolio
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <div class="empty-padding"></div>
+
+        <section class="container">
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-2">
+                    <h4 class="title is-4 poppins">Recently modified</h4>
+                    <h6 class="subtitle is-6 karla">3 songs</h6>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">Mii Theme</a></h5>
+    	                        <span class="tag gradient has-text-white poppins">Last updated: May 15, 2020</span>
+                                <span class="tag is-light poppins">2 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">Tetris Theme</a></h5>
+    	                        <span class="tag gradient has-text-white poppins">Last updated: May 13, 2020</span>
+                                <span class="tag is-light poppins">6 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">Epilogue</a></h5>
+    	                        <span class="tag gradient has-text-white poppins">Last updated: May 10, 2020</span>
+                                <span class="tag is-light poppins">6 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container empty-padding"><hr></div>
+
+        <section class="container">
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-2">
+                    <h4 class="title is-4 poppins">All songs</h4>
+                    <h6 class="subtitle is-6 karla">5 songs</h6>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">Twinkle Twinkle Little Star</a></h5>
+    	                        <span class="tag is-dark poppins">Created: March 25, 2020</span>
+                                <span class="tag is-light poppins">3 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">Tetris Theme</a></h5>
+    	                        <span class="tag is-dark poppins">Created: May 13, 2020</span>
+                                <span class="tag is-light poppins">6 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">Mii Theme</a></h5>
+    	                        <span class="tag is-dark poppins">Created: May 15, 2020</span>
+                                <span class="tag is-light poppins">2 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">The Office Intro</a></h5>
+    	                        <span class="tag is-dark poppins">Created: April 25, 2020</span>
+                                <span class="tag is-light poppins">3 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-3">
+                    <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
+	                    <div class="card-content">
+	                        <div class="content">
+	                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="projects/ideadb" class="has-text-dark">Epilogue</a></h5>
+    	                        <span class="tag is-dark poppins">Created: May 10, 2020</span>
+                                <span class="tag is-light poppins">6 rows</span>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="empty-padding"></div>
+
+        <!-- footer -->
+        <footer class="footer" style="padding-top: 4rem; padding-bottom: 4rem;">
+            <div class="content has-text-centered">
+                <p class="karla">
+                    <b>IntelliNote</b> &copy 2020. Source code available on <a class="has-text-info"
+                        href="https://github.com/thejykim/intellinote"><i class="fab fa-github"></i> GitHub</a>. Built
+                    with <a class="has-text-info" href="https://tonejs.github.io/">Tone.js</a> and <a class="has-text-info"
+                        href="https://bulma.io/">Bulma</a>.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
