@@ -9,6 +9,7 @@ let userID = "hello@hello.com";
 async function displaySongs() {
     console.log("displaySongs() ran");
     await getSongs(userID);
+    console.log("got songs!");
 
     if (serverObjects.length == 0) {
         // show zero songs
