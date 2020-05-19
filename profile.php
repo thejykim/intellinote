@@ -57,7 +57,7 @@
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <h1 class="title poppins">
-                    thejykim's
+                    <?php echo $_POST["userID"] ?>
                     </h1>
                     <h2 class="subtitle karla">
                     music portfolio
@@ -96,7 +96,7 @@
 
         <script>
             window.onload = function () {
-                displaySongs();
+                displaySongs(<?php echo $_GET["userID"] ?>);
             }
         </script>
     </body>

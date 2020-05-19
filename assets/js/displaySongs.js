@@ -3,10 +3,7 @@ const allSongsDiv = document.getElementById("allSongs");
 
 let recentThreshold = 2592000000;
 
-// purely for functionality testing
-let userID = "hello@hello.com";
-
-function displaySongs() {
+function displaySongs(userID) {
     var data = new XMLHttpRequest();
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
@@ -19,8 +16,6 @@ function displaySongs() {
             let recentSongs = [];
             let currentDate = Date.now();
 
-            console.log(currentDate);
-
             allSongsDiv.innerHTML = `
             <div class="columns" style="padding-bottom: 1.5rem">
                 <div class="column is-6 is-offset-2">
@@ -32,9 +27,7 @@ function displaySongs() {
 
             // copy eligible songs into recent songs array
             for (let i = 0; i < serverObjects.length; i++) {
-                console.log("serverObjects for loop ran");
                 let songDate = Date.parse(serverObjects[i].dateModified);
-                console.log(songDate);
 
                 if ((currentDate - songDate) < recentThreshold) {
                     recentSongs.push(serverObjects[i]);
