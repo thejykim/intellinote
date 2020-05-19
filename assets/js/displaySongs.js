@@ -6,9 +6,18 @@ let recentThreshold = 2592000000;
 // purely for functionality testing
 let userID = "hello@hello.com";
 
+function asyncGetSongs(userID) {
+    new Promise(function(resolve, reject){
+        getSongs(userID);
+        parseServerData();
+
+        resolve(serverObjects);
+    });
+}
+
 async function displaySongs() {
     console.log("displaySongs() ran");
-    await getSongs(userID);
+    let something = await asyncGetSongs(userID);
     console.log("got songs!");
 
     if (serverObjects.length == 0) {
