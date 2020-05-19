@@ -7,7 +7,7 @@ let recentThreshold = 2592000000;
 let userID = "hello@hello.com";
 
 function asyncGetSongs(userID) {
-    new Promise(function(resolve, reject){
+    return new Promise(function(resolve, reject){
         getSongs(userID);
         parseServerData();
 
