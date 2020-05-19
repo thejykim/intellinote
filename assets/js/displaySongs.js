@@ -20,11 +20,19 @@ function displaySongs(userID) {
             let recentSongs = [];
             let currentDate = Date.now();
 
+            let numRecentSongs;
+
+            if (serverObjects.length > 1) {
+                numRecentSongs = serverObjects.length + " songs";
+            } else {
+                numRecentSongs = serverObjects.length + " song";
+            }
+
             allSongsDiv.innerHTML = `
             <div class="columns" style="padding-bottom: 1.5rem">
                 <div class="column is-6 is-offset-2">
                     <h4 class="title is-4 poppins">All songs</h4>
-                    <h6 class="subtitle is-6 karla">${serverObjects.length} songs</h6>
+                    <h6 class="subtitle is-6 karla">${numRecentSongs}</h6>
                 </div>
             </div>
             `;
@@ -60,12 +68,20 @@ function displaySongs(userID) {
                 allSongsDiv.appendChild(songDiv);
             }
 
+            let numAllSongs;
+
+            if (serverObjects.length > 1) {
+                numAllSongs = serverObjects.length + " songs";
+            } else {
+                numAllSongs = serverObjects.length + " song";
+            }
+
             // print recent songs
             recentSongsDiv.innerHTML = `
             <div class="columns" style="padding-bottom: 1.5rem">
                 <div class="column is-6 is-offset-2">
                     <h4 class="title is-4 poppins">Recently modified</h4>
-                    <h6 class="subtitle is-6 karla">${recentSongs.length} songs</h6>
+                    <h6 class="subtitle is-6 karla">${numAllSongs}</h6>
                 </div>
             </div>
             `;
@@ -74,6 +90,12 @@ function displaySongs(userID) {
                 console.log("recentSongs for loop ran");
                 // briefly parse song data
                 let numRows = recentSongs[i].songData.split(sheetParse)[2];
+
+                if (numRows > 1) {
+                    numRows = numRows + " rows";
+                } else {
+                    numRows = numRows + " row";
+                }
 
                 let songDiv = document.createElement('div');
                 songDiv.setAttribute("class", "columns");
@@ -85,7 +107,7 @@ function displaySongs(userID) {
                             <div class="content">
                                 <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="#" class="has-text-dark">${recentSongs[i].title}</a></h5>
                                 <span class="tag gradient has-text-white poppins">Last updated: ${recentSongs[i].dateModified}</span>
-                                <span class="tag is-light poppins"><b>${numRows} rows</b></span>
+                                <span class="tag is-light poppins"><b>${numRows}</b></span>
                             </div>
                         </div>
                     </div>
