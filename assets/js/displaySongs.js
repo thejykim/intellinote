@@ -45,14 +45,14 @@ function displaySongs(userID) {
                     recentSongs.push(serverObjects[i]);
                 }
 
+                // briefly parse song data
+                let numRows = serverObjects[i].songData.split(sheetParse)[2];
+
                 if (numRows > 1) {
                     numRows = numRows + " rows";
                 } else {
                     numRows = numRows + " row";
                 }
-
-                // briefly parse song data
-                let numRows = serverObjects[i].songData.split(sheetParse)[2];
 
                 let songDiv = document.createElement('div');
                 songDiv.setAttribute("class", "columns");
