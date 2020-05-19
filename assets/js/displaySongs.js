@@ -19,6 +19,8 @@ function displaySongs() {
             let recentSongs = [];
             let currentDate = Date.now();
 
+            console.log(currentDate);
+
             allSongsDiv.innerHTML = `
             <div class="columns" style="padding-bottom: 1.5rem">
                 <div class="column is-6 is-offset-2">
@@ -32,6 +34,7 @@ function displaySongs() {
             for (let i = 0; i < serverObjects.length; i++) {
                 console.log("serverObjects for loop ran");
                 let songDate = Date.parse(serverObjects[i]);
+                console.log(songDate);
 
                 if ((currentDate - songDate) < recentThreshold) {
                     recentSongs.push(serverObjects[i]);
