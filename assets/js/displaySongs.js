@@ -33,7 +33,7 @@ function displaySongs() {
             // copy eligible songs into recent songs array
             for (let i = 0; i < serverObjects.length; i++) {
                 console.log("serverObjects for loop ran");
-                let songDate = Date.parse(serverObjects[i]);
+                let songDate = Date.parse(serverObjects[i].dateModified);
                 console.log(songDate);
 
                 if ((currentDate - songDate) < recentThreshold) {
