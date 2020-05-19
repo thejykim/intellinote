@@ -6,9 +6,9 @@ let recentThreshold = 2592000000;
 // purely for functionality testing
 let userID = "hello@hello.com";
 
-function displaySongs() {
+async function displaySongs() {
     console.log("displaySongs() ran");
-    getSongs(userID);
+    await getSongs(userID);
 
     if (serverObjects.length == 0) {
         // show zero songs
