@@ -7,6 +7,7 @@ let recentThreshold = 2592000000;
 let userID = "hello@hello.com";
 
 function displaySongs() {
+    console.log("displaySongs() ran");
     getSongs(userID);
 
     if (serverObjects.length == 0) {
@@ -28,6 +29,7 @@ function displaySongs() {
 
     // copy eligible songs into recent songs array
     for (let i = 0; i < serverObjects.length; i++) {
+        console.log("serverObjects for loop ran");
         let songDate = Date.parse(serverObjects[i]);
 
         if ((currentDate - songDate) < recentThreshold) {
@@ -68,6 +70,7 @@ function displaySongs() {
     `;
 
     for (let i = 0; i < recentSongs.length; i++) {
+        console.log("recentSongs for loop ran");
         // briefly parse song data
         let numRows = recentSongs[i].songData.split(sheetParse)[2];
 
