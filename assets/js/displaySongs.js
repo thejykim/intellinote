@@ -10,6 +10,9 @@ function displaySongs(userID) {
             parseServerData(data.responseText);
             if (serverObjects.length == 0) {
                 // show zero songs
+                recentSongsDiv.innerHTML = `
+                <h4 class="title is-4 poppins">Couldn't find any songs for ${userID}... yet.</h4>
+                `;
                 return;
             }
 
