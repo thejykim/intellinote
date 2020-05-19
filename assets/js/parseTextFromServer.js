@@ -2,7 +2,6 @@ const serverData = String.raw`Don't Stop The Party|secs@gmail.com|04-20-2020|05-
 const fieldParse = "|";
 const songParse = "?";
 const dateSep = "-"
-//add delete function
 
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
@@ -77,9 +76,7 @@ function createNewSong(){
 }
 
 // Get songs from database
-function getSongs() {
-    let userID = document.getElementById('emailID').value;
-
+function getSongs(userID) {
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	data.onload = function() {
