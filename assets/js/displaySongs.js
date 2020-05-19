@@ -9,7 +9,6 @@ let userID = "hello@hello.com";
 function asyncGetSongs(userID) {
     return new Promise(function(resolve, reject){
         getSongs(userID);
-        parseServerData();
 
         resolve(serverObjects);
     });
