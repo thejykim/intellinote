@@ -76,10 +76,10 @@ function displaySongs(userID) {
 
             let numAllSongs;
 
-            if (serverObjects.length > 1) {
-                numAllSongs = serverObjects.length + " songs";
+            if (recentSongs.length > 1) {
+                numAllSongs = recentSongs.length + " songs";
             } else {
-                numAllSongs = serverObjects.length + " song";
+                numAllSongs = recentSongs.length + " song";
             }
 
             // print recent songs
