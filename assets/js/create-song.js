@@ -1,3 +1,7 @@
+const usernameField = document.getElementById("username");
+const titleField = document.getElementById("title");
+const createDialog = document.getElementById("createDialog");
+
 function setSaveModalJS() {
     document.querySelector('#open-save-modal').addEventListener('click', function (event) {
         event.preventDefault();
@@ -18,4 +22,20 @@ function setSaveModalJS() {
             html.classList.remove('is-clipped');
         });
     });
+}
+
+function createSongIndex() {
+    // check required fields
+    if (usernameField.value.length == 0 ||
+        titleField.value.length == 0) {
+            createDialog.innerHTML = `
+            <p class="karla has-text-danger">Both fields are required. Try again!</p>
+            `;
+            return;
+    }
+
+    createNewSong();
+    createDialog.innerHTML = `
+    <p class="karla has-text-success">Song submitted!</p>
+    `;
 }
