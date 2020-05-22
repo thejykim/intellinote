@@ -29,13 +29,13 @@ function createSongIndex() {
     if (usernameField.value.length == 0 ||
         titleField.value.length == 0) {
             createDialog.innerHTML = `
-            <p class="karla has-text-danger">Both fields are required. Try again!</p>
+            <span class="tag is-danger karla">Both fields are required. Try again!</span>
             `;
             return;
     }
 
     createNewSong();
     createDialog.innerHTML = `
-    <p class="karla has-text-success">Song submitted!</p>
+    <a href='profile.php?userID="${usernameField.value}"'><span class="tag is-success karla">Song successfully added! Click this tag to visit your new profile.</span></a>
     `;
 }
