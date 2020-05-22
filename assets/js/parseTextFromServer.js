@@ -53,7 +53,7 @@ function createNewSong(){
     exportSong();
 
     let title = document.getElementById('title').value;
-    let userID = document.getElementById('emailID').value;
+    let userID = document.getElementById('username').value;
 
     let date = currentDate();
 
