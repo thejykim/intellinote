@@ -85,6 +85,10 @@
                     with <a class="has-text-info" href="https://tonejs.github.io/">Tone.js</a> and <a class="has-text-info"
                         href="https://bulma.io/">Bulma</a>.
                 </p>
+
+                <p class="karla is-inline-block">
+                    Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla" id="totalSongs"></span> songs made by people like you.
+                </p>
             </div>
         </footer>
 
@@ -97,6 +101,7 @@
         <script>
             window.onload = function () {
                 displaySongs(<?php echo $_GET["userID"] ?>);
+                getTotalSongs();
             }
         </script>
     </body>
