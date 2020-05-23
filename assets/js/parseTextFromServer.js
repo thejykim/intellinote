@@ -3,6 +3,8 @@ const fieldParse = "|";
 const songParse = "?";
 const dateSep = "-"
 
+const totalSongsElement = document.getElementById("totalSongs");
+
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
 
@@ -30,25 +32,6 @@ function parseServerData(serverData){
     console.log(serverObjects);
 }
 
-// Send all songs to database
-// TODO
-// function sendNewSong(newSong) {
-//     var data = new XMLHttpRequest();
-//     var params = `newString=${newSong}`;
-// 	data.onload = function() {
-// 	    if (data.status == 200 && data.readyState == 4) {
-//             console.log(data.responseText);
-//             // parseServerData(data.responseText);
-//         }
-//         console.log("Running");
-//     };
-//     data.open("POST", "assets/php/create-song.php", true);
-//     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//     data.send(params); //parems
-// }
-// sendNewSong(serverData);
-
-// TODO
 function createNewSong(){
     exportSong();
 
@@ -58,7 +41,6 @@ function createNewSong(){
     let date = currentDate();
 
     var data = new XMLHttpRequest();
-    //var params = `userID=${userID}, title=${title}, dateCreated=${dateCreated}, dateModified=${dateCreated}, songData=${textbox.value}`;
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             console.log(data.responseText);
@@ -68,17 +50,12 @@ function createNewSong(){
     };
     data.open("POST", `assets/php/create-song.php?title=${title}&userID=${userID}&dateCreated=${date}&dateModified=${date}&songData=${textbox.value}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
-    // // console.log(day);
-    // newSong = newSong.concat(email, title, month, day, year, month, day, year, textbox.value, songParse);
-    // parseServerData(newSong);
-    // sendNewSong(newSong);
+    data.send();
 }
 
 // Get songs from database
 function getSongs(userID) {
     var data = new XMLHttpRequest();
-    // var params = `id=${id}`;
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
@@ -131,16 +108,6 @@ function deleteSong(songID) {
     data.send(); //parems
 }
 
-//to create string: make form, get form data
-
-// function validateForm() {
-//   var x = document.forms["myForm"]["fname"].value;
-//   if (x == "") {
-//     alert("Name must be filled out");
-//     return false;
-//   }
-// }
-
 function currentDate() {
     let curDate = new Date();
 
@@ -152,4 +119,17 @@ function currentDate() {
     date = date.concat(year, month, day);
 
     return date;
+}
+
+function getTotalSongs() {
+    var data = new XMLHttpRequest();
+	data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            totalSongsElement.innerText = data.responseText;
+        }
+        console.log("Running");
+    };
+    data.open("POST", `assets/php/get-total.php`, true);
+    data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    data.send(); //parems
 }
