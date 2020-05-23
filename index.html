@@ -478,17 +478,7 @@
                         href="https://bulma.io/">Bulma</a>.
                 </p>
                 <p class="karla is-inline-block">
-                    Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla" id="totalSongs"></span> songs made by
-                    <span>
-                        <div class="karla" id="peopleTicker">
-                            <ul>
-                                <li>people like you</li>
-                                <li>broke college students</li>
-                                <li>professional musicians</li>
-                            </ul>
-                        </div>
-                    </span>
-                    .
+                    Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla" id="totalSongs"></span> songs made by people like you.
                 </p>
             </div>
         </footer>
@@ -504,7 +494,6 @@
         <script src="assets/js/presetSongs.js"></script>
         <script src="assets/js/instructions.js"></script>
         <script src="assets/js/create-song.js"></script>
-        <script src="assets/js/vticker.js"></script>
 
         <!-- start everything off -->
         <script>
@@ -515,16 +504,6 @@
                 setInfoModalJS();
                 setSaveModalJS();
                 getTotalSongs();
-
-                // setup vticker
-                let vticker = $('#peopleTicker');
-                vticker.vTicker();
-                let width = vticker.find('ul').width();
-                vticker.css({
-                    'display': 'inline-block',
-                    'vertical-align': 'bottom',
-                    'width': width
-                });
             }
         </script>
 
