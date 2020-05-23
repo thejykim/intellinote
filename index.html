@@ -515,11 +515,15 @@
                 getTotalSongs();
 
                 // setup vticker
-                $('#peopleTicker').vTicker('init', {
-                    speed: 400,
-                    pause: 1000
+                let vticker = $('#peopleTicker');
+                vticker.vTicker();
+                let width = vticker.find('ul').width();
+                vticker.css({
+                    'display': 'inline-block',
+                    'vertical-align': 'bottom',
+                    'width': width
                 });
-                }
+            }
         </script>
 
     </body>
