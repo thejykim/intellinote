@@ -3,8 +3,6 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_GET["userID"];
-
 $servername = "167.88.161.21";
 $username = "thejykco_sheets_user";
 $password = file_get_contents(__DIR__ . "/protected/password.txt");
