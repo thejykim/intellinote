@@ -8,3 +8,14 @@ padding:c.padding});return isNaN(c.height)||0===c.height?(a.children("ul").child
 isPaused:b.startPaused,pausedByCode:!1}}};f={init:function(a){var b,e;d(this).data("state")&&f.stop.call(this);b=jQuery.extend({},g);a=d.extend(b,a);b=d(this);e=c.defaultStateAttribs(b,a);d(this).data("state",e);c.setItemLayout(b,e,a);a.startPaused||c.startInterval.call(this);if(a.mousePause)return c.bindMousePausing(b,e)},pause:function(a){var b;b=c.getState("pause",this);if(!c.hasMultipleItems(b))return!1;b.isPaused=a;b=b.element;if(a)return d(this).addClass("paused"),b.trigger("vticker.pause");
 d(this).removeClass("paused");return b.trigger("vticker.resume")},next:function(a){var b;b=c.getState("next",this);if(c.isAnimatingOrSingleItem(b))return!1;c.restartInterval.call(this);return c.moveUp(b,a)},prev:function(a){var b;b=c.getState("prev",this);if(c.isAnimatingOrSingleItem(b))return!1;c.restartInterval.call(this);return c.moveDown(b,a)},stop:function(){c.getState("stop",this);return c.stopInterval.call(this)},remove:function(){var a;a=c.getState("remove",this);c.stopInterval.call(this);
 a=a.element;a.unbind();return a.remove()}};return d.fn.vTicker=function(a){return f[a]?f[a].apply(this,Array.prototype.slice.call(arguments,1)):"object"!==typeof a&&a?d.error("Method "+a+" does not exist on jQuery.vTicker"):f.init.apply(this,arguments)}})(jQuery);
+
+{
+  let vticker = $('#vticker');
+  vticker.vTicker();
+  let width = vticker.find('ul').width();
+  vticker.css({
+    'display': 'inline-block',
+    'vertical-align': 'bottom',
+    'width': width
+  });
+}
