@@ -91,7 +91,7 @@ function getSong() {
         }
         console.log("Running");
     };
-    savedSong = "Hello";
+    savedSong = serverObjects[0].songData;
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
