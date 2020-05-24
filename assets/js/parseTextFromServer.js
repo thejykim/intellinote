@@ -87,8 +87,8 @@ function getSong() {
 	data.onload = function() {
         console.log("Stage One");
 	    if (data.status == 200 && data.readyState == 4) {
-            parseServerData(data.responseText);
             savedSong = "Hello";
+            parseServerData(data.responseText);
         }
         console.log("Running");
     };
