@@ -108,9 +108,6 @@ function importSong() {
             }
         }
     }
-
-    // reset note lengths
-    parseNoteLen();
 }
 
 function exportSong() {
