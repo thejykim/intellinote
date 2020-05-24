@@ -30,6 +30,7 @@ async function startPlaying() {
     // combined the arrays, but this actually won't allow us to add more than one row for now
     notes = [];
     noteGroups = [trebleData, bassData];
+    disableTable();
     // iterate through both arrays
     for (let noteRowGroup = 0; noteRowGroup < 2; noteRowGroup++) {
         noteGroups[noteRowGroup].forEach(function (row) {
@@ -117,6 +118,22 @@ async function startPlaying() {
     return;
 }
 
+function disableTable(){
+  var div = document.createElement("div");
+  div.setAttribute('class', 'overlay');
+  div.setAttribute('id', 'cannot-click');
+  let tables = document.getElementsByClassName("column is-10");
+  for (let i = 0; i < tables.length; i++){
+    tables[0].appendChild(div);
+  }
+
+}
+
+function enableTable(){
+    var element = document.getElementById('cannot-click');
+    element.parentNode.removeChild(element);
+}
+
 function pushNull(noteArray, numToPush) {
     for (let i = 0; i < numToPush; i++) {
         noteArray.push(null);
@@ -130,6 +147,7 @@ function stopPlaying() {
 
     // stop playing (this doesn't work either...)
     isPlaying = false;
+    enableTable();
 }
 
 function transpose(a) {

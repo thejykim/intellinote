@@ -55,7 +55,14 @@ tr.line td:before {
     border-bottom: 1px solid #111;
     width: 100%;
 }
-
+.overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 33%;
+  z-index:1;
+}
 .note:hover {
     outline: rgb(187, 187, 187) solid 1px
 }
@@ -271,7 +278,7 @@ tr.line td:before {
 }
 
 .navbar-gradient {
-    background-image: 
+    background-image:
     linear-gradient(
         to right, rgb(48, 48, 48), rgb(89, 89, 89)
     );
