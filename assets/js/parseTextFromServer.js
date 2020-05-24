@@ -6,6 +6,7 @@ const dateSep = "-"
 
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
+let savedSong = "";
 
 //called on
 function updateDisplay(){
@@ -74,6 +75,23 @@ function createNewSong(){
     // newSong = newSong.concat(email, title, month, day, year, month, day, year, textbox.value, songParse);
     // parseServerData(newSong);
     // sendNewSong(newSong);
+}
+
+// Get a single song from database
+function getSong() {
+    let userID = "thejyk1@gmail.com";
+    let songID = 10;
+    var data = new XMLHttpRequest();
+    // var params = `id=${id}`;
+	data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            savedSong = data.responseText;
+        }
+        console.log("Bing Bong");
+    };
+    data.open("POST", `assets/php/get-song.php?userID=${userID}?songID=${songID}`, true);
+    data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    data.send(); //parems
 }
 
 // Get songs from database
