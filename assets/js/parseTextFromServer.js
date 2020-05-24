@@ -6,7 +6,7 @@ const dateSep = "-"
 
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
-let savedSong = "INITIAL VALUE";
+savedSong = "INITIAL VALUE";
 
 //called on
 function updateDisplay(){
@@ -87,8 +87,8 @@ function getSong() {
 	data.onload = function() {
         console.log("Stage One");
 	    if (data.status == 200 && data.readyState == 4) {
-            savedSong = "Hello";
             parseServerData(data.responseText);
+            savedSong = "Hello";
         }
         console.log("Running");
     };
