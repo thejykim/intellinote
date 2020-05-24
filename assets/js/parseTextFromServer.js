@@ -91,8 +91,10 @@ function getSong() {
             savedSong = "Hello";
             console.log("NEW SAVED SONG: " + savedSong);
         }
+        console.log("NEW SAVED SONG 2: " + savedSong);
         console.log("Running");
     };
+    console.log("NEW SAVED SONG 3: " + savedSong);
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
