@@ -94,7 +94,7 @@ function getSong() {
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
-    return data.responseText;
+    console.log("RETURN TEXT: " + data.responseText);
 }
 
 // Get songs from database
