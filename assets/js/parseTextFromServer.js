@@ -87,13 +87,13 @@ function getSong() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            return "Testing";
         }
         console.log("Running");
     };
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
+    return "Testing";
 }
 
 // Get songs from database
