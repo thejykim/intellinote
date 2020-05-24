@@ -6,7 +6,7 @@ const dateSep = "-"
 
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
-savedSong = "INITIAL VALUE";
+var savedSong = "INITIAL VALUE";
 
 //called on
 function updateDisplay(){
