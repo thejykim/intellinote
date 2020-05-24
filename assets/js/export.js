@@ -33,6 +33,7 @@ function importSong() {
 
     // parse
     let parsed = contents.split(sheetParse);
+    console.log("CONTENTS: " + contents);
     console.log(parsed);
     let newBPM = parsed[0]; // bpm
     let newTopNum = parsed[1].toString(); // time signature
