@@ -87,9 +87,8 @@ function getSong() {
 	data.onload = function() {
         console.log("Stage One");
 	    if (data.status == 200 && data.readyState == 4) {
-            console.log("Stage Two");
-            console.log(data.responseText);
             parseServerData(data.responseText);
+            textbox.value = serverObjects[0][4];
         }
         console.log("Running");
     };
