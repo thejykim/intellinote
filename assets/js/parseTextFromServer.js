@@ -87,14 +87,13 @@ function getSong() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            return serverObjects[0].songData;
+            savedSong = "UPDATED VALUE";
         }
         console.log("Running");
     };
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
-    console.log("RETURN TEXT: " + data.responseText);
 }
 
 // Get songs from database
