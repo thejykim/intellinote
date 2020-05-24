@@ -85,7 +85,6 @@ function getSong() {
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	data.onload = function() {
-        console.log("Stage One");
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
             return(serverObjects[0].songData);
