@@ -88,8 +88,7 @@ function getSong() {
         console.log("Stage One");
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            console.log(serverObjects[0][4]);
-            //textbox.value = serverObjects[0][4];
+            textbox.value = serverObjects[0].songData;
         }
         console.log("Running");
     };
