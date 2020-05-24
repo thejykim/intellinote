@@ -78,7 +78,7 @@ function createNewSong(){
 }
 
 // Get a single song from database
-await function getSong() {
+function getSong() {
     let userID = "thejyk1@gmail.com";
     let songID = 10;
     var data = new XMLHttpRequest();
