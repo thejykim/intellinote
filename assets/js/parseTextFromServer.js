@@ -87,10 +87,10 @@ function getSong() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            savedSong = "UPDATED VALUE";
         }
         console.log("Running");
     };
+    savedSong = "UPDATED VALUE";
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
