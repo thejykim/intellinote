@@ -1,4 +1,4 @@
 function renderSave() {
     getSong();
-    textbox.value = savedSong;
+    console.log(savedSong);
 }
