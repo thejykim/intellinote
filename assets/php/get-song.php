@@ -17,7 +17,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$sql = "SELECT songData FROM userSongs
+$sql = "SELECT * FROM userSongs
     WHERE userID=? AND songID=?" ;
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("ss", $id, $songID);
@@ -30,7 +30,7 @@ if ($result === false) {
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo $row["songData"];
+        echo $row["title"] . "|" . $row["userID"] . "|" . $row["dateCreated"] . "|" . $row["dateModified"] . "|" . $row["songData"] . "|" . $row["songID"] . "?";
     }
 } else {
     echo "";

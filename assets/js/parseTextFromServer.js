@@ -81,16 +81,17 @@ function createNewSong(){
 function getSong() {
     let userID = "thejyk1@gmail.com";
     let songID = 10;
+
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            console.log("Data doing data stuff");
-            console.log(data.responseText);
+            parseServerData(data.responseText);
+            console.log(serverObjects[0][4]);
         }
-        console.log("Bing Bong");
+        console.log("Running");
     };
-    data.open("POST", `assets/php/get-song.php?userID=${userID}?songID=${songID}`, true);
+    data.open("POST", `assets/php/get-song.php?userID=${userID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
 }
