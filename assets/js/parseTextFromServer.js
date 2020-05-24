@@ -85,8 +85,7 @@ function getSong() {
     // var params = `id=${id}`;
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            savedSong = data.responseText;
-            console.log(savedSong);
+            console.log(data.responseText);
         }
         console.log("Bing Bong");
     };
