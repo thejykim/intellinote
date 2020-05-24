@@ -88,7 +88,6 @@ function getSong() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
             textbox.value = serverObjects[0].songData;
-            console.log("data.onload done");
             importSong();
         }
         console.log("Running");
