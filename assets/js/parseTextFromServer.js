@@ -87,7 +87,7 @@ function getSong() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            return serverObjects[0].songData;
+            return "Testing";
         }
         console.log("Running");
     };
