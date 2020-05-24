@@ -88,15 +88,13 @@ function getSong() {
         console.log("Stage One");
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            console.log(serverObjects[0].songData);
-            tempData = serverObjects[0].songData;
+            return(serverObjects[0].songData);
         }
         console.log("Running");
     };
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
-    console.log(tempData);
 }
 
 // Get songs from database
