@@ -87,15 +87,15 @@ await function getSong() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            savedSong = serverObjects[0].songData;
+            textbox.value = serverObjects[0].songData;
             console.log("data.onload done");
+            importSong();
         }
         console.log("Running");
     };
     data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send(); //parems
-    savedSong = data.response;
 }
 
 // Get songs from database
