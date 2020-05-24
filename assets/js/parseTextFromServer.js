@@ -81,7 +81,7 @@ function createNewSong(){
 function getSong() {
     let userID = "thejyk1@gmail.com";
     let songID = 10;
-    let tempData = "";
+    var tempData = "";
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	data.onload = function() {
