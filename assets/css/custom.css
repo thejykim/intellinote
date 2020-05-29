@@ -62,6 +62,7 @@ tr.line td:before {
   top: 0;
   left: 33%;
   z-index:1;
+  cursor: not-allowed;
 }
 .note:hover {
     outline: rgb(187, 187, 187) solid 1px

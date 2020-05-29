@@ -56,7 +56,7 @@ function createNewSong(){
 
 // Get a single song from database
 function getSong() {
-    let userID = "thejyk1@gmail.com";
+    let userID = "thejyk1@gmail.com"; // will be global variable from Google Oauth
     let songID = 10;
     var data = new XMLHttpRequest();
     let tempData = "";
