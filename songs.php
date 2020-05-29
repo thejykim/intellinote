@@ -503,7 +503,7 @@
                 generateSheet(clefEnum.BASS, 'bass-sheet-1');
                 setModalJS();
                 setInfoModalJS();
-                getSong();
+                getSong(<?php echo $_GET["userID"] ?>, <?php echo $_GET["songID"] ?>);
                 getTotalSongs();
             }
         </script>
