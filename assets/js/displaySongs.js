@@ -57,12 +57,14 @@ function displaySongs(userID) {
                 let songDiv = document.createElement('div');
                 songDiv.setAttribute("class", "columns");
                 songDiv.setAttribute("style", "padding-bottom: 0.5rem");
+                let songID = serverObjects[i].songID;
+                songID = songID.toString(); 
                 songDiv.innerHTML = `
                 <div class="column is-6 is-offset-3">
                     <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
                         <div class="card-content">
                             <div class="content">
-                                <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href="songs.php?userID="${userID}"&songID=${serverObjects[i].songID}" class="has-text-dark">${serverObjects[i].title}</a></h5>
+                                <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?userID="${userID}"&songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
                                 <span class="tag is-dark poppins">Created: ${serverObjects[i].dateCreated}</span>
                                 <span class="tag is-light poppins"><b>${numRows}</b></span>
                             </div>
