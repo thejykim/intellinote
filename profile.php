@@ -108,7 +108,10 @@
         <script>
             window.onload = function () {
                 // displaySongs(<?php echo $_GET["userID"] ?>);
-                console.log("page load"); 
+                gapi.load('auth2', function() {
+                  var googleUser = auth2.currentUser.get()
+                  console.log('users info ', googleUser)
+                })
                 displaySongs(userID);
                 getTotalSongs();
             }
