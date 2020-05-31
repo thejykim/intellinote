@@ -24,6 +24,9 @@
 
         <!-- tonejs -->
         <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
+
+        <!-- Google OAuth -->
+          <meta name="google-signin-client_id" content="551645492483-lal6djpa0n6d64u6k2bvqmfvgoverdak.apps.googleusercontent.com">
     </head>
 
     <body>
@@ -36,10 +39,12 @@
                         Sheet Music</p>
                     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
                         data-target="navbarMain">
+
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </div>
 
                 <div id="navbarMain" class="navbar-menu">
@@ -93,7 +98,7 @@
         </footer>
 
         <!-- js files -->
-
+        <script src="assets/js/login.js"></script>
         <script src="assets/js/export.js"></script>
         <script src="assets/js/parseTextFromServer.js"></script>
         <script src="assets/js/displaySongs.js"></script>
