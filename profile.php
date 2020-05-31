@@ -100,7 +100,8 @@
 
         <script>
             window.onload = function () {
-                displaySongs(<?php echo $_GET["userID"] ?>);
+                // displaySongs(<?php echo $_GET["userID"] ?>);
+                displaySongs(userID);
                 getTotalSongs();
             }
         </script>
