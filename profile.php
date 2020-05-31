@@ -44,7 +44,7 @@
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
                 </div>
 
                 <div id="navbarMain" class="navbar-menu">
@@ -52,6 +52,7 @@
                     </div>
 
                     <div class="navbar-end">
+                      <div class="g-signin2" data-onsuccess="onSignIn"></div>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php?userID="hello@hello.com"'>Profile</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
                     </div>
