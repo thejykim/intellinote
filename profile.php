@@ -62,8 +62,7 @@
         <section class="hero is-light is-medium is-bold">
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <h1 class="title poppins">
-                    <?php echo str_replace("'", '', str_replace('"', '', $_GET["userID"])) . "'s"?>
+                    <h1 class="title poppins" id = "titleName">
                     </h1>
                     <h2 class="subtitle karla">
                     music portfolio
@@ -108,7 +107,7 @@
         <script>
             window.onload = function () {
                 // displaySongs(<?php echo $_GET["userID"] ?>);
-                
+
                 getTotalSongs();
             }
         </script>
