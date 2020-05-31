@@ -108,6 +108,7 @@
         <script>
             window.onload = function () {
                 // displaySongs(<?php echo $_GET["userID"] ?>);
+                console.log("page load"); 
                 displaySongs(userID);
                 getTotalSongs();
             }
