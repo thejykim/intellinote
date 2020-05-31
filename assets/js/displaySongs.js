@@ -3,7 +3,7 @@ const allSongsDiv = document.getElementById("allSongs");
 
 let recentThreshold = 2592000000;
 
-function displaySongs(userID) {
+function displaySongs(userID, email) {
     var data = new XMLHttpRequest();
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
@@ -11,12 +11,12 @@ function displaySongs(userID) {
             if (serverObjects.length == 0) {
                 // show zero songs
                 recentSongsDiv.innerHTML = `
-                <h4 class="title is-4 poppins">Couldn't find any songs for <code>${userID}</code>... yet.</h4>
-                <h6 class="subtitle is-6 karla">Check back later, or invite <code>${userID}</code> to make their own tunes at IntelliNote!</h6>
+                <h4 class="title is-4 poppins">Couldn't find any songs for <code>${email}</code>... yet.</h4>
+                <h6 class="subtitle is-6 karla">Check back later, or invite <code>${email}</code> to make their own tunes at IntelliNote!</h6>
                 `;
                 return;
             }
-
+            document.getElementById("titleName").innerHTML = `<code>${email}</code>'s`;
             let recentSongs = [];
             let currentDate = Date.now();
 
