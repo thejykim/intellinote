@@ -8,6 +8,7 @@ function displaySongs(userID, email) {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
+            document.getElementById("titleName").innerHTML = `${email}'s`;
             if (serverObjects.length == 0) {
                 // show zero songs
                 recentSongsDiv.innerHTML = `
@@ -16,7 +17,6 @@ function displaySongs(userID, email) {
                 `;
                 return;
             }
-            document.getElementById("titleName").innerHTML = `<code>${email}</code>'s`;
             let recentSongs = [];
             let currentDate = Date.now();
 
