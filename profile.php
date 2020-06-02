@@ -106,6 +106,8 @@
 
         <script>
             window.onload = function () {
+                getTotalSongs();
+
                 if (<?php
                         if (isset($_GET["userID"])) {
                             echo true;
@@ -117,7 +119,6 @@
                     displaySongs(<?php echo $_GET["userID"] ?>);
                 }
 
-                getTotalSongs();
             }
         </script>
     </body>
