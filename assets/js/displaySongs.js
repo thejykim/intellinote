@@ -128,7 +128,7 @@ function displaySongs(userID, email) {
             }
         }
     };
-    data.open("POST", `assets/php/get-songs.php?userID=${userID}`, true);
+    data.open("POST", `assets/php/get-songs.php?userID=${email}`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     data.send();
 }
