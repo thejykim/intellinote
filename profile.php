@@ -111,7 +111,7 @@
                         if (isset($_GET["userID"])) {
                             echo true;
                         } else {
-                            echo false;
+                            echo "0";
                         }
                     ?> == true) {
                     visitor = true;
