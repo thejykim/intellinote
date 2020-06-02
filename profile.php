@@ -106,10 +106,16 @@
 
         <script>
             window.onload = function () {
-                //if (<?php echo isset($_GET["userID"]) ?> == true) {
+                if (<?php
+                        if (isset($_GET["userID"])) {
+                            echo true;
+                        } else {
+                            echo false;
+                        }
+                    ?> == true) {
                     visitor = true;
                     displaySongs(<?php echo $_GET["userID"] ?>);
-                //}
+                }
 
                 getTotalSongs();
             }
