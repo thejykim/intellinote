@@ -7,7 +7,7 @@ const totalSongsElement = document.getElementById("totalSongs");
 
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let serverObjects = []; // Array of song objects
-let savedSong = "INITIAL VALUE";
+// let savedSong = "INITIAL VALUE";
 
 //called on
 function updateDisplay(){
@@ -59,7 +59,7 @@ function getSong(userID, songID) {
     // let userID = "thejyk1@gmail.com"; // will be global variable from Google Oauth
     // let songID = 10;
     var data = new XMLHttpRequest();
-    let tempData = "";
+    // let tempData = "";
     // var params = `id=${id}`;
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
