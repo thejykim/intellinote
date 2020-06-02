@@ -106,7 +106,7 @@
 
         <script>
             window.onload = function () {
-                if (<?php echo isset($_GET["id"]) ?> === true) {
+                if (<?php echo isset($_GET["id"]) ?> == true) {
                     visitor = true;
                     displaySongs(<?php echo $_GET["id"] ?>);
                 }
