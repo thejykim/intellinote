@@ -1,23 +1,20 @@
+// Disgusting code, probably need to refactor haha
+
 let r1 = document.getElementById("r1");
 let r2 = document.getElementById("r2");
 let r3 = document.getElementById("r3");
 let r4 = document.getElementById("r4");
 let r5 = document.getElementById("r5");
+let r6 = document.getElementById("r6");
 
 function saveLogic() {
 
-    // First-timer new user
+    // First-timer (new user not signed in)
     if (oauthID == "Null") {
         promptSignIn();
-
-    } else {
-        console.log("logged in");
+    } else { // Logged in, about to create new song
+        console.log("Logged in");
     }
-    // Logged in, about to create new song
-
-
-    //button.innerHTML = "Testing";
-
 }
 
 function promptSignIn() {
@@ -30,6 +27,5 @@ function promptSignIn() {
     username.remove();
     title.remove();
 
-
-    console.log("PROMPTING SIGN IN");
+    console.log("Prompting sign in");
 }
