@@ -3,8 +3,8 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_POST["userID"];
 $title = $_POST["title"];
+$id = $_POST["userID"];
 $dateCreated = $_POST["dateCreated"];
 $dateModified = $_POST["dateModified"];
 $songData = $_POST["songData"];
