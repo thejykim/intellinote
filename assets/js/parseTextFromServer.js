@@ -41,6 +41,13 @@ function createNewSong(){
 
     let date = currentDate();
 
+    let formData = new FormData();
+    formData.append("title", title);
+    formData.append("userID", userID);
+    formData.append("dateCreated", date);
+    formData.append("dateModified", date);
+    formData.append("songData", textbox.value);
+
     var data = new XMLHttpRequest();
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
@@ -49,18 +56,19 @@ function createNewSong(){
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/create-song.php?title=${title}&userID=${userID}&dateCreated=${date}&dateModified=${date}&songData=${textbox.value}`, true);
+    data.open("POST", `assets/php/create-song.php`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send();
+    data.send(formData);
 }
 
 // Get a single song from database
 function getSong(userID, songID) {
-    // let userID = "thejyk1@gmail.com"; // will be global variable from Google Oauth
-    // let songID = 10;
     var data = new XMLHttpRequest();
-    // let tempData = "";
-    // var params = `id=${id}`;
+
+    let formData = new FormData();
+    formData.append("userID", userID);
+    formData.append("songID", songID);
+
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
@@ -69,23 +77,28 @@ function getSong(userID, songID) {
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/get-song.php?userID=${userID}&songID=${songID}`, true);
+    data.open("POST", `assets/php/get-song.php`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
+    data.send(formData);
 }
 
 // Get songs from database
 function getSongs(userID) {
     var data = new XMLHttpRequest();
+
+    let formData = new FormData();
+    formData.append("userID", userID);
+
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/get-songs.php?userID=${userID}`, true);
+
+    data.open("POST", `assets/php/get-songs.php`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
+    data.send(formData);
 }
 
 // Modify song; send to database
@@ -97,24 +110,33 @@ function editSong(songID) {
 
     let date = currentDate();
 
+    let formData = new FormData();
+    formData.append("title", title);
+    formData.append("userID", userID);
+    formData.append("dateModified", dateModified);
+    formData.append("songData", textbox.value);
+    formData.append("songID", songID);
+
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
-            // parseServerData(data.responseText);
+            // edit status success
         }
-        console.log("Running");
     };
-    data.open("POST", `assets/php/edit-song.php?title=${title}&userID=${userID}&dateModified=${date}&songData=${textbox.value}&songID=${songID}`, true);
+    data.open("POST", `assets/php/edit-song.php`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
+    data.send(formData);
 }
 
 // Delete song
 function deleteSong(songID) {
     let userID = document.getElementById('emailID').value;
 
+    let formData = new FormData();
+    formData.append("userID", userID);
+    formData.append("songID", songID);
+
     var data = new XMLHttpRequest();
     // var params = `id=${id}`;
 	    data.onload = function() {
@@ -124,9 +146,10 @@ function deleteSong(songID) {
         }
         console.log("Running");
     };
-    data.open("POST", `assets/php/delete-song.php?userID=${userID}&songID=${songID}`, true);
+
+    data.open("POST", `assets/php/delete-song.php`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
+    data.send(formData);
 }
 
 function currentDate() {
@@ -152,5 +175,5 @@ function getTotalSongs() {
     };
     data.open("POST", `assets/php/get-total.php`, true);
     data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send(); //parems
+    data.send();
 }
