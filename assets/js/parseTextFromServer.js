@@ -23,7 +23,7 @@ function parseServerData(serverData){
         };
         serverObjects.push(songObj);
     }
-    console.log(serverObjects);
+    //console.log(serverObjects);
 }
 
 function createNewSong(){
