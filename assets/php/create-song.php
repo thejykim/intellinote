@@ -3,11 +3,11 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_GET["userID"];
-$title = $_GET["title"];
-$dateCreated = $_GET["dateCreated"];
-$dateModified = $_GET["dateModified"];
-$songData = $_GET["songData"];
+$id = $_POST["userID"];
+$title = $_POST["title"];
+$dateCreated = $_POST["dateCreated"];
+$dateModified = $_POST["dateModified"];
+$songData = $_POST["songData"];
 
 $servername = "167.88.161.21";
 $username = "thejykco_sheets_user";

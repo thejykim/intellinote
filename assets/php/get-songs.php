@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_GET["userID"];
+$id = $_POST["userID"];
 
 $servername = "167.88.161.21";
 $username = "thejykco_sheets_user";
