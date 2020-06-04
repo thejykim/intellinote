@@ -22,7 +22,7 @@ function saveLogic() {
 function promptSignIn() {
     t1.innerHTML = "OKAY";
     t2.remove();
-    t3.innerHTML = "t3";
+    t3.remove();
     t4.remove();
 
     console.log("PROMPTING SIGN IN");
