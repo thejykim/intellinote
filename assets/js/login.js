@@ -13,5 +13,4 @@ function onSignIn(googleUser) {
     } else {
         return;
     }
-    location.reload();
 }
