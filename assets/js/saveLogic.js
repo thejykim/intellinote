@@ -1,4 +1,5 @@
 let button = document.getElementByID("open-save-modal")
-func saveLogic() {
-    button.innerHTML = "Testing"
+function saveLogic() {
+    button.innerHTML = "Testing";
+
 }
