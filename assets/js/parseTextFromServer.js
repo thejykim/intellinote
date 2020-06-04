@@ -48,6 +48,8 @@ function createNewSong(){
     formData.append("dateModified", date);
     formData.append("songData", textbox.value);
 
+    console.log(textbox.value);
+
     var data = new XMLHttpRequest();
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
