@@ -5,6 +5,10 @@ let recentThreshold = 2592000000;
 
 function displaySongs(userID) {
     var data = new XMLHttpRequest();
+
+    let formData = new FormData();
+    formData.append("userID", userID);
+
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
@@ -128,7 +132,6 @@ function displaySongs(userID) {
             }
         }
     };
-    data.open("POST", `assets/php/get-songs.php?userID=${userID}`, true);
-    data.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    data.send();
+    data.open("POST", `assets/php/get-songs.php`);
+    data.send(formData);
 }
