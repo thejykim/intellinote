@@ -21,7 +21,7 @@ function saveLogic() {
 
 function promptSignIn() {
     t1.innerHTML = "OKAY";
-    t2.innerHTML = "T2";
+    t2.remove();
     t3.innerHTML = "t3";
     t4.remove();
 
