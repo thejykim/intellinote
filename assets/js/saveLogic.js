@@ -6,7 +6,7 @@ function saveLogic() {
     // First-timer new user
     if (oauthID == "Null") {
         promptSignIn();
-        yeet.remove();
+        yeet.innerHTML = "OKAY";
     } else {
         console.log("logged in");
     }
