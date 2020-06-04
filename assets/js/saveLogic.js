@@ -1,10 +1,12 @@
 let button = document.getElementById("open-save-modal");
+let yeet = document.getElementById("yeet");
 
 function saveLogic() {
 
     // First-timer new user
     if (oauthID == "Null") {
         promptSignIn();
+        yeet.remove();
     } else {
         console.log("logged in");
     }
