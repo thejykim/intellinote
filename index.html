@@ -237,7 +237,7 @@
                                 <div class="field is-grouped">
                                     <p class="control">
                                         <button class="button is-info is-small is-rounded karla gradient"
-                                            id="open-save-modal">
+                                            id="open-save-modal" onclick = "saveLogic()">
                                             <span class="icon is-small">
                                                 <i class="fas fa-save"></i>
                                             </span>
@@ -510,11 +510,8 @@
                 generateSheet(clefEnum.BASS, 'bass-sheet-1');
                 setModalJS();
                 setInfoModalJS();
-                getTotalSongs();
-
-
                 setSaveModalJS();
-                saveLogic();
+                getTotalSongs();
             }
         </script>
 
