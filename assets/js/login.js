@@ -3,6 +3,7 @@ let visitor = false;
 
 function onSignIn(googleUser) {
     if (!visitor) {
+        location.reload();
         var profile = googleUser.getBasicProfile();
         console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
         oauthID = profile.getId();
