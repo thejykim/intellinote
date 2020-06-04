@@ -1,4 +1,5 @@
 let button = document.getElementById("open-save-modal");
+
 function saveLogic() {
 
     // First-timer new user
