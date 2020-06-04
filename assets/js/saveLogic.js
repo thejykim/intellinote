@@ -1,7 +1,8 @@
-let t1 = document.getElementById("t1");
-let t2 = document.getElementById("t2");
-let t3 = document.getElementById("t3");
-let t4 = document.getElementById("t4");
+let r1 = document.getElementById("r1");
+let r2 = document.getElementById("r2");
+let r3 = document.getElementById("r3");
+let r4 = document.getElementById("r4");
+let r5 = document.getElementById("r5");
 
 function saveLogic() {
 
@@ -20,10 +21,12 @@ function saveLogic() {
 }
 
 function promptSignIn() {
-    t1.innerHTML = "OKAY";
-    t2.remove();
-    t3.remove();
-    t4.remove();
+    r1.innerHTML = "OKAY";
+    r2.remove();
+    r3.remove();
+    r4.remove();
+    username.remove();
+    title.remove();
 
     console.log("PROMPTING SIGN IN");
 }
