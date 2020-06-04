@@ -21,12 +21,14 @@ function saveLogic() {
 }
 
 function promptSignIn() {
-    r1.innerHTML = "OKAY";
-    r2.remove();
+    r1.innerHTML = "Ready to Save?";
+    r2.innerHTML = "Log in with your Google account!";
     r3.remove();
     r4.remove();
+    r5.remove();
+    r6.remove();
     username.remove();
     title.remove();
-
+    
     console.log("PROMPTING SIGN IN");
 }
