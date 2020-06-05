@@ -14,11 +14,13 @@ function saveLogic() {
 
 function loggedInAllowSave(){
     saveButton.setAttribute("style", "cursor: allowed;");
+    saveButton..setAttribute("onclick", "createSongIndex()"); 
     createDialog.innerHTML = "";
 }
 
 function promptSignIn() {
     saveButton.setAttribute("style", "cursor: not-allowed;");
+    saveButton.setAttribute("onclick", "");
     createDialog.innerHTML = `
     <span class="tag is-danger karla">Please sign in with your Google account!</span>
     `;
