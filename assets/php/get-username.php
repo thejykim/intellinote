@@ -17,11 +17,10 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$sql = "INSERT INTO userMap
-    (id, username)
-    VALUES (?,?)";
+$sql = "SELECT * FROM userMap
+    WHERE id=?";
 $stmt = $connection->prepare($sql);
-$stmt->bind_param("ss", $id, $chosenUsername);
+$stmt->bind_param("s", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
