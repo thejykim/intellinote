@@ -14,7 +14,7 @@ function saveLogic() {
 
 function loggedInAllowSave(){
     saveButton.setAttribute("style", "cursor: allowed;");
-    saveButton..setAttribute("onclick", "createSongIndex()"); 
+    saveButton.setAttribute("onclick", "createSongIndex()"); 
     createDialog.innerHTML = "";
 }
 
