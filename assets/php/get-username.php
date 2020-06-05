@@ -17,10 +17,11 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$sql = "SELECT * FROM userMap
-    WHERE id=?" ;
+$sql = "INSERT INTO userMap
+    (id, username)
+    VALUES (?,?)";
 $stmt = $connection->prepare($sql);
-$stmt->bind_param("s", $hash);
+$stmt->bind_param("ss", $id, $chosenUsername);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -33,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
         echo $row["username"];
     }
 } else {
-    echo "";
+    echo "User not found!";
 }
 
 $connection->close();
