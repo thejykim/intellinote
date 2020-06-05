@@ -30,7 +30,7 @@ function registerUser(chosenUsername){
                 console.log("Duplicate detected!");
             } else {
                 // create a confirmation message on index.html, same thing here
-                console.log("Username: " + data.responseText);
+                console.log("Hooray!");
             }
         }
     };
@@ -55,7 +55,7 @@ function getUsername() {
                 console.log("Seems like you haven't registered yet.");
             } else {
                 // create a confirmation message on index.html, same thing here
-                console.log("Hooray!");
+                console.log("Username: " + data.responseText);
             }
         }
     };
