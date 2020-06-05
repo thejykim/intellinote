@@ -6,7 +6,7 @@ let recentThreshold = 1000 * 60 * 60 * 24 * 7;
 function displaySongs(userID) {
     // check if not signed in
     if (userID == null) {
-        document.getElementById("titleName").innerHTML = "<u>Your</u> future"
+        document.getElementById("titleName").innerHTML = "<b>your</b> future"
         recentSongsDiv.innerHTML = `
         <h4 class="title is-4 poppins">You're not signed in!</h4>
         <h6 class="subtitle is-6 karla">...but that's a problem you could fix in less than 10 seconds. Click the login button on the top right to get started.</h6>
