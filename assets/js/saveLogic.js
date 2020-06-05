@@ -18,14 +18,20 @@ function saveLogic() {
 }
 
 function promptSignIn() {
-    r1.innerHTML = "Ready to Save?";
-    r2.innerHTML = "Sign in with your Google account!";
-    r3.remove();
-    r4.remove();
-    r5.remove();
-    r6.remove();
-    username.remove();
-    title.remove();
+    title.setAttribute("style", "cursor: not-allowed;");
+    let tag = document.createElement("p");
+    let signinError = document.createTextNode("Please sign in with your Google account!");
+    signinError.setAttribute("style", "color: red;");
+    tag.appendChild(signinError);
+
+    document.getElementById("titleField").appendChild(tag);
+    // r1.innerHTML = "Ready to Save?";
+    // r2.innerHTML = "Sign in with your Google account!";
+    // r3.remove();
+    // r4.remove();
+    // r5.remove();
+    // r6.remove();
+    // username.remove();
 
     console.log("Prompting sign in");
 }
