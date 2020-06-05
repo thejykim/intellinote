@@ -1,11 +1,6 @@
 // Disgusting code, probably need to refactor haha
 
-let r1 = document.getElementById("r1");
-let r2 = document.getElementById("r2");
-let r3 = document.getElementById("r3");
-let r4 = document.getElementById("r4");
-let r5 = document.getElementById("r5");
-let r6 = document.getElementById("r6");
+let saveButton = document.getElementById("saveButton");
 
 function saveLogic() {
 
@@ -13,25 +8,16 @@ function saveLogic() {
     if (oauthID == "Null") {
         promptSignIn();
     } else { // Logged in, about to create new song
-        console.log("Logged in");
+        loggedInAllowSave();
     }
 }
 
+function loggedInAllowSave(){
+  saveButton.setAttribute("style", "cursor: allowed;");
+  createDialog.innerHTML = "";
+}
 function promptSignIn() {
-    r6.setAttribute("style", "cursor: not-allowed;");
-    let tag = document.createElement("p");
-    let signinError = document.createTextNode("Please sign in with your Google account!");
-    // signinError.setAttribute("style", "color: red;");
-    tag.appendChild(signinError);
-
-    document.getElementById("titleField").appendChild(tag);
-    // r1.innerHTML = "Ready to Save?";
-    // r2.innerHTML = "Sign in with your Google account!";
-    // r3.remove();
-    // r4.remove();
-    // r5.remove();
-    // r6.remove();
-    // username.remove();
+    saveButton.setAttribute("style", "cursor: not-allowed;");
     createDialog.innerHTML = `
     <span class="tag is-danger karla">Please sign in with your Google account!</span>
     `;
