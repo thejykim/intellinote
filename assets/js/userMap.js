@@ -30,7 +30,7 @@ function registerUser(chosenUsername){
                 console.log("Duplicate detected!");
             } else {
                 // create a confirmation message on index.html, same thing here
-                console.log("Hooray!");
+                console.log("Username: " + data.responseText);
             }
         }
     };
