@@ -21,7 +21,7 @@ function promptSignIn() {
     title.setAttribute("style", "cursor: not-allowed;");
     let tag = document.createElement("p");
     let signinError = document.createTextNode("Please sign in with your Google account!");
-    signinError.setAttribute("style", "color: red;");
+    // signinError.setAttribute("style", "color: red;");
     tag.appendChild(signinError);
 
     document.getElementById("titleField").appendChild(tag);
