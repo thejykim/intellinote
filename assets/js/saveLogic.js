@@ -18,7 +18,7 @@ function saveLogic() {
 }
 
 function promptSignIn() {
-    title.setAttribute("style", "cursor: not-allowed;");
+    r6.setAttribute("style", "cursor: not-allowed;");
     let tag = document.createElement("p");
     let signinError = document.createTextNode("Please sign in with your Google account!");
     // signinError.setAttribute("style", "color: red;");
@@ -32,6 +32,9 @@ function promptSignIn() {
     // r5.remove();
     // r6.remove();
     // username.remove();
+    createDialog.innerHTML = `
+    <span class="tag is-danger karla">Please sign in with your Google account!</span>
+    `;
 
     console.log("Prompting sign in");
 }
