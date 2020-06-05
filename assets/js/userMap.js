@@ -1,8 +1,8 @@
 const userMapDupError = "Already registered, or username taken";
 
-function registerUser(){
+function registerUser(chosenUsername){
     // manipulate chosenUsername to a textbox value, parameter, however implementation you want.
-    let chosenUsername = "jyk";
+    // it doesn't need to be a parameter and probably shouldn't
 
     let formData = new FormData();
     formData.append("email", email);

@@ -30,7 +30,7 @@ if ($dupresult === false) {
     die("Connection failed - try again in a few moments.");
 }
 
-if (mysqli_num_rows($result) > 0) {
+if (mysqli_num_rows($dupresult) > 0) {
     $dupconnection->close();
     exit("Already registered, or username taken");
 }
