@@ -36,10 +36,11 @@ function displaySongs(userID) {
 
             let numRecentSongs;
 
-            if (serverObjects.length > 1) {
+            if (serverObjects.length == 1) {
+                numRecentSongs = serverObjects.length + " song";
                 numRecentSongs = serverObjects.length + " songs";
             } else {
-                numRecentSongs = serverObjects.length + " song";
+                numRecentSongs = serverObjects.length + " songs";
             }
 
             allSongsDiv.innerHTML = `
