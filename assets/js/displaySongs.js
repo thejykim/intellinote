@@ -62,10 +62,10 @@ function displaySongs(userID) {
                 // briefly parse song data
                 let numRows = serverObjects[i].songData.split(sheetParse)[2];
 
-                if (numRows > 1) {
-                    numRows = numRows + " rows";
-                } else {
+                if (numRows == 1) {
                     numRows = numRows + " row";
+                } else {
+                    numRows = numRows + " rows";
                 }
 
                 let songDiv = document.createElement('div');
