@@ -9,7 +9,7 @@ function displaySongs(userID) {
         document.getElementById("titleName").innerHTML = "<b>your</b> future"
         recentSongsDiv.innerHTML = `
         <h4 class="title is-4 poppins">You're not signed in!</h4>
-        <h6 class="subtitle is-6 karla">...but that's a problem you could fix in less than 10 seconds. Click the login button on the top right to get started.</h6>
+        <h6 class="subtitle is-6 karla">...but you could fix that in about 10 seconds. Click the sign in button on the top right to get started.</h6>
         `;
         return;
     }
