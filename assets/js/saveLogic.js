@@ -13,9 +13,10 @@ function saveLogic() {
 }
 
 function loggedInAllowSave(){
-  saveButton.setAttribute("style", "cursor: allowed;");
-  createDialog.innerHTML = "";
+    saveButton.setAttribute("style", "cursor: allowed;");
+    createDialog.innerHTML = "";
 }
+
 function promptSignIn() {
     saveButton.setAttribute("style", "cursor: not-allowed;");
     createDialog.innerHTML = `
