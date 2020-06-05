@@ -12,6 +12,7 @@ function displaySongs(userID) {
         `;
         return;
     }
+    
     var data = new XMLHttpRequest();
 
     let formData = new FormData();

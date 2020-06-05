@@ -116,8 +116,9 @@
                     ?> == true) {
                     visitor = true;
                     displaySongs(<?php echo $_GET["userID"] ?>);
+                } else if (email == null) {
+                    displaySongs(null);
                 }
-
             }
         </script>
     </body>
