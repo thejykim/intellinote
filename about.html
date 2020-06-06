@@ -24,6 +24,9 @@
 
     <!-- tonejs -->
     <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
+
+    <!-- Google OAuth -->
+     <meta name="google-signin-client_id" content="551645492483-lal6djpa0n6d64u6k2bvqmfvgoverdak.apps.googleusercontent.com">
 </head>
 
 <body>
@@ -48,6 +51,8 @@
                 </div>
 
                 <div class="navbar-end">
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                     <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                     <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="#">About us</a>
                     </p>
@@ -83,6 +88,9 @@
         </div>
     </footer>
 
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/userMap.js"></script>
     <script src="assets/js/parseTextFromServer.js"></script>
 
     <script>
