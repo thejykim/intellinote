@@ -288,6 +288,7 @@
 
                     <!-- title -->
                     <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title.">
+                    <br>
 
                     <!-- treble clef -->
                     <div class="columns">
