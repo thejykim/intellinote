@@ -18,9 +18,9 @@ function saveLogic() {
 // }
 
 function promptSignIn() {
-    saveButton.setAttribute("style", "cursor: not-allowed;");
-    saveButton.setAttribute("onclick", "");
-    saveButton.setAttribute('disabled', 'true');
+    //saveButton.setAttribute("style", "cursor: not-allowed;");
+    //saveButton.setAttribute("onclick", "");
+    //saveButton.setAttribute('disabled', 'true');
     createDialog.innerHTML = `
     <div class="notification is-danger">
         Please sign in with your Google account!
