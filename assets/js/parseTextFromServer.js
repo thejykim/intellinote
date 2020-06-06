@@ -99,13 +99,12 @@ function editSong(songID) {
     exportSong();
 
     let title = document.getElementById('title').value;
-    let username = document.getElementById('emailID').value;
 
     let date = currentDate();
 
     let formData = new FormData();
     formData.append("title", title);
-    formData.append("username", username);
+    formData.append("username", oauthUsername);
     formData.append("dateModified", dateModified);
     formData.append("songData", exportBox.value);
     formData.append("songID", songID);
