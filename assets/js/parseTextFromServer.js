@@ -68,6 +68,7 @@ function getSong(songID) {
             importSong();
 
             if (serverObjects[0].userID != oauthUsername) {
+              console.log("server userid : " + serverObjects[0].userID + "oauth : " + oauthUsername);
                 onloadSaveButton();
             }
         }

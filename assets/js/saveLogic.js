@@ -1,7 +1,7 @@
 // Disgusting code, probably need to refactor haha
 
 let saveButton = document.getElementById("saveButton");
-let saveIcon = document.getElementById("saveIcon");
+//let saveIcon = document.getElementById("saveIcon");
 
 function saveLogic() {
     // First-timer (new user not signed in)
@@ -33,10 +33,18 @@ function promptSignIn() {
 }
 
 function onloadSaveButton() {
-    saveButton.firstChild.textContent = text.replace(text, "Clone");
     console.log("button changed");
-    saveIcon.innerHTML = `
-    <i class="fas fa-clone"></i>
+    // saveButton.innerHTML = `
+    // Clone
+    // `;
+    // saveIcon.innerHTML = `
+    // <i class="fas fa-clone"></i>
+    // `;
+    saveButton.innerHTML = `
+    <span class="icon is-small">
+        <i class="fas fa-clone"></i>
+    </span>
+    <span>Clone</span>
     `;
 
     //saveButton.onclick = testOnClick();
