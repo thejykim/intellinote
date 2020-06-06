@@ -22,7 +22,10 @@ function promptSignIn() {
     saveButton.setAttribute("onclick", "");
     saveButton.setAttribute('disabled', 'true');
     createDialog.innerHTML = `
-    <span class="tag is-danger karla">Please sign in with your Google account!</span>
+    <div class="notification is-danger">
+        Please sign in with your Google account!
+    </div>
+    <br>
     `;
 
     console.log("Prompting sign in");

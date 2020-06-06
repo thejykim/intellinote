@@ -8,6 +8,7 @@ function createSongIndex() {
             <div class="notification is-warning">
                 Put in a title!
             </div>
+            <br>
             `;
             return;
     }
@@ -19,5 +20,6 @@ function createSongIndex() {
             Song successfully added! Click this notification to visit your new profile.
         </div>
     </a>
+    <br>
     `;
 }
