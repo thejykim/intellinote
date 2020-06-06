@@ -33,16 +33,14 @@ function promptSignIn() {
 }
 
 function onloadSaveButton() {
-    saveButton.firstChild.innerHTML = `
-    Clone
-    `;
-
+    saveButton.firstChild.textContent = text.replace(text, "Clone");
+    console.log("button changed");
     saveIcon.innerHTML = `
     <i class="fas fa-clone"></i>
     `;
 
-    saveButton.onclick = testOnClick();
-
+    //saveButton.onclick = testOnClick();
+    saveButton.setAttribute("onclick", "testOnClick()");
 }
 
 function testOnClick() {
