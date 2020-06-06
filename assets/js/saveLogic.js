@@ -6,8 +6,9 @@ let saveButton = document.getElementById("saveButton");
 function saveLogic() {
     // First-timer (new user not signed in)
     if (email == null) {
-        promptSignIn(); // need to fix
+        promptSignIn();
     } else { // Logged in, about to create new song
+
         createSongIndex();
     }
 }
@@ -48,9 +49,41 @@ function onloadSaveButton() {
     `;
 
     //saveButton.onclick = testOnClick();
-    saveButton.setAttribute("onclick", "testOnClick()");
+    saveButton.setAttribute("onclick", "cloneSong()");
 }
 
-function testOnClick() {
-    console.log("ONCLICK CHANGED");
+function cloneSong() {
+    exportSong();
+
+    title = title.value + " - Copy";
+    let username = oauthUsername;
+
+    let date = currentDate();
+
+    let formData = new FormData();
+    formData.append("title", title);
+    formData.append("username", username);
+    formData.append("dateCreated", date);
+    formData.append("dateModified", date);
+    formData.append("songData", exportBox.value);
+
+    //console.log(exportBox.value);
+
+    var data = new XMLHttpRequest();
+	    data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            console.log(data.responseText);
+        }
+    };
+    data.open("POST", `assets/php/create-song.php`);
+    data.send(formData);
+
+    createDialog.innerHTML = `
+    <a href='profile.php?username="${oauthUsername}"'>
+        <div class="notification is-success">
+            Song successfully cloned! Click this notification to visit your new profile.
+        </div>
+    </a>
+    <br>
+    `;
 }
