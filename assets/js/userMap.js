@@ -1,11 +1,12 @@
 const userMapDupError = "Already registered, or username taken";
 const userNotFoundError = "User not found!";
 const usernameLengthLimit = 25;
+let registerDialog = document.getElementById("registerDialog");
 
-function registerUser(chosenUsername){
-    // manipulate chosenUsername to a textbox value, parameter, however implementation you want.
-    // it doesn't need to be a parameter and probably shouldn't
 
+function registerUser(){
+    let chosenUsername = document.getElementById("username").value;
+    
     // proper length needs to be checked on client side
     if (chosenUsername.length > usernameLengthLimit) {
         // create an error message. for now, it just console.log's
@@ -16,6 +17,10 @@ function registerUser(chosenUsername){
         // as above
         console.log("Sign in first!");
         return;
+    } else if (chosenUsername.length == 0) {
+        registerDialog.innerHTML = `
+        <span class="tag is-danger karla">Fill out the username field!</span>
+        `;
     }
 
     let formData = new FormData();
@@ -26,11 +31,24 @@ function registerUser(chosenUsername){
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             if (data.responseText === userMapDupError) {
-                // handle this, and get rid of the console.log when you do
-                console.log("Duplicate detected!");
+                registerDialog.innerHTML = `
+                <span class="tag is-warning karla">Someone's already taken this username. Try again!</span>
+                `;
             } else {
-                // create a confirmation message on index.html, same thing here
-                console.log("Hooray!");
+                oauthUsername = chosenUsername;
+
+                // create a confirmation message on index.html
+                registerDialog.innerHTML = `
+                <span class="tag is-success karla">Registered successfully! Modal closing in three seconds...</span>
+                `;
+
+                setTimeout(function() {
+                    // disable the modal
+                    let registerModal = document.querySelector('#registerModal');
+                    let html = document.querySelector('html');
+                    registerModal.classList.remove('is-active');
+                    html.classList.remove('is-clipped');
+                }, 3000);
             }
         }
     };
@@ -51,11 +69,9 @@ function getUsername() {
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             if (data.responseText === userNotFoundError) {
-                // handle this, and get rid of the console.log when you do
-                console.log("Seems like you haven't registered yet.");
+                oauthUsername = null;
             } else {
-                // create a confirmation message on index.html, same thing here
-                console.log("Username: " + data.responseText);
+                oauthUsername = data.responseText;
             }
         }
     };

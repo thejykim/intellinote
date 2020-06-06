@@ -1,6 +1,7 @@
 let oauthID = "Null";
 let visitor = false;
 let email;
+let oauthUsername;
 
 function onSignIn(googleUser) {
     if (!visitor) {
@@ -11,6 +12,12 @@ function onSignIn(googleUser) {
         console.log('Image URL: ' + profile.getImageUrl());
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         displaySongs(email);
+        getUsername();
+
+        if (oauthUsername == null) {
+            // create modal for username
+            setRegisterModalJS();
+        }
     } else {
         return;
     }
@@ -22,3 +29,11 @@ function signOut() {
       console.log('User signed out.');
     });
  }
+
+function setRegisterModalJS() {
+    event.preventDefault();
+    var registerModal = document.querySelector('#registerModal');
+    var html = document.querySelector('html');
+    registerModal.classList.add('is-active');
+    html.classList.add('is-clipped');
+}

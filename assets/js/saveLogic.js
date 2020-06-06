@@ -3,20 +3,19 @@
 let saveButton = document.getElementById("saveButton");
 
 function saveLogic() {
-
     // First-timer (new user not signed in)
     if (oauthID == "Null") {
-        promptSignIn();
+        promptSignIn(); // need to fix
     } else { // Logged in, about to create new song
-        loggedInAllowSave();
+        createSongIndex();
     }
 }
-
-function loggedInAllowSave(){
-    saveButton.setAttribute("style", "cursor: allowed;");
-    saveButton.setAttribute("onclick", "createSongIndex()"); 
-    createDialog.innerHTML = "";
-}
+//
+// function loggedInAllowSave(){
+//     saveButton.setAttribute("style", "cursor: allowed;");
+//     saveButton.setAttribute("onclick", "createSongIndex()");
+//     createDialog.innerHTML = "";
+// }
 
 function promptSignIn() {
     saveButton.setAttribute("style", "cursor: not-allowed;");
