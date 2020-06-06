@@ -54,11 +54,11 @@ function createNewSong(){
 }
 
 // Get a single song from database
-function getSong(userID, songID) {
+function getSong(songID) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
-    formData.append("userID", userID);
+//    formData.append("userID", userID);
     formData.append("songID", songID);
 
 	data.onload = function() {
@@ -66,6 +66,10 @@ function getSong(userID, songID) {
             parseServerData(data.responseText);
             textbox.value = serverObjects[0].songData;
             importSong();
+
+            if (serverObjects[0].userID != oauthUsername) {
+                onloadSaveButton();
+            }
         }
     };
     data.open("POST", `assets/php/get-song.php`);

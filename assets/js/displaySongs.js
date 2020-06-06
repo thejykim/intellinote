@@ -103,7 +103,7 @@ function displaySongs(userID) {
                     <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
                         <div class="card-content">
                             <div class="content">
-                                <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?userID="${userID}"&songID=${songID}' class="has-text-dark">${recentSongs[i].title}</a></h5>
+                                <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${recentSongs[i].title}</a></h5>
                                 <span class="tag gradient has-text-white poppins">Last updated: ${recentSongs[i].dateModified}</span>
                                 <span class="tag is-light poppins"><b>${numRows}</b></span>
                             </div>
@@ -141,7 +141,7 @@ function displaySongs(userID) {
                     <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
                         <div class="card-content">
                             <div class="content">
-                                <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?userID="${userID}"&songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
+                                <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
                                 <span class="tag is-dark poppins">Created: ${serverObjects[i].dateCreated}</span>
                                 <span class="tag is-light poppins"><b>${numRows}</b></span>
                             </div>

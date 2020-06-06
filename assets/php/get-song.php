@@ -3,7 +3,6 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_POST["userID"];
 $songID = $_POST["songID"];
 
 $servername = "167.88.161.21";
@@ -18,9 +17,9 @@ if ($connection->connect_error) {
 }
 
 $sql = "SELECT * FROM userSongs
-    WHERE userID=? AND songID=?" ;
+    WHERE songID=?" ;
 $stmt = $connection->prepare($sql);
-$stmt->bind_param("ss", $id, $songID);
+$stmt->bind_param("s", $songID);
 $stmt->execute();
 $result = $stmt->get_result();
 

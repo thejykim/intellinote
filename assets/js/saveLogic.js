@@ -1,6 +1,7 @@
 // Disgusting code, probably need to refactor haha
 
 let saveButton = document.getElementById("saveButton");
+let saveIcon = document.getEleemntbyId("saveIcon");
 
 function saveLogic() {
     // First-timer (new user not signed in)
@@ -29,4 +30,21 @@ function promptSignIn() {
     `;
 
     console.log("Prompting sign in");
+}
+
+function onloadSaveButton() {
+    saveButton.innerHtml = `
+    Clone
+    `;
+
+    saveIcon.innerHTML = `
+    <i class="fas fa-clone"></i>
+    `;
+
+    saveButton.onclick = testOnClick();
+
+}
+
+function testOnClick() {
+    console.log("ONCLICK CHANGED");
 }
