@@ -335,7 +335,7 @@
                             or paste a song you exported earlier and press "Import" to bring it back up.</p><br>
                         <div class="field">
                             <div class="control relative">
-                                <textarea class="textarea is-info is-small karla" id="textbox"
+                                <textarea class="textarea is-info is-small karla" id="exportBox"
                                     placeholder="If you don't know what to put in here, try pressing export first!"></textarea>
                                 <button class="button has-background-light is-small is-text karla" id="copy"
                                     onclick="copy()">Copy to clipboard</button>
