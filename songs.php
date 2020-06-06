@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="navbar-end">
-                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                        <div class="g-signin2" data-onsuccess="onSignInSong"></div>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
@@ -512,7 +512,7 @@
                 generateSheet(clefEnum.BASS, 'bass-sheet-1');
                 setModalJS();
                 setInfoModalJS();
-                getSong(<?php echo $_GET["songID"] ?>);
+                globalSongID = <?php echo $_GET["songID"] ?>;
 
                 getTotalSongs();
             }
