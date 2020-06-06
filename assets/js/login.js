@@ -45,11 +45,7 @@ function onSignInSong(googleUser) {
     }
 }
 
-function getOauthData(){
-    var auth2 = gapi.auth2.getAuthInstance();
-    email = auth2.BasicProfile.getEmail();
-    getUsername();
-}
+
 
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();

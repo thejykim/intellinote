@@ -66,7 +66,6 @@ function getSong(songID) {
             parseServerData(data.responseText);
             textbox.value = serverObjects[0].songData;
             importSong();
-            getOauthData();
 
             if (serverObjects[0].userID != oauthUsername) {
               console.log("server userid : " + serverObjects[0].userID + "oauth : " + oauthUsername);
