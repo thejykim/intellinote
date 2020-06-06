@@ -458,7 +458,7 @@
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <button class="button is-info is-small is-rounded karla gradient" id="import"
+                                        <button class="button is-info is-small is-rounded karla gradient"
                                             onclick="createSongIndex()">Save</button>
                                     </div>
                                 </div>
