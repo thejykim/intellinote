@@ -20,7 +20,7 @@ function editLogic(songID) {
         editSong(songID);
         createDialog.innerHTML = `
         <div class="notification is-success">
-            Song successfully saved! 
+            Song successfully saved!
         </div>
         <br>
         `;
@@ -89,7 +89,7 @@ function cloneSong() {
     createDialog.innerHTML = `
     <a href='profile.php?username="${oauthUsername}"'>
         <div class="notification is-info gradient">
-            Song successfully cloned! Click this notification to visit your new profile.
+            Song successfully cloned! Click this notification to visit your profile.
         </div>
     </a>
     <br>
