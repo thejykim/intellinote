@@ -37,18 +37,17 @@ function registerUser(){
             } else {
                 oauthUsername = chosenUsername;
 
-                // create a confirmation message on index.html
-                registerDialog.innerHTML = `
-                <span class="tag is-success karla">Registered successfully! Modal closing in three seconds...</span>
+                createDialog.innerHTML = `
+                <div class="notification is-success">
+                    Successfully registered! If you were trying to save a song, press save again.
+                </div>
+                <br>
                 `;
 
-                setTimeout(function() {
-                    // disable the modal
-                    let registerModal = document.querySelector('#registerModal');
-                    let html = document.querySelector('html');
-                    registerModal.classList.remove('is-active');
-                    html.classList.remove('is-clipped');
-                }, 3000);
+                let registerModal = document.querySelector('#registerModal');
+                let html = document.querySelector('html');
+                registerModal.classList.remove('is-active');
+                html.classList.remove('is-clipped');
             }
         }
     };
@@ -71,9 +70,9 @@ function getUsername() {
             if (data.responseText === userNotFoundError) {
                 oauthUsername = null;
                 setRegisterModalJS();
-                displaySongs(oauthUsername);
             } else {
                 oauthUsername = data.responseText;
+                displaySongs(oauthUsername);
             }
         }
     };
