@@ -100,6 +100,7 @@
         <!-- js files -->
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="assets/js/login.js"></script>
+        <script src="assets/js/userMap.js"></script>
         <script src="assets/js/export.js"></script>
         <script src="assets/js/parseTextFromServer.js"></script>
         <script src="assets/js/displaySongs.js"></script>
