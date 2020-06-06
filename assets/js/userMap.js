@@ -1,6 +1,6 @@
 const userMapDupError = "Already registered, or username taken";
 const userNotFoundError = "User not found!";
-const usernameLengthLimit = 20;
+const usernameLengthLimit = 25;
 
 function registerUser(chosenUsername){
     // manipulate chosenUsername to a textbox value, parameter, however implementation you want.
