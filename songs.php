@@ -241,7 +241,7 @@
                                 <div class="field is-grouped">
                                     <p class="control">
                                         <button class="button is-info is-small is-rounded karla gradient"
-                                            id="saveButton" onclick = "saveLogic()">
+                                            id="saveButton" onclick = "editLogic(<?php echo $_GET["songID"] ?>)">
                                             <span class="icon is-small" id="saveIcon">
                                                 <i class="fas fa-save"></i>
                                             </span>

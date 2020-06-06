@@ -8,8 +8,22 @@ function saveLogic() {
     if (email == null) {
         promptSignIn();
     } else { // Logged in, about to create new song
-
         createSongIndex();
+    }
+}
+
+function editLogic(songID) {
+    // First-timer (new user not signed in)
+    if (email == null) {
+        promptSignIn();
+    } else { // Logged in, about to edit own song
+        editSong(songID);
+        createDialog.innerHTML = `
+        <div class="notification is-success">
+            Song successfully saved! 
+        </div>
+        <br>
+        `;
     }
 }
 //
@@ -34,13 +48,7 @@ function promptSignIn() {
 }
 
 function onloadSaveButton() {
-    //console.log("button changed");
-    // saveButton.innerHTML = `
-    // Clone
-    // `;
-    // saveIcon.innerHTML = `
-    // <i class="fas fa-clone"></i>
-    // `;
+
     saveButton.innerHTML = `
     <span class="icon is-small">
         <i class="fas fa-clone"></i>

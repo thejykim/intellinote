@@ -106,7 +106,7 @@ function editSong(songID) {
     let formData = new FormData();
     formData.append("title", title);
     formData.append("username", oauthUsername);
-    formData.append("dateModified", dateModified);
+    formData.append("dateModified", date);
     formData.append("songData", exportBox.value);
     formData.append("songID", songID);
 
