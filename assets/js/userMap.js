@@ -6,7 +6,7 @@ let registerDialog = document.getElementById("registerDialog");
 
 function registerUser(){
     let chosenUsername = document.getElementById("username").value;
-    
+
     // proper length needs to be checked on client side
     if (chosenUsername.length > usernameLengthLimit) {
         // create an error message. for now, it just console.log's
@@ -70,6 +70,7 @@ function getUsername() {
 	    if (data.status == 200 && data.readyState == 4) {
             if (data.responseText === userNotFoundError) {
                 oauthUsername = null;
+                setRegisterModalJS();
             } else {
                 oauthUsername = data.responseText;
             }

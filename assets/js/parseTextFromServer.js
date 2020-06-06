@@ -30,7 +30,7 @@ function createNewSong(){
     exportSong();
 
     let title = document.getElementById('title').value;
-    let userID = document.getElementById('username').value;
+    let userID = oauthUsername;
 
     let date = currentDate();
 
