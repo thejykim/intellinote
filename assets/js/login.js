@@ -12,7 +12,7 @@ function onSignIn(googleUser) {
         oauthID = profile.getId();
         //console.log('Name: ' + profile.getName());
         //console.log('Image URL: ' + profile.getImageUrl());
-        // email = profile.getEmail(); // This is null if the 'email' scope is not present.
+        email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
 
         createDialog.innerHTML = `
@@ -32,7 +32,7 @@ function onSignInSong(googleUser) {
         oauthID = profile.getId();
         //console.log('Name: ' + profile.getName());
         //console.log('Image URL: ' + profile.getImageUrl());
-        // email = profile.getEmail(); // This is null if the 'email' scope is not present.
+        email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
         getSong(globalSongID);
         createDialog.innerHTML = `
