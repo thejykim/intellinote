@@ -1,7 +1,7 @@
 // Disgusting code, probably need to refactor haha
 
 let saveButton = document.getElementById("saveButton");
-let saveIcon = document.getEleemntbyId("saveIcon");
+let saveIcon = document.getElementbyId("saveIcon");
 
 function saveLogic() {
     // First-timer (new user not signed in)

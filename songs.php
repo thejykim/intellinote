@@ -497,6 +497,7 @@
         <script src="assets/js/timeSig.js"></script>
         <script src="assets/js/export.js"></script>
         <script src="assets/js/parseTextFromServer.js"></script>
+        <script src="assets/js/displaySongs.js"></script>
         <script src="assets/js/presetSongs.js"></script>
         <script src="assets/js/instructions.js"></script>
         <script src="assets/js/create-song.js"></script>
