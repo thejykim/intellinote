@@ -80,7 +80,7 @@ function cloneSong() {
 
     createDialog.innerHTML = `
     <a href='profile.php?username="${oauthUsername}"'>
-        <div class="notification is-success">
+        <div class="notification is-info gradient">
             Song successfully cloned! Click this notification to visit your new profile.
         </div>
     </a>
