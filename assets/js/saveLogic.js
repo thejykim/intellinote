@@ -20,6 +20,7 @@ function saveLogic() {
 function promptSignIn() {
     saveButton.setAttribute("style", "cursor: not-allowed;");
     saveButton.setAttribute("onclick", "");
+    saveButton.setAttribute('disabled', 'true');
     createDialog.innerHTML = `
     <span class="tag is-danger karla">Please sign in with your Google account!</span>
     `;

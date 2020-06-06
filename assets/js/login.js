@@ -14,10 +14,6 @@ function onSignIn(googleUser) {
         displaySongs(email);
         getUsername();
 
-        if (oauthUsername == null) {
-            // create modal for username
-            setRegisterModalJS();
-        }
     } else {
         return;
     }
