@@ -25,7 +25,7 @@ function onSignIn(googleUser) {
 
 function getOauthData(){
     var auth2 = gapi.auth2.getAuthInstance();
-    email = auth2.BasicProfile.getEmail();
+    email = auth2.getBasicProfile().getEmail();
     getUsername();
 }
 
