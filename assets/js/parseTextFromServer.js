@@ -39,9 +39,9 @@ function createNewSong(){
     formData.append("username", username);
     formData.append("dateCreated", date);
     formData.append("dateModified", date);
-    formData.append("songData", textbox.value);
+    formData.append("songData", exportBox.value);
 
-    console.log(textbox.value);
+    //console.log(exportBox.value);
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {
@@ -64,7 +64,7 @@ function getSong(songID) {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            textbox.value = serverObjects[0].songData;
+            exportBox.value = serverObjects[0].songData;
             importSong();
 
             if (serverObjects[0].username != oauthUsername) {
@@ -107,7 +107,7 @@ function editSong(songID) {
     formData.append("title", title);
     formData.append("username", username);
     formData.append("dateModified", dateModified);
-    formData.append("songData", textbox.value);
+    formData.append("songData", exportBox.value);
     formData.append("songID", songID);
 
     var data = new XMLHttpRequest();

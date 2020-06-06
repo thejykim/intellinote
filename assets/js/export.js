@@ -1,5 +1,5 @@
 // document elements
-const textbox = document.getElementById('textbox');
+const exportBox = document.getElementById('exportBox');
 const copyTextResetDelay = 2000;
 const sheetParse = ',';
 const rowParse = ";";
@@ -29,7 +29,7 @@ function setModalJS() {
 }
 
 function importSong() {
-    let contents = textbox.value;
+    let contents = exportBox.value;
 
     // parse
     let parsed = contents.split(sheetParse);
@@ -112,7 +112,7 @@ function importSong() {
 
 function exportSong() {
     let topNum = parseInt(document.getElementById('timeSig').value);
-    textbox.value = bpm + sheetParse + topNum + sheetParse + (newLine + 1) + sheetParse;
+    exportBox.value = bpm + sheetParse + topNum + sheetParse + (newLine + 1) + sheetParse;
 
     // iterate through
     for (let i = 0; i < numberOfRows; i++) {
@@ -120,16 +120,16 @@ function exportSong() {
             let trebleLength = trebleData[i][j].noteLength;
             let bassLength = bassData[i][j].noteLength;
 
-            // add to textbox
-            textbox.value = textbox.value + trebleLength + noteObjectParse + trebleAccidentals[i][j] + noteObjectParse + bassLength + noteObjectParse + bassAccidentals[i][j] + noteParse;
+            // add to exportBox
+            exportBox.value = exportBox.value + trebleLength + noteObjectParse + trebleAccidentals[i][j] + noteObjectParse + bassLength + noteObjectParse + bassAccidentals[i][j] + noteParse;
         }
-        textbox.value = textbox.value + rowParse;
+        exportBox.value = exportBox.value + rowParse;
     }
 }
 
 function copy() {
-    textbox.select();
-    textbox.setSelectionRange(0, 99999); // for mobile devices
+    exportBox.select();
+    exportBox.setSelectionRange(0, 99999); // for mobile devices
 
     document.execCommand("copy");
 

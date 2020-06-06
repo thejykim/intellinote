@@ -73,6 +73,9 @@
         <!-- main body div -->
         <div class="container site-content">
 
+            <!-- div for alerts -->
+            <div class="container karla" id="createDialog"></div>
+
             <!-- div for columns -->
             <div class="columns">
 
@@ -283,6 +286,9 @@
                 <!-- second column -->
                 <div class="column is-three-quarters" id="sheet-rows">
 
+                    <!-- title -->
+                    <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title.">
+
                     <!-- treble clef -->
                     <div class="columns">
                         <div class="column is-2" style="padding-right:0" id="column-left">
@@ -416,18 +422,15 @@
         </div>
 
         <!-- textbox modal for saving a new song -->
-        <div class="modal" id="saveModal">
-            <div class="modal-background" id="background-save"></div>
+        <div class="modal" id="registerModal">
+            <div class="modal-background"></div>
             <div class="modal-content">
                 <nav class="panel has-background-white">
                     <p class="panel-heading poppins">
-                        Save your creation
+                        Register
                     </p>
                     <div class="container" style="padding: 1rem 1.5rem;">
-                        <p class="karla has-text-grey">Once we launch, you'll be able to register for free and get full editor features along with the ability to save
-                        as many songs as you'd like. Neat, right?</p><br>
-                        <p class="karla has-text-grey">Unfortunately, this feature isn't fully available yet. For now, type in a username and title you like
-                        and press save.</p></br>
+                        <p class="karla has-text-grey">Looks like you haven't created a username yet! Take some time to fill in the field below, and then you'll be able to save your creation.</p></br>
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
@@ -441,7 +444,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="field is-horizontal">
+                        <!-- <div class="field is-horizontal">
                             <div class="field-label is-normal">
                                 <label class="label poppins" for="title">Title</label>
                             </div>
@@ -452,26 +455,25 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="field is-horizontal">
                             <div class="field-label is-normal"></div>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <button class="button is-info is-small is-rounded karla gradient"
-                                            onclick="createSongIndex()">Save</button>
+                                        <button class="button is-info is-small is-rounded karla gradient" id="registerButton"
+                                            onclick="registerUser()">Register</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="field is-horizontal">
                             <div class="field-label is-normal"></div>
-                            <div class="field-body" id="createDialog"></div>
+                            <div class="field-body" id="registerDialog"></div>
                         </div>
                     </div>
                 </nav>
             </div>
-            <button class="modal-close is-large" id="close-save" aria-label="close"></button>
         </div>
 
         <!-- footer -->
