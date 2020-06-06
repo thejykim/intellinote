@@ -30,6 +30,10 @@
           src="https://code.jquery.com/jquery-3.5.1.min.js"
           integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
           crossorigin="anonymous"></script>
+
+        <!-- Google OAuth -->
+        <meta name="google-signin-client_id" content="551645492483-lal6djpa0n6d64u6k2bvqmfvgoverdak.apps.googleusercontent.com">
+
     </head>
 
     <body>
@@ -54,7 +58,9 @@
                     </div>
 
                     <div class="navbar-end">
-                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php?userID="hello@hello.com"'>Profile</a></p>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
+                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
                     </div>
                 </div>
@@ -484,17 +490,19 @@
         </footer>
 
         <!-- js files -->
-
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="assets/js/generate-sheet.js"></script>
         <script src="assets/js/player.js"></script>
         <script src="assets/js/noteLogic.js"></script>
         <script src="assets/js/timeSig.js"></script>
         <script src="assets/js/export.js"></script>
         <script src="assets/js/parseTextFromServer.js"></script>
-        <script src="assets/js/displaySongs.js"></script>
         <script src="assets/js/presetSongs.js"></script>
         <script src="assets/js/instructions.js"></script>
         <script src="assets/js/create-song.js"></script>
+        <script src="assets/js/login.js"></script>
+        <script src="assets/js/saveLogic.js"></script>
+        <script src="assets/js/userMap.js"></script>
 
         <!-- start everything off -->
         <script>
