@@ -31,6 +31,10 @@ function displaySongs(userID) {
                 `;
                 return;
             }
+
+            // reverse array to display most recent songs first
+            serverObjects.reverse();
+
             let recentSongs = [];
             let currentDate = Date.now();
 
