@@ -1,5 +1,6 @@
 let oauthID = "Null";
 let visitor = false;
+let email;
 
 function onSignIn(googleUser) {
     if (!visitor) {

@@ -1,9 +1,19 @@
 const recentSongsDiv = document.getElementById("recentSongs");
 const allSongsDiv = document.getElementById("allSongs");
 
-let recentThreshold = 2592000000;
+let recentThreshold = 1000 * 60 * 60 * 24 * 7;
 
 function displaySongs(userID) {
+    // check if not signed in
+    if (userID == null) {
+        document.getElementById("titleName").innerHTML = "<b>your</b> future"
+        recentSongsDiv.innerHTML = `
+        <h4 class="title is-4 poppins">You're not signed in!</h4>
+        <h6 class="subtitle is-6 karla">...but you could fix that in about 10 seconds. Click the sign in button on the top right to get started.</h6>
+        `;
+        return;
+    }
+
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
@@ -26,10 +36,10 @@ function displaySongs(userID) {
 
             let numRecentSongs;
 
-            if (serverObjects.length > 1) {
-                numRecentSongs = serverObjects.length + " songs";
-            } else {
+            if (serverObjects.length == 1) {
                 numRecentSongs = serverObjects.length + " song";
+            } else {
+                numRecentSongs = serverObjects.length + " songs";
             }
 
             allSongsDiv.innerHTML = `
@@ -52,10 +62,10 @@ function displaySongs(userID) {
                 // briefly parse song data
                 let numRows = serverObjects[i].songData.split(sheetParse)[2];
 
-                if (numRows > 1) {
-                    numRows = numRows + " rows";
-                } else {
+                if (numRows == 1) {
                     numRows = numRows + " row";
+                } else {
+                    numRows = numRows + " rows";
                 }
 
                 let songDiv = document.createElement('div');
@@ -82,10 +92,10 @@ function displaySongs(userID) {
 
             let numAllSongs;
 
-            if (recentSongs.length > 1) {
-                numAllSongs = recentSongs.length + " songs";
-            } else {
+            if (recentSongs.length == 1) {
                 numAllSongs = recentSongs.length + " song";
+            } else {
+                numAllSongs = recentSongs.length + " songs";
             }
 
             // print recent songs
