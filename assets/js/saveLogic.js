@@ -33,7 +33,7 @@ function promptSignIn() {
 }
 
 function onloadSaveButton() {
-    saveButton.innerHtml = `
+    saveButton.innerHTML = `
     Clone
     `;
 
