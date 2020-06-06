@@ -66,6 +66,7 @@ function getSong(songID) {
             parseServerData(data.responseText);
             exportBox.value = serverObjects[0].songData;
             importSong();
+            title.value = serverObjects[0].title;
 
             if (serverObjects[0].username != oauthUsername) {
                 //console.log("server username : " + serverObjects[0].username + "oauth : " + oauthUsername);
