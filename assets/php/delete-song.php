@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_POST["userID"];
+$id = $_POST["username"];
 $songID = $_POST["songID"];
 
 $servername = "167.88.161.21";
@@ -18,7 +18,7 @@ if ($connection->connect_error) {
 }
 
 $sql = "DELETE FROM userSongs
-    WHERE songID = ? AND userID = ?";
+    WHERE songID = ? AND username = ?";
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("ss", $songID, $id);
 $stmt->execute();

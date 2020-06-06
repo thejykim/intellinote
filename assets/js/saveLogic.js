@@ -5,7 +5,7 @@ let saveButton = document.getElementById("saveButton");
 
 function saveLogic() {
     // First-timer (new user not signed in)
-    if (oauthID == "Null") {
+    if (email == null) {
         promptSignIn(); // need to fix
     } else { // Logged in, about to create new song
         createSongIndex();
@@ -33,7 +33,7 @@ function promptSignIn() {
 }
 
 function onloadSaveButton() {
-    console.log("button changed");
+    //console.log("button changed");
     // saveButton.innerHTML = `
     // Clone
     // `;

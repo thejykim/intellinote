@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(-1);
 
 $title = $_POST["title"];
-$id = $_POST["userID"];
+$id = $_POST["username"];
 $dateCreated = $_POST["dateCreated"];
 $dateModified = $_POST["dateModified"];
 $songData = $_POST["songData"];
@@ -21,7 +21,7 @@ if ($connection->connect_error) {
 }
 
 $sql = "INSERT INTO userSongs
-    (title, userID, dateCreated, dateModified, songData)
+    (title, username, dateCreated, dateModified, songData)
     VALUES (?,?,?,?,?)";
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("sssss", $title, $id, $dateCreated, $dateModified, $songData);

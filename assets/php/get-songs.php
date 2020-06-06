@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_POST["userID"];
+$id = $_POST["username"];
 
 $servername = "167.88.161.21";
 $username = "thejykco_sheets_user";
@@ -17,7 +17,7 @@ if ($connection->connect_error) {
 }
 
 $sql = "SELECT * FROM userSongs
-    WHERE userID=?";
+    WHERE username=?";
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("s", $id);
 $stmt->execute();
@@ -29,7 +29,7 @@ if ($result === false) {
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo $row["title"] . "|" . $row["userID"] . "|" . $row["dateCreated"] . "|" . $row["dateModified"] . "|" . $row["songData"] . "|" . $row["songID"] . "?";
+        echo $row["title"] . "|" . $row["username"] . "|" . $row["dateCreated"] . "|" . $row["dateModified"] . "|" . $row["songData"] . "|" . $row["songID"] . "?";
     }
 } else {
     echo "";

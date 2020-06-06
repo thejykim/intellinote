@@ -109,14 +109,14 @@
             window.onload = function () {
                 getTotalSongs();
                 if (<?php
-                        if (isset($_GET["userID"])) {
+                        if (isset($_GET["username"])) {
                             echo true;
                         } else {
                             echo "0";
                         }
                     ?> == true) {
                     visitor = true;
-                    displaySongs(<?php echo $_GET["userID"] ?>);
+                    displaySongs(<?php echo $_GET["username"] ?>);
                 } else if (email == null) {
                     displaySongs(null);
                 }

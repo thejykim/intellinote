@@ -15,7 +15,7 @@ function createSongIndex() {
 
     createNewSong();
     createDialog.innerHTML = `
-    <a href='profile.php?userID="${oauthUsername}"'>
+    <a href='profile.php?username="${oauthUsername}"'>
         <div class="notification is-success">
             Song successfully added! Click this notification to visit your new profile.
         </div>

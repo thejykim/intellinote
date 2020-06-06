@@ -15,7 +15,7 @@ function parseServerData(serverData){
         let songStr = serverEachSong[i].split(fieldParse);
         var songObj = {
             title : songStr[0],
-            userID : songStr[1],
+            username : songStr[1],
             dateCreated :songStr[2],
             dateModified : songStr[3],
             songData : songStr[4],
@@ -30,13 +30,13 @@ function createNewSong(){
     exportSong();
 
     let title = document.getElementById('title').value;
-    let userID = oauthUsername;
+    let username = oauthUsername;
 
     let date = currentDate();
 
     let formData = new FormData();
     formData.append("title", title);
-    formData.append("userID", userID);
+    formData.append("username", username);
     formData.append("dateCreated", date);
     formData.append("dateModified", date);
     formData.append("songData", textbox.value);
@@ -58,7 +58,7 @@ function getSong(songID) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
-//    formData.append("userID", userID);
+//    formData.append("username", username);
     formData.append("songID", songID);
 
 	data.onload = function() {
@@ -67,8 +67,8 @@ function getSong(songID) {
             textbox.value = serverObjects[0].songData;
             importSong();
 
-            if (serverObjects[0].userID != oauthUsername) {
-              console.log("server userid : " + serverObjects[0].userID + "oauth : " + oauthUsername);
+            if (serverObjects[0].username != oauthUsername) {
+                //console.log("server username : " + serverObjects[0].username + "oauth : " + oauthUsername);
                 onloadSaveButton();
             }
         }
@@ -78,11 +78,11 @@ function getSong(songID) {
 }
 
 // Get songs from database
-function getSongs(userID) {
+function getSongs(username) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
-    formData.append("userID", userID);
+    formData.append("username", username);
 
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
@@ -99,13 +99,13 @@ function editSong(songID) {
     exportSong();
 
     let title = document.getElementById('title').value;
-    let userID = document.getElementById('emailID').value;
+    let username = document.getElementById('emailID').value;
 
     let date = currentDate();
 
     let formData = new FormData();
     formData.append("title", title);
-    formData.append("userID", userID);
+    formData.append("username", username);
     formData.append("dateModified", dateModified);
     formData.append("songData", textbox.value);
     formData.append("songID", songID);
@@ -122,10 +122,10 @@ function editSong(songID) {
 
 // Delete song
 function deleteSong(songID) {
-    let userID = document.getElementById('emailID').value;
+    let username = document.getElementById('emailID').value;
 
     let formData = new FormData();
-    formData.append("userID", userID);
+    formData.append("username", username);
     formData.append("songID", songID);
 
     var data = new XMLHttpRequest();

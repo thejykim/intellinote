@@ -73,7 +73,7 @@ function getUsername() {
                 displaySongs(null);
             } else {
                 oauthUsername = data.responseText;
-                console.log("username now correct");
+                //console.log("username now correct");
                 displaySongs(oauthUsername);
             }
         }

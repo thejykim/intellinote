@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-$id = $_POST["userID"];
+$id = $_POST["username"];
 $title = $_POST["title"];
 $dateModified = $_POST["dateModified"];
 $songData = $_POST["songData"];
@@ -22,7 +22,7 @@ if ($connection->connect_error) {
 
 $sql = "UPDATE userSongs
     SET title = ?, songData = ?, dateModified = ?
-    WHERE songID = ? AND userID = ?";
+    WHERE songID = ? AND username = ?";
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("sssss", $title, $songData, $dateModified, $songID, $id);
 $stmt->execute();

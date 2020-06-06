@@ -3,9 +3,9 @@ const allSongsDiv = document.getElementById("allSongs");
 
 let recentThreshold = 1000 * 60 * 60 * 24 * 7;
 
-function displaySongs(userID) {
+function displaySongs(username) {
     // check if not signed in
-    if (userID == null) {
+    if (username == null) {
         document.getElementById("titleName").innerHTML = "<b>your</b> future"
         recentSongsDiv.innerHTML = `
         <h4 class="title is-4 poppins">You're not signed in!</h4>
@@ -17,17 +17,17 @@ function displaySongs(userID) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
-    formData.append("userID", userID);
+    formData.append("username", username);
 
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            document.getElementById("titleName").innerHTML = `${userID}'s`;
+            document.getElementById("titleName").innerHTML = `${username}'s`;
             if (serverObjects.length == 0) {
                 // show zero songs
                 recentSongsDiv.innerHTML = `
-                <h4 class="title is-4 poppins">Couldn't find any songs for <code>${userID}</code>... yet.</h4>
-                <h6 class="subtitle is-6 karla">Check back later, or invite <code>${userID}</code> to make their own tunes at IntelliNote!</h6>
+                <h4 class="title is-4 poppins">Couldn't find any songs for <code>${username}</code>... yet.</h4>
+                <h6 class="subtitle is-6 karla">Check back later, or invite <code>${username}</code> to make their own tunes at IntelliNote!</h6>
                 `;
                 return;
             }
@@ -83,7 +83,7 @@ function displaySongs(userID) {
             `;
 
             for (let i = 0; i < recentSongs.length; i++) {
-                console.log("recentSongs for loop ran");
+                //console.log("recentSongs for loop ran");
                 // briefly parse song data
                 let numRows = recentSongs[i].songData.split(sheetParse)[2];
 
