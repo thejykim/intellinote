@@ -13,6 +13,7 @@ function onSignIn(googleUser) {
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
 
+        createDialog.innerHTML = ``;
     } else {
         return;
     }
