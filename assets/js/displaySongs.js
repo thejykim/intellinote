@@ -159,8 +159,8 @@ function displaySongs(userID) {
 }
 
 function sortAlphabetically (a, b) {
-    let lowerA = a.toLowerCase();
-    let lowerB = b.toLowerCase();
+    let lowerA = a.title.toLowerCase();
+    let lowerB = b.title.toLowerCase();
     if (lowerA < lowerB) {
         return -1;
     } else if (lowerA > lowerB) {
