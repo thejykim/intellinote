@@ -360,16 +360,14 @@
         <div class="modal" id="infoModal">
             <div class="modal-background" id="background-info"></div>
             <div class="modal-content">
-                <div class="card">
-                    <div class="card-header">
-                        <p class="card-header-title poppins">
-                            How-To
-                        </p>
-                    </div>
-                    <div class="card-content" style="text-align:center">
+                <nav class="panel has-background-white">
+                    <p class="panel-heading poppins">
+                        How-To
+                    </p>
+                    <div class="container" style="padding: 1rem 1.5rem;">
                         <div class="slideshow">
                             <div class="mySlides">
-                                <h5 class="title is-5 poppins has-text-info" style="text-align:center"> Tempo and Time </h5>
+                                <h5 class="title is-5 poppins has-text-info"> Tempo and Time </h5>
                                 <p class="karla">
                                     Tempo is controlled from the Settings panel, either by using the slider
                                     or by inputting a value in the text box. The time signature can also be changed
@@ -409,16 +407,16 @@
                                 </div>
                             </div>
                         </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                        </div>
                     </div>
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    <div style="text-align:center">
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                        <span class="dot" onclick="currentSlide(4)"></span>
-                    </div>
-                </div>
+                </nav>
             </div>
             <button class="modal-close is-large" id="close-info" aria-label="close"></button>
         </div>
