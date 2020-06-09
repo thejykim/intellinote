@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+@import url('https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css');
+
 /* fonts */
 .karla {
     font-family: 'Karla', sans-serif;
@@ -283,4 +285,8 @@ tr.line td:before {
     linear-gradient(
         to right, rgb(48, 48, 48), rgb(89, 89, 89)
     );
+}
+
+.text-spacing > * {
+    margin: 1rem 0;
 }

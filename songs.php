@@ -488,6 +488,7 @@
                 <p class="karla is-inline-block">
                     Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla" id="totalSongs"></span> songs made by people like you.
                 </p>
+                <p class="karla is-size-7"><a class="has-text-info" href="privacy.html">Privacy Policy</a></p>
             </div>
         </footer>
 
@@ -518,6 +519,29 @@
 
                 getTotalSongs();
             }
+        </script>
+
+        <!-- cookies -->
+        <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+        <script>
+        window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+            "background": "#edeff5",
+            "text": "#838391"
+            },
+            "button": {
+            "background": "#4b81e8"
+            }
+        },
+        "theme": "classic",
+        "position": "bottom-left",
+        "content": {
+            "message": "Our login system uses cookies so that you don't have to sign in as often.",
+            "dismiss": "Got it!",
+            "href": "https://www.thejyk.com/intellinote/privacy.html"
+        }
+        });
         </script>
 
     </body>
