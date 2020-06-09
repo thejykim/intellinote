@@ -490,6 +490,7 @@
                 <p class="karla is-inline-block">
                     Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla" id="totalSongs"></span> songs made by people like you.
                 </p>
+                <p class="karla is-size-7"><a class="has-text-info" href="privacy.html">Privacy Policy</a></p>
             </div>
         </footer>
 
