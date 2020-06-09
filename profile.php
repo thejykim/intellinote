@@ -11,7 +11,7 @@
           gtag('config', 'UA-165298620-1');
         </script>
 
-        <title>IntelliNote | Custom Sheet Music</title>
+        <title>Profile | IntelliNote</title>
 
         <!-- bulma css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">

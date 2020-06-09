@@ -286,3 +286,7 @@ tr.line td:before {
         to right, rgb(48, 48, 48), rgb(89, 89, 89)
     );
 }
+
+.text-spacing > * {
+    margin: 1rem 0;
+}
