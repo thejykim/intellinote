@@ -119,19 +119,21 @@ async function startPlaying() {
 }
 
 function disableTable(){
-  var div = document.createElement("div");
+  let div = document.createElement("div");
   div.setAttribute('class', 'overlay');
   div.setAttribute('id', 'cannot-click');
   let tables = document.getElementsByClassName("column is-10");
   for (let i = 0; i < tables.length; i++){
-    tables[0].appendChild(div);
+    tables[i].appendChild(div);
   }
 
 }
 
 function enableTable(){
-    var element = document.getElementById('cannot-click');
-    element.parentNode.removeChild(element);
+    let element = document.getElementById('cannot-click');
+    if (element != null) {
+        element.parentNode.removeChild(element);
+    }
 }
 
 function pushNull(noteArray, numToPush) {
