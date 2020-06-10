@@ -1,6 +1,6 @@
-const fieldParse = "|";
+const fieldParse = "|SEPARATOR|";
 const songParse = "?";
-const dateSep = "-"
+const dateSep = "-";
 
 const totalSongsElement = document.getElementById("totalSongs");
 
