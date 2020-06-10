@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165298620-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-165298620-1');
-        </script>
-
         <title>IntelliNote | Custom Sheet Music</title>
 
         <!-- bulma css -->
@@ -25,14 +15,20 @@
         <!-- tonejs -->
         <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
 
-        <!-- jQuery -->
-        <script
-          src="https://code.jquery.com/jquery-3.5.1.min.js"
-          integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-          crossorigin="anonymous"></script>
-
         <!-- Google OAuth -->
         <meta name="google-signin-client_id" content="551645492483-lal6djpa0n6d64u6k2bvqmfvgoverdak.apps.googleusercontent.com">
+
+        <!-- Hotjar  -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:1850543,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
 
     </head>
 
@@ -486,7 +482,9 @@
                         href="https://bulma.io/">Bulma</a>.
                 </p>
                 <p class="karla is-inline-block">
-                    Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla" id="totalSongs"></span> songs made by people like you.
+                    Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla" id="totalSongs">
+                        <i class="fas fa-sync-alt fa-pulse"></i>
+                    </span> songs made by people like you.
                 </p>
                 <p class="karla is-size-7"><a class="has-text-info" href="privacy.html">Privacy Policy</a></p>
             </div>

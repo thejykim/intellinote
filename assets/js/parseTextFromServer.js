@@ -156,7 +156,7 @@ function getTotalSongs() {
     var data = new XMLHttpRequest();
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            totalSongsElement.innerText = data.responseText;
+            totalSongsElement.innerHTML = data.responseText;
         }
     };
     data.open("POST", `assets/php/get-total.php`);
