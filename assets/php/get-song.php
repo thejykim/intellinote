@@ -29,7 +29,7 @@ if ($result === false) {
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo $row["title"] . "|" . $row["username"] . "|" . $row["dateCreated"] . "|" . $row["dateModified"] . "|" . $row["songData"] . "|" . $row["songID"] . "?";
+        echo $row["title"] . "|SEPARATOR|" . $row["username"] . "|SEPARATOR|" . $row["dateCreated"] . "|SEPARATOR|" . $row["dateModified"] . "|SEPARATOR|" . $row["songData"] . "|SEPARATOR|" . $row["songID"] . "?";
     }
 } else {
     echo "";
