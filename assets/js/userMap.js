@@ -64,7 +64,6 @@ function getUsername() {
             if (data.responseText === userNotFoundError) {
                 oauthUsername = null;
                 setRegisterModalJS();
-                displaySongs(null);
             } else {
                 oauthUsername = data.responseText;
                 //console.log("username now correct");

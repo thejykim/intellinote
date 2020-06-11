@@ -1,8 +1,3 @@
-let oauthID = "Null";
-let visitor = false;
-let email;
-let oauthUsername;
-
 function onSignIn(googleUser) {
     if (!visitor) {
         var profile = googleUser.getBasicProfile();
@@ -13,10 +8,13 @@ function onSignIn(googleUser) {
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
 
-        createDialog.innerHTML = `
-        <div class="notification is-success">
-            Successfully logged in!
-        </div>
+        if (isFirstSignIn) {
+            createDialog.innerHTML = `
+            <div class="notification is-success">
+                Successfully logged in!
+            </div>
+        }
+
         <br>`;
         signOutButton = document.getElementById('signOutButton');
         signOutButton.classList.remove("is-hidden");
