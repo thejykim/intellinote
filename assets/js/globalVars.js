@@ -58,6 +58,7 @@ let oauthUsername;
 let globalSongID;
 
 let isFirstSignIn = false;
+let isProfile = false;
 
 // noteLogic.js
 

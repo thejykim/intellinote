@@ -114,6 +114,8 @@
 
         <script>
             window.onload = function () {
+                isProfile = true;
+
                 getTotalSongs();
                 if (<?php
                         if (isset($_GET["username"])) {
