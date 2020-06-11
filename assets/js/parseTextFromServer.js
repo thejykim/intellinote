@@ -90,6 +90,16 @@ function getSongs(username) {
 function editSong(songID) {
     exportSong();
 
+    if (titleField.value.length == 0) {
+        createDialog.innerHTML = `
+        <div class="notification is-warning">
+            Put in a title!
+        </div>
+        <br>
+        `;
+        return;
+    }
+
     let title = document.getElementById('title').value;
 
     let date = currentDate();

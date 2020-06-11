@@ -1,13 +1,13 @@
 function createSongIndex() {
     // check required fields
     if (titleField.value.length == 0) {
-            createDialog.innerHTML = `
-            <div class="notification is-warning">
-                Put in a title!
-            </div>
-            <br>
-            `;
-            return;
+        createDialog.innerHTML = `
+        <div class="notification is-warning">
+            Put in a title!
+        </div>
+        <br>
+        `;
+        return;
     }
 
     createNewSong();
