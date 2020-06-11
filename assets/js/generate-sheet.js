@@ -1,32 +1,3 @@
-// import {currentNoteLength} from "./noteLogic.js";
-
-// document elements
-const removeButton = document.getElementById('removeButton');
-const clearText = document.getElementById('clearText');
-
-// number of notes generated per row
-let numberOfNotes = 32;
-// number of notes generated per column
-const numberOfRows = 13;
-
-let accidentalArray = new Array();
-let trebleAccidentals = new Array();
-let bassAccidentals = new Array();
-let trebleData = [];
-let bassData = [];
-let newLine = 0;
-const numOfRows = 13;
-let beatsPerMeas = numberOfNotes / 4;
-
-// enum for clef
-const clefEnum = {
-	TREBLE: 'treble',
-	BASS: 'bass'
-}
-
-let timeSigHTML = '<img src="assets/img/4-4.png" style="height:3.5rem;float:right;position:relative;top:1.5rem">';
-let timeSigIndicator = 0;
-
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);

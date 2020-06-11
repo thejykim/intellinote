@@ -1,8 +1,3 @@
-let oauthID = "Null";
-let visitor = false;
-let email;
-let oauthUsername;
-
 function onSignIn(googleUser) {
     if (!visitor) {
         var profile = googleUser.getBasicProfile();

@@ -1,12 +1,3 @@
-const fieldParse = "|SEPARATOR|";
-const songParse = "?";
-const dateSep = "-";
-
-const totalSongsElement = document.getElementById("totalSongs");
-
-let serverEachSong = []; // After first split; gives information for each song (each song is string)
-let serverObjects = []; // Array of song objects
-
 function parseServerData(serverData){
     serverObjects = [];
     // get the server data as string

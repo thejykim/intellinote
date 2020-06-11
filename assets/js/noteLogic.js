@@ -1,6 +1,4 @@
 // assignNote() saves the currently selected note
-let currentNoteLength = "";
-let accidental = "";
 function assignNote() {
     let form = document.getElementById("lengthForm");
     currentNoteLength = form.elements["note"].value;
@@ -8,9 +6,7 @@ function assignNote() {
     let accidentalForm = document.getElementById("accidentalForm");
     accidental = accidentalForm.elements["accidental"].value;
 }
-//default note length (change to match documentation)
-noteLen = 8;
-noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; bottom: 0; position: absolute; height: 2rem; vertical-align: middle;" >';
+
 // parseNoteLen() finds location based on id (string), sets noteLen to correct length for
 // onToggleNote()
 function parseNoteLen(noteLoc) {
