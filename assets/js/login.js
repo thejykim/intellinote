@@ -1,3 +1,8 @@
+let oauthID = "Null";
+let visitor = false;
+let email;
+let oauthUsername;
+
 function onSignIn(googleUser) {
     if (!visitor) {
         var profile = googleUser.getBasicProfile();
@@ -14,8 +19,7 @@ function onSignIn(googleUser) {
         </div>
         <br>`;
         signOutButton = document.getElementById('signOutButton');
-        signOutButton.setAttribute('hidden', 'false');
-    } else {
+        signOutButton.classList.remove("is-hidden");
         return;
     }
 }
