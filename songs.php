@@ -515,7 +515,7 @@
                 setModalJS();
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
-                getSong(globalSongID);
+                
                 getTotalSongs();
             }
         </script>
