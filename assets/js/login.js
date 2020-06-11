@@ -19,7 +19,7 @@ function onSignIn(googleUser) {
         </div>
         <br>`;
         signOutButton = document.getElementById('signOutButton');
-        signOutButton.classList.remove("is-hidden");
+        signOutButton.classList.toggle("is-hidden", false);
         return;
     }
 }
