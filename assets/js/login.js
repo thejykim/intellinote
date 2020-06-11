@@ -1,6 +1,4 @@
 function onSignIn(googleUser) {
-    signOutButton = document.getElementById('signOutButton');
-    signOutButton.classList.remove("is-hidden");
     if (!visitor) {
         var profile = googleUser.getBasicProfile();
         console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -13,12 +11,13 @@ function onSignIn(googleUser) {
         if (isFirstSignIn) {
             createDialog.innerHTML = `
             <div class="notification is-success">
-                Successfully logged in!
+            Successfully logged in!
             </div>
+            <br>`;
         }
 
-        <br>`;
-
+        signOutButton = document.getElementById('signOutButton');
+        signOutButton.classList.remove("is-hidden");
         return;
     }
 }
@@ -26,9 +25,9 @@ function onSignIn(googleUser) {
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-      console.log('User signed out.');
+        console.log('User signed out.');
     });
- }
+}
 
 function setRegisterModalJS() {
     event.preventDefault();
