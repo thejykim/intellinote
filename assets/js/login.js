@@ -18,8 +18,8 @@ function onSignIn(googleUser) {
             Successfully logged in!
         </div>
         <br>`;
-        signOutButton = document.getElementById('signOutButton'); 
-        signOutButton.setAttribute('hidden', 'true');
+        signOutButton = document.getElementById('signOutButton');
+        signOutButton.setAttribute('hidden', 'false');
     } else {
         return;
     }
