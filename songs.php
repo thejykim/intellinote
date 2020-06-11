@@ -491,6 +491,7 @@
         </footer>
 
         <!-- js files -->
+        <script src="assets/js/globalVars.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="assets/js/generate-sheet.js"></script>
         <script src="assets/js/player.js"></script>
