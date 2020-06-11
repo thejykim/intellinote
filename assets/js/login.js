@@ -1,8 +1,3 @@
-let visitor = false;
-let email = null;
-let oauthUsername;
-let globalSongID;
-
 function onSignIn(googleUser) {
     if (!visitor) {
         var profile = googleUser.getBasicProfile();

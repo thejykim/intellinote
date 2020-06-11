@@ -1,11 +1,3 @@
-// document elements
-const exportBox = document.getElementById('exportBox');
-const copyTextResetDelay = 2000;
-const sheetParse = ',';
-const rowParse = ";";
-const noteParse = "-";
-const noteObjectParse = ".";
-
 function setModalJS() {
     document.querySelector('#open-export-modal').addEventListener('click', function (event) {
         event.preventDefault();
