@@ -284,7 +284,7 @@
 
                     <!-- title -->
                     <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title.">
-                    
+
                     <div class="empty-padding" style="padding: 1rem"></div>
 
                     <!-- treble clef -->
@@ -515,7 +515,7 @@
                 setModalJS();
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
-
+                getSong(gloalSongID);
                 getTotalSongs();
             }
         </script>
