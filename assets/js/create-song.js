@@ -20,3 +20,24 @@ function createSongIndex() {
     <br>
     `;
 }
+
+function editSongIndex(songID) {
+    // check required fields
+    if (titleField.value.length == 0) {
+        createDialog.innerHTML = `
+        <div class="notification is-warning">
+            Put in a title!
+        </div>
+        <br>
+        `;
+        return;
+    }
+
+    editSong(songID);
+    createDialog.innerHTML = `
+    <div class="notification is-success">
+        Song successfully saved!
+    </div>
+    <br>
+    `;
+}
