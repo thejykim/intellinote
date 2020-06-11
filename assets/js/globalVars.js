@@ -57,6 +57,8 @@ let email = null;
 let oauthUsername;
 let globalSongID;
 
+let isFirstSignIn = false;
+
 // noteLogic.js
 
 let currentNoteLength = "";

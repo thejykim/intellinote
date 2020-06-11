@@ -39,6 +39,8 @@ function promptSignIn() {
     <br>
     `;
 
+    isFirstSignIn = true;
+
     console.log("Prompting sign in");
 }
 

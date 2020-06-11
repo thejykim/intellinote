@@ -11,7 +11,7 @@ function onSignIn(googleUser) {
         if (isFirstSignIn) {
             createDialog.innerHTML = `
             <div class="notification is-success">
-            Successfully logged in!
+            Successfully logged in! If you were trying to save a song, press save again.
             </div>
             <br>`;
         }
