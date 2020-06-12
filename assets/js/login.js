@@ -13,12 +13,9 @@ function onSignIn(googleUser) {
             </div>
             <br>`;
         }
-
-        signOutButton = document.getElementById('signOutButton');
-        signOutButton.classList.remove("is-hidden");
-    } else {
-        return;
     }
+    signOutButton = document.getElementById('signOutButton');
+    signOutButton.classList.remove("is-hidden");
 }
 
 function onSignInSong(googleUser) {
@@ -36,9 +33,9 @@ function onSignInSong(googleUser) {
             </div>
             <br>`;
         }
-    } else {
-        return;
     }
+    signOutButton = document.getElementById('signOutButton');
+    signOutButton.classList.remove("is-hidden");
 }
 
 function signOut() {
