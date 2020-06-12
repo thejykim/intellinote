@@ -15,7 +15,7 @@ function onSignIn(googleUser) {
         }
     }
     signOutButton = document.getElementById('signOutButton');
-    signOutButton.classList.remove("hidden");
+    signOutButton.classList.remove("is-hidden");
 }
 
 function onSignInSong(googleUser) {
