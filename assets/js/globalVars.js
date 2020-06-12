@@ -1,6 +1,6 @@
 /* Cleaned */
 
-// create-song.js
+// createSong.js
 const titleField = document.getElementById("title");
 const createDialog = document.getElementById("createDialog");
 
@@ -18,7 +18,7 @@ const rowParse = ";";
 const noteParse = "-";
 const noteObjectParse = ".";
 
-// generate-sheet.js
+// generateSheet.js
 
 // document elements
 const removeButton = document.getElementById('removeButton');
