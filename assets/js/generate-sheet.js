@@ -9,12 +9,12 @@ function toggleNote(noteElement){
 
 
 		// set length to appropriate length
-		if(noteLoc[0] === "treble") {
-			trebleData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+		if (noteLoc[0] === "treble") {
+			trebleData[noteLoc[1]][noteLoc[2]].noteLength = invNoteLen;
 			trebleAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
 
 		} else {
-			bassData[noteLoc[1]][noteLoc[2]].noteLength = noteLen;
+			bassData[noteLoc[1]][noteLoc[2]].noteLength = invNoteLen;
 			bassAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
 		}
 
