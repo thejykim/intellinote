@@ -1,3 +1,5 @@
+/* Cleaned */
+
 function createSongIndex() {
     // check required fields
     if (titleField.value.length == 0) {

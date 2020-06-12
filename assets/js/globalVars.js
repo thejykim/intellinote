@@ -1,3 +1,4 @@
+/* Cleaned */
 // create-song.js
 const titleField = document.getElementById("title");
 const createDialog = document.getElementById("createDialog");

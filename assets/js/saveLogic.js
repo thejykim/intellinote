@@ -1,3 +1,4 @@
+/* Cleaned */
 function saveLogic() {
     // First-timer (new user not signed in)
     if (email == null) {
@@ -12,21 +13,11 @@ function editLogic(songID) {
     if (email == null) {
         promptSignIn();
     } else { // Logged in, about to edit own song
-        //editSong(songID);
         editSongIndex(songID);
     }
 }
-//
-// function loggedInAllowSave(){
-//     saveButton.setAttribute("style", "cursor: allowed;");
-//     saveButton.setAttribute("onclick", "createSongIndex()");
-//     createDialog.innerHTML = "";
-// }
 
 function promptSignIn() {
-    //saveButton.setAttribute("style", "cursor: not-allowed;");
-    //saveButton.setAttribute("onclick", "");
-    //saveButton.setAttribute('disabled', 'true');
     createDialog.innerHTML = `
     <div class="notification is-danger">
         Please sign in with your Google account!
@@ -48,7 +39,6 @@ function onloadSaveButton() {
     <span>Clone</span>
     `;
 
-    //saveButton.onclick = testOnClick();
     saveButton.setAttribute("onclick", "cloneSong()");
 }
 
@@ -66,8 +56,6 @@ function cloneSong() {
     formData.append("dateCreated", date);
     formData.append("dateModified", date);
     formData.append("songData", exportBox.value);
-
-    //console.log(exportBox.value);
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {

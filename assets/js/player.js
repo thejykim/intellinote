@@ -1,3 +1,4 @@
+/* Cleaned */
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
     oscillator: {

@@ -1,3 +1,4 @@
+/* Cleaned */
 function toggleNote(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
@@ -36,7 +37,6 @@ function toggleNote(noteElement){
 function toggleNoteImport(noteElement){
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
-	// parseNoteLen(noteLoc);
 	if (divElement.innerHTML === '') {
 		// put in element
 		divElement.innerHTML = noteIcon;

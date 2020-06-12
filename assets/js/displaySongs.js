@@ -1,3 +1,4 @@
+/* Cleaned */
 function displaySongs(username) {
     if (isProfile) {
         // check if not signed in
@@ -79,7 +80,6 @@ function displaySongs(username) {
                 `;
 
                 for (let i = 0; i < recentSongs.length; i++) {
-                    //console.log("recentSongs for loop ran");
                     // briefly parse song data
                     let numRows = recentSongs[i].songData.split(sheetParse)[2];
 

@@ -440,18 +440,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label poppins" for="title">Title</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <div class="control">
-                                        <input class="input is-info karla" type="text" id="title" placeholder="Give your piece an appropriately grand title, too.">
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="field is-horizontal">
                             <div class="field-label is-normal"></div>
                             <div class="field-body">
@@ -515,7 +503,7 @@
                 setModalJS();
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
-                
+
                 getTotalSongs();
             }
         </script>

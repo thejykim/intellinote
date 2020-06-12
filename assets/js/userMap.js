@@ -1,3 +1,4 @@
+/* Cleaned */
 function registerUser(){
     let chosenUsername = document.getElementById("username").value;
 
@@ -66,7 +67,6 @@ function getUsername() {
                 setRegisterModalJS();
             } else {
                 oauthUsername = data.responseText;
-                //console.log("username now correct");
                 displaySongs(oauthUsername);
             }
         }

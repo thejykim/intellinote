@@ -1,3 +1,4 @@
+/* Cleaned */
 function loadSong(song) {
     switch (song) {
         case "none":

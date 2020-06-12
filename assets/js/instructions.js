@@ -1,3 +1,4 @@
+/* Cleaned */
 function setInfoModalJS() {
     document.querySelector('#open-info-modal').addEventListener('click', function (event) {
         event.preventDefault();

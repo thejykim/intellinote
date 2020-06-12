@@ -1,3 +1,4 @@
+/* Cleaned */
 function changeTimeSig() {
     // get option
     let newLineHolder = newLine;

@@ -1,3 +1,4 @@
+/* Cleaned */
 function parseServerData(serverData){
     serverObjects = [];
     // get the server data as string

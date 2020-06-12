@@ -1,3 +1,4 @@
+/* Cleaned */
 function setModalJS() {
     document.querySelector('#open-export-modal').addEventListener('click', function (event) {
         event.preventDefault();
