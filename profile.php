@@ -124,7 +124,7 @@
                             echo "0";
                         }
                     ?> == true) {
-                    visitor = true;
+                    isVisitor = true;
                     displaySongs(<?php echo $_GET["username"] ?>);
                 } else if (email == null) {
                     displaySongs(null);

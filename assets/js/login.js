@@ -1,6 +1,6 @@
 /* Cleaned */
 function onSignIn(googleUser) {
-    if (!visitor) {
+    if (!isVisitor) {
         var profile = googleUser.getBasicProfile();
         oauthID = profile.getId();
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
@@ -19,7 +19,7 @@ function onSignIn(googleUser) {
 }
 
 function onSignInSong(googleUser) {
-    if (!visitor) {
+    if (!isVisitor) {
         var profile = googleUser.getBasicProfile();
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();

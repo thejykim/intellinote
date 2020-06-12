@@ -53,7 +53,7 @@ var slideIndex = 1;
 
 // login.js
 
-let visitor = false;
+let isVisitor = false;
 let email = null;
 let oauthUsername;
 let globalSongID;
