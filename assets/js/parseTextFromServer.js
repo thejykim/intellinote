@@ -15,9 +15,9 @@ function parseServerData(serverData){
         };
         serverObjects.push(songObj);
     }
-    //console.log(serverObjects);
 }
 
+// Add a new song to the database
 function createNewSong(){
     exportSong();
 
@@ -33,12 +33,10 @@ function createNewSong(){
     formData.append("dateModified", date);
     formData.append("songData", exportBox.value);
 
-    //console.log(exportBox.value);
-
     var data = new XMLHttpRequest();
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
+            // Add success!
         }
     };
     data.open("POST", `assets/php/create-song.php`);
@@ -50,7 +48,6 @@ function getSong(songID) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
-//    formData.append("username", username);
     formData.append("songID", songID);
 
 	data.onload = function() {
@@ -61,7 +58,6 @@ function getSong(songID) {
             title.value = serverObjects[0].title;
 
             if (serverObjects[0].username != oauthUsername) {
-                //console.log("server username : " + serverObjects[0].username + "oauth : " + oauthUsername);
                 onloadSaveButton();
             }
         }
@@ -70,7 +66,7 @@ function getSong(songID) {
     data.send(formData);
 }
 
-// Get songs from database
+// Get all songs for a particular user from database
 function getSongs(username) {
     var data = new XMLHttpRequest();
 
@@ -115,7 +111,7 @@ function editSong(songID) {
     var data = new XMLHttpRequest();
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            // edit status success
+            // Edit success!
         }
     };
     data.open("POST", `assets/php/edit-song.php`);
@@ -133,7 +129,7 @@ function deleteSong(songID) {
     var data = new XMLHttpRequest();
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
+            // Delete success!
         }
     };
 

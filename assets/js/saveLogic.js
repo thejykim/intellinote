@@ -26,12 +26,9 @@ function promptSignIn() {
     `;
 
     isFirstSignIn = true;
-
-    console.log("Prompting sign in");
 }
 
 function onloadSaveButton() {
-
     saveButton.innerHTML = `
     <span class="icon is-small">
         <i class="fas fa-clone"></i>
@@ -60,7 +57,7 @@ function cloneSong() {
     var data = new XMLHttpRequest();
 	    data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
+            // Clone success!
         }
     };
     data.open("POST", `assets/php/create-song.php`);

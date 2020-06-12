@@ -86,7 +86,6 @@ async function startPlaying() {
 
             if (!alreadyPlayed) {
                 notesAlreadyPlayed.push(notePlaying);
-                console.log(notesAlreadyPlayed);
                 synth.triggerAttackRelease(notePlaying, (notes[count][i].noteLength.toString() + "n"));
             }
         }
