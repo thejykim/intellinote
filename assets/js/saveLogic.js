@@ -26,7 +26,10 @@ function promptSignIn() {
     `;
 
     isFirstSignIn = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2c38e9027986a5a4a986023442449158c7369468
 }
 
 function onloadSaveButton() {
@@ -57,9 +60,15 @@ function cloneSong() {
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {
+<<<<<<< HEAD
 	    // if (data.status == 200 && data.readyState == 4) {
       //       console.log(data.responseText);
       //   }
+=======
+	    if (data.status == 200 && data.readyState == 4) {
+            // Clone success!
+        }
+>>>>>>> 2c38e9027986a5a4a986023442449158c7369468
     };
     data.open("POST", `assets/php/create-song.php`);
     data.send(formData);

@@ -35,8 +35,14 @@ function createNewSong(){
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {
+<<<<<<< HEAD
 	    // if (data.status == 200 && data.readyState == 4) {
       //   }
+=======
+	    if (data.status == 200 && data.readyState == 4) {
+            // Add success!
+        }
+>>>>>>> 2c38e9027986a5a4a986023442449158c7369468
     };
     data.open("POST", `assets/php/create-song.php`);
     data.send(formData);
@@ -109,9 +115,15 @@ function editSong(songID) {
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {
+<<<<<<< HEAD
 	    // if (data.status == 200 && data.readyState == 4) {
       //        edit status success
       //   }
+=======
+	    if (data.status == 200 && data.readyState == 4) {
+            // Edit success!
+        }
+>>>>>>> 2c38e9027986a5a4a986023442449158c7369468
     };
     data.open("POST", `assets/php/edit-song.php`);
     data.send(formData);
@@ -127,9 +139,15 @@ function deleteSong(songID) {
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {
+<<<<<<< HEAD
 	    // if (data.status == 200 && data.readyState == 4) {
       //       console.log(data.responseText);
       //   }
+=======
+	    if (data.status == 200 && data.readyState == 4) {
+            // Delete success!
+        }
+>>>>>>> 2c38e9027986a5a4a986023442449158c7369468
     };
 
     data.open("POST", `assets/php/delete-song.php`);
