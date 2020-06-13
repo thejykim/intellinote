@@ -15,7 +15,6 @@ function parseServerData(serverData){
         };
         serverObjects.push(songObj);
     }
-    //console.log(serverObjects);
 }
 
 function createNewSong(){
@@ -33,13 +32,10 @@ function createNewSong(){
     formData.append("dateModified", date);
     formData.append("songData", exportBox.value);
 
-    //console.log(exportBox.value);
-
     var data = new XMLHttpRequest();
 	    data.onload = function() {
-	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
-        }
+	    // if (data.status == 200 && data.readyState == 4) {
+      //   }
     };
     data.open("POST", `assets/php/create-song.php`);
     data.send(formData);
@@ -50,7 +46,6 @@ function getSong(songID) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
-//    formData.append("username", username);
     formData.append("songID", songID);
 
 	data.onload = function() {
@@ -61,7 +56,6 @@ function getSong(songID) {
             title.value = serverObjects[0].title;
 
             if (serverObjects[0].username != oauthUsername) {
-                //console.log("server username : " + serverObjects[0].username + "oauth : " + oauthUsername);
                 onloadSaveButton();
             }
         }
@@ -114,9 +108,9 @@ function editSong(songID) {
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {
-	    if (data.status == 200 && data.readyState == 4) {
-            // edit status success
-        }
+	    // if (data.status == 200 && data.readyState == 4) {
+      //        edit status success
+      //   }
     };
     data.open("POST", `assets/php/edit-song.php`);
     data.send(formData);
@@ -132,9 +126,9 @@ function deleteSong(songID) {
 
     var data = new XMLHttpRequest();
 	    data.onload = function() {
-	    if (data.status == 200 && data.readyState == 4) {
-            console.log(data.responseText);
-        }
+	    // if (data.status == 200 && data.readyState == 4) {
+      //       console.log(data.responseText);
+      //   }
     };
 
     data.open("POST", `assets/php/delete-song.php`);
