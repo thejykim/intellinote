@@ -54,7 +54,7 @@
 
                 <div class="navbar-end">
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
+                    <p class="navbar-item has-text-weight-light karla is-hidden" id ="signOutButton"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                     <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                     <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='about.html'>About us</a>
                     </p>
@@ -123,11 +123,11 @@
                 but Google may use this data for their own marketing use as well, as per their Terms. Our app works just as well without signing in through this service
                 if this is something you'd prefer to avoid.</p>
 
-            <p>We also use an independent analytics solution in order to better understand our users' needs and to optimize the experience. 
+            <p>We also use an independent analytics solution in order to better understand our users' needs and to optimize the experience.
                 In order to do so, some anonymous information may be tracked during your visit (e.g. how much time you spend on which pages, which links you choose to
-                click, etc.), which lets us prioritize working on features that would benefit your experience here. These analytics uses cookies and other 
+                click, etc.), which lets us prioritize working on features that would benefit your experience here. These analytics uses cookies and other
                 technologies to collect data on our users' behavior and their devices, which includes:</p>
-                
+
             <div class="content">
                 <ol type="i">
                     <li>a device's IP address (processed during your session and stored in a de-identified form)</li>
@@ -138,7 +138,7 @@
                     <li>and the preferred language used to display our website.</li>
                 </ol>
             </div>
-            <p>This information is stored on our behalf in a pseudonymized user 
+            <p>This information is stored on our behalf in a pseudonymized user
             profile, and is contractually forbidden to be sold.</p>
 
             <p>To learn more about cookies, <a href="https://www.cookieconsent.com/what-are-cookies/">this article</a> provides general information on what to expect.</p>
@@ -183,9 +183,10 @@
 
     <script src="assets/js/globalVars.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="assets/js/parseTextFromServer.js"></script>
+    <script src="assets/js/displaySongs.js"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/userMap.js"></script>
-    <script src="assets/js/parseTextFromServer.js"></script>
 
     <script>
         window.onload = function () {

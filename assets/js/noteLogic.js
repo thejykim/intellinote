@@ -62,7 +62,7 @@ function setEighth(noteLoc) {
                 break;
         }
     }
-    noteLen = 8;
+    invNoteLen = 8;
 }
 
 function setQuarter(noteLoc) {
@@ -91,7 +91,7 @@ function setQuarter(noteLoc) {
                 break;
         }
     }
-    noteLen = 4;
+    invNoteLen = 4;
 }
 
 function setHalf(noteLoc) {
@@ -120,7 +120,7 @@ function setHalf(noteLoc) {
                 break;
         }
     }
-    noteLen = 2;
+    invNoteLen = 2;
 }
 
 function setWhole(noteLoc) {
@@ -149,5 +149,5 @@ function setWhole(noteLoc) {
                 break;
         }
     }
-    noteLen = 1;
+    invNoteLen = 1;
 }

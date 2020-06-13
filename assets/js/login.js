@@ -1,6 +1,6 @@
 /* Cleaned */
 function onSignIn(googleUser) {
-    if (!visitor) {
+    if (!isVisitor) {
         var profile = googleUser.getBasicProfile();
         oauthID = profile.getId();
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
@@ -13,16 +13,13 @@ function onSignIn(googleUser) {
             </div>
             <br>`;
         }
-
-        signOutButton = document.getElementById('signOutButton');
-        signOutButton.classList.remove("is-hidden");
-    } else {
-        return;
     }
+    signOutButton = document.getElementById('signOutButton');
+    signOutButton.classList.remove("is-hidden");
 }
 
 function onSignInSong(googleUser) {
-    if (!visitor) {
+    if (!isVisitor) {
         var profile = googleUser.getBasicProfile();
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
@@ -36,9 +33,9 @@ function onSignInSong(googleUser) {
             </div>
             <br>`;
         }
-    } else {
-        return;
     }
+    signOutButton = document.getElementById('signOutButton');
+    signOutButton.classList.remove("hidden");
 }
 
 function signOut() {

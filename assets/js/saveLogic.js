@@ -30,7 +30,6 @@ function promptSignIn() {
 }
 
 function onloadSaveButton() {
-
     saveButton.innerHTML = `
     <span class="icon is-small">
         <i class="fas fa-clone"></i>

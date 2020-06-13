@@ -29,7 +29,6 @@
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
-
     </head>
 
     <body>
@@ -55,7 +54,7 @@
 
                     <div class="navbar-end">
                         <div class="g-signin2" data-onsuccess="onSignInSong"></div>
-                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
+                        <p class="navbar-item has-text-weight-light karla is-hidden" id ="signOutButton"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
                     </div>
@@ -481,7 +480,7 @@
         <!-- js files -->
         <script src="assets/js/globalVars.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script src="assets/js/generate-sheet.js"></script>
+        <script src="assets/js/generateSheet.js"></script>
         <script src="assets/js/player.js"></script>
         <script src="assets/js/noteLogic.js"></script>
         <script src="assets/js/timeSig.js"></script>
@@ -490,7 +489,7 @@
         <script src="assets/js/displaySongs.js"></script>
         <script src="assets/js/presetSongs.js"></script>
         <script src="assets/js/instructions.js"></script>
-        <script src="assets/js/create-song.js"></script>
+        <script src="assets/js/createSong.js"></script>
         <script src="assets/js/login.js"></script>
         <script src="assets/js/saveLogic.js"></script>
         <script src="assets/js/userMap.js"></script>

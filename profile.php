@@ -55,7 +55,7 @@
 
                     <div class="navbar-end">
                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
+                        <p class="navbar-item has-text-weight-light karla is-hidden" id ="signOutButton"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
                     </div>
@@ -124,7 +124,7 @@
                             echo "0";
                         }
                     ?> == true) {
-                    visitor = true;
+                    isVisitor = true;
                     displaySongs(<?php echo $_GET["username"] ?>);
                 } else if (email == null) {
                     displaySongs(null);

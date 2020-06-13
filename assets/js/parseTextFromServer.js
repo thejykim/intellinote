@@ -17,6 +17,7 @@ function parseServerData(serverData){
     }
 }
 
+// Add a new song to the database
 function createNewSong(){
     exportSong();
 
@@ -64,7 +65,7 @@ function getSong(songID) {
     data.send(formData);
 }
 
-// Get songs from database
+// Get all songs for a particular user from database
 function getSongs(username) {
     var data = new XMLHttpRequest();
 
