@@ -19,6 +19,8 @@ const noteObjectParse = ".";
 
 // notification.js
 
+let dismissInterval;
+let dismissCount;
 let notificationCount = 0;
 
 // generate-sheet.js

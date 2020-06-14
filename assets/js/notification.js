@@ -1,36 +1,57 @@
 function createNotification(type, message, href) {
     notificationCount++;
 
+    if (notificationCount > 1) {
+        clearInterval(dismissInterval);
+    }
+
+    dismissCount = 4;
+
     if (href == null) {
         createDialog.innerHTML = `
         <div class="notification ${type}">
-            ${message}
+            <div class="has-text-right is-size-7">
+                <span id="dismissCount">(Dismissing in 5 seconds)</span>
+            </div>
+            <p>${message}</p>
         </div>
         <br>`;
     } else {
         createDialog.innerHTML = `
         <a href='${href}'>
             <div class="notification ${type}">
-                ${message}
+                <div class="has-text-right is-size-7 poppins is-uppercase">
+                    <span id="dismissCount">(Dismissing in 5 seconds)</span>
+                </div>
+                <p>${message}</p>
             </div>
         </a>
         <br>
         `;
     }
 
-    createDialog.innerHTML = `
-    <div class="notification ${type}">
-        ${message}
-    </div>
-    <br>`;
-
     $("#createDialog").fadeIn("slow", function() {
-        notificationCount--;
-        setTimeout(dismissNotification, 4000);
+        dismissInterval = setInterval(updateDismissCount, 1000);
     });
 }
 
+function updateDismissCount() {
+    if (dismissCount > 1) {
+        $("#dismissCount").text("(Dismissing in " + dismissCount + " seconds)");
+    } else if (dismissCount == 1) {
+        $("#dismissCount").text("(Dismissing in " + dismissCount + " second)");
+    } else {
+        $("#dismissCount").text("(Dismissing in " + dismissCount + " seconds)");
+        clearInterval(dismissInterval);
+        dismissNotification();
+    }
+
+    dismissCount--;
+}
+
 function dismissNotification() {
+    notificationCount--;
+
     if (notificationCount == 0) {
         $("#createDialog").fadeOut("slow", function() {
             createDialog.innerHTML = ``;
