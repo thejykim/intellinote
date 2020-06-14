@@ -22,7 +22,7 @@ function createNotification(type, message, href) {
         });
     } else {
         notificationCount = 0;
-        
+
         clearInterval(dismissInterval);
 
         createDialog.innerHTML = `
@@ -33,6 +33,8 @@ function createNotification(type, message, href) {
         </a>
         <br>
         `;
+
+        $("#createDialog").fadeIn("slow", function() {});
     }
 }
 
