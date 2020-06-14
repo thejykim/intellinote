@@ -8,18 +8,7 @@ function onSignIn(googleUser) {
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
 
-<<<<<<< HEAD
         createNotification("is-success", "Successfully logged in!", null);
-=======
-        if (isFirstSignIn) {
-            createDialog.innerHTML = `
-            <div class="notification is-success">
-            Successfully logged in! If you were trying to save a song, press save again.
-            </div>
-            <br>`;
-        }
-
->>>>>>> master
         signOutButton = document.getElementById('signOutButton');
         signOutButton.classList.remove("is-hidden");
     } else {
