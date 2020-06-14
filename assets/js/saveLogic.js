@@ -12,8 +12,13 @@ function editLogic(songID) {
     if (email == null) {
         promptSignIn();
     } else { // Logged in, about to edit own song
+<<<<<<< HEAD
         editSong(songID);
         createNotification("is-success", "Song successfully saved!", null);
+=======
+        //editSong(songID);
+        editSongIndex(songID);
+>>>>>>> master
     }
 }
 //
@@ -28,6 +33,8 @@ function promptSignIn() {
     //saveButton.setAttribute("onclick", "");
     //saveButton.setAttribute('disabled', 'true');
     createNotification("is-danger", "Please sign in with your Google account!", null);
+
+    isFirstSignIn = true;
 
     console.log("Prompting sign in");
 }
