@@ -22,13 +22,13 @@ function createNotification(type, message, href) {
     </div>
     <br>`;
 
-    createDialog.fadeIn("slow", function() {
+    $("#createDialog").fadeIn("slow", function() {
         setTimeout(dismissNotification, 4000);
     });
 }
 
 function dismissNotification() {
-    createDialog.fadeOut("slow", function() {
+    $("#createDialog").fadeOut("slow", function() {
         createDialog.innerHTML = ``;
     })
 }
