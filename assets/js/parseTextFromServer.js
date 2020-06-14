@@ -18,6 +18,7 @@ function parseServerData(serverData){
 }
 
 function createNewSong(){
+    
     exportSong();
 
     let title = document.getElementById('title').value;
