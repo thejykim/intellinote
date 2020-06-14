@@ -1,11 +1,11 @@
 function createNotification(type, message, href) {
-    notificationCount++;
-
-    if (notificationCount > 1) {
-        clearInterval(dismissInterval);
-    }
-
     if (href == null) {
+        notificationCount++;
+
+        if (notificationCount > 1) {
+            clearInterval(dismissInterval);
+        }
+        
         dismissCount = 4;
 
         createDialog.innerHTML = `
@@ -21,6 +21,8 @@ function createNotification(type, message, href) {
             dismissInterval = setInterval(updateDismissCount, 1000);
         });
     } else {
+        clearInterval(dismissInterval);
+
         createDialog.innerHTML = `
         <a href='${href}'>
             <div class="notification ${type}">
