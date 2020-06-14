@@ -9,7 +9,7 @@ function createNotification(type, message, href) {
         dismissCount = 4;
 
         createDialog.innerHTML = `
-        <div class="notification ${type}">
+        <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
             <div class="has-text-right is-size-7">
                 <span id="dismissCount">(Dismissing in 5 seconds)</span>
             </div>
@@ -27,7 +27,7 @@ function createNotification(type, message, href) {
 
         createDialog.innerHTML = `
         <a href='${href}'>
-            <div class="notification ${type}">
+            <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
                 <p>${message}</p>
             </div>
         </a>
