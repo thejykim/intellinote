@@ -5,9 +5,9 @@ function createNotification(type, message, href) {
         clearInterval(dismissInterval);
     }
 
-    dismissCount = 4;
-
     if (href == null) {
+        dismissCount = 4;
+
         createDialog.innerHTML = `
         <div class="notification ${type}">
             <div class="has-text-right is-size-7">
@@ -16,23 +16,20 @@ function createNotification(type, message, href) {
             <p>${message}</p>
         </div>
         <br>`;
+
+        $("#createDialog").fadeIn("slow", function() {
+            dismissInterval = setInterval(updateDismissCount, 1000);
+        });
     } else {
         createDialog.innerHTML = `
         <a href='${href}'>
             <div class="notification ${type}">
-                <div class="has-text-right is-size-7 poppins is-uppercase">
-                    <span id="dismissCount">(Dismissing in 5 seconds)</span>
-                </div>
                 <p>${message}</p>
             </div>
         </a>
         <br>
         `;
     }
-
-    $("#createDialog").fadeIn("slow", function() {
-        dismissInterval = setInterval(updateDismissCount, 1000);
-    });
 }
 
 function updateDismissCount() {
