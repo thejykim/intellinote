@@ -501,6 +501,7 @@
         <script src="assets/js/noteLogic.js"></script>
         <script src="assets/js/timeSig.js"></script>
         <script src="assets/js/export.js"></script>
+        <script src="assets/js/notification.js"></script>
         <script src="assets/js/parseTextFromServer.js"></script>
         <script src="assets/js/displaySongs.js"></script>
         <script src="assets/js/presetSongs.js"></script>
