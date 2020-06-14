@@ -1,30 +1,9 @@
-// buttons
-const startButton = document.getElementById('start');
-const stopButton = document.getElementById('stop');
-const tempoBox = document.getElementById('tempoBox');
-const tempoSlider = document.getElementById('tempoSlider');
-
-// variables
-let timeBetweenNotes = 2000;
-let isPlaying = false;
-let bpm = 120;
-let maxTempo = 240;
-let minTempo = 30;
-
 // create synths
 let synth = new Tone.PolySynth(18, Tone.Synth, {
     oscillator: {
         type: "sine"
     }
 }).toMaster();
-
-// interval variable
-let interval;
-
-let notes = [];
-
-let trebleNoteKey = ["A5", "G5", "F5", "E5", "D5", "C5", "B4", "A4", "G4", "F4", "E4", "D4", "C4"];
-let bassNoteKey = ["C4", "B3", "A3", "G3", "F3", "E3", "D3", "C2", "B2", "A2", "G2", "F2", "E2"];
 
 async function startPlaying() {
     // combined the arrays, but this actually won't allow us to add more than one row for now

@@ -1,9 +1,3 @@
-const userMapDupError = "Already registered, or username taken";
-const userNotFoundError = "User not found!";
-const usernameLengthLimit = 25;
-let registerDialog = document.getElementById("registerDialog");
-
-
 function registerUser(){
     let chosenUsername = document.getElementById("username").value;
 

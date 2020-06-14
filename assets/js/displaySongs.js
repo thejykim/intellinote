@@ -1,8 +1,3 @@
-const recentSongsDiv = document.getElementById("recentSongs");
-const allSongsDiv = document.getElementById("allSongs");
-
-let recentThreshold = 1000 * 60 * 60 * 24 * 7;
-
 function displaySongs(username) {
     // check if not signed in
     if (username == null) {
