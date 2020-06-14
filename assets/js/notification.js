@@ -5,7 +5,7 @@ function createNotification(type, message, href) {
         if (notificationCount > 1) {
             clearInterval(dismissInterval);
         }
-        
+
         dismissCount = 4;
 
         createDialog.innerHTML = `
@@ -21,6 +21,8 @@ function createNotification(type, message, href) {
             dismissInterval = setInterval(updateDismissCount, 1000);
         });
     } else {
+        notificationCount = 0;
+        
         clearInterval(dismissInterval);
 
         createDialog.innerHTML = `
