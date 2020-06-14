@@ -17,6 +17,10 @@ const rowParse = ";";
 const noteParse = "-";
 const noteObjectParse = ".";
 
+// notification.js
+
+let notificationCount = 0;
+
 // generate-sheet.js
 
 // document elements

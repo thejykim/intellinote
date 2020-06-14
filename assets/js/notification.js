@@ -1,4 +1,6 @@
 function createNotification(type, message, href) {
+    notificationCount++;
+
     if (href == null) {
         createDialog.innerHTML = `
         <div class="notification ${type}">
@@ -23,12 +25,15 @@ function createNotification(type, message, href) {
     <br>`;
 
     $("#createDialog").fadeIn("slow", function() {
+        notificationCount--;
         setTimeout(dismissNotification, 4000);
     });
 }
 
 function dismissNotification() {
-    $("#createDialog").fadeOut("slow", function() {
-        createDialog.innerHTML = ``;
-    })
+    if (notificationCount == 0) {
+        $("#createDialog").fadeOut("slow", function() {
+            createDialog.innerHTML = ``;
+        })
+    }
 }
