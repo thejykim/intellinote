@@ -12,11 +12,7 @@ function onSignIn(googleUser) {
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
 
-        createDialog.innerHTML = `
-        <div class="notification is-success">
-            Successfully logged in!
-        </div>
-        <br>`;
+        createNotification("is-success", "Successfully logged in!", null);
     } else {
         return;
     }
@@ -33,11 +29,7 @@ function onSignInSong(googleUser) {
 
         getSong(globalSongID);
 
-        createDialog.innerHTML = `
-        <div class="notification is-success">
-            Successfully logged in!
-        </div>
-        <br>`;
+        createNotification("is-success", "Successfully logged in!", null);
     } else {
         return;
     }
