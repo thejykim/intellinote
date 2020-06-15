@@ -290,3 +290,9 @@ tr.line td:before {
 .text-spacing > * {
     margin: 1rem 0;
 }
+
+.g-signin2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
