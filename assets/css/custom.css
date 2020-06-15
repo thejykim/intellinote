@@ -291,8 +291,6 @@ tr.line td:before {
     margin: 1rem 0;
 }
 
-.g-signin2 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.g-signin2 > div{
+  margin: 0 auto;
 }
