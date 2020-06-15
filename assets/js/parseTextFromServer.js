@@ -19,6 +19,7 @@ function parseServerData(serverData){
 
 // Add a new song to the database
 function createNewSong(){
+    var data = new XMLHttpRequest();
     exportSong();
 
     let title = document.getElementById('title').value;
@@ -33,16 +34,10 @@ function createNewSong(){
     formData.append("dateModified", date);
     formData.append("songData", exportBox.value);
 
-    var data = new XMLHttpRequest();
-	    data.onload = function() {
-<<<<<<< HEAD
-	    // if (data.status == 200 && data.readyState == 4) {
-      //   }
-=======
-	    if (data.status == 200 && data.readyState == 4) {
+    data.onload = function() {
+        if (data.status == 200 && data.readyState == 4) {
             // Add success!
         }
->>>>>>> 2c38e9027986a5a4a986023442449158c7369468
     };
     data.open("POST", `assets/php/create-song.php`);
     data.send(formData);
@@ -90,6 +85,7 @@ function getSongs(username) {
 
 // Modify song; send to database
 function editSong(songID) {
+    var data = new XMLHttpRequest();
     exportSong();
 
     if (titleField.value.length == 0) {
@@ -113,17 +109,10 @@ function editSong(songID) {
     formData.append("songData", exportBox.value);
     formData.append("songID", songID);
 
-    var data = new XMLHttpRequest();
-	    data.onload = function() {
-<<<<<<< HEAD
-	    // if (data.status == 200 && data.readyState == 4) {
-      //        edit status success
-      //   }
-=======
-	    if (data.status == 200 && data.readyState == 4) {
+	data.onload = function() {
+        if (data.status == 200 && data.readyState == 4) {
             // Edit success!
         }
->>>>>>> 2c38e9027986a5a4a986023442449158c7369468
     };
     data.open("POST", `assets/php/edit-song.php`);
     data.send(formData);
@@ -131,25 +120,18 @@ function editSong(songID) {
 
 // Delete song
 function deleteSong(songID) {
+    var data = new XMLHttpRequest();
     let username = document.getElementById('emailID').value;
 
     let formData = new FormData();
     formData.append("username", username);
     formData.append("songID", songID);
 
-    var data = new XMLHttpRequest();
-	    data.onload = function() {
-<<<<<<< HEAD
-	    // if (data.status == 200 && data.readyState == 4) {
-      //       console.log(data.responseText);
-      //   }
-=======
-	    if (data.status == 200 && data.readyState == 4) {
+    data.onload = function() {
+        if (data.status == 200 && data.readyState == 4) {
             // Delete success!
         }
->>>>>>> 2c38e9027986a5a4a986023442449158c7369468
     };
-
     data.open("POST", `assets/php/delete-song.php`);
     data.send(formData);
 }
