@@ -295,11 +295,3 @@ tr.line td:before {
   height: 100%;
   position: relative;
 }
-
-.g-signin2 {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
