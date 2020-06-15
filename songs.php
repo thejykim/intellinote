@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="navbar-end">
-                        <div class="g-signin2" data-height-"50" data-onsuccess="onSignInSong"></div>
+                        <div class="g-signin2" data-height = "50" data-onsuccess="onSignInSong"></div>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
