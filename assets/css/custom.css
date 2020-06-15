@@ -291,10 +291,10 @@ tr.line td:before {
     margin: 1rem 0;
 }
 
-.g-signin2{
+.g-signin2 {
   width: 100%;
 }
 
-.g-signin2 > div{
+.g-signin2 {
   margin: 0 auto;
 }
