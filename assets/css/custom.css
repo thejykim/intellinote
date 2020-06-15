@@ -291,10 +291,13 @@ tr.line td:before {
     margin: 1rem 0;
 }
 
-.g-signin2 {
-  width: 100%;
+.navbar-end {
+  position: relative;
 }
 
 .g-signin2 {
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  height: 100px;
+  margin-top: -50px;
 }
