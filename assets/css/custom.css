@@ -292,3 +292,8 @@ tr.line td:before {
 .text-spacing > * {
     margin: 1rem 0;
 }
+
+.navbar-end {
+  height: 100%;
+  position: relative;
+}
