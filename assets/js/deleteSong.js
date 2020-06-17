@@ -1,3 +1,7 @@
 function deletePopup() {
-  console.log("Are you sure about that homie");
+  createDialog.innerHTML = `
+  <div class="notification is-danger">
+    Are you sure you want to delete?
+  </div>
+  <br>`;
 }
