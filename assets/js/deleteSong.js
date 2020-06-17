@@ -1,6 +1,6 @@
 function deletePopup() {
     createDialog.innerHTML = `
-    <div class="notification is-danger columns">
+    <div class="notification is-danger is-vcentered columns">
         <div class = "column is-four-fifths">
         Are you sure you want to delete?
         </div>
