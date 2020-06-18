@@ -1,5 +1,6 @@
 function toggleDelete() {
     deleteContent.innerHTML = "Woo"
+    deleteContent.style.padding = "20";
 }
 
 function deletePopup() {
