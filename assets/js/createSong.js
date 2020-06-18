@@ -20,7 +20,7 @@ function editSongIndex(songID) {
     }
 
     editSong(songID);
-    createNotification("is-success", "Song successfully saved!", null");
+    createNotification("is-success", "Song successfully saved!", null);
     // createDialog.innerHTML = `
     // <div class="notification is-success">
     //     Song successfully saved!
