@@ -77,6 +77,8 @@
             </div>
         </section>
 
+        <div class="empty-padding" style="padding: 0.5rem"></div>
+
         <div class="columns is-centered">
             <div class="column is-narrow">
                 <button class="button is-info is-small is-rounded karla gradient">
@@ -88,7 +90,7 @@
             </div>
         </div>
 
-        <div class="empty-padding"></div>
+        <div class="empty-padding" style="padding: 0.5rem"></div>
 
         <section class="container" id="recentSongs"></section>
 
@@ -96,7 +98,7 @@
 
         <section class="container" id="allSongs"></section>
 
-        <div class="empty-padding"></div>
+        <div class="empty-padding" style="padding: 0.5rem"></div>
 
         <!-- footer -->
         <footer class="footer" style="padding-top: 4rem; padding-bottom: 4rem;">
