@@ -1,22 +1,10 @@
 function toggleDelete() {
-    deleteContent.innerHTML = "Woo"
-    deleteContent.style.padding = "20";
-}
-
-function deletePopup() {
-    createDialog.innerHTML = `
-    <div class="notification is-danger is-vcentered columns">
-        <div class = "column is-four-fifths">
-        Are you sure you want to delete?
-        </div>
-        <div class = "column is-half">
-            <button class = "button is-danger is-inverted is-rounded"
-            onclick = "deleteSong()"> Delete Song </button>
-        </div>
-    </div>
-    <br>`;
+    deleteContent.innerHTML = "Delete Song?";
+    deleteButton.classList.add("is-light");
+    deleteButton.onclick = deleteSong;
 }
 
 function deleteSong() {
-    console.log("Deleting song");
+    deleteContent.innerHTML = "Song Deleted!";
+    deleteButton.onclick = function() { return false; };
 }
