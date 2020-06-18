@@ -91,12 +91,7 @@ function editSong(songID) {
     exportSong();
 
     if (titleField.innerHTML == "") {
-        createDialog.innerHTML = `
-        <div class="notification is-warning">
-            Put in a title!
-        </div>
-        <br>
-        `;
+        createNotification("is-warning", "Put in a title!", null);
         return;
     }
 
