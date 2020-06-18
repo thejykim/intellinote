@@ -77,6 +77,8 @@
             </div>
         </section>
 
+        <button class="button is-info is-rounded karla gradient" onclick="location.href='https://google.com';" value="Go to Google" />
+
         <div class="empty-padding"></div>
 
         <section class="container" id="recentSongs"></section>
