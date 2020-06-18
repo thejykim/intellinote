@@ -13,17 +13,13 @@ function editLogic(songID) {
     if (email == null) {
         promptSignIn();
     } else { // Logged in, about to edit own song
-        editSongIndex(songID);
+        editSong(songID);
+        createNotification("is-success", "Song successfully saved!", null);
     }
 }
 
 function promptSignIn() {
-    createDialog.innerHTML = `
-    <div class="notification is-danger">
-        Please sign in with your Google account!
-    </div>
-    <br>
-    `;
+    createNotification("is-danger", "Please sign in with your Google account!", null);
 
     isFirstSignIn = true;
 }
@@ -63,12 +59,5 @@ function cloneSong() {
     data.open("POST", `assets/php/create-song.php`);
     data.send(formData);
 
-    createDialog.innerHTML = `
-    <a href='profile.php?username="${oauthUsername}"'>
-        <div class="notification is-info gradient">
-            Song successfully cloned! Click this notification to visit your profile.
-        </div>
-    </a>
-    <br>
-    `;
+    createNotification("is-info gradient", "Song successfully cloned! Click this notification to visit your profile.", `profile.php?username="${oauthUsername}"`);
 }

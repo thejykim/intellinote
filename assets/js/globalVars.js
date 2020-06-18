@@ -18,7 +18,13 @@ const rowParse = ";";
 const noteParse = "-";
 const noteObjectParse = ".";
 
-// generateSheet.js
+// notification.js
+
+let dismissInterval;
+let dismissCount;
+let notificationCount = 0;
+
+// generate-sheet.js
 
 // document elements
 const removeButton = document.getElementById('removeButton');

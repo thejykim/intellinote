@@ -7,11 +7,7 @@ function onSignIn(googleUser) {
         getUsername();
 
         if (isFirstSignIn) {
-            createDialog.innerHTML = `
-            <div class="notification is-success">
-            Successfully logged in! If you were trying to save a song, press save again.
-            </div>
-            <br>`;
+            createNotification("is-success", "Successfully logged in!", null);
         }
     }
     signOutButton = document.getElementById('signOutButton');
@@ -27,11 +23,7 @@ function onSignInSong(googleUser) {
         getSong(globalSongID);
 
         if (isFirstSignIn) {
-            createDialog.innerHTML = `
-            <div class="notification is-success">
-            Successfully logged in! If you were trying to save a song, press save again.
-            </div>
-            <br>`;
+            createNotification("is-success", "Successfully logged in! If you were trying to save a song, press save again.", null);
         }
     }
     signOutButton = document.getElementById('signOutButton');
