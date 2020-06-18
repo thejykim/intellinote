@@ -37,7 +37,7 @@ function onloadSaveButton() {
 function cloneSong() {
     exportSong();
 
-    title = title.textContent + " - Copy";
+    title = titleField.textContent + " - Copy";
     let username = oauthUsername;
 
     let date = currentDate();
