@@ -3,7 +3,7 @@
 function createSongIndex() {
     // check required fields
     //if (titleField.value.length == 0) {
-    if (titleField.contents().length == 0) {
+    if (titleField.innerHTML == "") {
         createNotification("is-warning", "Put in a title!", null);
         return;
     }
