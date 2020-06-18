@@ -14,12 +14,13 @@ function toggleProfileDelete(songID) {
     let targetButton = document.getElementById(songID);
     targetButton.innerHTML = "Delete Song?";
     targetButton.classList.add("is-light");
-    targetButton.onclick = callProfileDelete(songID);
+    songToDelete = songID;
+    targetButton.onclick = callProfileDelete;
 }
 
-function callProfileDelete(songID) {
-    let targetButton = document.getElementById(songID);
-    deleteSong(songID);
+function callProfileDelete() {
+    let targetButton = document.getElementById(songToDelete);
+    deleteSong(songToDelete);
     targetButton.innerHTML = "Song Deleted!";
     targetButton.onclick = function() { return false; };
 }
