@@ -90,15 +90,15 @@ function editSong(songID) {
     var data = new XMLHttpRequest();
     exportSong();
 
-    // if (titleField.value.length == 0) {
-    //     createDialog.innerHTML = `
-    //     <div class="notification is-warning">
-    //         Put in a title!
-    //     </div>
-    //     <br>
-    //     `;
-    //     return;
-    // }
+    if (titleField.value.length == 0) {
+        createDialog.innerHTML = `
+        <div class="notification is-warning">
+            Put in a title!
+        </div>
+        <br>
+        `;
+        return;
+    }
 
     let title = document.getElementById('title').innerHTML;
 
