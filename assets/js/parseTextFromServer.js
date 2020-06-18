@@ -124,7 +124,7 @@ function deleteSong(songID) {
     let username = document.getElementById('emailID').value;
 
     let formData = new FormData();
-    formData.append("username", username);
+    formData.append("username", oauthUsername);
     formData.append("songID", songID);
 
     data.onload = function() {
