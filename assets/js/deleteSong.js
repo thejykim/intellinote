@@ -20,6 +20,7 @@ function toggleProfileDelete(songID) {
 
 function callProfileDelete() {
     let targetButton = document.getElementById(songToDelete);
+    console.log(songToDelete);
     deleteSong(songToDelete);
     targetButton.innerHTML = "Song Deleted!";
     targetButton.onclick = function() { return false; };
