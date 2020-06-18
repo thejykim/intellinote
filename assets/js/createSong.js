@@ -2,7 +2,7 @@
 
 function createSongIndex() {
     // check required fields
-    if (titleField.innerHTML.replace(/\s+/g, '') == "") {
+    if (titleField.textContent.replace(/\s+/g, '') == "") {
         createNotification("is-warning", "Put in a title!", null);
         return;
     }
