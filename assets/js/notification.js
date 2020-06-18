@@ -10,10 +10,16 @@ function createNotification(type, message, href) {
 
         createDialog.innerHTML = `
         <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
-            <div class="has-text-right is-size-7">
-                <span id="dismissCount">(Dismissing in 5 seconds)</span>
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    <p>${message}</p>
+                </div>
+                <div class="column">
+                    <div class="has-text-right is-size-7">
+                        <span id="dismissCount">(Dismissing in 5 seconds)</span>
+                    </div>
+                </div>
             </div>
-            <p>${message}</p>
         </div>
         <br>`;
 
