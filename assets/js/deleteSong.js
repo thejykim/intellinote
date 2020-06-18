@@ -11,12 +11,14 @@ function callDelete() {
 }
 
 function toggleProfileDelete(songID) {
+    document.getElementById(songID).innerHTML = "Delete Song?";
     document.getElementById(songID).classList.add("is-light");
+    document.getElementById(songID).onclick = callProfileDelete(songID);
 }
 
 function callProfileDelete(songID) {
     console.log("Deleting");
-    deleteSong(globalSongID);
+    deleteSong(songID);
     deleteContent.innerHTML = "Song Deleted!";
-    deleteButton.onclick = function() { return false; };
+    document.getElementById(songID).onclick = function() { return false; };
 }
