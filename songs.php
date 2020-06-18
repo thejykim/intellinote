@@ -283,7 +283,7 @@
                 </div>
 
                 <!-- second column -->
-                <div class="column is-three-quarters" id="sheet-rows">
+                <div class="column is-three-fifths" id="sheet-rows">
 
                     <!-- title -->
                     <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title.">
@@ -317,6 +317,16 @@
                             </table>
                         </div>
                     </div>
+                </div>
+                <div class = "column">
+                    <button class="button is-danger is-small is-rounded"
+                    id="startDelete" onclick = "toggleDelete()">
+                        <span id="deleteContent">
+                            <span class="icon is-small">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -498,6 +508,7 @@
         <script src="assets/js/login.js"></script>
         <script src="assets/js/saveLogic.js"></script>
         <script src="assets/js/userMap.js"></script>
+        <script src="assets/js/deleteSong.js"></script>
 
         <!-- start everything off -->
         <script>
