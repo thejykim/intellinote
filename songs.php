@@ -6,6 +6,9 @@
         <!-- bulma css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
+        <!-- bulma extension - tooltip -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css">
+
         <!-- font awesome (for icons) -->
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
@@ -288,10 +291,8 @@
                     <!-- title -->
                     <div class="columns">
                         <div class="column is-2"></div>
-                        <span class="column is-10 karla" contenteditable="true" id="title" spellcheck="false" autocomplete="false"></span>
-                            <!-- <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title."> -->
-
-                        <div class="empty-padding" style="padding: 1rem"></div>
+                            <div class="column is-10 karla" data-tooltip="Rename" contenteditable="true"
+                            id="title" spellcheck="false" autocomplete="false"></div>
                     </div>
 
                     <!-- treble clef -->

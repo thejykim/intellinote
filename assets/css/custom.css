@@ -301,4 +301,6 @@ tr.line td:before {
 #title {
     font-size: 28px;
     text-align: center;
+    outline:none;
+    cursor: auto;
 }
