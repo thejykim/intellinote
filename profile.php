@@ -77,7 +77,7 @@
             </div>
         </section>
 
-        <button class="button is-info is-rounded karla gradient" onclick="location.href='https://google.com';" value="Go to Google" />
+        <button class="button is-info is-small is-rounded karla gradient" onclick="location.href='https://google.com';" value="Go to Google" /></button>
 
         <div class="empty-padding"></div>
 
