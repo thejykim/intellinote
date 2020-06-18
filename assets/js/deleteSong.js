@@ -11,6 +11,6 @@ function callDelete() {
     deleteButton.onclick = function() { return false; };
 }
 
-function toggleProfileDelete() {
-    console.log("Yeet");
+function toggleProfileDelete(songID) {
+    console.log(songID);
 }

@@ -157,7 +157,7 @@ function displaySongs(username) {
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column">
-                                            <button id = "' + songID + '" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete()">
+                                            <button id = "${songID}" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete(${songID})">
                                                 <span id="deleteContent">
                                                     <span class="icon is-small">
                                                         <i class="fas fa-trash"></i>
