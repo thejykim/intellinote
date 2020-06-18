@@ -121,10 +121,10 @@ function editSong(songID) {
 // Delete song
 function deleteSong(songID) {
     var data = new XMLHttpRequest();
-    let username = document.getElementById('emailID').value;
+    let username = oauthUsername;
 
     let formData = new FormData();
-    formData.append("username", oauthUsername);
+    formData.append("username", username);
     formData.append("songID", songID);
 
     data.onload = function() {
