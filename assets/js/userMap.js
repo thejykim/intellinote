@@ -30,12 +30,7 @@ function registerUser(){
             } else {
                 oauthUsername = chosenUsername;
 
-                createDialog.innerHTML = `
-                <div class="notification is-success">
-                    Successfully registered! If you were trying to save a song, press save again.
-                </div>
-                <br>
-                `;
+                createNotification("is-success", "Successfully registered! If you were trying to save a song, press save again.", null);
 
                 let registerModal = document.querySelector('#registerModal');
                 let html = document.querySelector('html');
