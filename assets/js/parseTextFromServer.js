@@ -90,10 +90,10 @@ function editSong(songID) {
     var data = new XMLHttpRequest();
     exportSong();
 
-    if (titleField.innerHTML == "") {
-        createNotification("is-warning", "Put in a title!", null);
-        return;
-    }
+    // if (titleField.innerHTML == "") {
+    //     createNotification("is-warning", "Put in a title!", null);
+    //     return;
+    // }
 
     let title = document.getElementById('title').innerHTML;
 

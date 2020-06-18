@@ -13,11 +13,11 @@ function createSongIndex() {
 }
 
 function editSongIndex(songID) {
-    // check required fields
-    // if (titleField.innerHTML == "") {
-    //     createNotification("is-warning", "Put in a title!", null);
-    //     return;
-    // }
+    //check required fields
+    if (titleField.innerHTML == "") {
+        createNotification("is-warning", "Put in a title!", null);
+        return;
+    }
 
     editSong(songID);
     createNotification("is-success", "Song successfully saved!", null);
