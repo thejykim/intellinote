@@ -6,6 +6,7 @@ function loadSong(song) {
             while (newLine != 0) {
                 removeRow();
             }
+            titleField.value = "";
             break;
         case "miiTheme":
             titleField.value = "Mii Theme";
