@@ -106,8 +106,7 @@ function displaySongs(username) {
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column">
-                                            <button class="button is-danger is-small is-rounded"
-                                            id="startDelete" onclick = "toggleDelete()">
+                                            <button class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete()">
                                                 <span id="deleteContent">
                                                     <span class="icon is-small">
                                                         <i class="fas fa-trash"></i>
@@ -158,8 +157,7 @@ function displaySongs(username) {
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column">
-                                            <button class="button is-danger is-small is-rounded"
-                                            id="startDelete" onclick = "toggleDelete()">
+                                            <button id = "' + songID + '" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete()">
                                                 <span id="deleteContent">
                                                     <span class="icon is-small">
                                                         <i class="fas fa-trash"></i>

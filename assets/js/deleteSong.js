@@ -10,3 +10,7 @@ function callDelete() {
     deleteContent.innerHTML = "Song Deleted!";
     deleteButton.onclick = function() { return false; };
 }
+
+function toggleProfileDelete() {
+    console.log("Yeet");
+}

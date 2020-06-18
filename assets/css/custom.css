@@ -306,6 +306,16 @@ tr.line td:before {
     opacity: 0.7;
     animation: shake 0.5s;
 }
+
+.profileDelete {
+    transition: all 1s;
+}
+
+.profileDelete:hover {
+    opacity: 0.7;
+    animation: shake 0.5s;
+}
+
 @keyframes shake {
   0% { transform: translate(.5px, .5px) rotate(0deg); }
   10% { transform: translate(-.5px, -1px) rotate(-1deg); }
