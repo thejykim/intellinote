@@ -262,7 +262,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-block" style="padding: 0.5rem 1.5rem;">
+                        <!-- <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                             <div class="container">
                                 <p class="subtitle is-6 poppins"
                                     style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Preset Songs</p>
@@ -281,7 +281,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </nav>
                 </div>
 
