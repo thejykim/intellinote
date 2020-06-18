@@ -151,17 +151,23 @@ function displaySongs(username) {
                         <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
                             <div class="card-content">
                                 <div class="content">
-                                    <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
-                                    <span class="tag is-dark poppins">Created: ${serverObjects[i].dateCreated}</span>
-                                    <span class="tag is-light poppins"><b>${numRows}</b></span>
-                                    <button class="button is-danger is-small is-rounded"
-                                    id="startDelete" onclick = "toggleDelete()">
-                                        <span id="deleteContent">
-                                            <span class="icon is-small">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                        </span>
-                                    </button>
+                                    <div class = "columns">
+                                        <div class = "column is-three-fifths">
+                                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
+                                            <span class="tag is-dark poppins">Created: ${serverObjects[i].dateCreated}</span>
+                                            <span class="tag is-light poppins"><b>${numRows}</b></span>
+                                        </div>
+                                        <div class = "column">
+                                            <button class="button is-danger is-small is-rounded"
+                                            id="startDelete" onclick = "toggleDelete()">
+                                                <span id="deleteContent">
+                                                    <span class="icon is-small">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
