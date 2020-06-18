@@ -77,7 +77,16 @@
             </div>
         </section>
 
-        <button class="button is-info is-small is-rounded karla gradient" onclick="location.href='https://google.com';" value="Go to Google" /></button>
+        <div class="columns is-centered">
+            <div class="column is-narrow">
+                <button class="button is-info is-small is-rounded karla gradient">
+                    <span class="icon is-small">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>Create</span>
+                </button>
+            </div>
+        </div>
 
         <div class="empty-padding"></div>
 
