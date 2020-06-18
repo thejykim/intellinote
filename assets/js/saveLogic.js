@@ -13,8 +13,7 @@ function editLogic(songID) {
     if (email == null) {
         promptSignIn();
     } else { // Logged in, about to edit own song
-        editSong(songID);
-        createNotification("is-success", "Song successfully saved!", null);
+        editSongIndex(songID);
     }
 }
 
