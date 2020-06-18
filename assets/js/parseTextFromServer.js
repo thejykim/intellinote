@@ -80,7 +80,6 @@ function getSongs(username) {
             parseServerData(data.responseText);
         }
     };
-
     data.open("POST", `assets/php/get-songs.php`);
     data.send(formData);
 }
