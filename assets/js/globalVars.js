@@ -113,3 +113,6 @@ const userMapDupError = "Already registered, or username taken";
 const userNotFoundError = "User not found!";
 const usernameLengthLimit = 25;
 const registerDialog = document.getElementById("registerDialog");
+
+// deleteSong.js
+let deleteButton = document.getElementById("startDelete");

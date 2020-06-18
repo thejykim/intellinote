@@ -301,9 +301,3 @@ tr.line td:before {
 .button {
     transition: all 0.5s;
 }
-.startDelete span {
-    display: none;
-}
-.startDelete:hover::after{
-    content: 'is this thing on?';
-}

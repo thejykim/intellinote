@@ -1,3 +1,7 @@
+function toggleDelete() {
+    deleteButton.innerHTML = "Woo"
+}
+
 function deletePopup() {
     createDialog.innerHTML = `
     <div class="notification is-danger is-vcentered columns">
