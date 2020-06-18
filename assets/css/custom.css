@@ -305,5 +305,5 @@ tr.line td:before {
     display: none;
 }
 #startDelete:after{
-    content = "is this thing on?";
+    content: 'is this thing on?';
 }
