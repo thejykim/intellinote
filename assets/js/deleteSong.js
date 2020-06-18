@@ -5,6 +5,7 @@ function toggleDelete() {
 }
 
 function callDelete() {
+    console.log("Deleting");
     deleteSong(globalSongID);
     deleteContent.innerHTML = "Song Deleted!";
     deleteButton.onclick = function() { return false; };
