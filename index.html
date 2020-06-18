@@ -6,6 +6,9 @@
         <!-- bulma css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
+        <!-- bulma extension - tooltip -->
+        <script defer src="node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css"></script>
+
         <!-- font awesome (for icons) -->
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
@@ -286,8 +289,13 @@
                 <div class="column is-three-quarters" id="sheet-rows">
 
                     <!-- title -->
-                    <div contenteditable="true" id="title" spellcheck="false" autocomplete="false">My Masterpiece</div>
-                    <!-- <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title."> -->
+                    <div class="columns">
+                        <div class="column is-2"></div>
+                            <div class="column is-10 karla has-tooltip-top" data-tooltip="Tooltip Text" contenteditable="true" id="title" spellcheck="false" autocomplete="false">My Masterpiece</div>
+                            <!-- <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title."> -->
+
+                        <div class="empty-padding" style="padding: 1rem"></div>
+                    </div>
 
                     <div class="empty-padding" style="padding: 1rem"></div>
 

@@ -297,3 +297,8 @@ tr.line td:before {
     height: 100%;
     position: relative;
 }
+
+#title {
+    font-size: 28px;
+    text-align: center;
+}

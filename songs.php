@@ -286,10 +286,13 @@
                 <div class="column is-three-quarters" id="sheet-rows">
 
                     <!-- title -->
-                    <div contenteditable="true" id="title" spellcheck="false" autocomplete="false"></div>
-                    <!-- <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title."> -->
+                    <div class="columns">
+                        <div class="column is-2"></div>
+                        <span class="column is-10 karla" contenteditable="true" id="title" spellcheck="false" autocomplete="false"></span>
+                            <!-- <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title."> -->
 
-                    <div class="empty-padding" style="padding: 1rem"></div>
+                        <div class="empty-padding" style="padding: 1rem"></div>
+                    </div>
 
                     <!-- treble clef -->
                     <div class="columns">
