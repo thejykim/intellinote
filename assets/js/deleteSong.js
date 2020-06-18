@@ -11,14 +11,15 @@ function callDelete() {
 }
 
 function toggleProfileDelete(songID) {
-    document.getElementById(songID).innerHTML = "Delete Song?";
-    document.getElementById(songID).classList.add("is-light");
-    document.getElementById(songID).onclick = callProfileDelete(songID);
+    let targetButton = document.getElementById(songID);
+    targetButton.innerHTML = "Delete Song?";
+    targetButton.classList.add("is-light");
+    targetButton.onclick = callProfileDelete(songID);
 }
 
 function callProfileDelete(songID) {
-    console.log("Deleting");
+    let targetButton = document.getElementById(songID);
     deleteSong(songID);
-    deleteContent.innerHTML = "Song Deleted!";
-    document.getElementById(songID).onclick = function() { return false; };
+    targetButton.innerHTML = "Song Deleted!";
+    targetButton.onclick = function() { return false; };
 }
