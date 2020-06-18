@@ -286,7 +286,7 @@
                 <div class="column is-three-quarters" id="sheet-rows">
 
                     <!-- title -->
-                    <div contenteditable="true" id="title"></div>
+                    <div contenteditable="true" id="title" spellcheck="false" autocomplete="false"></div>
                     <!-- <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title."> -->
 
                     <div class="empty-padding" style="padding: 1rem"></div>
