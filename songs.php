@@ -295,6 +295,8 @@
                             id="title" spellcheck="false" autocomplete="false"></div>
                     </div>
 
+                    <div class="empty-padding" style="padding: 0.5rem"></div>
+
                     <!-- treble clef -->
                     <div class="columns">
                         <div class="column is-2" style="padding-right:0" id="column-left">
