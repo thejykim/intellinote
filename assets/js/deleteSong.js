@@ -24,5 +24,5 @@ function callProfileDelete() {
     // deleteSong(102);
     // targetButton.innerHTML = "Song Deleted!";
     // targetButton.onclick = function() { return false; };
-    deleteSong(songToDelete);
+    deleteSong(toString(songToDelete));
 }
