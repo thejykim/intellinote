@@ -301,6 +301,6 @@ tr.line td:before {
 .button {
     transition: all 0.5s;
 }
-#startDelete:hover > span:after {
+#deleteP:hover > span:after {
     content = "Is this on?";
 }
