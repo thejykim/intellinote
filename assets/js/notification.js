@@ -59,6 +59,7 @@ function updateDismissCount() {
 }
 
 function dismissNotification() {
+    console.log("Dismissing");
     notificationCount--;
 
     if (notificationCount == 0) {
