@@ -1,5 +1,5 @@
 function toggleDelete() {
-    deleteButton.innerHTML = "Woo"
+    deleteContent.innerHTML = "Woo"
 }
 
 function deletePopup() {
