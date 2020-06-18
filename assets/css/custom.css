@@ -304,6 +304,6 @@ tr.line td:before {
 .startDelete span {
     display: none;
 }
-.startDelete:hover span:after{
+.startDelete:hover::after{
     content: 'is this thing on?';
 }
