@@ -154,14 +154,6 @@ function displaySongs(username) {
                                     <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${recentSongs[i].title}</a></h5>
                                     <span class="tag gradient has-text-white poppins">Last updated: ${recentSongs[i].dateModified}</span>
                                     <span class="tag is-light poppins"><b>${numRows}</b></span>
-                                    <button class="button is-danger is-small is-rounded"
-                                    id="startDelete" onclick = "toggleDelete()">
-                                        <span id="deleteContent">
-                                            <span class="icon is-small">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                        </span>
-                                    </button>
                                 </div>
                             </div>
                         </div>
