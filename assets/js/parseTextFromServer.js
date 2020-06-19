@@ -22,7 +22,8 @@ function createNewSong(){
     var data = new XMLHttpRequest();
     exportSong();
 
-    let title = document.getElementById('title').value;
+    //let title = document.getElementById('title').value;
+    let title = document.getElementById('title').innerHTML;
     let username = oauthUsername;
 
     let date = currentDate();
@@ -55,7 +56,8 @@ function getSong(songID) {
             parseServerData(data.responseText);
             exportBox.value = serverObjects[0].songData;
             importSong();
-            title.value = serverObjects[0].title;
+            //title.value = serverObjects[0].title;
+            titleField.innerHTML = serverObjects[0].title;
 
             if (serverObjects[0].username != oauthUsername) {
                 onloadSaveButton();
@@ -78,7 +80,6 @@ function getSongs(username) {
             parseServerData(data.responseText);
         }
     };
-
     data.open("POST", `assets/php/get-songs.php`);
     data.send(formData);
 }
@@ -88,17 +89,7 @@ function editSong(songID) {
     var data = new XMLHttpRequest();
     exportSong();
 
-    if (titleField.value.length == 0) {
-        createDialog.innerHTML = `
-        <div class="notification is-warning">
-            Put in a title!
-        </div>
-        <br>
-        `;
-        return;
-    }
-
-    let title = document.getElementById('title').value;
+    let title = document.getElementById('title').innerHTML;
 
     let date = currentDate();
 

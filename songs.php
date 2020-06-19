@@ -6,6 +6,9 @@
         <!-- bulma css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
+        <!-- bulma extension - tooltip -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css">
+
         <!-- font awesome (for icons) -->
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
@@ -259,7 +262,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-block" style="padding: 0.5rem 1.5rem;">
+                        <!-- <div class="panel-block" style="padding: 0.5rem 1.5rem;">
                             <div class="container">
                                 <p class="subtitle is-6 poppins"
                                     style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Preset Songs</p>
@@ -278,7 +281,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </nav>
                 </div>
 
@@ -286,9 +289,13 @@
                 <div class="column is-three-fifths" id="sheet-rows">
 
                     <!-- title -->
-                    <input class="input is-info karla" type="text" id="title" autocomplete="off" placeholder="Give your piece an appropriately grand title.">
+                    <div class="columns">
+                        <div class="column is-2"></div>
+                            <div class="column is-10 karla" data-tooltip="Rename" contenteditable="true"
+                            id="title" spellcheck="false" autocomplete="false"></div>
+                    </div>
 
-                    <div class="empty-padding" style="padding: 1rem"></div>
+                    <div class="empty-padding" style="padding: 0.5rem"></div>
 
                     <!-- treble clef -->
                     <div class="columns">

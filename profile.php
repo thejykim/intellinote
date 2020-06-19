@@ -6,6 +6,9 @@
         <!-- bulma css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
+        <!-- bulma extension - tooltip -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css">
+
         <!-- font awesome (for icons) -->
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
@@ -57,7 +60,7 @@
                         <div class="g-signin2" data-theme="dark" data-longtitle="true" data-width="250" data-height="50" data-onsuccess="onSignIn"></div>
                         <p class="navbar-item has-text-weight-light karla is-hidden" id="signOutButton"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
-                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href="about.html">About us</a></p>
+                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='about.html'>About us</a></p>
                     </div>
                 </div>
         </nav>
@@ -65,7 +68,7 @@
         <section class="hero is-light is-medium is-bold">
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <h1 class="title poppins" id = "titleName">
+                    <h1 class="title poppins" id="titleName">
                     </h1>
                     <h2 class="subtitle karla">
                     music portfolio
@@ -74,7 +77,22 @@
             </div>
         </section>
 
-        <div class="empty-padding"></div>
+        <div class="empty-padding" style="padding: 1rem"></div>
+
+        <div class="columns is-centered">
+            <div class="column is-narrow">
+                <a href='index.html'>
+                    <button class="button is-info is-small is-rounded karla gradient">
+                        <span class="icon is-small">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span>Create</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="empty-padding" style="padding: 0.5rem"></div>
 
         <section class="container" id="recentSongs"></section>
 
@@ -82,7 +100,7 @@
 
         <section class="container" id="allSongs"></section>
 
-        <div class="empty-padding"></div>
+        <div class="empty-padding" style="padding: 0.5rem"></div>
 
         <!-- footer -->
         <footer class="footer" style="padding-top: 4rem; padding-bottom: 4rem;">

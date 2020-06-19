@@ -2,7 +2,7 @@
 
 function createSongIndex() {
     // check required fields
-    if (titleField.value.length == 0) {
+    if (titleField.textContent.replace(/\s+/g, '') == "") {
         createNotification("is-warning", "Put in a title!", null);
         return;
     }
@@ -12,22 +12,12 @@ function createSongIndex() {
 }
 
 function editSongIndex(songID) {
-    // check required fields
-    if (titleField.value.length == 0) {
-        createDialog.innerHTML = `
-        <div class="notification is-warning">
-            Put in a title!
-        </div>
-        <br>
-        `;
+    //check required fields
+    if (titleField.textContent.replace(/\s+/g, '') == "") {
+        createNotification("is-warning", "Put in a title!", null);
         return;
     }
 
     editSong(songID);
-    createDialog.innerHTML = `
-    <div class="notification is-success">
-        Song successfully saved!
-    </div>
-    <br>
-    `;
+    createNotification("is-success", "Song successfully saved!", null);
 }
