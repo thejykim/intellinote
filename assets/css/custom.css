@@ -20,6 +20,10 @@
     border: lightgray solid 1px;
 }
 
+.select {
+    width: 90%
+}
+
 .empty-padding {
     padding: 2rem
 }
