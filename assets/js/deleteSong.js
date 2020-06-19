@@ -7,7 +7,7 @@ function toggleDelete() {
 function callDelete() {
     deleteSong(globalSongID);
     deleteButton.innerHTML = "Song Deleted!";
-    deleteButton.onclick = function() { return false; };
+    deleteButton.setAttribute("disabled", "true");
 }
 
 function toggleProfileDelete(songID) {
@@ -20,6 +20,6 @@ function toggleProfileDelete(songID) {
 
 function callProfileDelete() {
     document.getElementById(songToDelete).innerHTML = "Song Deleted!";
-    document.getElementById(songToDelete).onclick = function() { return false; };
+    document.getElementById(songToDelete).setAttribute("disabled", "true");
     deleteSong(songToDelete);
 }
