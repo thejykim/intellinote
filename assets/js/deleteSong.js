@@ -1,5 +1,5 @@
 function toggleDelete() {
-    deleteButton.innerHTML = "Delete Song?";
+    deleteButton.innerHTML = "Confirm Delete?";
     deleteButton.classList.add("is-light");
     deleteButton.onclick = callDelete;
 }
@@ -8,11 +8,12 @@ function callDelete() {
     deleteSong(globalSongID);
     deleteButton.innerHTML = "Song Deleted!";
     deleteButton.setAttribute("disabled", "true");
+    window.location.href = "profile.php";
 }
 
 function toggleProfileDelete(songID) {
     let targetButton = document.getElementById(songID);
-    targetButton.innerHTML = "Delete Song?";
+    targetButton.innerHTML = "Confirm Delete?";
     targetButton.classList.add("is-light");
     songToDelete = songID;
     targetButton.onclick = callProfileDelete;
