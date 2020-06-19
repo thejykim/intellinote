@@ -8,8 +8,8 @@ function callDelete() {
     deleteSong(globalSongID);
     deleteButton.innerHTML = "Song Deleted!";
     deleteButton.setAttribute("disabled", "true");
-    setTimeout(function() => { window.location.href = "profile.php"; }, 1000);
-
+    setTimeout(() => {}, 1000);
+    window.location.href = "profile.php";
 }
 
 function toggleProfileDelete(songID) {
@@ -24,5 +24,6 @@ function callProfileDelete() {
     document.getElementById(songToDelete).innerHTML = "Song Deleted!";
     document.getElementById(songToDelete).setAttribute("disabled", "true");
     deleteSong(songToDelete);
-    setTimeout(function() => { location.reload(); }, 1000);
+    setTimeout(() => {}, 1000);
+    location.reload()
 }
