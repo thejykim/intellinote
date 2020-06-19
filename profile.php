@@ -111,6 +111,7 @@
         <script src="assets/js/export.js"></script>
         <script src="assets/js/parseTextFromServer.js"></script>
         <script src="assets/js/displaySongs.js"></script>
+        <script src="assets/js/deleteSong.js"></script>
 
         <script>
             window.onload = function () {
