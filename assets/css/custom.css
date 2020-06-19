@@ -327,7 +327,7 @@ tr.line td:before {
     animation: shake 0.5s;
 }
 
-button:active {
+button:hover {
     animation: scale 0.5s;
 }
 @keyframes shake {
@@ -346,5 +346,5 @@ button:active {
 
 @keyframes scale {
     0% { transform: scale(1.0); }
-    100% { transform: scale(1.25); }
+    100% { transform: scale(1.05); }
 }
