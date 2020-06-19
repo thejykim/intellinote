@@ -100,12 +100,12 @@ function displaySongs(username) {
                             <div class="card-content">
                                 <div class="content">
                                     <div class = "columns is-vcentered">
-                                        <div class = "column is-11">
+                                        <div class = "column is-9">
                                             <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${recentSongs[i].title}</a></h5>
                                             <span class="tag gradient has-text-white poppins">Last updated: ${recentSongs[i].dateModified}</span>
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
-                                        <div class = "column">
+                                        <div class = "column is-3">
                                             <button id = "${songID}" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete(${songID})">
                                                 <span class="icon is-small">
                                                     <i class="fas fa-trash"></i>
@@ -149,12 +149,12 @@ function displaySongs(username) {
                             <div class="card-content">
                                 <div class="content">
                                     <div class = "columns is-vcentered">
-                                        <div class = "column is-11">
+                                        <div class = "column is-9">
                                             <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
                                             <span class="tag is-dark poppins">Created: ${serverObjects[i].dateCreated}</span>
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
-                                        <div class = "column">
+                                        <div class = "column is-3">
                                             <button id = "${songID}" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete(${songID})">
                                                 <span class="icon is-small">
                                                     <i class="fas fa-trash"></i>
