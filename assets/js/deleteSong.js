@@ -25,5 +25,5 @@ function callProfileDelete() {
     document.getElementById(songToDelete).setAttribute("disabled", "true");
     deleteSong(songToDelete);
     setTimeout(() => {}, 2000);
-    location.reload()
+    window.location.href = "profile.php";
 }
