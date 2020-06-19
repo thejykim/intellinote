@@ -99,8 +99,8 @@ function displaySongs(username) {
                         <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
                             <div class="card-content">
                                 <div class="content">
-                                    <div class = "columns">
-                                        <div class = "column is-four-fifths">
+                                    <div class = "columns is-vcentered">
+                                        <div class = "column is-11">
                                             <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${recentSongs[i].title}</a></h5>
                                             <span class="tag gradient has-text-white poppins">Last updated: ${recentSongs[i].dateModified}</span>
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>

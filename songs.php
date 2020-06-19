@@ -321,10 +321,8 @@
                 <div class = "column">
                     <button class="button is-danger is-small is-rounded"
                     id="startDelete" onclick = "toggleDelete()">
-                        <span id="deleteContent">
-                            <span class="icon is-small">
-                                <i class="fas fa-trash"></i>
-                            </span>
+                        <span class="icon is-small">
+                            <i class="fas fa-trash"></i>
                         </span>
                     </button>
                 </div>

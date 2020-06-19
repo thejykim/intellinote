@@ -116,5 +116,4 @@ const registerDialog = document.getElementById("registerDialog");
 
 // deleteSong.js
 let deleteButton = document.getElementById("startDelete");
-let deleteContent = document.getElementById("deleteContent");
 let songToDelete = 69;
