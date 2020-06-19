@@ -19,10 +19,7 @@ function toggleProfileDelete(songID) {
 }
 
 function callProfileDelete() {
-    // let targetButton = document.getElementById(songToDelete);
-    console.log(songToDelete);
-    // deleteSong(102);
-    // targetButton.innerHTML = "Song Deleted!";
-    // targetButton.onclick = function() { return false; };
+    document.getElementById(songToDelete).innerHTML = "Song Deleted!";
+    document.getElementById(songToDelete).onclick = function() { return false; };
     deleteSong(songToDelete);
 }
