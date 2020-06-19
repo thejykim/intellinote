@@ -79,18 +79,7 @@
 
         <div class="empty-padding" style="padding: 1rem"></div>
 
-        <div class="columns is-centered">
-            <div class="column is-narrow">
-                <a href='index.html'>
-                    <button class="button is-info is-small is-rounded karla gradient">
-                        <span class="icon is-small">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        <span>Create</span>
-                    </button>
-                </a>
-            </div>
-        </div>
+        <section class="container" id="createButton"></section>
 
         <div class="empty-padding" style="padding: 0.5rem"></div>
 

@@ -29,6 +29,21 @@ function displaySongs(username) {
                     return;
                 }
 
+                createButtonDiv.innerHTML = `
+                <div class="columns is-centered">
+                    <div class="column is-narrow">
+                        <a href='index.html'>
+                            <button class="button is-info is-small is-rounded karla gradient">
+                                <span class="icon is-small">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span>Create</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                `
+
                 // reverse array to display most recent songs first
                 serverObjects.reverse();
 
