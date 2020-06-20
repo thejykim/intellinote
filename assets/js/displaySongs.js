@@ -2,7 +2,7 @@
 function displaySongs(username) {
     if (isProfile) {
         // check if not signed in
-        if (oauthUsername == null) {
+        if (username == null) {
             document.getElementById("titleName").innerHTML = "<b>your</b> future"
             recentSongsDiv.innerHTML = `
             <h4 class="title is-4 poppins">You're not signed in!</h4>
