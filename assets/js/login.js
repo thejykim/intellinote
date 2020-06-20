@@ -14,7 +14,7 @@ function onSignIn(googleUser) {
             if (oauthUsername == null) {
                 recentSongsDiv.innerHTML = `
                 <h4 class="title is-4 poppins">You're not registered!</h4>
-                <h6 class="subtitle is-6 karla">...but you could fix that in about 10 seconds. Click Intellinote on the top left to get started.</h6>
+                <h6 class="subtitle is-6 karla">...but you could also fix that in about 10 seconds. Click Intellinote on the top left to get started.</h6>
                 `;
             }
         }
