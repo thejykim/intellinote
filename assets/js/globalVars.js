@@ -64,6 +64,7 @@ let oauthUsername;
 let globalSongID;
 
 let isFirstSignIn = false;
+let isIndex = false;
 let isProfile = false;
 
 // noteLogic.js

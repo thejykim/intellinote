@@ -57,7 +57,9 @@ function getUsername() {
 	    if (data.status == 200 && data.readyState == 4) {
             if (data.responseText === userNotFoundError) {
                 oauthUsername = null;
-                setRegisterModalJS();
+                if (isIndex) {
+                    setRegisterModalJS();
+                }
             } else {
                 oauthUsername = data.responseText;
                 displaySongs(oauthUsername);
