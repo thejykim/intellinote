@@ -9,6 +9,15 @@ function onSignIn(googleUser) {
         if (isFirstSignIn) {
             createNotification("is-success", "Successfully logged in!", null);
         }
+
+        if (isProfile) {
+            if (oauthUsername == null) {
+                recentSongsDiv.innerHTML = `
+                <h4 class="title is-4 poppins">You're not registered!</h4>
+                <h6 class="subtitle is-6 karla">...but you could fix that in about 10 seconds. Click Intellinote on the top left to get started.</h6>
+                `;
+            }
+        }
     }
     signOutButton = document.getElementById('signOutButton');
     signOutButton.classList.remove("is-hidden");
@@ -23,7 +32,7 @@ function onSignInSong(googleUser) {
         getSong(globalSongID);
 
         if (isFirstSignIn) {
-            createNotification("is-success", "Successfully logged in! If you were trying to save a song, press save again.", null);
+            createNotification("is-success", "Successfully logged in!", null);
         }
     }
     signOutButton = document.getElementById('signOutButton');
