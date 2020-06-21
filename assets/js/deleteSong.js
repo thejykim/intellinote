@@ -24,6 +24,24 @@ function callProfileDelete() {
     document.getElementById(songToDelete).innerHTML = "Song Deleted!";
     document.getElementById(songToDelete).setAttribute("disabled", "true");
     deleteSong(songToDelete);
-    setTimeout(() => {}, 2000);
-    window.location.href = "profile.php";
+    // setTimeout(() => {}, 2000);
+    // window.location.href = "profile.php";
+}
+
+function toggleRecentDelete(songID) {
+    let targetButton = document.getElementById(songID);
+    targetButton.innerHTML = "Confirm Delete?";
+    targetButton.classList.add("is-light");
+    let targetID = songID.slice(1, songID.length - 1);
+    songToDelete = targetID;
+    buttonToChange = targetButton;
+    targetButton.onclick = callRecentDelete;
+}
+
+function callRecentDelete() {
+    buttonToChange.innerHTML = "Song Deleted!";
+    buttonToChange.setAttribute("disabled", "true");
+    deleteSong(songToDelete);
+    // setTimeout(() => {}, 2000);
+    // window.location.href = "profile.php";
 }

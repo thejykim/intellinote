@@ -111,6 +111,7 @@ function displaySongs(username) {
                     songDiv.setAttribute("style", "padding-bottom: 0.5rem");
                     let songID = recentSongs[i].songID;
                     songID = songID.toString();
+                    let recentSongID = "R".concat(songID);
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
                         <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
@@ -123,7 +124,7 @@ function displaySongs(username) {
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column is-3">
-                                            <button id = "${songID}" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete(${songID})">
+                                            <button id = "${recentSongID}" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleRecentDelete(${recentSongID})">
                                                 <span class="icon is-small">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
