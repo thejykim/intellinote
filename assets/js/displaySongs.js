@@ -111,7 +111,7 @@ function displaySongs(username) {
                     songDiv.setAttribute("style", "padding-bottom: 0.5rem");
                     let songID = recentSongs[i].songID;
                     songID = songID.toString();
-                    let recentSongID = 1069 + songID;
+                    let recentSongID = "R".concat(songID);
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
                         <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
