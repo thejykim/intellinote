@@ -29,7 +29,7 @@ function callProfileDelete() {
 }
 
 function toggleRecentDelete(songID) {
-    console.log(songID);
+    console.log("HELLO" + songID);
     let targetButton = document.getElementById(songID);
     targetButton.innerHTML = "Confirm Delete?";
     targetButton.classList.add("is-light");
