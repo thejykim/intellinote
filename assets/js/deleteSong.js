@@ -13,19 +13,11 @@ function callDelete() {
 }
 
 function toggleProfileDelete(songID) {
-    let targetButton = document.getElementById(songID);
-    targetButton.innerHTML = "Confirm Delete?";
-    targetButton.classList.add("is-light");
+    buttonToChange = document.getElementById(songID);
+    buttonToChange.innerHTML = "Confirm Delete?";
+    buttonToChange.classList.add("is-light");
     songToDelete = songID;
-    targetButton.onclick = callProfileDelete;
-}
-
-function callProfileDelete() {
-    document.getElementById(songToDelete).innerHTML = "Song Deleted!";
-    document.getElementById(songToDelete).setAttribute("disabled", "true");
-    deleteSong(songToDelete);
-    setTimeout(() => {}, 2000);
-    window.location.href = "profile.php";
+    buttonToChange.onclick = callProfileDelete;
 }
 
 function toggleRecentDelete(songID) {
@@ -33,10 +25,10 @@ function toggleRecentDelete(songID) {
     buttonToChange.innerHTML = "Confirm Delete?";
     buttonToChange.classList.add("is-light");
     songToDelete = songID.substr(1);
-    buttonToChange.onclick = callRecentDelete;
+    buttonToChange.onclick = callProfileDelete;
 }
 
-function callRecentDelete() {
+function callProfileDelete() {
     buttonToChange.innerHTML = "Song Deleted!";
     buttonToChange.setAttribute("disabled", "true");
     deleteSong(songToDelete);
