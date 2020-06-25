@@ -27,3 +27,15 @@ function callProfileDelete() {
     setTimeout(() => {}, 2000);
     window.location.href = "profile.php";
 }
+
+function toggleRecentDelete(songID) {
+    console.log("SONG ID IS: " + songID);
+}
+
+function callRecentDelete() {
+    document.getElementById(songToDelete).innerHTML = "Song Deleted!";
+    document.getElementById(songToDelete).setAttribute("disabled", "true");
+    deleteSong(songToDelete);
+    setTimeout(() => {}, 2000);
+    window.location.href = "profile.php";
+}
