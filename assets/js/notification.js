@@ -3,6 +3,7 @@ function createNotification(type, message, href) {
         notificationCount++;
 
         if (notificationCount > 1) {
+            notificationCount = 1;
             clearInterval(dismissInterval);
         }
 

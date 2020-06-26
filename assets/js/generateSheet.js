@@ -7,7 +7,6 @@ function toggleNote(noteElement){
 		// put in element
 		divElement.innerHTML = noteIcon;
 
-
 		// set length to appropriate length
 		if (noteLoc[0] === "treble") {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = invNoteLen;
@@ -40,7 +39,6 @@ function toggleNoteImport(noteElement){
 	if (divElement.innerHTML === '') {
 		// put in element
 		divElement.innerHTML = noteIcon;
-
 
 		// set length to appropriate length
 		if(noteLoc[0] === "treble") {
@@ -90,19 +88,19 @@ function generateSheet(clef, id) {
 	for (let i = 0; i < numOfRows; i++) {
 		let row = document.createElement('tr');
 		if (line) {
-			if(i>1 && i<12){
+			if(i > 1 && i < 12){
 				row.setAttribute('class', 'line');
 			}
 		}
-		rowArray =[];
+		let rowArray = [];
 		// populate row with notes
 		for (let j = 0; j < numberOfNotes; j++) {
 			// create note element
 			let noteElement = document.createElement('td');
 			noteElement.setAttribute('class', 'note');
 
-			if (((j+1) % beatsPerMeas) == 0) {
-                if (i>2 && i<10) {
+			if (((j + 1) % beatsPerMeas) == 0) {
+                if (i > 2 && i < 10) {
                     noteElement.setAttribute('class', 'note-border')
                 } else if (i == 10) {
                     noteElement.setAttribute('class', 'note-border-bottom');
@@ -113,20 +111,20 @@ function generateSheet(clef, id) {
 
 			// populate note element
 			if (clef == clefEnum.TREBLE) {
-				noteElement.setAttribute('id', `treble.${i}.${j+(newLine *numberOfNotes)}`);
+				noteElement.setAttribute('id', `treble.${i}.${j+(newLine*numberOfNotes)}`);
 			} else {
 				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*numberOfNotes)}`);
 			}
 
 
 			// push to row array
-			if(newLine == 0){
+			if (newLine == 0){
 				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
-			else if(clef == clefEnum.TREBLE){
+			else if (clef == clefEnum.TREBLE){
 				trebleData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
-			else{
+			else {
 				bassData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
 			}
 
@@ -141,11 +139,10 @@ function generateSheet(clef, id) {
 
 			// append noteElement to row
 			row.appendChild(noteElement);
-
 		}
 
 		// decide which clef array to push to
-		if(newLine == 0){
+		if (newLine == 0){
 			if (clef == clefEnum.TREBLE) {
 					trebleData.push(rowArray);
 			} else {
