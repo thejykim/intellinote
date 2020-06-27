@@ -17,7 +17,7 @@ function toggleProfileDelete(songID) {
     buttonToChange.innerHTML = "Confirm Delete?";
     buttonToChange.classList.add("is-light");
     songToDelete = songID;
-    buttonToChange.onclick = callProfileDelete();
+    buttonToChange.onclick = callProfileDelete;
 }
 
 function toggleRecentDelete(songID) {
@@ -25,7 +25,7 @@ function toggleRecentDelete(songID) {
     buttonToChange.innerHTML = "Confirm Delete?";
     buttonToChange.classList.add("is-light");
     songToDelete = songID.substr(1);
-    buttonToChange.onclick = callProfileDelete();
+    buttonToChange.onclick = callProfileDelete;
 }
 
 function callProfileDelete() {
