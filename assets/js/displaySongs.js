@@ -187,13 +187,13 @@ function displaySongs(username) {
                     `;
 
                     allSongsDiv.appendChild(songDiv);
-
-                    if (!isVisitor) {
-                        var deleteButtons = document.getElementsByClassName("profileDelete");
-                        for (button in deleteButtons) {
-                            deleteButtons[button].classList.add("is-hidden");
-                            console.log("hiding");
-                        }
+                }
+                
+                if (isVisitor) {
+                    var deleteButtons = document.getElementsByClassName("profileDelete");
+                    for (button in deleteButtons) {
+                        deleteButtons[button].classList.add("is-hidden");
+                        console.log("hiding");
                     }
                 }
             }
