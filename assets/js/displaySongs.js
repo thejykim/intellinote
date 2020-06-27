@@ -193,7 +193,6 @@ function displaySongs(username) {
                     var deleteButtons = document.getElementsByClassName("profileDelete");
                     for (button of deleteButtons) {
                         button.classList.add("is-hidden");
-                        console.log("hiding");
                     }
                 }
             }
