@@ -192,6 +192,13 @@ function displaySongs(username) {
         };
         data.open("POST", `assets/php/get-songs.php`);
         data.send(formData);
+
+        if (!isVisitor) {
+            let deleteButtons = document.getElementsByClassName("profileDelete");
+            for (button in deleteButtons) {
+                deleteButtons[button].style.visibility = "hidden";
+            }
+        }
     }
 }
 
