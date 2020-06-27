@@ -11,7 +11,7 @@ function displaySongs(username) {
             return;
         }
 
-        if (username == oauthUsername) {
+        if (!isVisitor) {
             createButtonDiv.innerHTML = `
             <div class="columns is-centered">
                 <div class="column is-narrow">

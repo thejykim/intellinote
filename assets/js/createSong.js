@@ -8,7 +8,7 @@ function createSongIndex() {
     }
 
     createNewSong();
-    createNotification("is-success", "Song successfully added! Click this notification to visit your profile.", `profile.php?username="${oauthUsername}"`);
+    createNotification("is-success", "Song successfully added! Click this notification to visit your profile.", `profile.php`);
 }
 
 function editSongIndex(songID) {
