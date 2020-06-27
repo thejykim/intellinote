@@ -22,7 +22,6 @@ function createNewSong(){
     var data = new XMLHttpRequest();
     exportSong();
 
-    //let title = document.getElementById('title').value;
     let title = document.getElementById('title').innerHTML;
     let username = oauthUsername;
 
@@ -56,7 +55,6 @@ function getSong(songID) {
             parseServerData(data.responseText);
             exportBox.value = serverObjects[0].songData;
             importSong();
-            //title.value = serverObjects[0].title;
             titleField.innerHTML = serverObjects[0].title;
 
             if (serverObjects[0].username != oauthUsername) {
