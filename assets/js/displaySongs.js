@@ -187,11 +187,11 @@ function displaySongs(username) {
                     `;
 
                     allSongsDiv.appendChild(songDiv);
-                    
+
                     if (!isVisitor) {
-                        let deleteButtons = document.getElementsByClassName("profileDelete");
+                        var deleteButtons = document.getElementsByClassName("profileDelete");
                         for (button in deleteButtons) {
-                            deleteButtons[button].style.display = 'none';
+                            deleteButtons[button].classList.add("is-hidden");
                             console.log("hiding");
                         }
                     }
