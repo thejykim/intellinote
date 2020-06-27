@@ -187,19 +187,19 @@ function displaySongs(username) {
                     `;
 
                     allSongsDiv.appendChild(songDiv);
+                    
+                    if (!isVisitor) {
+                        let deleteButtons = document.getElementsByClassName("profileDelete");
+                        for (button in deleteButtons) {
+                            deleteButtons[button].style.display = 'none';
+                            console.log("hiding");
+                        }
+                    }
                 }
             }
         };
         data.open("POST", `assets/php/get-songs.php`);
         data.send(formData);
-
-        if (!isVisitor) {
-            let deleteButtons = document.getElementsByClassName("profileDelete");
-            for (button in deleteButtons) {
-                deleteButtons[button].style.display = 'none';
-                console.log("hiding");
-            }
-        }
     }
 }
 
