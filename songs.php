@@ -481,6 +481,10 @@
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
 
+                if (isVisitor) {
+                    deleteButton.classList.add("is-hidden");
+                }
+                
                 getTotalSongs();
             }
         </script>
