@@ -61,6 +61,7 @@ function getSong(songID) {
 
             if (serverObjects[0].username != oauthUsername) {
                 onloadSaveButton();
+                deleteButton.classList.add("is-hidden");
             }
         }
     };
