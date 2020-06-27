@@ -6,7 +6,7 @@ function loadSong(song) {
             while (newLine != 0) {
                 removeRow();
             }
-            titleField.innerHTML = "";
+            titleField.innerHTML = "My Masterpiece";
             break;
         case "miiTheme":
             titleField.innerHTML = "Mii Theme";
