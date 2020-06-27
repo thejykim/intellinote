@@ -126,7 +126,6 @@ function stopPlaying() {
     startButton.removeAttribute('disabled');
     stopButton.setAttribute('disabled', 'true');
 
-    // stop playing (this doesn't work either...)
     isPlaying = false;
     enableTable();
 }

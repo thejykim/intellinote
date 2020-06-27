@@ -65,6 +65,6 @@ function dismissNotification() {
     if (notificationCount == 0) {
         $("#createDialog").fadeOut("slow", function() {
             createDialog.innerHTML = ``;
-        })
+        });
     }
 }
