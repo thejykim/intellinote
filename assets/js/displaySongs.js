@@ -196,7 +196,8 @@ function displaySongs(username) {
         if (!isVisitor) {
             let deleteButtons = document.getElementsByClassName("profileDelete");
             for (button in deleteButtons) {
-                deleteButtons[button].style.visibility = "hidden";
+                deleteButtons[button].style.display = 'none';
+                console.log("hiding");
             }
         }
     }
