@@ -58,5 +58,5 @@ function cloneSong() {
     data.open("POST", `assets/php/create-song.php`);
     data.send(formData);
 
-    createNotification("is-info gradient", "Song successfully cloned! Click this notification to visit your profile.", `profile.php?username="${oauthUsername}"`);
+    createNotification("is-info gradient", "Song successfully cloned! Click this notification to visit your profile.", `profile.php`);
 }
