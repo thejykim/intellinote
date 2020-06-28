@@ -124,7 +124,7 @@ function displaySongs(username) {
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column is-3">
-                                            <button id = "${recentSongID}" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleRecentDelete(this.id)">
+                                            <button id = "${recentSongID}" class="button profileDelete is-danger is-small is-rounded" onclick="toggleRecentDelete(this.id)">
                                                 <span class="icon is-small">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
@@ -173,7 +173,7 @@ function displaySongs(username) {
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column is-3">
-                                            <button id = "${songID}" class="button profileDelete is-danger is-small is-rounded" onclick = "toggleProfileDelete(this.id)">
+                                            <button id = "${songID}" class="button profileDelete is-danger is-small is-rounded" onclick="toggleProfileDelete(this.id)">
                                                 <span class="icon is-small">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
@@ -189,16 +189,23 @@ function displaySongs(username) {
                     allSongsDiv.appendChild(songDiv);
                 }
 
-                if (isVisitor) {
-                    var deleteButtons = document.getElementsByClassName("profileDelete");
-                    for (button of deleteButtons) {
-                        button.classList.add("is-hidden");
-                    }
-                }
+                // if (isVisitor) {
+                //     var deleteButtons = document.getElementsByClassName("profileDelete");
+                //     for (button of deleteButtons) {
+                //         button.classList.add("is-hidden");
+                //     }
+                // }
             }
         };
         data.open("POST", `assets/php/get-songs.php`);
         data.send(formData);
+
+        if (isVisitor) {
+            var deleteButtons = document.getElementsByClassName("profileDelete");
+            for (button of deleteButtons) {
+                button.classList.add("is-hidden");
+            }
+        }
     }
 }
 
