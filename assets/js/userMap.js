@@ -29,7 +29,7 @@ function registerUser(){
             } else {
                 oauthUsername = chosenUsername;
 
-                createNotification("is-success", "Successfully registered! If you were trying to save a song, press save again.", null);
+                createNotification("is-success", "Successfully registered!", null);
 
                 let registerModal = document.querySelector('#registerModal');
                 let html = document.querySelector('html');
