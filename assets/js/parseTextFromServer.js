@@ -36,7 +36,7 @@ function createNewSong(){
 
     data.onload = function() {
         if (data.status == 200 && data.readyState == 4) {
-            // Add success!
+            createNotification("is-success", "Song successfully added! Click this notification to visit your profile.", `profile.php`);
         }
     };
     data.open("POST", `assets/php/create-song.php`);
@@ -101,7 +101,7 @@ function editSong(songID) {
 
 	data.onload = function() {
         if (data.status == 200 && data.readyState == 4) {
-            // Edit success!
+            createNotification("is-success", "Song successfully saved!", null);
         }
     };
     data.open("POST", `assets/php/edit-song.php`);

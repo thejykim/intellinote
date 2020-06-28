@@ -8,7 +8,6 @@ function createSongIndex() {
     }
 
     createNewSong();
-    createNotification("is-success", "Song successfully added! Click this notification to visit your profile.", `profile.php`);
 }
 
 function editSongIndex(songID) {
@@ -19,5 +18,4 @@ function editSongIndex(songID) {
     }
 
     editSong(songID);
-    createNotification("is-success", "Song successfully saved!", null);
 }
