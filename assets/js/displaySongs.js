@@ -143,9 +143,8 @@ function displaySongs(username) {
                 // alphabetize songs array
                 serverObjects.sort(sortAlphabetically);
 
-                // copy eligible songs into recent songs array
+                // all songs
                 for (let i = 0; i < serverObjects.length; i++) {
-                    let songDate = Date.parse(serverObjects[i].dateModified);
 
                     // briefly parse song data
                     let numRows = serverObjects[i].songData.split(sheetParse)[2];

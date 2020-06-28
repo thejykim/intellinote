@@ -4,12 +4,9 @@ function registerUser(){
 
     // proper length needs to be checked on client side
     if (chosenUsername.length > usernameLengthLimit) {
-        // create an error message. for now, it just console.log's
-        return;
-    } else if (email == null) {
-        // I'm not sure if this is a proper check for email, but the same follows
-        // as above
-        return;
+        registerDialog.innerHTML = `
+        <span class="tag is-danger karla">Username too long!</span>
+        `;
     } else if (chosenUsername.length == 0) {
         registerDialog.innerHTML = `
         <span class="tag is-danger karla">Fill out the username field!</span>
