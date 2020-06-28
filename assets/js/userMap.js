@@ -7,10 +7,12 @@ function registerUser(){
         registerDialog.innerHTML = `
         <span class="tag is-danger karla">Username too long!</span>
         `;
+        return;
     } else if (chosenUsername.length == 0) {
         registerDialog.innerHTML = `
         <span class="tag is-danger karla">Fill out the username field!</span>
         `;
+        return;
     }
 
     let formData = new FormData();
