@@ -52,19 +52,19 @@ function displaySongs(username) {
                 let recentSongs = [];
                 let currentDate = Date.now();
 
-                let numRecentSongs;
+                let numAllSongs;
 
                 if (serverObjects.length == 1) {
-                    numRecentSongs = serverObjects.length + " song";
+                    numAllSongs = serverObjects.length + " song";
                 } else {
-                    numRecentSongs = serverObjects.length + " songs";
+                    numAllSongs = serverObjects.length + " songs";
                 }
 
                 allSongsDiv.innerHTML = `
                 <div class="columns" style="padding-bottom: 1.5rem">
                     <div class="column is-6 is-offset-2">
                         <h4 class="title is-4 poppins">All songs</h4>
-                        <h6 class="subtitle is-6 karla">${numRecentSongs}</h6>
+                        <h6 class="subtitle is-6 karla">${numAllSongs}</h6>
                     </div>
                 </div>
                 `;
@@ -78,12 +78,12 @@ function displaySongs(username) {
                     }
                 }
 
-                let numAllSongs;
+                let numRecentSongs;
 
                 if (recentSongs.length == 1) {
-                    numAllSongs = recentSongs.length + " song";
+                    numRecentSongs = recentSongs.length + " song";
                 } else {
-                    numAllSongs = recentSongs.length + " songs";
+                    numRecentSongs = recentSongs.length + " songs";
                 }
 
                 // print recent songs
@@ -91,7 +91,7 @@ function displaySongs(username) {
                 <div class="columns" style="padding-bottom: 1.5rem">
                     <div class="column is-6 is-offset-2">
                         <h4 class="title is-4 poppins">Recently modified</h4>
-                        <h6 class="subtitle is-6 karla">${numAllSongs}</h6>
+                        <h6 class="subtitle is-6 karla">${numRecentSongs}</h6>
                     </div>
                 </div>
                 `;
