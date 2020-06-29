@@ -216,8 +216,8 @@ function sortAlphabetically (a, b) {
 }
 
 function sortChronologically (a, b) {
-    let aDate = Date.parse(a);
-    let bDate = Date.parse(b);
+    let aDate = Date.parse(a.dateModified);
+    let bDate = Date.parse(b.dateModified);
     if (aDate > bDate) {
         return -1;
     } else if (aDate < bDate) {
