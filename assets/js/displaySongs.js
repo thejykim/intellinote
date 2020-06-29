@@ -47,10 +47,12 @@ function displaySongs(username) {
                 }
 
                 // reverse array to display most recent songs first
-                serverObjects.reverse();
+                //serverObjects.reverse();
+
+                serverObjects.sort(sortChronologically);
 
                 let recentSongs = [];
-                let currentDate = Date.now();
+                let currentDate = new Date();
 
                 let numAllSongs;
 
@@ -100,10 +102,10 @@ function displaySongs(username) {
                     // briefly parse song data
                     let numRows = recentSongs[i].songData.split(sheetParse)[2];
 
-                    if (numRows > 1) {
-                        numRows = numRows + " rows";
-                    } else {
+                    if (numRows == 1) {
                         numRows = numRows + " row";
+                    } else {
+                        numRows = numRows + " rows";
                     }
 
                     let songDiv = document.createElement('div');
@@ -207,6 +209,18 @@ function sortAlphabetically (a, b) {
     if (lowerA < lowerB) {
         return -1;
     } else if (lowerA > lowerB) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+function sortChronologically (a, b) {
+    let aDate = Date.parse(a);
+    let bDate = Date.parse(b);
+    if (aDate < bDate) {
+        return -1;
+    } else if (aDate > bDate) {
         return 1;
     } else {
         return 0;

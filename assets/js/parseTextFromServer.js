@@ -127,16 +127,19 @@ function deleteSong(songID) {
 }
 
 function currentDate() {
-    let curDate = new Date();
+    // let curDate = new Date();
+    //
+    // let year = curDate.getFullYear().toString().concat(dateSep);
+    // let month = (curDate.getMonth()+1).toString().concat(dateSep);
+    // let day = curDate.getDate().toString();
+    //
+    // let date = "";
+    // date = date.concat(year, month, day);
+    //
+    // return date;
 
-    let year = curDate.getFullYear().toString().concat(dateSep);
-    let month = (curDate.getMonth()+1).toString().concat(dateSep);
-    let day = curDate.getDate().toString();
-
-    let date = "";
-    date = date.concat(year, month, day);
-
-    return date;
+    let curDate = new Date().toString();
+    return curDate;
 }
 
 function getTotalSongs() {
