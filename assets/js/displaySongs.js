@@ -49,8 +49,6 @@ function displaySongs(username) {
                 // reverse array to display most recent songs first
                 //serverObjects.reverse();
 
-                serverObjects.sort(sortChronologically);
-
                 let recentSongs = [];
                 let currentDate = new Date();
 
@@ -79,6 +77,8 @@ function displaySongs(username) {
                         recentSongs.push(serverObjects[i]);
                     }
                 }
+
+                recentSongs.sort(sortChronologically);
 
                 let numRecentSongs;
 
@@ -218,9 +218,9 @@ function sortAlphabetically (a, b) {
 function sortChronologically (a, b) {
     let aDate = Date.parse(a);
     let bDate = Date.parse(b);
-    if (aDate < bDate) {
+    if (aDate > bDate) {
         return -1;
-    } else if (aDate > bDate) {
+    } else if (aDate < bDate) {
         return 1;
     } else {
         return 0;
