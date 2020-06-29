@@ -126,22 +126,6 @@ function deleteSong(songID) {
     data.send(formData);
 }
 
-function currentDate() {
-    // let curDate = new Date();
-    //
-    // let year = curDate.getFullYear().toString().concat(dateSep);
-    // let month = (curDate.getMonth()+1).toString().concat(dateSep);
-    // let day = curDate.getDate().toString();
-    //
-    // let date = "";
-    // date = date.concat(year, month, day);
-    //
-    // return date;
-
-    let curDate = new Date().toString();
-    return curDate;
-}
-
 function getTotalSongs() {
     var data = new XMLHttpRequest();
 	data.onload = function() {
@@ -151,4 +135,19 @@ function getTotalSongs() {
     };
     data.open("POST", `assets/php/get-total.php`);
     data.send();
+}
+
+function currentDate() {
+    let curDate = new Date().toString();
+    return curDate;
+}
+
+function parseDatefromServer(date) {
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+
+    let dateString = year + dateSep + (month + 1) + day;
+
+    return dateString;
 }

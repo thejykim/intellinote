@@ -46,14 +46,10 @@ function displaySongs(username) {
                     return;
                 }
 
-                // reverse array to display most recent songs first
-                //serverObjects.reverse();
-
                 let recentSongs = [];
                 let currentDate = new Date();
 
                 let numAllSongs;
-
                 if (serverObjects.length == 1) {
                     numAllSongs = serverObjects.length + " song";
                 } else {
@@ -78,10 +74,10 @@ function displaySongs(username) {
                     }
                 }
 
+                // brings most recently modified songs to beginning of array
                 recentSongs.sort(sortChronologically);
 
                 let numRecentSongs;
-
                 if (recentSongs.length == 1) {
                     numRecentSongs = recentSongs.length + " song";
                 } else {
@@ -114,6 +110,8 @@ function displaySongs(username) {
                     let songID = recentSongs[i].songID;
                     songID = songID.toString();
                     let recentSongID = "R".concat(songID);
+                    let recentDateModified = parseDatefromServer(recentSongs[i].dateModified); // simplifies date form to YYYY-MM-DD
+
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
                         <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
@@ -122,7 +120,7 @@ function displaySongs(username) {
                                     <div class = "columns is-vcentered">
                                         <div class = "column is-9">
                                             <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${recentSongs[i].title}</a></h5>
-                                            <span class="tag gradient has-text-white poppins">Last updated: ${recentSongs[i].dateModified}</span>
+                                            <span class="tag gradient has-text-white poppins">Last updated: ${recentDateModified}</span>
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column is-3">
@@ -162,6 +160,8 @@ function displaySongs(username) {
                     songDiv.setAttribute("style", "padding-bottom: 0.5rem");
                     let songID = serverObjects[i].songID;
                     songID = songID.toString();
+                    let allSongsDateCreated = parseDatefromServer(serverObjects[i].dateCreated); // simplifies date form to YYYY-MM-DD
+
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
                         <div class="card" style="border-radius: 20px; border: 1px solid lightgray">
@@ -170,7 +170,7 @@ function displaySongs(username) {
                                     <div class = "columns is-vcentered">
                                         <div class = "column is-9">
                                             <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
-                                            <span class="tag is-dark poppins">Created: ${serverObjects[i].dateCreated}</span>
+                                            <span class="tag is-dark poppins">Created: ${allSongsDateCreated}</span>
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column is-3">
