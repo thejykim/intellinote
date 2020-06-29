@@ -143,11 +143,12 @@ function currentDate() {
 }
 
 function parseDateFromServer(date) {
-    let tempDate = new Date(date);
+    // necessary because 'date' parameter is a string made in currentDate()
+    let dateTypeDate = new Date(date);
 
-    let year = tempDate.getFullYear();
-    let month = tempDate.getMonth();
-    let day = tempDate.getDate();
+    let year = dateTypeDate.getFullYear();
+    let month = dateTypeDate.getMonth();
+    let day = dateTypeDate.getDate();
 
     let dateString = year + dateSep + (month + 1) + dateSep + day;
 
