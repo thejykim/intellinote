@@ -142,12 +142,14 @@ function currentDate() {
     return curDate;
 }
 
-function parseDatefromServer(date) {
-    let day = date.getDate();
-    let month = date.getMonth();
-    let year = date.getFullYear();
+function parseDateFromServer(date) {
+    let tempDate = new Date(date);
 
-    let dateString = year + dateSep + (month + 1) + day;
+    let year = tempDate.getFullYear();
+    let month = tempDate.getMonth();
+    let day = tempDate.getDate();
+
+    let dateString = year + dateSep + (month + 1) + dateSep + day;
 
     return dateString;
 }

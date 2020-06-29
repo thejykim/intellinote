@@ -110,7 +110,7 @@ function displaySongs(username) {
                     let songID = recentSongs[i].songID;
                     songID = songID.toString();
                     let recentSongID = "R".concat(songID);
-                    let recentDateModified = parseDatefromServer(recentSongs[i].dateModified); // simplifies date form to YYYY-MM-DD
+                    let recentDateModified = parseDateFromServer(recentSongs[i].dateModified); // simplifies date form to YYYY-MM-DD
 
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
@@ -160,7 +160,7 @@ function displaySongs(username) {
                     songDiv.setAttribute("style", "padding-bottom: 0.5rem");
                     let songID = serverObjects[i].songID;
                     songID = songID.toString();
-                    let allSongsDateCreated = parseDatefromServer(serverObjects[i].dateCreated); // simplifies date form to YYYY-MM-DD
+                    let allSongsDateCreated = parseDateFromServer(serverObjects[i].dateCreated); // simplifies date form to YYYY-MM-DD
 
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
