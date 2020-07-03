@@ -110,7 +110,7 @@ function displaySongs(username) {
                     let songID = recentSongs[i].songID;
                     songID = songID.toString();
                     let recentSongID = "R".concat(songID);
-                    let recentDateModified = parseDateFromServer(recentSongs[i].dateModified); // simplifies date form to YYYY-MM-DD
+                    let recentSongsDateModified = parseDateFromServer(recentSongs[i].dateModified); // simplifies date form to YYYY-MM-DD
 
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
@@ -120,7 +120,7 @@ function displaySongs(username) {
                                     <div class = "columns is-vcentered">
                                         <div class = "column is-9">
                                             <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${recentSongs[i].title}</a></h5>
-                                            <span class="tag gradient has-text-white poppins">Last updated: ${recentDateModified}</span>
+                                            <span class="tag gradient has-text-white poppins">Last updated: ${recentSongsDateModified}</span>
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>
                                         <div class = "column is-3">

@@ -17,19 +17,31 @@ function parseServerData(serverData){
     }
 }
 
+function parseDateFromServer(date) {
+    // necessary because 'date' parameter is a string made in currentDate()
+    let dateTypeDate = new Date(date);
+
+    let year = dateTypeDate.getFullYear();
+    let month = dateTypeDate.getMonth();
+    let day = dateTypeDate.getDate();
+
+    let dateString = year + dateSep + (month + 1) + dateSep + day;
+
+    return dateString;
+}
+
 // Add a new song to the database
 function createNewSong(){
     var data = new XMLHttpRequest();
     exportSong();
 
     let title = document.getElementById('title').innerHTML;
-    let username = oauthUsername;
 
     let date = currentDate();
 
     let formData = new FormData();
     formData.append("title", title);
-    formData.append("username", username);
+    formData.append("username", oauthUsername);
     formData.append("dateCreated", date);
     formData.append("dateModified", date);
     formData.append("songData", exportBox.value);
@@ -67,22 +79,6 @@ function getSong(songID) {
     data.send(formData);
 }
 
-// Get all songs for a particular user from database
-function getSongs(username) {
-    var data = new XMLHttpRequest();
-
-    let formData = new FormData();
-    formData.append("username", username);
-
-	data.onload = function() {
-	    if (data.status == 200 && data.readyState == 4) {
-            parseServerData(data.responseText);
-        }
-    };
-    data.open("POST", `assets/php/get-songs.php`);
-    data.send(formData);
-}
-
 // Modify song; send to database
 function editSong(songID) {
     var data = new XMLHttpRequest();
@@ -111,10 +107,9 @@ function editSong(songID) {
 // Delete song
 function deleteSong(songID) {
     var data = new XMLHttpRequest();
-    let username = oauthUsername;
 
     let formData = new FormData();
-    formData.append("username", username);
+    formData.append("username", oauthUsername);
     formData.append("songID", songID);
 
     data.onload = function() {
@@ -124,6 +119,10 @@ function deleteSong(songID) {
     };
     data.open("POST", `assets/php/delete-song.php`);
     data.send(formData);
+}
+
+function deleteProfile(username) {
+
 }
 
 function getTotalSongs() {
@@ -140,17 +139,4 @@ function getTotalSongs() {
 function currentDate() {
     let curDate = new Date().toString();
     return curDate;
-}
-
-function parseDateFromServer(date) {
-    // necessary because 'date' parameter is a string made in currentDate()
-    let dateTypeDate = new Date(date);
-
-    let year = dateTypeDate.getFullYear();
-    let month = dateTypeDate.getMonth();
-    let day = dateTypeDate.getDate();
-
-    let dateString = year + dateSep + (month + 1) + dateSep + day;
-
-    return dateString;
 }
