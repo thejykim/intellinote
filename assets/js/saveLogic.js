@@ -23,7 +23,8 @@ function promptSignIn() {
     isFirstSignIn = true;
 }
 
-function onloadSaveButton() {
+// Changes save button to clone button, called in parseTextFromServer.js -> getSong(songID)
+function onloadSaveToClone() {
     saveButton.innerHTML = `
     <span class="icon is-small">
         <i class="fas fa-clone"></i>
@@ -38,13 +39,12 @@ function cloneSong() {
     exportSong();
 
     title = titleField.textContent + " - Copy";
-    let username = oauthUsername;
 
     let date = currentDate();
 
     let formData = new FormData();
     formData.append("title", title);
-    formData.append("username", username);
+    formData.append("username", oauthUsername);
     formData.append("dateCreated", date);
     formData.append("dateModified", date);
     formData.append("songData", exportBox.value);
@@ -58,6 +58,4 @@ function cloneSong() {
     };
     data.open("POST", `assets/php/create-song.php`);
     data.send(formData);
-
-    // createNotification("is-info gradient", "Song successfully cloned! Click this notification to visit your profile.", `profile.php`);
 }

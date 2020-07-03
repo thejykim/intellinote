@@ -9,7 +9,7 @@ function callDelete() {
     deleteSong(globalSongID);
     deleteButton.innerHTML = "Song Deleted!";
     deleteButton.setAttribute("disabled", "true");
-    setTimeout(() => {}, 2000);
+    setTimeout(() => {}, textResetDelay);
     window.location.href = "profile.php";
 }
 
@@ -34,6 +34,6 @@ function callProfileDelete() {
     profileDeleteButton.innerHTML = "Song Deleted!";
     profileDeleteButton.setAttribute("disabled", "true");
     deleteSong(songToDelete);
-    setTimeout(() => {}, 2000);
+    setTimeout(() => {}, textResetDelay);
     window.location.href = "profile.php";
 }

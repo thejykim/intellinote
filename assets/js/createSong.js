@@ -6,8 +6,9 @@ function createSongIndex() {
         createNotification("is-warning", "Put in a title!", null);
         return;
     }
-
     createNewSong();
+
+    saveButton.setAttribute("disabled", "true");
 }
 
 function editSongIndex(songID) {
@@ -16,6 +17,5 @@ function editSongIndex(songID) {
         createNotification("is-warning", "Put in a title!", null);
         return;
     }
-
     editSong(songID);
 }

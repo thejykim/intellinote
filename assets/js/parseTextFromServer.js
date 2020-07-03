@@ -70,7 +70,7 @@ function getSong(songID) {
             titleField.innerHTML = serverObjects[0].title;
 
             if (serverObjects[0].username != oauthUsername) {
-                onloadSaveButton();
+                onloadSaveToClone();
                 deleteButton.classList.add("is-hidden");
             }
         }

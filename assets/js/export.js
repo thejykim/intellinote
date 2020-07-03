@@ -130,7 +130,7 @@ function copy() {
 
     window.setTimeout(function () {
         document.getElementById('copy').innerText = "Copy to clipboard";
-    }, copyTextResetDelay);
+    }, textResetDelay);
 }
 
 function importTimeSignature(topNumber) {

@@ -13,7 +13,7 @@ let recentThreshold = 1000 * 60 * 60 * 24 * 7;
 
 // export.js
 const exportBox = document.getElementById('exportBox');
-const copyTextResetDelay = 2000;
+const textResetDelay = 2000;
 const sheetParse = ',';
 const rowParse = ";";
 const noteParse = "-";
