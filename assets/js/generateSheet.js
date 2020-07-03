@@ -292,5 +292,5 @@ function clearSheet() {
 
     window.setTimeout(function() {
         clearText.innerText = "Clear sheet";
-    }, 2000);
+    }, textResetDelay);
 }
