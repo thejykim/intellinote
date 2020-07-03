@@ -17,7 +17,7 @@ if ($connection->connect_error) {
 }
 
 $sql = "SELECT * FROM userSongs
-    WHERE songID=?" ;
+    WHERE songID = ?" ;
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("s", $songID);
 $stmt->execute();

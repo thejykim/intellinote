@@ -18,7 +18,7 @@ if ($connection->connect_error) {
 }
 
 $sql = "SELECT * FROM userMap
-    WHERE id=?";
+    WHERE id = ?";
 $stmt = $connection->prepare($sql);
 $stmt->bind_param("s", $hash);
 $stmt->execute();

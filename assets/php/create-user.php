@@ -20,7 +20,7 @@ if ($dupconnection->connect_error) {
     die("Connection failed: " . $dupconnection->connect_error);
 }
 $dupsql = "SELECT * FROM userMap
-    WHERE id=? OR username=?";
+    WHERE id = ? OR username = ?";
 $dupstmt = $dupconnection->prepare($dupsql);
 $dupstmt->bind_param("ss", $hash, $chosenUsername);
 $dupstmt->execute();
