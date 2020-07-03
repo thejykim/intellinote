@@ -11,7 +11,7 @@ function callDelete() {
     deleteButton.setAttribute("disabled", "true");
     window.setTimeout(function() {
         window.location.href = "profile.php";
-    }, 4000);
+    }, 3000);
 }
 
 // The following three functions operate in profile.php (displaySongs.js)
@@ -37,5 +37,5 @@ function callProfileDelete() {
     deleteSong(songToDelete);
     window.setTimeout(function() {
         window.location.href = "profile.php";
-    }, 4000);
+    }, 3000);
 }
