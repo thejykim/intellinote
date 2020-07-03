@@ -1,7 +1,9 @@
+// The following two functions operate in songs.php
 function toggleDelete() {
     deleteButton.innerHTML = "Confirm Delete?";
     deleteButton.classList.add("is-light");
-    deleteButton.onclick = callDelete;
+    // deleteButton.onclick = callDelete;
+    deleteButton.setAttribute("onclick", "callDelete()");
 }
 
 function callDelete() {
@@ -12,6 +14,7 @@ function callDelete() {
     window.location.href = "profile.php";
 }
 
+// The following three functions operate in profile.php
 function toggleProfileDelete(songID) {
     buttonToChange = document.getElementById(songID);
     buttonToChange.innerHTML = "Confirm Delete?";
