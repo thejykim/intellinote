@@ -36,6 +36,25 @@ function onloadSaveToClone() {
 }
 
 function cloneSong() {
+    saveButton.setAttribute("disabled", "true");
+    saveButton.innerHTML = `
+    <span class="icon is-small">
+        <i class="fas fa-check"></i>
+    </span>
+    <span>Cloned</span>
+    `;
+
+    window.setTimeout(function() {
+        saveButton.innerHTML = `
+        <span class="icon is-small">
+            <i class="fas fa-clone"></i>
+        </span>
+        <span>Clone</span>
+        `;
+
+        saveButton.setAttribute("disabled", "false");
+    }, textResetDelay);
+
     exportSong();
 
     title = titleField.textContent + " - Copy";

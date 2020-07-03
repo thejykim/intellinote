@@ -21,8 +21,10 @@ function createSongIndex() {
         <span class="icon is-small">
             <i class="fas fa-save"></i>
         </span>
-        <span>Save</span>i
+        <span>Save</span>
         `;
+
+        saveButton.setAttribute("disabled", "false");
     }, textResetDelay);
 }
 
