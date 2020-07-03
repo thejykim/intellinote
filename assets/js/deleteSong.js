@@ -2,7 +2,6 @@
 function toggleDelete() {
     deleteButton.innerHTML = "Confirm Delete?";
     deleteButton.classList.add("is-light");
-    // deleteButton.onclick = callDelete;
     deleteButton.setAttribute("onclick", "callDelete()");
 }
 
@@ -14,26 +13,26 @@ function callDelete() {
     window.location.href = "profile.php";
 }
 
-// The following three functions operate in profile.php
+// The following three functions operate in profile.php (displaySongs.js)
 function toggleProfileDelete(songID) {
-    buttonToChange = document.getElementById(songID);
-    buttonToChange.innerHTML = "Confirm Delete?";
-    buttonToChange.classList.add("is-light");
+    profileDeleteButton = document.getElementById(songID);
+    profileDeleteButton.innerHTML = "Confirm Delete?";
+    profileDeleteButton.classList.add("is-light");
     songToDelete = songID;
-    buttonToChange.onclick = callProfileDelete;
+    profileDeleteButton.setAttribute("onclick", "callProfileDelete()");
 }
 
 function toggleRecentDelete(songID) {
-    buttonToChange = document.getElementById(songID);
-    buttonToChange.innerHTML = "Confirm Delete?";
-    buttonToChange.classList.add("is-light");
-    songToDelete = songID.substr(1);
-    buttonToChange.onclick = callProfileDelete;
+    profileDeleteButton = document.getElementById(songID);
+    profileDeleteButton.innerHTML = "Confirm Delete?";
+    profileDeleteButton.classList.add("is-light");
+    songToDelete = songID.substr(1); // to only account for characters after the 'R'
+    profileDeleteButton.setAttribute("onclick", "callProfileDelete()");
 }
 
 function callProfileDelete() {
-    buttonToChange.innerHTML = "Song Deleted!";
-    buttonToChange.setAttribute("disabled", "true");
+    profileDeleteButton.innerHTML = "Song Deleted!";
+    profileDeleteButton.setAttribute("disabled", "true");
     deleteSong(songToDelete);
     setTimeout(() => {}, 2000);
     window.location.href = "profile.php";
