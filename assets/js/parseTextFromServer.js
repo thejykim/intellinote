@@ -114,15 +114,26 @@ function deleteSong(songID) {
 
     data.onload = function() {
         if (data.status == 200 && data.readyState == 4) {
-            // Delete success!
+            // Delete song success!
         }
     };
     data.open("POST", `assets/php/delete-song.php`);
     data.send(formData);
 }
 
-function deleteProfile(username) {
+function deleteProfile() {
+    var data = new XMLHttpRequest();
 
+    let formData = new FormData();
+    formData.append("username", oauthUsername);
+
+    data.onload = function() {
+        if (data.status == 200 && data.readyState == 4) {
+            // Delete profile success!
+        }
+    };
+    data.open("POST", `assets/php/delete-profile.php`);
+    data.send(formData);
 }
 
 function getTotalSongs() {
