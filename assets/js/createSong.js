@@ -24,7 +24,7 @@ function createSongIndex() {
         <span>Save</span>
         `;
 
-        saveButton.setAttribute("disabled", "false");
+        saveButton.removeAttribute("disabled");
     }, textResetDelay);
 }
 
