@@ -33,11 +33,10 @@ function createNotification(type, message, href) {
         clearInterval(dismissInterval);
 
         createDialog.innerHTML = `
-        <a href='${href}'>
             <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
                 <div class="columns">
                     <div class="column is-11">
-                        <p>${message}</p>
+                        <a href='${href}'><p>${message}</p></a>
                     </div>
                     <div class="column" style="text-align: right">
                         <span class="icon is-small" onclick='dismissNotification()'>
@@ -46,7 +45,6 @@ function createNotification(type, message, href) {
                     </div>
                 </div>
             </div>
-        </a>
         <br>`;
 
         $("#createDialog").fadeIn("slow", function() {});

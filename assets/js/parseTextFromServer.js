@@ -48,7 +48,7 @@ function createNewSong(){
 
     data.onload = function() {
         if (data.status == 200 && data.readyState == 4) {
-            createNotification("is-success", "Song successfully added! Click this notification to visit your profile.", `profile.php`);
+            createNotification("is-success", "Song successfully added! Click here to visit your profile.", `profile.php`);
         }
     };
     data.open("POST", `assets/php/create-song.php`);

@@ -61,7 +61,7 @@ function cloneSong() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             // Clone success!
-            createNotification("is-info gradient", "Song successfully cloned! Click this notification to visit your profile.", `profile.php`);
+            createNotification("is-info gradient", "Song successfully cloned! Click here to visit your profile.", `profile.php`);
         }
     };
     data.open("POST", `assets/php/create-song.php`);
