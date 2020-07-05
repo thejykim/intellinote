@@ -16,9 +16,9 @@ function createNotification(type, message, href) {
                     <p>${message}</p>
                 </div>
                 <div class="column">
-                    <div class="has-text-right is-size-7">
-                        <span id="dismissCount">(Dismissing in 5 seconds)</span>
-                    </div>
+                    <span class="icon is-small" onclick='dismissNotification()'>
+                        <i class="fas fa-times"></i>
+                    </span>
                 </div>
             </div>
         </div>
@@ -28,14 +28,23 @@ function createNotification(type, message, href) {
             dismissInterval = setInterval(updateDismissCount, 1000);
         });
     } else {
-        notificationCount = 0;
+        notificationCount = 1;
 
         clearInterval(dismissInterval);
 
         createDialog.innerHTML = `
         <a href='${href}'>
             <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
-                <p>${message}</p>
+                <div class="columns">
+                    <div class="column is-11">
+                        <p>${message}</p>
+                    </div>
+                    <div class="column">
+                        <div class="">
+                            <span id="dismissCount">(Dismissing in 5 seconds)</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </a>
         <br>
