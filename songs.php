@@ -228,7 +228,7 @@
                                             <span class="icon is-small">
                                                 <i class="fas fa-ban"></i>
                                             </span>
-                                            <span id="clearText">Clear sheet</span>
+                                            <span id="clearButton">Clear sheet</span>
                                         </button>
                                     </p>
                                 </div>

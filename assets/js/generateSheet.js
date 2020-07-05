@@ -288,9 +288,22 @@ function clearSheet() {
         }
     }
 
-    clearText.innerText = "Cleared!";
+	clearButton.setAttribute("disabled", "true");
+    clearButton.innerHTML = `
+	<span class="icon is-small">
+		<i class="fas fa-check"></i>
+	</span>
+	<span>Cleared!</span>
+	`;
 
     window.setTimeout(function() {
-        clearText.innerText = "Clear sheet";
+		clearButton.innerHTML = `
+        <span class="icon is-small">
+            <i class="fas fa-ban"></i>
+        </span>
+        <span>Clear sheet</span>
+        `;
+
+        clearButton.removeAttribute("disabled");
     }, textResetDelay);
 }

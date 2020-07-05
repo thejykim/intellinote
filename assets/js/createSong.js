@@ -13,7 +13,7 @@ function createSongIndex() {
     <span class="icon is-small">
         <i class="fas fa-check"></i>
     </span>
-    <span>Saved</span>
+    <span>Saved!</span>
     `;
 
     window.setTimeout(function() {
@@ -41,7 +41,7 @@ function editSongIndex(songID) {
     <span class="icon is-small">
         <i class="fas fa-check"></i>
     </span>
-    <span>Saved</span>
+    <span>Saved!</span>
     `;
 
     window.setTimeout(function() {

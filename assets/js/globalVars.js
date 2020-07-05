@@ -28,7 +28,7 @@ let notificationCount = 0;
 
 // document elements
 const removeButton = document.getElementById('removeButton');
-const clearText = document.getElementById('clearText');
+const clearButton = document.getElementById('clearButton');
 // number of notes generated per row
 let numberOfNotes = 32;
 // number of notes generated per column
