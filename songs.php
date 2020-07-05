@@ -224,11 +224,11 @@
                                 <div class="field">
                                     <p class="control">
                                         <button class="button is-info is-small is-rounded karla gradient"
-                                            onclick="clearSheet()">
+                                            id="clearButton" onclick="clearSheet()">
                                             <span class="icon is-small">
                                                 <i class="fas fa-ban"></i>
                                             </span>
-                                            <span id="clearButton">Clear sheet</span>
+                                            <span>Clear sheet</span>
                                         </button>
                                     </p>
                                 </div>
