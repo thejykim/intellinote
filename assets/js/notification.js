@@ -10,29 +10,6 @@ function createNotification(type, message, href) {
         dismissCount = 4;
 
         createDialog.innerHTML = `
-        <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
-            <div class="columns">
-                <div class="column is-four-fifths">
-                    <p>${message}</p>
-                </div>
-                <div class="column">
-                    <span class="icon is-small" onclick='dismissNotification()'>
-                        <i class="fas fa-times"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <br>`;
-
-        $("#createDialog").fadeIn("slow", function() {
-            dismissInterval = setInterval(updateDismissCount, 1000);
-        });
-    } else {
-        notificationCount = 1;
-
-        clearInterval(dismissInterval);
-
-        createDialog.innerHTML = `
         <a href='${href}'>
             <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
                 <div class="columns">
@@ -49,6 +26,29 @@ function createNotification(type, message, href) {
         </a>
         <br>
         `;
+
+        $("#createDialog").fadeIn("slow", function() {
+            dismissInterval = setInterval(updateDismissCount, 1000);
+        });
+    } else {
+        notificationCount = 1;
+
+        clearInterval(dismissInterval);
+
+        createDialog.innerHTML = `
+        <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    <p>${message}</p>
+                </div>
+                <div class="column">
+                    <span class="icon is-small" onclick='dismissNotification()'>
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <br>`;
 
         $("#createDialog").fadeIn("slow", function() {});
     }
