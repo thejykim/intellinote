@@ -10,22 +10,19 @@ function createNotification(type, message, href) {
         dismissCount = 4;
 
         createDialog.innerHTML = `
-        <a href='${href}'>
-            <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
-                <div class="columns">
-                    <div class="column is-11">
-                        <p>${message}</p>
-                    </div>
-                    <div class="column">
-                        <div class="">
-                            <span id="dismissCount">(Dismissing in 5 seconds)</span>
-                        </div>
+        <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    <p>${message}</p>
+                </div>
+                <div class="column">
+                    <div class="has-text-right is-size-7">
+                        <span id="dismissCount">(Dismissing in 5 seconds)</span>
                     </div>
                 </div>
             </div>
-        </a>
-        <br>
-        `;
+        </div>
+        <br>`;
 
         $("#createDialog").fadeIn("slow", function() {
             dismissInterval = setInterval(updateDismissCount, 1000);
@@ -38,7 +35,7 @@ function createNotification(type, message, href) {
         createDialog.innerHTML = `
         <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
             <div class="columns">
-                <div class="column is-four-fifths">
+                <div class="column is-11">
                     <p>${message}</p>
                 </div>
                 <div class="column">
