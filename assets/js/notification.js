@@ -36,10 +36,10 @@ function createNotification(type, message, href) {
             <div class="notification ${type}" style="border: 5px solid hsl(0, 0%, 86%)">
                 <div class="columns">
                     <div class="column is-11">
-                        <a href='${href}'><p>${message}</p></a>
+                        <p><a style="text-decoration: none;" href='${href}'>${message}</a></p>
                     </div>
                     <div class="column" style="text-align: right">
-                        <span class="icon is-small" onclick='dismissNotification()'>
+                        <span class="icon is-small" onclick='dismissNotification()' style="cursor: pointer;">
                             <i class="fas fa-times"></i>
                         </span>
                     </div>
