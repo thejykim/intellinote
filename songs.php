@@ -476,7 +476,7 @@
             window.onload = function () {
                 generateSheet(clefEnum.TREBLE, 'treble-sheet-1');
                 generateSheet(clefEnum.BASS, 'bass-sheet-1');
-                setModalJS();
+                setExportModalJS();
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
 

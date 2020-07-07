@@ -1,5 +1,5 @@
 /* Cleaned */
-function setModalJS() {
+function setExportModalJS() {
     document.querySelector('#open-export-modal').addEventListener('click', function (event) {
         event.preventDefault();
         var exportModal = document.querySelector('#exportModal');
