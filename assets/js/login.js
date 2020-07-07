@@ -17,7 +17,6 @@ function onSignIn(googleUser) {
                 <h6 class="subtitle is-6 karla">...but you could also fix that in about 10 seconds. Click Intellinote on the top left to get started.</h6>
                 `;
             }
-            setDeleteModalJS();
         }
     }
     signOutButton = document.getElementById('signOutButton');
