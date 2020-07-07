@@ -8,6 +8,7 @@ const createDialog = document.getElementById("createDialog");
 const createButtonDiv = document.getElementById("createButton");
 const recentSongsDiv = document.getElementById("recentSongs");
 const allSongsDiv = document.getElementById("allSongs");
+const deleteProfileDiv = document.getElementById("deleteProfileDiv");
 
 let recentThreshold = 1000 * 60 * 60 * 24 * 7;
 

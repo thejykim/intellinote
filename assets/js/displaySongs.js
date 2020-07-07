@@ -25,7 +25,19 @@ function displaySongs(username) {
                     </a>
                 </div>
             </div>
-            `
+            `;
+
+            deleteProfileDiv.innerHTML = `
+            <div class="columns is-centered">
+                <button id="open-delete-modal"
+                    class="button is-danger is-small is-light is-rounded karla">
+                    <span class="icon is-small">
+                        <i class="fas fa-minus-circle"></i>
+                    </span>
+                    <span>Delete Profile</span>
+                </button>
+            </div>
+            `;
         }
 
         var data = new XMLHttpRequest();

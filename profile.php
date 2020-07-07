@@ -90,13 +90,7 @@
 
         <div class="container empty-padding"><hr></div>
 
-        <button id="open-delete-modal" style="float:right"
-            class="button gradient is-small is-info is-rounded karla">
-            <span>Delete Profile</span>
-            <span class="icon is-small">
-                <i class="fas fa-minus-circle"></i>
-            </span>
-        </button>
+        <section class="container" id="deleteProfileDiv"></section>
 
         <div class="empty-padding" style="padding: 0.5rem"></div>
 
