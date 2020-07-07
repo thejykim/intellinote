@@ -21,5 +21,13 @@ function setDeleteModalJS() {
 }
 
 function deleteProfile() {
-    // Empty for now.
+    for (song of serverObjects) {
+        deleteSongFromMap(song.songID);
+    }
+
+    deleteProfileFromMap();
+    signOut();
+    window.setTimeout(function() {
+        window.location.href = 'index.html';
+    }, 1000);
 }

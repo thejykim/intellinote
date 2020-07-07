@@ -17,6 +17,7 @@ function onSignIn(googleUser) {
                 <h6 class="subtitle is-6 karla">...but you could also fix that in about 10 seconds. Click Intellinote on the top left to get started.</h6>
                 `;
             }
+            setDeleteModalJS();
         }
     }
     signOutButton = document.getElementById('signOutButton');
@@ -29,7 +30,7 @@ function onSignInSong(googleUser) {
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
         getUsername();
         getSong(globalSongID);
-        
+
     }
     signOutButton = document.getElementById('signOutButton');
     signOutButton.classList.remove("is-hidden");

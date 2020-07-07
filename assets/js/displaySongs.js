@@ -28,6 +28,12 @@ function displaySongs(username) {
             `;
 
             deleteProfileDiv.innerHTML = `
+            <div class="columns" style="padding-bottom: 1.5rem">
+                <div class="column is-6 is-offset-2">
+                    <h6 class="title is-4 poppins">Danger Zone!</h6>
+                </div>
+            </div>
+
             <div class="columns is-centered">
                 <button id="open-delete-modal"
                     class="button is-danger is-small is-light is-rounded karla">

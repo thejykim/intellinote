@@ -10,7 +10,7 @@ function deleteSong() {
     deleteButton.innerHTML = "Song Deleted!";
     deleteButton.setAttribute("disabled", "true");
     window.setTimeout(function() {
-        window.location.href = "profile.php";
+        window.location.href = 'profile.php';
     }, 1000);
 }
 
@@ -36,6 +36,6 @@ function profileDeleteSong() {
     profileDeleteButton.setAttribute("disabled", "true");
     deleteSongFromMap(songToDelete);
     window.setTimeout(function() {
-        window.location.href = "profile.php";
+        window.location.href = 'profile.php';
     }, 1000);
 }
