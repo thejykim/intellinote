@@ -6,7 +6,7 @@ function toggleDelete() {
 }
 
 function callDelete() {
-    deleteSong(globalSongID);
+    deleteSongFromMap(globalSongID);
     deleteButton.innerHTML = "Song Deleted!";
     deleteButton.setAttribute("disabled", "true");
     window.setTimeout(function() {
@@ -34,7 +34,7 @@ function toggleRecentDelete(songID) {
 function callProfileDelete() {
     profileDeleteButton.innerHTML = "Song Deleted!";
     profileDeleteButton.setAttribute("disabled", "true");
-    deleteSong(songToDelete);
+    deleteSongFromMap(songToDelete);
     window.setTimeout(function() {
         window.location.href = "profile.php";
     }, 1000);

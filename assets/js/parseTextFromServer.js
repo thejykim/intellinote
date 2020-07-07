@@ -105,7 +105,7 @@ function editSong(songID) {
 }
 
 // Delete song
-function deleteSong(songID) {
+function deleteSongFromMap(songID) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
@@ -121,7 +121,7 @@ function deleteSong(songID) {
     data.send(formData);
 }
 
-function deleteProfile() {
+function deleteProfileFromMap() {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
