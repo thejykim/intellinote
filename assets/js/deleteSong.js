@@ -2,10 +2,10 @@
 function toggleDelete() {
     deleteButton.innerHTML = "Confirm Delete?";
     deleteButton.classList.add("is-light");
-    deleteButton.setAttribute("onclick", "callDelete()");
+    deleteButton.setAttribute("onclick", "deleteSong()");
 }
 
-function callDelete() {
+function deleteSong() {
     deleteSongFromMap(globalSongID);
     deleteButton.innerHTML = "Song Deleted!";
     deleteButton.setAttribute("disabled", "true");
@@ -20,7 +20,7 @@ function toggleProfileDelete(songID) {
     profileDeleteButton.innerHTML = "Confirm Delete?";
     profileDeleteButton.classList.add("is-light");
     songToDelete = songID;
-    profileDeleteButton.setAttribute("onclick", "callProfileDelete()");
+    profileDeleteButton.setAttribute("onclick", "profileDeleteSong()");
 }
 
 function toggleRecentDelete(songID) {
@@ -28,10 +28,10 @@ function toggleRecentDelete(songID) {
     profileDeleteButton.innerHTML = "Confirm Delete?";
     profileDeleteButton.classList.add("is-light");
     songToDelete = songID.substr(1); // to only account for characters after the 'R'
-    profileDeleteButton.setAttribute("onclick", "callProfileDelete()");
+    profileDeleteButton.setAttribute("onclick", "profileDeleteSong()");
 }
 
-function callProfileDelete() {
+function profileDeleteSong() {
     profileDeleteButton.innerHTML = "Song Deleted!";
     profileDeleteButton.setAttribute("disabled", "true");
     deleteSongFromMap(songToDelete);
