@@ -88,7 +88,39 @@
 
         <section class="container" id="allSongs"></section>
 
+        <div class="container empty-padding"><hr></div>
+
+        <button id="open-delete-modal" style="float:right"
+            class="button gradient is-small is-info is-rounded karla">
+            <span>Delete Profile</span>
+            <span class="icon is-small">
+                <i class="fas fa-minus-circle"></i>
+            </span>
+        </button>
+
         <div class="empty-padding" style="padding: 0.5rem"></div>
+
+        <!-- textbox modal for deleting profile -->
+        <div class="modal" id="deleteModal">
+            <div class="modal-background" id="background-delete"></div>
+            <div class="modal-content">
+                <nav class="panel has-background-white">
+                    <p class="panel-heading poppins">
+                        Delete Profile
+                    </p>
+                    <div class="container" style="padding: 1rem 1.5rem;">
+                        <p class="karla">This is an irreversible action. Your profile will be deleted, including every song that you have saved.
+                            If you still wish to proceed, click the button below.</p><br>
+                        <!-- import/export buttons -->
+                        <div class="container">
+                            <button class="button is-danger is-small is-rounded karla"
+                                onclick="deleteProfile()">I understand. Delete my profile!</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <button class="modal-close is-large" id="close-delete" aria-label="close"></button>
+        </div>
 
         <!-- footer -->
         <footer class="footer" style="padding-top: 4rem; padding-bottom: 4rem;">
@@ -118,6 +150,7 @@
         <script src="assets/js/parseTextFromServer.js"></script>
         <script src="assets/js/displaySongs.js"></script>
         <script src="assets/js/deleteSong.js"></script>
+        <script src="assets/js/deleteProfile.js"></script>
 
         <script>
             window.onload = function () {
@@ -137,6 +170,7 @@
                     displaySongs(null);
                 }
             }
+            setDeleteModalJS();
         </script>
 
         <!-- cookies -->

@@ -261,26 +261,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="panel-block" style="padding: 0.5rem 1.5rem;">
-                            <div class="container">
-                                <p class="subtitle is-6 poppins"
-                                    style="margin-bottom: 0.5rem;font-weight: 500;font-size:small">Preset Songs</p>
-                                <div class="control has-icons-left">
-                                    <div class="select">
-                                        <select class="karla" id="songDropdown" onchange="loadSong(this.value)">
-                                            <option selected value="none"> None </option>
-                                            <option value="miiTheme"> Mii Theme</option>
-                                            <option value="tetris">Tetris Theme</option>
-                                            <option value="fallinginlove">Can't Help Falling In Love</option>
-                                            <option value="epilogue">Epilogue - La La Land</option>
-                                        </select>
-                                    </div>
-                                    <span class="icon is-left">
-                                        <i class="fas fa-folder-open"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div> -->
                     </nav>
                 </div>
 
