@@ -101,6 +101,22 @@ function importSong() {
             }
         }
     }
+
+    importButton.setAttribute("disabled", "true");
+    importButton.innerHTML = `
+    <span class="icon is-small">
+        <i class="fas fa-check"></i>
+    </span>
+    <span>Imported!</span>
+    `;
+
+    window.setTimeout(function() {
+        importButton.innerHTML = `
+        Import
+        `;
+
+        importButton.removeAttribute("disabled");
+    }, textResetDelay);
 }
 
 function exportSong() {
@@ -118,6 +134,22 @@ function exportSong() {
         }
         exportBox.value = exportBox.value + rowParse;
     }
+
+    exportButton.setAttribute("disabled", "true");
+    exportButton.innerHTML = `
+    <span class="icon is-small">
+        <i class="fas fa-check"></i>
+    </span>
+    <span>Exported!</span>
+    `;
+
+    window.setTimeout(function() {
+        exportButton.innerHTML = `
+        Export
+        `;
+
+        exportButton.removeAttribute("disabled");
+    }, textResetDelay);
 }
 
 function copy() {

@@ -18,6 +18,8 @@ const sheetParse = ',';
 const rowParse = ";";
 const noteParse = "-";
 const noteObjectParse = ".";
+const importButton = document.getElementById("import");
+const exportButton = document.getElementById("export");
 
 // --notification.js
 let dismissInterval;
