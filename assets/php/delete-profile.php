@@ -19,7 +19,7 @@ if ($connection->connect_error) {
 $sql = "DELETE FROM userMap
     WHERE username = ?";
 $stmt = $connection->prepare($sql);
-$stmt->bind_param("s", $songID);
+$stmt->bind_param("s", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
