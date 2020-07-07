@@ -92,7 +92,7 @@
 
         <section class="container" id="deleteProfileDiv"></section>
 
-        <div class="empty-padding" style="padding: 0.5rem"></div>
+        <div class="empty-padding" style="padding: 3rem"></div>
 
         <!-- textbox modal for deleting profile -->
         <div class="modal" id="deleteModal">
@@ -149,7 +149,7 @@
         <script>
             window.onload = function () {
                 isProfile = true;
-                
+
                 getTotalSongs();
                 if (<?php
                         if (isset($_GET["username"])) {

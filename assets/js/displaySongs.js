@@ -30,12 +30,12 @@ function displaySongs(username) {
             deleteProfileDiv.innerHTML = `
             <div class="columns" style="padding-bottom: 1.5rem">
                 <div class="column is-6 is-offset-2">
-                    <h6 class="title is-4 poppins">Danger Zone!</h6>
+                    <h4 class="title is-4 poppins">Danger Zone!</h4>
                 </div>
             </div>
 
             <div class="columns is-centered">
-                <button id="open-delete-modal"
+                <button onclick="setDeleteModalJS()"
                     class="button is-danger is-small is-light is-rounded karla">
                     <span class="icon is-small">
                         <i class="fas fa-minus-circle"></i>
