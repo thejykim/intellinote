@@ -98,13 +98,13 @@ async function startPlaying() {
 }
 
 function disableTable(){
-  let div = document.createElement("div");
-  div.setAttribute('class', 'overlay');
-  div.setAttribute('id', 'cannot-click');
-  let tables = document.getElementsByClassName("column is-10");
-  for (let i = 0; i < tables.length; i++){
-    tables[i].appendChild(div);
-  }
+    let div = document.createElement("div");
+    div.setAttribute('class', 'overlay');
+    div.setAttribute('id', 'cannot-click');
+    let tables = document.getElementsByClassName("column is-10");
+    for (let i = 0; i < tables.length; i++){
+        tables[i].appendChild(div);
+    }
 
 }
 
