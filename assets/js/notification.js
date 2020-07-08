@@ -6,7 +6,7 @@ function createNotification(type, message, href) {
             notificationCount--;
             clearInterval(dismissInterval);
 
-            $("#createDialog").fadeOut("slow", function() {
+            $("#createDialog").fadeOut("fast", function() {
                 createDialog.innerHTML = ``;
 
                 dismissCount = 4;
@@ -26,7 +26,7 @@ function createNotification(type, message, href) {
                 </div>
                 <br>`;
 
-                $("#createDialog").fadeIn("slow", function() {
+                $("#createDialog").fadeIn("fast", function() {
                     dismissInterval = setInterval(updateDismissCount, 1000);
                 });
             });
