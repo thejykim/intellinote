@@ -62,7 +62,7 @@ function displaySongs(username) {
                     <h6 class="subtitle is-6 karla">Check back later, or invite <code>${username}</code> to make their own tunes at IntelliNote!</h6>
                     `;
                     allSongsDiv.remove();
-                    let paddings = document.getElementsByClassName("empty-padding");
+                    let paddings = document.getElementsByClassName("container empty-padding");
                     paddings[paddings.length].remove();
                     return;
                 }
