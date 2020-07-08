@@ -75,7 +75,7 @@
         <div class="container site-content">
 
             <!-- div for alerts -->
-            <div class="container karla" id="createDialog"></div>
+            <div class="container karla" id="createDialog" style="position: relative; z-index: 5" hidden></div>
 
             <!-- div for columns -->
             <div class="columns">
