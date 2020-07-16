@@ -190,7 +190,7 @@
           "content": {
             "message": "Our login system uses cookies so that you don't have to sign in as often.",
             "dismiss": "Got it!",
-            "href": "https://www.thejyk.com/intellinote/privacy.html"
+            "href": "https://www.intellinote.io/privacy.html"
           }
         });
         </script>
