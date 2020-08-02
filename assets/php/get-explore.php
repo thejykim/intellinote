@@ -18,7 +18,6 @@ $sql = "SELECT * FROM userSongs
     ORDER BY songID DESC
     LIMIT 9";
 $stmt = $connection->prepare($sql);
-$stmt->bind_param("s", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
