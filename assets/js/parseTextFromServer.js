@@ -154,6 +154,7 @@ function getExploreSongs() {
 
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
+            console.log(data.responseText);
             parseServerData(data.responseText);
         }
     };
