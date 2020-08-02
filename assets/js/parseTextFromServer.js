@@ -147,6 +147,20 @@ function getTotalSongs() {
     data.send();
 }
 
+// Get the nine most recent songs from database
+function getExploreSongs() {
+    var data = new XMLHttpRequest();
+
+	data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            parseServerData(data.responseText);
+            console.log(serverObjects);
+        }
+    };
+    data.open("POST", `assets/php/get-song.php`);
+    data.send();
+}
+
 function currentDate() {
     let curDate = new Date().toString();
     return curDate;
