@@ -15,6 +15,7 @@ function parseServerData(serverData){
         };
         serverObjects.push(songObj);
     }
+    console.log(serverObjects);
 }
 
 function parseDateFromServer(date) {
@@ -154,10 +155,9 @@ function getExploreSongs() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            console.log(serverObjects);
         }
     };
-    data.open("POST", `assets/php/get-explore.php`);
+    data.open("GET", `assets/php/get-explore.php`);
     data.send();
 }
 
