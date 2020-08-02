@@ -157,7 +157,7 @@ function getExploreSongs() {
             console.log(serverObjects);
         }
     };
-    data.open("POST", `assets/php/get-song.php`);
+    data.open("POST", `assets/php/get-explore.php`);
     data.send();
 }
 
