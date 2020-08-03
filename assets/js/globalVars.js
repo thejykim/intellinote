@@ -78,13 +78,14 @@ noteIcon = '<img src = "assets/img/eighthNote.png" style = "display: block; bott
 
 // --parseTextFromServer.js
 const fieldParse = "|SEPARATOR|";
+const followerParse = "&";
 const songParse = "?";
 const dateSep = "-";
 
 const totalSongsElement = document.getElementById("totalSongs");
 
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
-let serverObjects = []; // Array of song objects
+let songObjects = []; // Array of song objects
 
 // --player.js
 

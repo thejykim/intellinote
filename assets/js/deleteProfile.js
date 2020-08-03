@@ -18,7 +18,7 @@ function setDeleteModalJS() {
 }
 
 function deleteProfile() {
-    for (song of serverObjects) {
+    for (song of songObjects) {
         deleteSongFromMap(song.songID);
     }
 

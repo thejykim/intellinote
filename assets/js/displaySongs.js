@@ -53,9 +53,9 @@ function displaySongs(username) {
 
         data.onload = function() {
             if (data.status == 200 && data.readyState == 4) {
-                parseServerData(data.responseText);
+                parseSongServerData(data.responseText);
                 document.getElementById("titleName").innerHTML = `${username}'s`;
-                if (serverObjects.length == 0) {
+                if (songObjects.length == 0) {
                     // show zero songs
                     recentSongsDiv.innerHTML = `
                     <h4 class="title is-4 poppins">Couldn't find any songs for <code>${username}</code>... yet.</h4>
@@ -70,10 +70,10 @@ function displaySongs(username) {
                 let currentDate = new Date();
 
                 let numAllSongs;
-                if (serverObjects.length == 1) {
-                    numAllSongs = serverObjects.length + " song";
+                if (songObjects.length == 1) {
+                    numAllSongs = songObjects.length + " song";
                 } else {
-                    numAllSongs = serverObjects.length + " songs";
+                    numAllSongs = songObjects.length + " songs";
                 }
 
                 allSongsDiv.innerHTML = `
@@ -86,11 +86,11 @@ function displaySongs(username) {
                 `;
 
                 // copy eligible songs into recent songs array
-                for (let i = 0; i < serverObjects.length; i++) {
-                    let songDate = Date.parse(serverObjects[i].dateModified);
+                for (let i = 0; i < songObjects.length; i++) {
+                    let songDate = Date.parse(songObjects[i].dateModified);
 
                     if ((currentDate - songDate) < recentThreshold) {
-                        recentSongs.push(serverObjects[i]);
+                        recentSongs.push(songObjects[i]);
                     }
                 }
 
@@ -161,13 +161,13 @@ function displaySongs(username) {
                 }
 
                 // alphabetize songs array
-                serverObjects.sort(sortAlphabetically);
+                songObjects.sort(sortAlphabetically);
 
                 // all songs
-                for (let i = 0; i < serverObjects.length; i++) {
+                for (let i = 0; i < songObjects.length; i++) {
 
                     // briefly parse song data
-                    let numRows = serverObjects[i].songData.split(sheetParse)[2];
+                    let numRows = songObjects[i].songData.split(sheetParse)[2];
 
                     if (numRows == 1) {
                         numRows = numRows + " row";
@@ -178,9 +178,9 @@ function displaySongs(username) {
                     let songDiv = document.createElement('div');
                     songDiv.setAttribute("class", "columns");
                     songDiv.setAttribute("style", "padding-bottom: 0.5rem");
-                    let songID = serverObjects[i].songID;
+                    let songID = songObjects[i].songID;
                     songID = songID.toString();
-                    let allSongsDateCreated = parseDateFromServer(serverObjects[i].dateCreated); // simplifies date form to YYYY-MM-DD
+                    let allSongsDateCreated = parseDateFromServer(songObjects[i].dateCreated); // simplifies date form to YYYY-MM-DD
 
                     songDiv.innerHTML = `
                     <div class="column is-6 is-offset-3">
@@ -189,7 +189,7 @@ function displaySongs(username) {
                                 <div class="content">
                                     <div class = "columns is-vcentered">
                                         <div class = "column is-9">
-                                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${serverObjects[i].title}</a></h5>
+                                            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem"><a href='songs.php?songID=${songID}' class="has-text-dark">${songObjects[i].title}</a></h5>
                                             <span class="tag is-dark poppins">Created: ${allSongsDateCreated}</span>
                                             <span class="tag is-light poppins"><b>${numRows}</b></span>
                                         </div>

@@ -1,6 +1,6 @@
 /* Cleaned */
-function parseServerData(serverData){
-    serverObjects = [];
+function parseSongServerData(serverData){
+    songObjects = [];
     // get the server data as string
     serverEachSong = serverData.split(songParse);
     for (let i = 0; i < serverEachSong.length-1; i++) {
@@ -13,8 +13,12 @@ function parseServerData(serverData){
             songData : songStr[4],
             songID : songStr[5]
         };
-        serverObjects.push(songObj);
+        songObjects.push(songObj);
     }
+}
+
+function parseFollowerServerData(serverData) {
+    followersArray = serverData.split(followerParse); 
 }
 
 function parseDateFromServer(date) {
@@ -64,12 +68,12 @@ function getSong(songID) {
 
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            parseServerData(data.responseText);
-            exportBox.value = serverObjects[0].songData;
+            parseSongServerData(data.responseText);
+            exportBox.value = songObjects[0].songData;
             importSong();
-            titleField.innerHTML = serverObjects[0].title;
+            titleField.innerHTML = songObjects[0].title;
 
-            if (serverObjects[0].username != oauthUsername) {
+            if (songObjects[0].username != oauthUsername) {
                 onloadSaveToClone();
                 deleteButton.classList.add("is-hidden");
             }
