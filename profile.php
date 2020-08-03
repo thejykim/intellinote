@@ -155,7 +155,7 @@
         <script>
             window.onload = function () {
                 isProfile = true;
-                getFollowers(lduan);
+                getFollowers("lduan");
 
                 getTotalSongs();
                 if (<?php
