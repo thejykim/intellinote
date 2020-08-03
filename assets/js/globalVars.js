@@ -87,6 +87,8 @@ const totalSongsElement = document.getElementById("totalSongs");
 let serverEachSong = []; // After first split; gives information for each song (each song is string)
 let songObjects = []; // Array of song objects
 
+let followersArray = [];
+
 // --player.js
 
 // buttons

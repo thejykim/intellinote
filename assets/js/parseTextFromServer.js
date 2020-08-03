@@ -18,7 +18,8 @@ function parseSongServerData(serverData){
 }
 
 function parseFollowerServerData(serverData) {
-    followersArray = serverData.split(followerParse); 
+    followersArray = [];
+    followersArray = serverData.split(followerParse);
 }
 
 function parseDateFromServer(date) {
@@ -149,6 +150,22 @@ function getTotalSongs() {
     };
     data.open("POST", `assets/php/get-total.php`);
     data.send();
+}
+
+function getFollowers(username) {
+    var data = new XMLHttpRequest();
+
+    let formData = new FormData();
+    formData.append("username", username);
+
+	data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            parseFollowerServerData(data.responseText);
+            console.log(followersArray);
+        }
+    };
+    data.open("POST", `assets/php/get-followers.php`);
+    data.send(formData);
 }
 
 function currentDate() {
