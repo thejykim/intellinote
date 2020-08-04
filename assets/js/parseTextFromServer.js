@@ -17,9 +17,9 @@ function parseSongServerData(serverData){
     }
 }
 
-function parseFollowerServerData(serverData) {
-    followersArray = [];
-    followersArray = serverData.split(followerParse);
+function parseFollowingServerData(serverData) {
+    followingArray = [];
+    followingArray = serverData.split(followerParse);
 }
 
 function parseDateFromServer(date) {
@@ -152,7 +152,7 @@ function getTotalSongs() {
     data.send();
 }
 
-function getFollowers(username) {
+function getFollowings(username) {
     var data = new XMLHttpRequest();
 
     let formData = new FormData();
@@ -160,11 +160,11 @@ function getFollowers(username) {
 
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
-            parseFollowerServerData(data.responseText);
-            console.log(followersArray);
+            parseFollowingServerData(data.responseText);
+            console.log(followingArray);
         }
     };
-    data.open("POST", `assets/php/get-followers.php`);
+    data.open("POST", `assets/php/get-followings.php`);
     data.send(formData);
 }
 
