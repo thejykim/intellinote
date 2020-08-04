@@ -22,6 +22,11 @@ function parseFollowingServerData(serverData) {
     followingArray = serverData.split(followerParse);
 }
 
+function parseFollowerServerData(serverData) {
+    followerArray = [];
+    followerArray = serverData.split(followerParse);
+}
+
 function parseDateFromServer(date) {
     // necessary because 'date' parameter is a string made in currentDate()
     let dateTypeDate = new Date(date);
@@ -165,6 +170,22 @@ function getFollowings(username) {
         }
     };
     data.open("POST", `assets/php/get-followings.php`);
+    data.send(formData);
+}
+
+function getFollowers(username) {
+    var data = new XMLHttpRequest();
+
+    let formData = new FormData();
+    formData.append("isFollowing", username);
+
+	data.onload = function() {
+	    if (data.status == 200 && data.readyState == 4) {
+            parseFollowerServerData(data.responseText);
+            console.log(followerArray);
+        }
+    };
+    data.open("POST", `assets/php/get-followers.php`);
     data.send(formData);
 }
 

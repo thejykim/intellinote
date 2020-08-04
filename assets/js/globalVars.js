@@ -88,6 +88,7 @@ let serverEachSong = []; // After first split; gives information for each song (
 let songObjects = []; // Array of song objects
 
 let followingArray = [];
+let followerArray = [];
 
 // --player.js
 
