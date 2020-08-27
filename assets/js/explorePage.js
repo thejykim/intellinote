@@ -1,4 +1,7 @@
 function updateExplorePage() {
+    let dates = serverObjects.map((song) => {
+        return moment(song.dateCreated).fromNow();
+    });
     exploreDiv.innerHTML = `
     <div class="tile is-ancestor">
         <div class="tile is-vertical">
@@ -13,6 +16,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[0].username}"'>
                                     <strong>${serverObjects[0].username}</strong>
                                 </a>
+                                ${dates[0]} ago
                             </p>
                         </div>
                     </article>
@@ -25,6 +29,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[1].username}"'>
                                     <strong>${serverObjects[1].username}</strong>
                                 </a>
+                                ${dates[1]} ago
                             </p>
                         </div>
                     </article>
@@ -39,6 +44,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[2].username}"'>
                                     <strong class="has-text-white">${serverObjects[2].username}</strong>
                                 </a>
+                                ${dates[2]} ago
                             </p>
                         </div>
                     </article>
@@ -53,6 +59,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[3].username}"'>
                                     <strong>${serverObjects[3].username}</strong>
                                 </a>
+                                ${dates[3]} ago
                             </p>
                         </div>
                     </article>
@@ -65,6 +72,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[4].username}"'>
                                     <strong>${serverObjects[4].username}</strong>
                                 </a>
+                                ${dates[4]} ago
                             </p>
                         </div>
                     </article>
@@ -81,6 +89,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[5].username}"'>
                                     <strong class="has-text-white">${serverObjects[5].username}</strong>
                                 </a>
+                                ${dates[5]} ago
                             </p>
                         </div>
                     </article>
@@ -95,6 +104,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[6].username}"'>
                                     <strong>${serverObjects[6].username}</strong>
                                 </a>
+                                ${dates[6]} ago
                             </p>
                         </div>
                     </article>
@@ -107,6 +117,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[7].username}"'>
                                     <strong>${serverObjects[7].username}</strong>
                                 </a>
+                                ${dates[7]} ago
                             </p>
                         </div>
                     </article>
@@ -121,6 +132,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[8].username}"'>
                                     <strong class="has-text-white">${serverObjects[8].username}</strong>
                                 </a>
+                                ${dates[8]} ago
                             </p>
                         </div>
                     </article>
