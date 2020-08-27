@@ -1,4 +1,4 @@
-function updateExplorePage() {
+async function updateExplorePage() {
     await getExploreSongs();
     
     for (let i = 0; i < serverObjects.length; i++) {
