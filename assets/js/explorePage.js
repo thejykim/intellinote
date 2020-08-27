@@ -16,7 +16,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[0].username}"'>
                                     <strong>${serverObjects[0].username}</strong>
                                 </a>
-                                ${dates[0]} ago
+                                ${dates[0]}
                             </p>
                         </div>
                     </article>
@@ -29,7 +29,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[1].username}"'>
                                     <strong>${serverObjects[1].username}</strong>
                                 </a>
-                                ${dates[1]} ago
+                                ${dates[1]}
                             </p>
                         </div>
                     </article>
@@ -44,7 +44,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[2].username}"'>
                                     <strong class="has-text-white">${serverObjects[2].username}</strong>
                                 </a>
-                                ${dates[2]} ago
+                                ${dates[2]}
                             </p>
                         </div>
                     </article>
@@ -59,7 +59,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[3].username}"'>
                                     <strong>${serverObjects[3].username}</strong>
                                 </a>
-                                ${dates[3]} ago
+                                ${dates[3]}
                             </p>
                         </div>
                     </article>
@@ -72,7 +72,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[4].username}"'>
                                     <strong>${serverObjects[4].username}</strong>
                                 </a>
-                                ${dates[4]} ago
+                                ${dates[4]}
                             </p>
                         </div>
                     </article>
@@ -89,7 +89,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[5].username}"'>
                                     <strong class="has-text-white">${serverObjects[5].username}</strong>
                                 </a>
-                                ${dates[5]} ago
+                                ${dates[5]}
                             </p>
                         </div>
                     </article>
@@ -104,7 +104,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[6].username}"'>
                                     <strong>${serverObjects[6].username}</strong>
                                 </a>
-                                ${dates[6]} ago
+                                ${dates[6]}
                             </p>
                         </div>
                     </article>
@@ -117,7 +117,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[7].username}"'>
                                     <strong>${serverObjects[7].username}</strong>
                                 </a>
-                                ${dates[7]} ago
+                                ${dates[7]}
                             </p>
                         </div>
                     </article>
@@ -132,7 +132,7 @@ function updateExplorePage() {
                                 <a href='profile.php?username="${serverObjects[8].username}"'>
                                     <strong class="has-text-white">${serverObjects[8].username}</strong>
                                 </a>
-                                ${dates[8]} ago
+                                ${dates[8]}
                             </p>
                         </div>
                     </article>
