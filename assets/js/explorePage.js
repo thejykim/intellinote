@@ -1,4 +1,5 @@
 async function updateExplorePage() {
+    console.log('Running once');
     await getExploreSongs();
     
     for (let i = 0; i < serverObjects.length; i++) {
@@ -10,5 +11,6 @@ async function updateExplorePage() {
         innerCard.innerText = serverObjects[i].title;
 
         exploreDiv.appendChild(innerCard);
+        console.log('Appended');
     }
 }
