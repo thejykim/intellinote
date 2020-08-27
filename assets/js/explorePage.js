@@ -1,15 +1,20 @@
 function updateExplorePage() {
-    console.log('Running once');
     
     for (let i = 0; i < serverObjects.length; i++) {
         let card = document.createElement('div');
         card.className = 'card';
-        let innerCard = document.createElement('div');
-        innerCard.className = 'card-contents poppins';
+        card.style = 'border-radius: 20px; border: 1px solid lightgray'
 
-        innerCard.innerText = serverObjects[i].title;
+        card.innerHTML = `
+        <div class="card-contents">
+            <h5 class="title is-5 poppins" style="margin-bottom:0.5rem">
+                <a href='songs.php?songID=${serverObjects[i].songID}' class="has-text-dark">${serverObjects[i].title}</a>
+                <span style="font-weight: 400"> by </span>
+                <a href='profile.php?username="${serverObjects[i].username}" class="has-text-dark">${serverObjects[i].username}</a>
+            </h5>
+        </div>
+        `;
 
-        exploreDiv.appendChild(innerCard);
-        console.log('Appended');
+        exploreDiv.appendChild(card);
     }
 }
