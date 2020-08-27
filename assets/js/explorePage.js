@@ -18,6 +18,11 @@ function updateExplorePage() {
         `;
 
         exploreDiv.appendChild(card);
-        exploreDiv.appendChild(document.createElement(br));
+
+        // add break
+        let lineBreak = document.createElement('div');
+        lineBreak.className = 'empty-padding';
+
+        exploreDiv.appendChild(lineBreak);
     }
 }
