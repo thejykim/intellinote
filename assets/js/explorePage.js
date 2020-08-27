@@ -32,7 +32,7 @@ function updateExplorePage() {
                         </a>
                         <p class="subtitle karla">by 
                             <a href='profile.php?username="${serverObjects[2].username}"'>
-                                <strong>${serverObjects[2].username}</strong>
+                                <strong class="has-text-white">${serverObjects[2].username}</strong>
                             </a>
                         </p>
                     </article>
@@ -106,7 +106,7 @@ function updateExplorePage() {
                         </a>
                         <p class="subtitle karla">by 
                             <a href='profile.php?username="${serverObjects[8].username}"'>
-                                <strong>${serverObjects[8].username}</strong>
+                                <strong class="has-text-white">${serverObjects[8].username}</strong>
                             </a>
                         </p>
                     </article>
