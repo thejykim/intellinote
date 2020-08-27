@@ -11,12 +11,13 @@ function updateExplorePage() {
                 <h5 class="title is-5 poppins" style="margin-bottom:0.5rem">
                     <a href='songs.php?songID=${serverObjects[i].songID}' class="has-text-dark">${serverObjects[i].title}</a>
                     <span style="font-weight: 400"> by </span>
-                    <a href='profile.php?username="${serverObjects[i].username}" class="has-text-dark">${serverObjects[i].username}</a>
+                    <a href='profile.php?username="${serverObjects[i].username}"' class="has-text-dark">${serverObjects[i].username}</a>
                 </h5>
             </div>
         </div>
         `;
 
         exploreDiv.appendChild(card);
+        exploreDiv.appendChild(document.createElement(br));
     }
 }
