@@ -1,20 +1,23 @@
 function setDeleteModalJS() {
-    var deleteModal = document.querySelector('#deleteModal');
-    var html = document.querySelector('html');
-    deleteModal.classList.add('is-active');
-    html.classList.add('is-clipped');
+    document.querySelector('#open-delete-modal').addEventListener('click', function (event) {
+        event.preventDefault();
+        var deleteModal = document.querySelector('#deleteModal');
+        var html = document.querySelector('html');
+        deleteModal.classList.add('is-active');
+        html.classList.add('is-clipped');
 
-    deleteModal.querySelector('#background-delete').addEventListener('click', function (e) {
-        e.preventDefault();
-        deleteModal.classList.remove('is-active');
-        html.classList.remove('is-clipped');
-    });
+        deleteModal.querySelector('#background-delete').addEventListener('click', function (e) {
+            e.preventDefault();
+            deleteModal.classList.remove('is-active');
+            html.classList.remove('is-clipped');
+        });
 
-    deleteModal.querySelector('#close-delete').addEventListener('click', function (e) {
-        e.preventDefault();
-        deleteModal.classList.remove('is-active');
-        html.classList.remove('is-clipped');
-    });
+        deleteModal.querySelector('#close-delete').addEventListener('click', function (e) {
+            e.preventDefault();
+            deleteModal.classList.remove('is-active');
+            html.classList.remove('is-clipped');
+        });
+    }
 }
 
 function deleteProfile() {

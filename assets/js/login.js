@@ -1,4 +1,22 @@
-/* Cleaned */
+function setLoginModalJS() {
+    var loginModal = document.querySelector('#loginModal');
+    var html = document.querySelector('html');
+    loginModal.classList.add('is-active');
+    html.classList.add('is-clipped');
+
+    loginModal.querySelector('#background-delete').addEventListener('click', function (e) {
+        e.preventDefault();
+        loginModal.classList.remove('is-active');
+        html.classList.remove('is-clipped');
+    });
+
+    loginModal.querySelector('#close-delete').addEventListener('click', function (e) {
+        e.preventDefault();
+        loginModal.classList.remove('is-active');
+        html.classList.remove('is-clipped');
+    });
+}
+
 function onSignIn(googleUser) {
     if (!isVisitor) {
         var profile = googleUser.getBasicProfile();

@@ -169,6 +169,7 @@
                 } else if (email == null) {
                     displaySongs(null);
                 }
+                setDeleteModalJS();
             }
         </script>
 

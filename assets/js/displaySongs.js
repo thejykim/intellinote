@@ -35,7 +35,7 @@ function displaySongs(username) {
             </div>
 
             <div class="columns is-centered">
-                <button onclick="setDeleteModalJS()"
+                <button id="open-delete-modal"
                     class="button is-danger is-small is-light is-rounded karla">
                     <span class="icon is-small">
                         <i class="fas fa-minus-circle"></i>
