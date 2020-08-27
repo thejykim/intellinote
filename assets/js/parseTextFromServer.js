@@ -148,7 +148,7 @@ function getTotalSongs() {
 }
 
 // Get the nine most recent songs from database
-function getExploreSongs() {
+async function getExploreSongs() {
     var data = new XMLHttpRequest();
 
 	data.onload = function() {
