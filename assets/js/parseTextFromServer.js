@@ -154,6 +154,7 @@ async function getExploreSongs() {
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
+            console.log(data.responseText);
         }
     };
     data.open("GET", `assets/php/get-explore.php`);
