@@ -148,13 +148,13 @@ function getTotalSongs() {
 }
 
 // Get the nine most recent songs from database
-async function getExploreSongs() {
+function getExploreSongs() {
     var data = new XMLHttpRequest();
 
 	data.onload = function() {
 	    if (data.status == 200 && data.readyState == 4) {
             parseServerData(data.responseText);
-            console.log(data.responseText);
+            updateExplorePage();
         }
     };
     data.open("GET", `assets/php/get-explore.php`);

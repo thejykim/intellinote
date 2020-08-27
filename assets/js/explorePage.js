@@ -1,6 +1,5 @@
-async function updateExplorePage() {
+function updateExplorePage() {
     console.log('Running once');
-    await getExploreSongs();
     
     for (let i = 0; i < serverObjects.length; i++) {
         let card = document.createElement('div');
