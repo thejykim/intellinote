@@ -17,7 +17,7 @@ function setDeleteModalJS() {
             deleteModal.classList.remove('is-active');
             html.classList.remove('is-clipped');
         });
-    }
+    });
 }
 
 function deleteProfile() {

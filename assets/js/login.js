@@ -1,19 +1,23 @@
+/* Cleaned */
 function setLoginModalJS() {
-    var loginModal = document.querySelector('#loginModal');
-    var html = document.querySelector('html');
-    loginModal.classList.add('is-active');
-    html.classList.add('is-clipped');
+    document.querySelector('#open-login-modal').addEventListener('click', function (event) {
+        event.preventDefault();
+        var loginModal = document.querySelector('#loginModal');
+        var html = document.querySelector('html');
+        loginModal.classList.add('is-active');
+        html.classList.add('is-clipped');
 
-    loginModal.querySelector('#background-delete').addEventListener('click', function (e) {
-        e.preventDefault();
-        loginModal.classList.remove('is-active');
-        html.classList.remove('is-clipped');
-    });
+        loginModal.querySelector('#background-login').addEventListener('click', function (e) {
+            e.preventDefault();
+            loginModal.classList.remove('is-active');
+            html.classList.remove('is-clipped');
+        });
 
-    loginModal.querySelector('#close-delete').addEventListener('click', function (e) {
-        e.preventDefault();
-        loginModal.classList.remove('is-active');
-        html.classList.remove('is-clipped');
+        loginModal.querySelector('#close-login').addEventListener('click', function (e) {
+            e.preventDefault();
+            loginModal.classList.remove('is-active');
+            html.classList.remove('is-clipped');
+        });
     });
 }
 
