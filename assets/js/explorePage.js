@@ -79,7 +79,7 @@ function updateExplorePage() {
                             </a>
                             <p class="subtitle is-6 karla">by 
                                 <a href='profile.php?username="${serverObjects[5].username}"'>
-                                    <strong>${serverObjects[5].username}</strong>
+                                    <strong class="has-text-white">${serverObjects[5].username}</strong>
                                 </a>
                             </p>
                         </div>
