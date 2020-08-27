@@ -121,3 +121,6 @@ const registerDialog = document.getElementById("registerDialog");
 let deleteButton = document.getElementById("startDelete");
 var profileDeleteButton;
 let songToDelete = 69;
+
+// explorePage.js
+let exploreDiv = document.getElementById('explore');
