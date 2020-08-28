@@ -26,7 +26,7 @@ function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
         oauthID = profile.getId();
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
-        getUsername();
+        //getUsername();
 
         if (isFirstSignIn) {
             createNotification("is-success", "Successfully logged in!", null);
