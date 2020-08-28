@@ -92,6 +92,8 @@ function getSong(songID) {
                     cloneButton.classList.remove("is-hidden");
                     deleteButton.classList.add("is-hidden");
                 }
+            } else {
+                deleteButton.classList.add("is-hidden");
             }
 
 
