@@ -19,32 +19,24 @@ function editLogic(songID) {
     }
 }
 
+function cloneLogic() {
+    // First-timer (new user not signed in)
+    if (email == null) {
+        promptSignIn();
+    } else { // Logged in, about to clone song
+        cloneSong();
+        window.onbeforeunload = function () { };
+    }
+}
+
 function promptSignIn() {
     createNotification("is-danger", "Please sign in with your Google account!", null);
-
     isFirstSignIn = true;
 }
 
-// Changes save button to clone button, called in parseTextFromServer.js -> getSong(songID)
-function onloadSaveToClone() {
-    saveButton.innerHTML = `
-    <span class="icon is-small">
-        <i class="fas fa-clone"></i>
-    </span>
-    <span>Clone</span>
-    `;
-
-    saveButton.setAttribute("onclick", "cloneSong()");
-}
-
-// Changes clone button to save button, called in parseTextFromServer.js -> getSong(songID)
-function onloadCloneToSave() {
-    saveButton.reset();
-}
-
 function cloneSong() {
-    saveButton.setAttribute("disabled", "true");
-    saveButton.innerHTML = `
+    cloneButton.setAttribute("disabled", "true");
+    cloneButton.innerHTML = `
     <span class="icon is-small">
         <i class="fas fa-check"></i>
     </span>

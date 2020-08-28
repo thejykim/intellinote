@@ -271,6 +271,15 @@
                                         </button>
                                     </p>
                                     <p class="control">
+                                        <button class="button is-info is-small is-rounded karla gradient is-hidden"
+                                            id="cloneButton" onclick = "cloneSong()">
+                                            <span class="icon is-small" id="saveIcon">
+                                                <i class="fas fa-clone"></i>
+                                            </span>
+                                            <span>Clone</span>
+                                        </button>
+                                    </p>
+                                    <p class="control">
                                         <button class="button is-info is-small is-rounded karla gradient"
                                             id="open-export-modal">
                                             <span class="icon is-small">
