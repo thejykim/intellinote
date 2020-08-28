@@ -71,8 +71,6 @@ function getSong(songID) {
 
             if (oauthUsername != null) {
                 if (serverObjects[0].username == oauthUsername) { // Signed in, viewing own song
-                    saveButton.classList.remove("is-hidden");
-                    cloneButton.classList.add("is-hidden");
                     deleteButton.classList.remove("is-hidden");
                 } else { // Signed in, viewing other person's song
                     saveButton.classList.add("is-hidden");
