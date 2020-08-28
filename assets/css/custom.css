@@ -134,7 +134,7 @@ tr.line td:before {
 
 .highlighted {
     /* yellow: background-color: #ffed88;*/
-    background-color: #9ED9FF;
+    background-color: rgba(158, 217, 255, 0.5);
 }
 
 .fade-in {
