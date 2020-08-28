@@ -41,10 +41,10 @@ function onSignIn(googleUser) {
             }
         }
     }
-    signInButton = document.getElementById('open-login-modal');
+    let signInButton = document.getElementById('open-login-modal');
     signInButton.classList.add("is-hidden");
-    signOutButton = document.getElementById('signOutButton');
-    signOutButton.classList.remove("is-hidden");
+    let dropdownMenu = document.getElementById('navbar-dropdown');
+    dropdownMenu.classList.remove("is-hidden");
 }
 
 function onSignInSong(googleUser) {
@@ -55,10 +55,10 @@ function onSignInSong(googleUser) {
         getSong(globalSongID);
 
     }
-    signInButton = document.getElementById('open-login-modal');
+    let signInButton = document.getElementById('open-login-modal');
     signInButton.classList.add("is-hidden");
-    signOutButton = document.getElementById('signOutButton');
-    signOutButton.classList.remove("is-hidden");
+    let dropdownMenu = document.getElementById('navbar-dropdown');
+    dropdownMenu.classList.remove("is-hidden");
 }
 
 function signOut() {

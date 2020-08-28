@@ -63,10 +63,24 @@
                     </div>
 
                     <div class="navbar-end">
+                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='explore.html'>Explore</a></p>
                         <p class="navbar-item has-text-weight-light karla" id="open-login-modal"><a class="has-text-white">Sign In</a></p>
-                        <p class="navbar-item has-text-weight-light karla is-hidden" id="signOutButton"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
-                        <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
-                    <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='explore.html'>Explore</a></p>
+                        <div class="navbar-item has-dropdown is-hoverable is-hidden" id="navbar-dropdown">
+                            <a class="navbar-link is-arrowless">
+                                <span class="icon is-small">
+                                    <i class="fas fa-bars"></i>
+                                </span>
+                            </a>
+
+                            <div class="navbar-dropdown is-right">
+                                <a href='profile.php' class="navbar-item karla">
+                                    Profile
+                                </a>
+                                <a href='index.html' onclick="signOut()" class="navbar-item karla">
+                                    Sign Out
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </nav>
