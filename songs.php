@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="navbar-end">
-                        <div class="g-signin2" data-longtitle="true" data-theme="dark" data-width="250" data-height="50" data-onsuccess="onSignInSong"></div>
+                        <p class="navbar-item has-text-weight-light karla" id="open-login-modal"><a class="has-text-white">Sign In</a></p>
                         <p class="navbar-item has-text-weight-light karla is-hidden" id="signOutButton"><a class="has-text-white" href='index.html' onclick="signOut()">Sign Out</a></p>
                         <p class="navbar-item has-text-weight-light karla"><a class="has-text-white" href='profile.php'>Profile</a></p>
                     </div>
@@ -322,6 +322,22 @@
         </div>
 
         <div class="empty-padding"></div>
+
+        <!-- login modal-->
+        <div class="modal" id="loginModal">
+            <div class="modal-background" id="background-login"></div>
+            <div class="modal-content">
+                <nav class="panel has-background-white">
+                    <p class="panel-heading poppins">
+                        Sign In
+                    </p>
+                    <div class="container" style="padding: 1rem 1.5rem;">
+                        <div class="g-signin2" data-theme="dark" data-longtitle="true" data-width="250" data-height="50" data-onsuccess="onSignInSong"></div>
+                    </div>
+                </nav>
+            </div>
+            <button class="modal-close is-large" id="close-login" aria-label="close"></button>
+        </div>
 
         <!-- textbox modal for import/export -->
         <div class="modal" id="exportModal">
