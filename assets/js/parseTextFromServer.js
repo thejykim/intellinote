@@ -72,6 +72,9 @@ function getSong(songID) {
             if (serverObjects[0].username != oauthUsername) {
                 onloadSaveToClone();
                 deleteButton.classList.add("is-hidden");
+            } else {
+                onloadCloneToSave();
+                deleteButton.classList.remove("is-hidden");
             }
         }
     };

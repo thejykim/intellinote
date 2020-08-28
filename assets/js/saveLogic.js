@@ -37,6 +37,18 @@ function onloadSaveToClone() {
     saveButton.setAttribute("onclick", "cloneSong()");
 }
 
+// Changes clone button to save button, called in parseTextFromServer.js -> getSong(songID)
+function onloadCloneToSave() {
+    saveButton.innerHTML = `
+    <span class="icon is-small">
+        <i class="fas fa-save"></i>
+    </span>
+    <span>Save</span>
+    `;
+
+    saveButton.setAttribute("onclick", "saveLogic()");
+}
+
 function cloneSong() {
     saveButton.setAttribute("disabled", "true");
     saveButton.innerHTML = `
