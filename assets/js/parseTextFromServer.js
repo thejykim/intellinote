@@ -69,35 +69,19 @@ function getSong(songID) {
             importSong();
             titleField.innerHTML = serverObjects[0].title;
 
-            // if ((serverObjects[0].username != oauthUsername) && (oauthUsername != null)) { // Not signed in; viewing other people's songs
-            //     saveButton.classList
-            //     cloneButton.classList
-            //     deleteButton.classList
-            // } else if () { // Signed in; viewing other people's songs
-            //     saveButton.classList.add("is-hidden");
-            //     cloneButton.classList.remove("is-hidden");
-            //     deleteButton.classList.add("is-hidden");
-            // } else { // Signed in; viewing own song
-            //     saveButton.classList.remove("is-hidden");
-            //     cloneButton.classList.add("is-hidden");
-            //     deleteButton.classList.remove("is-hidden");
-            // }
             if (oauthUsername != null) {
-                if (serverObjects[0].username == oauthUsername) {
+                if (serverObjects[0].username == oauthUsername) { // Signed in, viewing own song
                     saveButton.classList.remove("is-hidden");
                     cloneButton.classList.add("is-hidden");
                     deleteButton.classList.remove("is-hidden");
-                } else { // Not the author
+                } else { // Signed in, viewing other person's song
                     saveButton.classList.add("is-hidden");
                     cloneButton.classList.remove("is-hidden");
                     deleteButton.classList.add("is-hidden");
                 }
-            } else {
+            } else { // Browsing as guest, viewing other person's song
                 deleteButton.classList.add("is-hidden");
             }
-
-
-
         }
     };
     data.open("POST", `assets/php/get-song.php`);
