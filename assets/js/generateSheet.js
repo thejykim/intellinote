@@ -1,5 +1,5 @@
 /* Cleaned */
-function toggleNote(noteElement){
+function toggleNote(noteElement) {
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
 	parseNoteLen(noteLoc);
@@ -22,7 +22,7 @@ function toggleNote(noteElement){
 		divElement.innerHTML = '';
 
 		// reset note length
-		if(noteLoc[0] === 'treble') {
+		if (noteLoc[0] === 'treble') {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = 0;
 			trebleAccidentals[noteLoc[1]][noteLoc[2]] = "";
 		} else {
@@ -30,10 +30,15 @@ function toggleNote(noteElement){
 			bassAccidentals[noteLoc[1]][noteLoc[2]] = "";
 		}
 	}
+
+	// set alert
+	window.onbeforeunload = function () {
+		return "You have unsaved changes. Leave anyways?";
+	};
 }
 
 // Same as above; just without parseNoteLen(noteLoc)
-function toggleNoteImport(noteElement){
+function toggleNoteImport(noteElement) {
 	divElement = noteElement.firstChild;
 	noteLoc = parseNoteLoc(noteElement);
 	if (divElement.innerHTML === '') {
@@ -41,7 +46,7 @@ function toggleNoteImport(noteElement){
 		divElement.innerHTML = noteIcon;
 
 		// set length to appropriate length
-		if(noteLoc[0] === "treble") {
+		if (noteLoc[0] === "treble") {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = invNoteLen;
 			trebleAccidentals[noteLoc[1]][noteLoc[2]] = accidental;
 
@@ -55,7 +60,7 @@ function toggleNoteImport(noteElement){
 		divElement.innerHTML = '';
 
 		// reset note length
-		if(noteLoc[0] === 'treble') {
+		if (noteLoc[0] === 'treble') {
 			trebleData[noteLoc[1]][noteLoc[2]].noteLength = 0;
 			trebleAccidentals[noteLoc[1]][noteLoc[2]] = "";
 		} else {
@@ -66,7 +71,7 @@ function toggleNoteImport(noteElement){
 }
 
 //turns id into array with clef, row location, and column location
-function parseNoteLoc(noteElement){
+function parseNoteLoc(noteElement) {
 	var noteId = noteElement.getAttribute('id');
 	noteLoc = noteId.split('.');
 	return noteLoc;
@@ -88,7 +93,7 @@ function generateSheet(clef, id) {
 	for (let i = 0; i < numOfRows; i++) {
 		let row = document.createElement('tr');
 		if (line) {
-			if(i > 1 && i < 12){
+			if (i > 1 && i < 12) {
 				row.setAttribute('class', 'line');
 			}
 		}
@@ -100,32 +105,32 @@ function generateSheet(clef, id) {
 			noteElement.setAttribute('class', 'note');
 
 			if (((j + 1) % beatsPerMeas) == 0) {
-                if (i > 2 && i < 10) {
-                    noteElement.setAttribute('class', 'note-border')
-                } else if (i == 10) {
-                    noteElement.setAttribute('class', 'note-border-bottom');
-                } else if (i == 2) {
-                    noteElement.setAttribute('class', 'note-border-top');
-                }
-            }
+				if (i > 2 && i < 10) {
+					noteElement.setAttribute('class', 'note-border')
+				} else if (i == 10) {
+					noteElement.setAttribute('class', 'note-border-bottom');
+				} else if (i == 2) {
+					noteElement.setAttribute('class', 'note-border-top');
+				}
+			}
 
 			// populate note element
 			if (clef == clefEnum.TREBLE) {
-				noteElement.setAttribute('id', `treble.${i}.${j+(newLine*numberOfNotes)}`);
+				noteElement.setAttribute('id', `treble.${i}.${j + (newLine * numberOfNotes)}`);
 			} else {
-				noteElement.setAttribute('id', `bass.${i}.${j+(newLine*numberOfNotes)}`);
+				noteElement.setAttribute('id', `bass.${i}.${j + (newLine * numberOfNotes)}`);
 			}
 
 
 			// push to row array
-			if (newLine == 0){
-				rowArray.push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			if (newLine == 0) {
+				rowArray.push({ id: noteElement.getAttribute('id'), 'note': i, noteLength: 0 });
 			}
-			else if (clef == clefEnum.TREBLE){
-				trebleData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+			else if (clef == clefEnum.TREBLE) {
+				trebleData[i].push({ id: noteElement.getAttribute('id'), 'note': i, noteLength: 0 });
 			}
 			else {
-				bassData[i].push({id : noteElement.getAttribute('id'), 'note' : i, noteLength : 0});
+				bassData[i].push({ id: noteElement.getAttribute('id'), 'note': i, noteLength: 0 });
 			}
 
 			// create a div to contain the note content (toggled or not) -- necessary to prevent resizing
@@ -133,7 +138,7 @@ function generateSheet(clef, id) {
 			noteElement.appendChild(divElement);
 
 			// adds click listener,
-			noteElement.addEventListener("click", function(){
+			noteElement.addEventListener("click", function () {
 				toggleNote(noteElement);
 			}, true);
 
@@ -142,11 +147,11 @@ function generateSheet(clef, id) {
 		}
 
 		// decide which clef array to push to
-		if (newLine == 0){
+		if (newLine == 0) {
 			if (clef == clefEnum.TREBLE) {
-					trebleData.push(rowArray);
+				trebleData.push(rowArray);
 			} else {
-					bassData.push(rowArray);
+				bassData.push(rowArray);
 			}
 		}
 
@@ -159,41 +164,41 @@ function generateSheet(clef, id) {
 		} else {
 			line = true;
 		}
-    }
+	}
 
-    // accidentals
+	// accidentals
 
-    if (newLine == 0) {
-        // initialize
-        if (clef == clefEnum.TREBLE) {
-            for (let i = 0; i < numberOfRows; i++) {
-                trebleAccidentals.push((new Array(numberOfNotes).fill("")));
-            }
-        } else {
-            for (let i = 0; i < numberOfRows; i++) {
-                bassAccidentals.push((new Array(numberOfNotes).fill("")));
-            }
-        }
-    } else {
-        if (clef == clefEnum.TREBLE) {
-            for (let i = 0; i < numberOfRows; i++) {
-                for (let j = 0; j < numberOfNotes; j++) {
-                    trebleAccidentals[i].push("");
-                }
-            }
-        } else {
-            for (let i = 0; i < numberOfRows; i++) {
-                for (let j = 0; j < numberOfNotes; j++) {
-                    bassAccidentals[i].push("");
-                }
-            }
-        }
-    }
+	if (newLine == 0) {
+		// initialize
+		if (clef == clefEnum.TREBLE) {
+			for (let i = 0; i < numberOfRows; i++) {
+				trebleAccidentals.push((new Array(numberOfNotes).fill("")));
+			}
+		} else {
+			for (let i = 0; i < numberOfRows; i++) {
+				bassAccidentals.push((new Array(numberOfNotes).fill("")));
+			}
+		}
+	} else {
+		if (clef == clefEnum.TREBLE) {
+			for (let i = 0; i < numberOfRows; i++) {
+				for (let j = 0; j < numberOfNotes; j++) {
+					trebleAccidentals[i].push("");
+				}
+			}
+		} else {
+			for (let i = 0; i < numberOfRows; i++) {
+				for (let j = 0; j < numberOfNotes; j++) {
+					bassAccidentals[i].push("");
+				}
+			}
+		}
+	}
 
 	let timeImgT = document.getElementById('timeSigImgT');
 	timeImgT.innerHTML = timeSigHTML;
 	let timeImgB = document.getElementById('timeSigImgB');
-    timeImgB.innerHTML = timeSigHTML;
+	timeImgB.innerHTML = timeSigHTML;
 }
 
 // function called every time the user clicks a button to add more rows
@@ -204,7 +209,7 @@ function addRow() {
 	// create treble div
 	let trebleDiv = document.createElement('div');
 	trebleDiv.setAttribute('class', 'columns fade-in');
-	trebleDiv.setAttribute('id', `trebleDiv-${newLine+1}`);
+	trebleDiv.setAttribute('id', `trebleDiv-${newLine + 1}`);
 	trebleDiv.innerHTML = `
 		<div style="padding-right:0" id = "column-left" class="column is-2">
 		<div id = "timeSigImgT">
@@ -213,7 +218,7 @@ function addRow() {
 			<img src="assets/img/treble-clef.png" style="height:4.5rem;float:right;position:relative;top:1rem">
 		</div>
 		<div class="column is-10">
-			<table class="sheet" id="treble-sheet-${newLine+1}">
+			<table class="sheet" id="treble-sheet-${newLine + 1}">
 			</table>
 		</div>
 	`
@@ -221,7 +226,7 @@ function addRow() {
 	// create bass div
 	let bassDiv = document.createElement('div');
 	bassDiv.setAttribute('class', 'columns fade-in');
-	bassDiv.setAttribute('id', `bassDiv-${newLine+1}`);
+	bassDiv.setAttribute('id', `bassDiv-${newLine + 1}`);
 	bassDiv.innerHTML = `
 		<div class="column is-2" style="padding-right:0">
 		<div id = "timeSigImgB">
@@ -230,7 +235,7 @@ function addRow() {
 			<img src="assets/img/bass-clef.png" style="height:2.5rem;float:right;position:relative;top:1.5rem">
 		</div>
 		<div class="column is-10">
-			<table class="sheet" id="bass-sheet-${newLine+1}">
+			<table class="sheet" id="bass-sheet-${newLine + 1}">
 			</table>
 		</div>
 	`
@@ -241,11 +246,11 @@ function addRow() {
 	sheetRowElement.appendChild(bassDiv);
 
 	// generate sheet music for new divs
-	generateSheet(clefEnum.TREBLE, `treble-sheet-${newLine+1}`);
-	generateSheet(clefEnum.BASS, `bass-sheet-${newLine+1}`);
+	generateSheet(clefEnum.TREBLE, `treble-sheet-${newLine + 1}`);
+	generateSheet(clefEnum.BASS, `bass-sheet-${newLine + 1}`);
 
 	// enable remove rows button
-    removeButton.removeAttribute("disabled");
+	removeButton.removeAttribute("disabled");
 }
 
 function removeRow() {
@@ -253,14 +258,14 @@ function removeRow() {
 		return;
 	} else {
 		// remove divs
-		let trebleDiv = document.getElementById(`trebleDiv-${newLine+1}`);
-		let bassDiv = document.getElementById(`bassDiv-${newLine+1}`);
+		let trebleDiv = document.getElementById(`trebleDiv-${newLine + 1}`);
+		let bassDiv = document.getElementById(`bassDiv-${newLine + 1}`);
 
 		trebleDiv.parentNode.removeChild(trebleDiv);
 		bassDiv.parentNode.removeChild(bassDiv);
 
 		// remove array rows
-		for (let j = (newLine)*numberOfNotes; j < (newLine+1)*numberOfNotes; j++) {
+		for (let j = (newLine) * numberOfNotes; j < (newLine + 1) * numberOfNotes; j++) {
 			for (let i = 0; i < 13; i++) {
 				trebleData[i].pop();
 				bassData[i].pop();
@@ -276,27 +281,27 @@ function removeRow() {
 }
 
 function clearSheet() {
-    // just iterate through and toggle if length isn't 0
-    for (let i = 0; i < numberOfRows; i++) {
-        for (let j = 0; j < (numberOfNotes * (newLine + 1)); j++) {
-            if (trebleData[i][j].noteLength != 0) {
-                toggleNote(document.getElementById(trebleData[i][j].id));
-            }
-            if (bassData[i][j].noteLength != 0) {
-                toggleNote(document.getElementById(bassData[i][j].id));
-            }
-        }
-    }
+	// just iterate through and toggle if length isn't 0
+	for (let i = 0; i < numberOfRows; i++) {
+		for (let j = 0; j < (numberOfNotes * (newLine + 1)); j++) {
+			if (trebleData[i][j].noteLength != 0) {
+				toggleNote(document.getElementById(trebleData[i][j].id));
+			}
+			if (bassData[i][j].noteLength != 0) {
+				toggleNote(document.getElementById(bassData[i][j].id));
+			}
+		}
+	}
 
 	clearButton.setAttribute("disabled", "true");
-    clearButton.innerHTML = `
+	clearButton.innerHTML = `
 	<span class="icon is-small">
 		<i class="fas fa-check"></i>
 	</span>
 	<span>Cleared!</span>
 	`;
 
-    window.setTimeout(function() {
+	window.setTimeout(function () {
 		clearButton.innerHTML = `
         <span class="icon is-small">
             <i class="fas fa-ban"></i>
@@ -304,6 +309,6 @@ function clearSheet() {
         <span>Clear sheet</span>
         `;
 
-        clearButton.removeAttribute("disabled");
-    }, textResetDelay);
+		clearButton.removeAttribute("disabled");
+	}, textResetDelay);
 }

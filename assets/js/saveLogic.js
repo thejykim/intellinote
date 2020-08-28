@@ -5,6 +5,7 @@ function saveLogic() {
         promptSignIn();
     } else { // Logged in, about to create new song
         createSongIndex();
+        window.onbeforeunload = function () { };
     }
 }
 
@@ -14,6 +15,7 @@ function editLogic(songID) {
         promptSignIn();
     } else { // Logged in, about to edit own song
         editSongIndex(songID);
+        window.onbeforeunload = function () { };
     }
 }
 
