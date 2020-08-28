@@ -51,8 +51,8 @@ function onSignInSong(googleUser) {
     if (!isVisitor) {
         var profile = googleUser.getBasicProfile();
         email = profile.getEmail(); // This is null if the 'email' scope is not present.
-        getUsername();
-        getSong(globalSongID);
+        // getUsername();
+        // getSong(globalSongID);
 
     }
     let signInButton = document.getElementById('open-login-modal');

@@ -497,7 +497,8 @@
                 setLoginModalJS();
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
-
+                getUsername();
+                getSong(globalSongID);
                 getTotalSongs();
             }
         </script>
