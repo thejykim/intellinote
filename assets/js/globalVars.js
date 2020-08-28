@@ -1,5 +1,3 @@
-/* Cleaned */
-
 // --createSong.js
 const titleField = document.getElementById("title");
 const createDialog = document.getElementById("createDialog");
@@ -124,3 +122,8 @@ let songToDelete = 69;
 
 // explorePage.js
 let exploreDiv = document.getElementById('explore');
+
+// contextMenu.js
+const mainContentDiv = document.getElementById('main-content');
+const sheetDiv = document.getElementById('sheet-rows');
+const contextMenu = document.getElementById('customContext');

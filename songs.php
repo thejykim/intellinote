@@ -324,7 +324,48 @@
                             </table>
                         </div>
                     </div>
+
+                    <!-- hidden settings panel -->
+                    <div class="panel is-hidden is-contextMenu" id="customContext" style="position:absolute; width: 250px; z-index: 20;">
+                        <p class="panel-heading poppins is-contextMenu">
+                            Quick Edit
+                        </p>
+                        <div class="panel-block has-background-white is-contextMenu">
+                            <form class="is-contextMenu" id="lengthFormContext">
+                                <input type="radio" name="note" id="eighthNote" value="eighthNote"
+                                    onclick="assignNoteContext()" checked>
+                                <label class="is-contextMenu" for="eighthNote"> <img src="assets/img/eighthNote.png" style="height: 2rem;">
+                                </label>
+                                <input type="radio" name="note" id="quarterNote" value="quarterNote"
+                                    onclick="assignNoteContext()">
+                                <label class="is-contextMenu" for="quarterNote"> <img src="assets/img/quarterNote.png" style="height: 2rem;">
+                                </label>
+                                <input type="radio" name="note" id="halfNote" value="halfNote" onclick="assignNoteContext()">
+                                <label class="is-contextMenu" for="halfNote"> <img src="assets/img/halfNote.png" style="height: 2rem;">
+                                </label>
+                                <input type="radio" name="note" id="wholeNote" value="wholeNote" onclick="assignNoteContext()">
+                                <label class="is-contextMenu" for="wholeNote"> <img src="assets/img/wholeNote.png" style="height: 2rem;">
+                                </label>
+                            </form>
+                        </div>
+
+                        <div class="panel-block has-background-white is-contextMenu">
+                            <!-- accidentals -->
+                            <form class="is-contextMenu" id="accidentalFormContext">
+                                <input type="radio" name="accidental" id="natural" value="" onclick="assignNoteContext()"
+                                    checked>
+                                <label class="is-contextMenu" for="natural"> <img src="assets/img/Natural.png" style="height: 1.75rem;">
+                                </label>
+                                <input type="radio" name="accidental" id="sharp" value="#" onclick="assignNoteContext()">
+                                <label class="is-contextMenu" for="sharp"> <img src="assets/img/Sharp.png" style="height: 1.75rem;">
+                                </label>
+                                <input type="radio" name="accidental" id="flat" value="b" onclick="assignNoteContext()">
+                                <label class="is-contextMenu" for="sharp"> <img src="assets/img/Flat.png" style="height: 1.75rem;"> </label>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+
                 <div class = "column">
                     <button class="button is-danger is-small is-rounded"
                     id="startDelete" onclick = "toggleDelete()">
@@ -487,6 +528,7 @@
         <script src="assets/js/saveLogic.js"></script>
         <script src="assets/js/userMap.js"></script>
         <script src="assets/js/deleteSong.js"></script>
+        <script src="assets/js/contextMenu.js"></script>
 
         <!-- start everything off -->
         <script>
@@ -498,6 +540,7 @@
                 globalSongID = <?php echo $_GET["songID"] ?>;
 
                 getTotalSongs();
+                setupContext();
             }
         </script>
 

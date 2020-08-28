@@ -1,11 +1,31 @@
-/* Cleaned */
-// assignNote() saves the currently selected note
+// assignNote() saves the currently selected note from the settings panel
 function assignNote() {
     let form = document.getElementById("lengthForm");
     currentNoteLength = form.elements["note"].value;
 
     let accidentalForm = document.getElementById("accidentalForm");
     accidental = accidentalForm.elements["accidental"].value;
+
+    let contextForm = document.getElementById('lengthFormContext');
+    contextForm.elements['note'].value = form.elements["note"].value;
+
+    let accidentalFormContext = document.getElementById('accidentalFormContext');
+    accidentalFormContext.elements['accidental'].value = accidentalForm.elements["accidental"].value;
+}
+
+// saves from context menu
+function assignNoteContext() {
+    let contextForm = document.getElementById('lengthFormContext');
+    currentNoteLength = contextForm.elements['note'].value;
+
+    let accidentalFormContext = document.getElementById('accidentalFormContext');
+    accidental = accidentalFormContext.elements['accidental'].value;
+
+    let form = document.getElementById("lengthForm");
+    form.elements["note"].value = contextForm.elements['note'].value;
+
+    let accidentalForm = document.getElementById("accidentalForm");
+    accidentalForm.elements["accidental"].value = accidentalFormContext.elements['accidental'].value;
 }
 
 // parseNoteLen() finds location based on id (string), sets noteLen to correct length for
