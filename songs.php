@@ -332,18 +332,18 @@
                         </p>
                         <div class="panel-block has-background-white is-contextMenu">
                             <form class="is-contextMenu" id="lengthFormContext">
-                                <input type="radio" name="note" id="eighthNote" value="eighthNote"
+                                <input class="is-contextMenu" type="radio" name="note" id="eighthNote" value="eighthNote"
                                     onclick="assignNoteContext()" checked>
                                 <label class="is-contextMenu" for="eighthNote"> <img src="assets/img/eighthNote.png" style="height: 2rem;">
                                 </label>
-                                <input type="radio" name="note" id="quarterNote" value="quarterNote"
+                                <input class="is-contextMenu" type="radio" name="note" id="quarterNote" value="quarterNote"
                                     onclick="assignNoteContext()">
                                 <label class="is-contextMenu" for="quarterNote"> <img src="assets/img/quarterNote.png" style="height: 2rem;">
                                 </label>
-                                <input type="radio" name="note" id="halfNote" value="halfNote" onclick="assignNoteContext()">
+                                <input class="is-contextMenu" type="radio" name="note" id="halfNote" value="halfNote" onclick="assignNoteContext()">
                                 <label class="is-contextMenu" for="halfNote"> <img src="assets/img/halfNote.png" style="height: 2rem;">
                                 </label>
-                                <input type="radio" name="note" id="wholeNote" value="wholeNote" onclick="assignNoteContext()">
+                                <input class="is-contextMenu" type="radio" name="note" id="wholeNote" value="wholeNote" onclick="assignNoteContext()">
                                 <label class="is-contextMenu" for="wholeNote"> <img src="assets/img/wholeNote.png" style="height: 2rem;">
                                 </label>
                             </form>
@@ -352,14 +352,14 @@
                         <div class="panel-block has-background-white is-contextMenu">
                             <!-- accidentals -->
                             <form class="is-contextMenu" id="accidentalFormContext">
-                                <input type="radio" name="accidental" id="natural" value="" onclick="assignNoteContext()"
+                                <input class="is-contextMenu" type="radio" name="accidental" id="natural" value="" onclick="assignNoteContext()"
                                     checked>
                                 <label class="is-contextMenu" for="natural"> <img src="assets/img/Natural.png" style="height: 1.75rem;">
                                 </label>
-                                <input type="radio" name="accidental" id="sharp" value="#" onclick="assignNoteContext()">
+                                <input class="is-contextMenu" type="radio" name="accidental" id="sharp" value="#" onclick="assignNoteContext()">
                                 <label class="is-contextMenu" for="sharp"> <img src="assets/img/Sharp.png" style="height: 1.75rem;">
                                 </label>
-                                <input type="radio" name="accidental" id="flat" value="b" onclick="assignNoteContext()">
+                                <input class="is-contextMenu" type="radio" name="accidental" id="flat" value="b" onclick="assignNoteContext()">
                                 <label class="is-contextMenu" for="sharp"> <img src="assets/img/Flat.png" style="height: 1.75rem;"> </label>
                             </form>
                         </div>
