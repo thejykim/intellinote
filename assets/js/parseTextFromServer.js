@@ -69,7 +69,7 @@ function getSong(songID) {
             importSong();
             titleField.innerHTML = serverObjects[0].title;
 
-            if (serverObjects[0].username != oauthUsername) {
+            if ((serverObjects[0].username != oauthUsername) && (oauthUsername != null)) {
                 saveButton.classList.add("is-hidden");
                 cloneButton.classList.remove("is-hidden");
                 deleteButton.classList.add("is-hidden");
