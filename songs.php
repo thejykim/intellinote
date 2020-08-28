@@ -494,6 +494,7 @@
                 generateSheet(clefEnum.TREBLE, 'treble-sheet-1');
                 generateSheet(clefEnum.BASS, 'bass-sheet-1');
                 setExportModalJS();
+                setLoginModalJS();
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
 
