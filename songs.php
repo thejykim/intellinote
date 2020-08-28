@@ -499,7 +499,6 @@
                 globalSongID = <?php echo $_GET["songID"] ?>;
                 getSong(globalSongID);
                 getTotalSongs();
-                getUsername();
             }
         </script>
 
