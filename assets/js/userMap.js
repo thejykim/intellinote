@@ -62,6 +62,9 @@ function getUsername() {
             } else {
                 oauthUsername = data.responseText;
                 displaySongs(oauthUsername);
+                if (isProfile) {
+                    setDeleteModalJS();
+                }
             }
         }
     };

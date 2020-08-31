@@ -271,6 +271,15 @@
                                         </button>
                                     </p>
                                     <p class="control">
+                                        <button class="button is-info is-small is-rounded karla gradient is-hidden"
+                                            id="cloneButton" onclick = "cloneSong()">
+                                            <span class="icon is-small" id="saveIcon">
+                                                <i class="fas fa-clone"></i>
+                                            </span>
+                                            <span>Clone</span>
+                                        </button>
+                                    </p>
+                                    <p class="control">
                                         <button class="button is-info is-small is-rounded karla gradient"
                                             id="open-export-modal">
                                             <span class="icon is-small">
@@ -536,9 +545,10 @@
                 generateSheet(clefEnum.TREBLE, 'treble-sheet-1');
                 generateSheet(clefEnum.BASS, 'bass-sheet-1');
                 setExportModalJS();
+                setLoginModalJS();
                 setInfoModalJS();
                 globalSongID = <?php echo $_GET["songID"] ?>;
-
+                getSong(globalSongID);
                 getTotalSongs();
                 setupContext();
             }

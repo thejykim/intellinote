@@ -88,16 +88,13 @@
         <section class="hero is-light is-medium is-bold">
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <h1 class="title poppins" id="titleName">
-                    </h1>
-                    <h2 class="subtitle karla">
-                    music portfolio
-                    </h2>
+                    <h1 class="title is-2 poppins" id="titleName"></h1>
+                    <p class="subtitle poppins">music portfolio</p>
                 </div>
             </div>
         </section>
 
-        <div class="empty-padding" style="padding: 1rem"></div>
+        <div class="empty-padding"></div>
 
         <section class="container" id="createButton"></section>
 
@@ -201,7 +198,6 @@
                     displaySongs(null);
                 }
                 setLoginModalJS();
-                setDeleteModalJS();
             }
         </script>
 

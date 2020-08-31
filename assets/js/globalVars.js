@@ -108,6 +108,7 @@ let bassNoteKey = ["C4", "B3", "A3", "G3", "F3", "E3", "D3", "C2", "B2", "A2", "
 
 // --saveLogic.js
 let saveButton = document.getElementById("saveButton");
+let cloneButton = document.getElementById("cloneButton");
 
 // --userMap.js
 const userMapDupError = "Already registered, or username taken";
@@ -118,7 +119,6 @@ const registerDialog = document.getElementById("registerDialog");
 // --deleteSong.js
 let deleteButton = document.getElementById("startDelete");
 var profileDeleteButton;
-let songToDelete = 69;
 
 // explorePage.js
 let exploreDiv = document.getElementById('explore');

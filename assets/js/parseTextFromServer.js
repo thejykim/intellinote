@@ -69,8 +69,15 @@ function getSong(songID) {
             importSong();
             titleField.innerHTML = serverObjects[0].title;
 
-            if (serverObjects[0].username != oauthUsername) {
-                onloadSaveToClone();
+            if (oauthUsername != null) {
+                if (serverObjects[0].username == oauthUsername) { // Signed in, viewing own song
+                    deleteButton.classList.remove("is-hidden");
+                } else { // Signed in, viewing other person's song
+                    saveButton.classList.add("is-hidden");
+                    cloneButton.classList.remove("is-hidden");
+                    deleteButton.classList.add("is-hidden");
+                }
+            } else { // Browsing as guest, viewing other person's song
                 deleteButton.classList.add("is-hidden");
             }
         }
