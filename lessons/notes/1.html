@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Note Types | IntelliNote</title>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/img/icons/site.webmanifest">
+
+    <!-- bulma css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+
+    <!-- bulma extension - tooltip -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css">
+
+    <!-- font awesome (for icons) -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+
+    <!-- tonejs -->
+    <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
+
+    <!-- Google OAuth -->
+    <meta name="google-signin-client_id"
+        content="551645492483-lal6djpa0n6d64u6k2bvqmfvgoverdak.apps.googleusercontent.com">
+
+    <!-- Hotjar  -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 1850543, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar is-dark navbar-gradient" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <p class="navbar-item is-size-5 poppins" style="font-weight: 600;padding-right:0.3rem"><a
+                        class="has-text-white" href="index.html">IntelliNote</a></p>
+                <p class="navbar-item is-size-6 poppins" style="font-weight: 400;padding-left:0px;top:0.1rem">Custom
+                    Sheet Music</p>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarMain">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarMain" class="navbar-menu">
+                <div class="navbar-start">
+                </div>
+
+                <div class="navbar-end">
+                    <p class="navbar-item has-text-weight-light karla"><a class="has-text-white"
+                            href='explore.html'>Explore</a></p>
+                    <p class="navbar-item has-text-weight-light karla" id="open-login-modal"><a
+                            class="has-text-white">Sign In</a></p>
+                    <div class="navbar-item has-dropdown is-hoverable is-hidden" id="navbar-dropdown">
+                        <a class="navbar-link is-arrowless">
+                            <span class="icon is-small">
+                                <i class="fas fa-bars"></i>
+                            </span>
+                        </a>
+
+                        <div class="navbar-dropdown is-right">
+                            <a href='profile.php' class="navbar-item karla">
+                                Profile
+                            </a>
+                            <a href='index.html' onclick="signOut()" class="navbar-item karla">
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </nav>
+
+    <section class="hero is-light is-small is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title poppins">Notes
+                </h1>
+                <h3 class="subtitle karla">
+                    the basics of music
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- padding container for style points-->
+
+    <div class="empty-padding"></div>
+
+    <!-- main body div -->
+    <div class="container site-content">
+        <nav class="breadcrumb poppins" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="../..">Home</a></li>
+                <li><a href="..">Lessons</a></li>
+                <li class="is-active"><a href="#">Notes</a></li>
+            </ul>
+        </nav>
+
+        <div class="empty-padding" style="padding-top: 0rem"></div>
+
+        <div class="columns is-variable is-8">
+            <div class="column">
+                <div class="menu sticky">
+                    <p class="menu-label poppins"><b>Contents</b></p>
+                    <ul id="menu" class="menu-list karla">
+                        <li><a class="is-active" href="#">Note Types</a></li>
+                        <li>
+                            <a href="2.html">Clefs</a>
+                            <ul>
+                                <li><a href="3.html">Treble Clef</a></li>
+                                <li><a href="4.html">Bass Clef</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="5.html">Note Lengths</a></li>
+                        <li><a href="6.html">Quiz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column is-9">
+                <h3 class="title is-3 poppins">Note Types</h3>
+                <p class="subtitle is-5 karla">Learn their names and what it means</p>
+
+                <br>
+
+                <h4 class="title is-4 poppins">Lorem ipsum</h4>
+
+                <p class="karla">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+
+        <div class="empty-padding"></div>
+    
+        <nav class="pagination is-centered karla" role="navigation" aria-label="pagination">
+            <a class="pagination-previous" disabled>Previous</a>
+            <a class="pagination-next" href="2.html">Next page</a>
+            <ul class="pagination-list">
+                <li><a class="pagination-link is-current" href="1.html">1</a></li>
+                <li><a class="pagination-link" href="2.html">2</a></li>
+                <li><a class="pagination-link" href="3.html">3</a></li>
+                <li><a class="pagination-link" href="4.html">4</a></li>
+                <li><a class="pagination-link" href="5.html">5</a></li>
+                <li><a class="pagination-link" href="6.html">
+                    <span class="icon">
+                        <i class="far fa-star"></i>
+                    </span>
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="empty-padding"></div>
+
+    <!-- login modal-->
+    <div class="modal" id="loginModal">
+        <div class="modal-background" id="background-login"></div>
+        <div class="modal-content">
+            <nav class="panel has-background-white">
+                <p class="panel-heading poppins">
+                    Sign In
+                </p>
+                <div class="container" style="padding: 1rem 1.5rem;">
+                    <div class="g-signin2" data-theme="dark" data-longtitle="true" data-width="250" data-height="50"
+                        data-onsuccess="onSignIn"></div>
+                </div>
+            </nav>
+        </div>
+        <button class="modal-close is-large" id="close-login" aria-label="close"></button>
+    </div>
+
+    <!-- textbox modal for registering new user -->
+    <div class="modal" id="registerModal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <nav class="panel has-background-white">
+                <p class="panel-heading poppins">
+                    Register
+                </p>
+                <div class="container" style="padding: 1rem 1.5rem;">
+                    <p class="karla has-text-grey">Looks like you haven't created a username yet! Take some time to fill
+                        in the field below, and then you'll be able to save your creations.</p></br>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label poppins" for="username">Username</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-info karla" type="text" id="username"
+                                        placeholder="Think up something cool!">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal"></div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-info is-small is-rounded karla gradient"
+                                        id="registerButton" onclick="registerUser()">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal"></div>
+                        <div class="field-body" id="registerDialog"></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="content has-text-centered">
+            <p class="karla">
+                <b>IntelliNote</b> &copy 2020. Source code available on <a class="has-text-info"
+                    href="https://github.com/thejykim/intellinote"><i class="fab fa-github"></i> GitHub</a>. Built
+                with <a class="has-text-info" href="https://tonejs.github.io/">Tone.js</a> and <a class="has-text-info"
+                    href="https://bulma.io/">Bulma</a>.
+            </p>
+            <p class="karla is-inline-block">
+                Home to <span class="tag is-normal has-text-weight-medium has-text-white gradient karla"
+                    id="totalSongs">
+                    <i class="fas fa-sync-alt fa-pulse"></i>
+                </span> songs made by people like you.
+            </p>
+            <p class="karla is-size-7"><a class="has-text-info" href="privacy.html">Privacy Policy</a> | <a
+                    class="has-text-info" href="about.html">About Us</a></p>
+        </div>
+    </footer>
+
+    <!-- js files -->
+    <script src="../../assets/js/globalVars.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="../../assets/js/notification.js"></script>
+    <script src="../../assets/js/parseTextFromServer.js"></script>
+    <script src="../../assets/js/login.js"></script>
+    <script src="../../assets/js/saveLogic.js"></script>
+    <script src="../../assets/js/userMap.js"></script>
+
+    <!-- start everything off -->
+    <script>
+        window.onload = function () {
+            isIndex = true;
+            setLoginModalJS();
+            getTotalSongs();
+        }
+    </script>
+
+    <!-- cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#edeff5",
+                    "text": "#838391"
+                },
+                "button": {
+                    "background": "#4b81e8"
+                }
+            },
+            "theme": "classic",
+            "position": "bottom-left",
+            "content": {
+                "message": "Our login system uses cookies so that you don't have to sign in as often.",
+                "dismiss": "Got it!",
+                "href": "https://www.intellinote.io/privacy.html"
+            }
+        });
+    </script>
+
+</body>
+
+</html>
