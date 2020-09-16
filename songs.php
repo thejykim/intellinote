@@ -99,7 +99,7 @@
             <div class="container karla" id="createDialog" style="position: relative; z-index: 5" hidden></div>
 
             <!-- div for columns -->
-            <div class="columns">
+            <div class="columns" id="main-content">
 
                 <!-- first column -->
                 <div class="column is-one-quarter">
